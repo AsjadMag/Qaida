@@ -1,13 +1,108 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Jameel+Noori+Nastaleeq+Kasheeda:wght@400;700&display=swap');
+/* Best & most beautiful Urdu font for Qaida - exactly like real book */
+
+/* Local Arabic Quran font provided by user */
+@font-face {
+  font-family: 'ArabQuranIslamic_1';
+  /* src\assets\fonts\MUHAMMADI_QURANIC.ttf */
+  src: url('../src/assets/fonts/Al\ Qalam\ Quran\ Majeed\ Web\ Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'ArabQuranIslamic_2';
+  src: url('../src/assets/fonts/Al\ Majeed\ Quranic\ Font_shiped.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArabQuranIslamic_3';
+  src: url('../src/assets/fonts/Al\ Mushaf\ Quran.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArabQuranIslamic_4';
+  src: url('../src/assets/fonts/Hafs.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArabQuranIslamic_5';
+  src: url('../src/assets/fonts/PDMS_Saleem_QuranFont_shipped.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ArabQuranIslamic_6';
+  src: url('../src/assets/fonts/MUHAMMADI\ QURANIC\ FONT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class to apply the Quranic Arabic font to elements */
+.arab-quran-title {
+  font-family: 'ArabQuranIslamic_1', 'Jameel Noori Nastaleeq Kasheeda', serif;
+}
+
+/* Local Urdu font provided by user (for Urdu UI/text) */
+@font-face {
+  font-family: 'AlMajeedUrdu';
+  src: url('../src/assets/fonts/Al Majeed Quranic Font_shiped.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class to apply the local Urdu font where needed */
+.urdu-text {
+  font-family: 'AlMajeedUrdu', 'Jameel Noori Nastaleeq Kasheeda', 'Cairo', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  /* Use a readable default for UI (Urdu/Latin). Apply Arabic Quran font only where needed via classes. */
+  font-family: 'Jameel Noori Nastaleeq Kasheeda', 'Cairo', sans-serif;
+  /* Vertical gradient: white at top -> #f6cc44 at bottom */
+  background: linear-gradient(to bottom, #ffffff 0%, #f6cc44 100%);
+  min-height: 100vh;
+  direction: rtl;
+  /* Dark text for better contrast on the light background */
+  color: #0f2a44;
+  padding-bottom: 140px; /* Extra space so last row doesn't touch buttons */
+}
+
+/* Avoid applying the Quranic font globally — use the utility class for Arabic-only elements. */
+
+/* Page inner container with 2 inch padding at left/right */
+.page-padding {
+  padding-left: 2in;
+  padding-right: 2in;
+}
+
+/* Utility to ensure centered row group (used for 3-card rows) */
+.row-centered {
+  display: grid;
+  justify-content: center; /* centers the grid block horizontally */
+}
+
+/* Align text for Arabic headings */
+.arabic-center {
+  text-align: center;
 }

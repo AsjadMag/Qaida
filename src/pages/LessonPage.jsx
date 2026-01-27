@@ -1,6 +1,6 @@
 import React from 'react';
 import WordCard from '../components/WordCard';
-import '../components/WordCard.css';
+// import '../components/WordCard.css';
 import '../index.css';
 
 const chapterData = {
@@ -8,13 +8,13 @@ const chapterData = {
     titleArabic: 'الحروف الهجائية',
     titleEnglish: 'The Alphabets',
     pages: [
-      [['ا', 'ب', 'ت', 'ث'], 
-      ['ج', 'ح', 'خ'], 
-      ['د', 'ذ', 'ر', 'ز'], 
-      ['س', 'ش', 'ص', 'ض'], 
-      ['ط', 'ظ', 'ع', 'غ'], 
-      ['ف', 'ق', 'ك'], 
-      ['ل', 'م', 'ن', 'و'], 
+      [['ا', 'ب', 'ت', 'ث'],
+      ['ج', 'ح', 'خ'],
+      ['د', 'ذ', 'ر', 'ز'],
+      ['س', 'ش', 'ص', 'ض'],
+      ['ط', 'ظ', 'ع', 'غ'],
+      ['ف', 'ق', 'ك'],
+      ['ل', 'م', 'ن', 'و'],
       ['هـ', 'ء', 'ى']]
     ]
   },
@@ -23,15 +23,15 @@ const chapterData = {
     titleEnglish: 'Arabic Alphabet',
     pages: [
       // Page 1 (Total Page 2)
-      [['ا', 'لا', { text: 'لا', font: 'ArabQuranIslamic_1' }, 'با', 'لا'], 
-      ['ل', 'لا', 'لح', 'لا', 'بلب'],
-      ['ك', 'ك', 'كب', 'كب', 'كا'], 
-      ['كا', 'بکت', 'تكث', 'ب', 'ت'], 
+      [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/laam_2.png', imageHoverPath: '/images/laam_2_hover.png' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/laam_1.png', imageHoverPath: '/images/laam_1_hover.png' }],
+      ['ل', { text: 'لا', useImage: true, imagePath: '/images/laam_2.png', imageHoverPath: '/images/laam_2_hover.png' }, 'لح', { text: 'لا', useImage: true, imagePath: '/images/laam_1.png', imageHoverPath: '/images/laam_1_hover.png' }, 'بلب'],
+      ['ك', 'ك', 'كب', 'كب', 'كا'],
+      ['كا', 'بکت', 'تكث', 'ب', 'ت'],
       ['ث', 'ن', 'ى', 'با', 'نا'],
       ['تا', 'یا', 'ثا', 'بس', 'يس'],
       ['نس', 'تس', 'ثس', 'ثح', 'تح']],
       // Page 2 (Total Page 3)
-      [['نخ', 'یح', 'بج', 'یم', 'بم'], 
+      [['نخ', 'یح', 'بج', 'یم', 'بم'],
       ['تين', 'يتن', 'ثثن', 'ج', 'ح'],
       ['خ', 'حث', 'خب', 'جت', 'تحت'],
       ['يجب', 'بخت', 'ة', 'ه', 'بة'],
@@ -71,7 +71,7 @@ const chapterData = {
       ['وِ', 'ءِ = اِ', 'ىِ']]
     ]
   },
-  4:{
+  4: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Pesh & Jazm',
     pages: [
@@ -88,7 +88,7 @@ const chapterData = {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'THE CHANGING FACES OF LETTERS',
     pages: [
-    // Page 1 (Total Page 8)
+      // Page 1 (Total Page 8)
       [['بَ = بَـ', 'تَ = تَـ', 'ثَـ =ثَ', 'جَ =جَـ'],
       ['حَ =حَـ', 'خَـ= خَ', 'دَ = دَ', 'ذَ = ذَ'],
       ['رَ = رَ', 'زَ = زَ', 'سَ= سَـ', 'شَ= شَـ'],
@@ -103,7 +103,7 @@ const chapterData = {
       ['رِ = رِ', 'زِ = زِ', 'سِ = سِـ', 'شِ = شِـ'],
       ['صِ = صِـ', 'ضِ = ضِـ', 'طِ = طِـ', 'ظِ = ظِـ'],
       ['عِ = عِـ', 'غِ = غِـ', 'فِ = فِـ', 'قِ = قِـ'],
-      ['كِ = كِـ', 'لِ = لِـ','مِ = مِـ', 'نِ = نِـ'],
+      ['كِ = كِـ', 'لِ = لِـ', 'مِ = مِـ', 'نِ = نِـ'],
       ['هِ = هِـ', 'وِ = وِ', 'ءِ = اِ', 'يِ = يِـ']],
       // Page 3 (Total Page 10)
 
@@ -116,180 +116,180 @@ const chapterData = {
       ['هُ = هُـ', 'وُ = وُ', 'ءُ = اُ', 'يُ = يُـ']],
       // Page 4 (Total Page 11)
 
-        [['بَ=بِـ=بُـ', 'تَ=تِـ=تُـ', 'ثَ=ثِـ=ثُـ'],
-    ['جَ=جِـ=جُـ', 'حَ=حِـ=حُـ', 'خَ=خِـ=خُـ'],
-    ['دَ=دِ=دُ', 'ذَ=ذِ=ذُ', 'رَ=رِ=رُ'],
-    ['زَ=زِ=زُ', 'سَ=سِـ=سُـ', 'شَ=شِـ=شُـ'],
-    ['صَ=صِـ=صُـ', 'ضَ=ضِـ=ضُـ', 'طَ=طِـ=طُـ'],
-    ['ظَ=ظِـ=ظُـ', 'عَ=عِـ=عُـ', 'غَ=غِـ=غُـ'],
-    ['فَ=فِـ=فُـ', 'قَ=قِـ=قُـ', 'كَ=كِـ=كُـ'],
-    ['لَ=لِـ=لُـ', 'مَ=مِـ=مُـ', 'نَ=نِـ=نُـ'],
-    ['هَ=هِـ=هُـ', 'وَ=وِ=وُ', 'ءَ=اِ=اُ','يَ=يِـ=يُـ']]
+      [['بَ=بِـ=بُـ', 'تَ=تِـ=تُـ', 'ثَ=ثِـ=ثُـ'],
+      ['جَ=جِـ=جُـ', 'حَ=حِـ=حُـ', 'خَ=خِـ=خُـ'],
+      ['دَ=دِ=دُ', 'ذَ=ذِ=ذُ', 'رَ=رِ=رُ'],
+      ['زَ=زِ=زُ', 'سَ=سِـ=سُـ', 'شَ=شِـ=شُـ'],
+      ['صَ=صِـ=صُـ', 'ضَ=ضِـ=ضُـ', 'طَ=طِـ=طُـ'],
+      ['ظَ=ظِـ=ظُـ', 'عَ=عِـ=عُـ', 'غَ=غِـ=غُـ'],
+      ['فَ=فِـ=فُـ', 'قَ=قِـ=قُـ', 'كَ=كِـ=كُـ'],
+      ['لَ=لِـ=لُـ', 'مَ=مِـ=مُـ', 'نَ=نِـ=نُـ'],
+      ['هَ=هِـ=هُـ', 'وَ=وِ=وُ', 'ءَ=اِ=اُ', 'يَ=يِـ=يُـ']]
     ]
-   },
-     6:{
+  },
+  6: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Zair',
     pages: [
       // Page 1 (Total Page 12)
       [['اِ بِ لِ=اِبِلِ', 'يَ لِ جَ=يَلِجَ'],
-  ['سَ فِ هَ=سَفِهَ', 'حَ سِ بَ=حَسِبَ'],
-  ['لَ مِ نَ=لَمِنَ', 'مَ لَ كِ=مَلَكِ'],
-  ['فَ لَ قِ=فَلَقِ', 'شَ هِ دَ=شَهِدَ'],
-  ['رَ حِ مَ=رَحِمَ', 'وَ سِ عَ=وَسِعَ'],
-  ['لَ بِ ثَ=لَبِثَ', 'يَ بِ سَ=يَبِسَ'],
-  ['صَ عَ قَ=صَعِقَ', 'اَ ذِ نَ=اَذِنَ'],
-  ['عَ مِ يَ=عَمِيَ', 'فَ زِ عَ=فَزِعَ'],
-  ['غَ ضِ بَ=غَضِبَ', 'رَ ضِ يَ=رَضِيَ'],
-  ['بَ رِ قَ=بَرِقَ', 'كَ رِ هَ=كَرِهَ'],
-  ['اَ دَ هَ=اَدَهَ', 'عَ رِ مِ=عَرِمِ'],
-  ['عَ مِ لَ=عَمِلَ', 'حَ بِ طَ=حَبِطَ'],
-  ['بَ خِ لَ=بَخِلَ', 'خَ شِ يَ=خَشِيَ'],
-  ['عَ لِ مَ=عَلِمَ', 'فَ لِ مَ=فَلِمَ']]
+      ['سَ فِ هَ=سَفِهَ', 'حَ سِ بَ=حَسِبَ'],
+      ['لَ مِ نَ=لَمِنَ', 'مَ لَ كِ=مَلَكِ'],
+      ['فَ لَ قِ=فَلَقِ', 'شَ هِ دَ=شَهِدَ'],
+      ['رَ حِ مَ=رَحِمَ', 'وَ سِ عَ=وَسِعَ'],
+      ['لَ بِ ثَ=لَبِثَ', 'يَ بِ سَ=يَبِسَ'],
+      ['صَ عَ قَ=صَعِقَ', 'اَ ذِ نَ=اَذِنَ'],
+      ['عَ مِ يَ=عَمِيَ', 'فَ زِ عَ=فَزِعَ'],
+      ['غَ ضِ بَ=غَضِبَ', 'رَ ضِ يَ=رَضِيَ'],
+      ['بَ رِ قَ=بَرِقَ', 'كَ رِ هَ=كَرِهَ'],
+      ['اَ دَ هَ=اَدَهَ', 'عَ رِ مِ=عَرِمِ'],
+      ['عَ مِ لَ=عَمِلَ', 'حَ بِ طَ=حَبِطَ'],
+      ['بَ خِ لَ=بَخِلَ', 'خَ شِ يَ=خَشِيَ'],
+      ['عَ لِ مَ=عَلِمَ', 'فَ لِ مَ=فَلِمَ']]
     ]
   },
-    7:{
+  7: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Zabar',
     pages: [
       // Page 1 (Total Page 13)
       [['عَ بَ دَ=عَبَدَ', 'اَ مَ رَ=اَمَرَ'],
-  ['مَ رَ جَ=مَرَجَ', 'ثَ مَ رَ=ثَمَرَ'],
-  ['فَ عَ لَ=فَعَلَ', 'رَ فَ ثَ=رَفَثَ'],
-  ['عَ بَ سَ=عَبَسَ', 'نَ كَ صَ=نَكَصَ'],
-  ['كَ فَ رَ=كَفَرَ', 'قَ تَ لَ=قَتَلَ'],
-  ['بَ لَ غَ=بَلَغَ', 'حَ ضَ رَ=حَضَرَ'],
-  ['زَ عَ مَ=زَعَمَ', 'ضَ رَ بَ=ضَرَبَ'],
-  ['صَ لَ حَ=صَلَحَ', 'حَ سَ دَ=حَسَدَ'],
-  ['صَ بَ رَ=صَبَرَ', 'خَ تَ مَ=خَتَمَ'],
-  ['مَ طَ رَ=مَطَرَ', 'شَ رَ حَ=شَرَحَ'],
-  ['ذَ هَ بَ=ذَهَبَ', 'ظَ هَ رَ=ظَهَرَ'],
-  ['اَ حَ دَ=اَحَدَ', 'هَ لَ كَ=هَلَكَ'],
-  ['حَ مَ لَ=حَمَلَ', 'عَ شَ رَ=عَشَرَ'],
-  ['رَ فَ عَ=رَفَعَ', 'نَ بَ اَ=نَبَاَ']]
+      ['مَ رَ جَ=مَرَجَ', 'ثَ مَ رَ=ثَمَرَ'],
+      ['فَ عَ لَ=فَعَلَ', 'رَ فَ ثَ=رَفَثَ'],
+      ['عَ بَ سَ=عَبَسَ', 'نَ كَ صَ=نَكَصَ'],
+      ['كَ فَ رَ=كَفَرَ', 'قَ تَ لَ=قَتَلَ'],
+      ['بَ لَ غَ=بَلَغَ', 'حَ ضَ رَ=حَضَرَ'],
+      ['زَ عَ مَ=زَعَمَ', 'ضَ رَ بَ=ضَرَبَ'],
+      ['صَ لَ حَ=صَلَحَ', 'حَ سَ دَ=حَسَدَ'],
+      ['صَ بَ رَ=صَبَرَ', 'خَ تَ مَ=خَتَمَ'],
+      ['مَ طَ رَ=مَطَرَ', 'شَ رَ حَ=شَرَحَ'],
+      ['ذَ هَ بَ=ذَهَبَ', 'ظَ هَ رَ=ظَهَرَ'],
+      ['اَ حَ دَ=اَحَدَ', 'هَ لَ كَ=هَلَكَ'],
+      ['حَ مَ لَ=حَمَلَ', 'عَ شَ رَ=عَشَرَ'],
+      ['رَ فَ عَ=رَفَعَ', 'نَ بَ اَ=نَبَاَ']]
     ]
   },
-    8:{
+  8: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Paish',
     pages: [
       // Page 1 (Total Page 14)
       [['رُ سُ لُ=رُسُلُ', 'رُ بُ عُ=رُبُعُ'],
-  ['سُ بُ لَ=سُبُلَ', 'وُ جِ دَ=وُجِدَ'],
-  ['لُ عِ نَ=لُعِنَ', 'فُ عِ لَ=فُعِلَ'],
-  ['جُ عِ لَ=جُعِلَ', 'اُ فُ قِ=اُفُقِ'],
-  ['حُ بُ كِ=حُبُكِ', 'خُ لِ قَ=خُلِقَ'],
-  ['تَ زِ رُ=تَزِرُ', 'قُ ضِ يَ=قُضِيَ'],
-  ['يَ هَ بُ=يَهَبُ', 'فُ تِ حَ=فُتِحَ'],
-  ['اُ خَ رُ=اُخَرُ', 'خَ بُ ثَ=خَبُثَ'],
-  ['حَ سُ نَ=حَسُنَ', 'سُ ئِ لَ=سُئِلَ'],
-  ['صُ حُ فِ=صُحُفِ', 'اَ عِ ظُ=اَعِظُ'],
-  ['ذُ كِ رَ=ذُكِرَ', 'كُ تِ بَ=كُتِبَ'],
-  ['سُ قِ طَ=سُقِطَ', 'وَ هُ وَ=وَهُوَ'],
-  ['حُ شِ رَ=حُشِرَ', 'عُ رِ ضَ=عُرِضَ'],
-  ['قُ رِ ئَ=قُرِئَ', 'مُ نِ عَ=مُنِعَ']]
+      ['سُ بُ لَ=سُبُلَ', 'وُ جِ دَ=وُجِدَ'],
+      ['لُ عِ نَ=لُعِنَ', 'فُ عِ لَ=فُعِلَ'],
+      ['جُ عِ لَ=جُعِلَ', 'اُ فُ قِ=اُفُقِ'],
+      ['حُ بُ كِ=حُبُكِ', 'خُ لِ قَ=خُلِقَ'],
+      ['تَ زِ رُ=تَزِرُ', 'قُ ضِ يَ=قُضِيَ'],
+      ['يَ هَ بُ=يَهَبُ', 'فُ تِ حَ=فُتِحَ'],
+      ['اُ خَ رُ=اُخَرُ', 'خَ بُ ثَ=خَبُثَ'],
+      ['حَ سُ نَ=حَسُنَ', 'سُ ئِ لَ=سُئِلَ'],
+      ['صُ حُ فِ=صُحُفِ', 'اَ عِ ظُ=اَعِظُ'],
+      ['ذُ كِ رَ=ذُكِرَ', 'كُ تِ بَ=كُتِبَ'],
+      ['سُ قِ طَ=سُقِطَ', 'وَ هُ وَ=وَهُوَ'],
+      ['حُ شِ رَ=حُشِرَ', 'عُ رِ ضَ=عُرِضَ'],
+      ['قُ رِ ئَ=قُرِئَ', 'مُ نِ عَ=مُنِعَ']]
     ]
   },
-      9:{
+  9: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Alif Maddah',
     pages: [
       // Page 1 (Total Page 15)
       [['بَا', 'تَا', 'ثَا', 'جَا', 'حَا'],
-  ['خَا', 'دَا', 'ذَا', 'رَا', 'زَا'],
-  ['سَا', 'شَا', 'صَا', 'ضَا', 'طَا'],
-  ['ظَا', 'عَا', 'غَا', 'فَا', 'قَا'],
-  ['كَا', 'لَا', 'مَا', 'نَا', 'هَا'],
-  ['وَا', 'ءَا', 'يَا']]
+      ['خَا', 'دَا', 'ذَا', 'رَا', 'زَا'],
+      ['سَا', 'شَا', 'صَا', 'ضَا', 'طَا'],
+      ['ظَا', 'عَا', 'غَا', 'فَا', 'قَا'],
+      ['كَا', 'لَا', 'مَا', 'نَا', 'هَا'],
+      ['وَا', 'ءَا', 'يَا']]
     ]
   },
-  10:{
+  10: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Alif Maddah',
     pages: [
       // Page 1 (Total Page 16)
       [['قَالَ', 'قَالَا', 'اَرَادَ', 'اَرَادَا'],
-  ['حَاقَ', 'ذَاقَا', 'اَصَابَ', 'اَصَابَهَا'],
-  ['مَعَاذَ', 'فَمَاذَا', 'فَتَابَ', 'طَاقَة'],
-  ['آمَنَ', 'عَاقَبَ', 'يَزَالُ', 'وَضَاقَ'],
-  ['ثَالِثُ', 'لِسَانِ', 'اَصَابَ', 'وَكَانَ'],
-  ['فَقَالَ', 'هَادِيَ', 'حَارَبَ', 'ذَاتَ'],
-  ['ظَاهِر']]
+      ['حَاقَ', 'ذَاقَا', 'اَصَابَ', 'اَصَابَهَا'],
+      ['مَعَاذَ', 'فَمَاذَا', 'فَتَابَ', 'طَاقَة'],
+      ['آمَنَ', 'عَاقَبَ', 'يَزَالُ', 'وَضَاقَ'],
+      ['ثَالِثُ', 'لِسَانِ', 'اَصَابَ', 'وَكَانَ'],
+      ['فَقَالَ', 'هَادِيَ', 'حَارَبَ', 'ذَاتَ'],
+      ['ظَاهِر']]
     ]
   },
 
-11:{
+  11: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Yaa-i Maddah',
     pages: [
       // Page 1 (Total Page 17)
       [['بِيْ', 'تِيْ', 'ثِيْ', 'جِيْ', 'حِيْ'],
-  ['خِيْ', 'دِيْ', 'ذِيْ', 'رِيْ', 'زِيْ'],
-  ['سِيْ', 'شِيْ', 'صِيْ', 'ضِيْ', 'طِيْ'],
-  ['ظِيْ', 'عِيْ', 'غِيْ', 'فِيْ', 'قِيْ'],
-  ['كِيْ', 'لِيْ', 'مِيْ', 'نِيْ', 'هِيْ'],
-  ['وِيْ', 'اِيْ', 'يِيْ']]
+      ['خِيْ', 'دِيْ', 'ذِيْ', 'رِيْ', 'زِيْ'],
+      ['سِيْ', 'شِيْ', 'صِيْ', 'ضِيْ', 'طِيْ'],
+      ['ظِيْ', 'عِيْ', 'غِيْ', 'فِيْ', 'قِيْ'],
+      ['كِيْ', 'لِيْ', 'مِيْ', 'نِيْ', 'هِيْ'],
+      ['وِيْ', 'اِيْ', 'يِيْ']]
     ]
   },
-  12:{
+  12: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Yaa-i Maddah',
     pages: [
       // Page 1 (Total Page 18)
       [['صِرَاطِىْ', 'صِرَاطِ', 'عِبَادِيْ', 'عِبَادِ'],
-  ['عَذَابِيْ', 'عَذَابِ', 'لِاَخِيْهِ', 'نُرِيْ'],
-  ['كُلِيْ', 'يَمِيْزَ', 'بَنَاتِيْ', 'صِرَاطِيْ'],
-  ['ايْمَانَ', 'عِيْد', 'سَنَزِيدُ', 'يَضِيْقُ'],
-  ['تُثِيْرُ', 'نَسِيْتُ', 'اُصِيْبَ', 'وَقِيْلَ'],
-  ['اكيْدُ', 'مُهِيْنِ', 'وَحِيْنَ', 'ذِيْ ثَلَاثِ'],
-  ['عَظِيمِ']]
+      ['عَذَابِيْ', 'عَذَابِ', 'لِاَخِيْهِ', 'نُرِيْ'],
+      ['كُلِيْ', 'يَمِيْزَ', 'بَنَاتِيْ', 'صِرَاطِيْ'],
+      ['ايْمَانَ', 'عِيْد', 'سَنَزِيدُ', 'يَضِيْقُ'],
+      ['تُثِيْرُ', 'نَسِيْتُ', 'اُصِيْبَ', 'وَقِيْلَ'],
+      ['اكيْدُ', 'مُهِيْنِ', 'وَحِيْنَ', 'ذِيْ ثَلَاثِ'],
+      ['عَظِيمِ']]
     ]
   },
-  13:{
+  13: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Wao Maddah',
     pages: [
       // Page 1 (Total Page 19)
       [['بُوْ', 'تُوْ', 'ثُوْ', 'جُوْ'],
-  ['حُوْ', 'خُوْ', 'دُوْ', 'ذُوْ'],
-  ['رُوْ', 'زُوْ', 'سُوْ', 'شُوْ'],
-  ['صُوْ', 'ضُوْ', 'طُوْ', 'ظُوْ'],
-  ['عُوْ', 'غُوْ', 'فُوْ', 'قُوْ'],
-  ['كُوْ', 'لُوْ', 'مُوْ', 'نُوْ'],
-  ['هُوْ', 'وُوْ', 'اُوْ', 'يُوْ']]
+      ['حُوْ', 'خُوْ', 'دُوْ', 'ذُوْ'],
+      ['رُوْ', 'زُوْ', 'سُوْ', 'شُوْ'],
+      ['صُوْ', 'ضُوْ', 'طُوْ', 'ظُوْ'],
+      ['عُوْ', 'غُوْ', 'فُوْ', 'قُوْ'],
+      ['كُوْ', 'لُوْ', 'مُوْ', 'نُوْ'],
+      ['هُوْ', 'وُوْ', 'اُوْ', 'يُوْ']]
     ]
   },
-14:{
+  14: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Wao-Maddah',
     pages: [
       // Page 1 (Total Page 20)
       [['فَتُوْبُوْا', 'اَتُوْبُ', 'اَفِيضُوْا'],
-  ['تَفِيْضُ', 'تَخَافُوْا', 'اَخَافُ'],
-  ['نُوحِيْهَا', 'اُوذِيْنَا', 'اَطِيْعُوْنِي'],
-  ['يَقُوْلُوْنَ', 'فَتُوْبُوْا', 'وَرَابِطُوْا'],
-  ['اُوْتِيَ', 'عُوْقِبَ', 'بَرَزُوْا'],
-  ['وَرَضُوْا', 'لِمَا نُهُوْا', 'فَرِحُوْا'],
-  ['نَكَثُوْا', 'فَنَسُوْا', 'خَلَصُوْا'],
-  ['وَاُوْذُوْا', 'حَافِظُوْا', 'تَرَكُوْا'],
-  ['خَرَقُوْا']]
+      ['تَفِيْضُ', 'تَخَافُوْا', 'اَخَافُ'],
+      ['نُوحِيْهَا', 'اُوذِيْنَا', 'اَطِيْعُوْنِي'],
+      ['يَقُوْلُوْنَ', 'فَتُوْبُوْا', 'وَرَابِطُوْا'],
+      ['اُوْتِيَ', 'عُوْقِبَ', 'بَرَزُوْا'],
+      ['وَرَضُوْا', 'لِمَا نُهُوْا', 'فَرِحُوْا'],
+      ['نَكَثُوْا', 'فَنَسُوْا', 'خَلَصُوْا'],
+      ['وَاُوْذُوْا', 'حَافِظُوْا', 'تَرَكُوْا'],
+      ['خَرَقُوْا']]
     ]
   },
-15:{
+  15: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Huroof-i Maddah and Erected Harkaat',
     pages: [
       // Page 1 (Total Page 21)
       [['بَا=بٰ', 'تَا=تٰ', 'ثَا=ثٰ', 'جٰ'],
-  ['حٰ', 'خٰ', 'دٰ', 'ذٰ'],
-  ['رٰ', 'زٰ', 'سٰ', 'شٰ'],
-  ['صٰ', 'ضٰ', 'طٰ', 'ظٰ'],
-  ['عٰ', 'غٰ', 'فٰ', 'قٰ'],
-  ['كٰ', 'لٰ', 'مٰ', 'نٰ'],
-  ['هٰ', 'وٰ', 'يٰ']]
+      ['حٰ', 'خٰ', 'دٰ', 'ذٰ'],
+      ['رٰ', 'زٰ', 'سٰ', 'شٰ'],
+      ['صٰ', 'ضٰ', 'طٰ', 'ظٰ'],
+      ['عٰ', 'غٰ', 'فٰ', 'قٰ'],
+      ['كٰ', 'لٰ', 'مٰ', 'نٰ'],
+      ['هٰ', 'وٰ', 'يٰ']]
     ]
   },
-16:{
+  16: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Erected Zabar',
     pages: [
@@ -304,7 +304,7 @@ const chapterData = {
       ['تَظٰهَرَا']]
     ]
   },
- 17:{
+  17: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Erected Zair',
     pages: [
@@ -320,7 +320,7 @@ const chapterData = {
       ['هٖ', 'وٖ', 'يٖ']]
     ]
   },
-  18:{
+  18: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Erected Zair',
     pages: [
@@ -336,7 +336,7 @@ const chapterData = {
       ['ثَمَرِهٖ']]
     ]
   },
-  19:{
+  19: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Inverted Paish',
     pages: [
@@ -350,7 +350,7 @@ const chapterData = {
       ['هٗ', 'وٗ', 'يٗ']]
     ]
   },
-  20:{
+  20: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Inverted Paish',
     pages: [
@@ -364,8 +364,8 @@ const chapterData = {
       ['لِيُرِيَهٗ', 'رِسَالَتُهٗ', 'فِصٰلُهٗ'],
       ['يَرَهٗ', 'اٰيٰتُهٗ', 'خَتَمَهٗ']]
     ]
-  }, 
-    21:{
+  },
+  21: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Wao Leen',
     pages: [
@@ -378,8 +378,8 @@ const chapterData = {
       ['كَوْ', 'لَوْ', 'مَوْ', 'نَوْ'],
       ['هَوْ', 'وَوْ', 'اَوْ', 'يَوْ']]
     ]
-  }, 
-    22:{
+  },
+  22: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Wao Leen',
     pages: [
@@ -395,8 +395,8 @@ const chapterData = {
       ['وَنَهَوْا', 'حَوْلَهُ', 'عَفَوْنَا'],
       ['مَوْقُوفُونَ', 'اَوْحَىٰ لَهَا', 'يَرَوْنَهَوْا']]
     ]
-  }, 
-    23:{
+  },
+  23: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Yaa-i Leen',
     pages: [
@@ -409,8 +409,8 @@ const chapterData = {
       ['كَيْ', 'لَيْ', 'مَيْ', 'نَيْ'],
       ['هَيْ', 'وَيْ', 'اَيْ', 'يَيْ']]
     ]
-  }, 
-    24:{
+  },
+  24: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Yaa-i Leen',
     pages: [
@@ -426,8 +426,8 @@ const chapterData = {
       ['زَيْتُهَا', 'ضَيْفِهِ', 'الْهَيْنِ'],
       ['صٰلِحِيْنَ', 'حَوْلَيْنِ', 'كٰامِلَيْنِ']]
     ]
-  }, 
-      25:{
+  },
+  25: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Jazm or Sukoon',
     pages: [
@@ -449,7 +449,7 @@ const chapterData = {
       ['مَءْ مِءْ مُءْ']]
     ]
   },
- 26:{
+  26: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Jazm',
     pages: [
@@ -478,7 +478,7 @@ const chapterData = {
       ['يُؤْمِنُونَ', 'رُؤْيَاكَ', 'شِئْتُمَا']]
     ]
   },
- 27:{
+  27: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Shadd',
     pages: [
@@ -493,7 +493,7 @@ const chapterData = {
       ['اِزِّ', 'أُزُّ', 'اَسَّ', 'اِسِّ'],
       ['أُسُّ', 'اَشَّ', 'اِشِّ', 'أُشُّ'],
       ['اَصَّ', 'اِصِّ', 'أُصُّ', 'اَضَّ'],
-      ['أُطُّ','اِضِّ', 'أُضُّ', 'اَطَّ', 'اِطِّ']],
+      ['أُطُّ', 'اِضِّ', 'أُضُّ', 'اَطَّ', 'اِطِّ']],
       // Page 2 (Total Page 36)
       [['اَظَّ', 'اِظِّ', 'أُظُّ', 'اَعَّ'],
       ['اِعِّ', 'أُعُّ', 'اَغَّ', 'اِغِّ'],
@@ -505,8 +505,8 @@ const chapterData = {
       ['اِهِّ', 'أُهُّ', 'اَوَّْ', 'اِوِّْ'],
       ['أُؤُّ', 'اَيَّ', 'اِيِّ', 'أُيُّ']]
     ]
-  },  
- 28:{
+  },
+  28: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Shadd',
     pages: [
@@ -555,10 +555,10 @@ const chapterData = {
       ['لَجُّوْا', 'فَبَدَّلَ', 'فَرُدُّوْهُ'],
       ['يَهْدِيْ', 'يَصُدُّوْنَ', 'وَتَرَى الشَّمْسَ'],
       ['عَمِلُوا الصَّالِحَاتِ'],
-      [ 'وَالْقَمَرِ', 'فِي الْكُتُبِ']]
+      ['وَالْقَمَرِ', 'فِي الْكُتُبِ']]
     ]
-  },  
-    29:{
+  },
+  29: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: ' Double Shadd',
     pages: [
@@ -569,8 +569,8 @@ const chapterData = {
       ['إِنَّ السَّمْعَ', 'مُطَّهِّرِينَ', 'ذُرِّيَّتَهٗ'],
       ['إِلَّا الَّذِينَ', 'مِنَ الطَّيِّبٰتِ', 'أَشَدُّ النَّاسِ']]
     ]
-  }, 
-    30:{
+  },
+  30: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Three Variable letters',
     pages: [
@@ -580,8 +580,8 @@ const chapterData = {
       ['ظَاهِرٌ', 'فَقَالَ', 'خَالِدِينَ'],
       ['كِتَابٌ', 'لِسَانٌ']]
     ]
-  }, 
-    31:{
+  },
+  31: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of the following Words',
     pages: [
@@ -595,8 +595,8 @@ const chapterData = {
       ['قَالَ', 'فَقَالَ', 'وَضَاقَ'],
       ['عَاقِبَةَ', 'وَكَانَ', 'يَزَالُ']]
     ]
-  },   
- 32:{
+  },
+  32: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Tanween Exercise of Double Zabar',
     pages: [
@@ -613,8 +613,8 @@ const chapterData = {
       ['مُبٰرَكًا', 'فَرِيْقًا', 'اَمْوَاتًا'],
       ['اَسْبَاطًا']]
     ]
-  },    
- 33:{
+  },
+  33: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Double Zair',
     pages: [
@@ -632,7 +632,7 @@ const chapterData = {
       ['صِرَاطٍ']]
     ]
   },
-  34:{
+  34: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Double Paish',
     pages: [
@@ -649,8 +649,8 @@ const chapterData = {
       ['تارِكٌ', 'خَالِقٌ', 'فُرَاتٌ'],
       ['مُحِيْطٌ']]
     ]
-  },     
-  35:{
+  },
+  35: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Izhar',
     pages: [
@@ -673,7 +673,7 @@ const chapterData = {
       ['خ', 'مَنْ خَشِيَ', 'لَطِيْفٌ خَبِيْرٌ', 'وَالْمُنْخَنِقَةُ']]
     ]
   },
-  36:{
+  36: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Iqlab',
     pages: [
@@ -682,8 +682,8 @@ const chapterData = {
       ['أَنْبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
       ['أَمَدًۢا بَعِيْدًا', 'طَيْرًۢا بِإِذْنِي']]
     ]
-  }, 
-  37:{
+  },
+  37: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Tiny Meem',
     pages: [
@@ -697,7 +697,7 @@ const chapterData = {
       ['سَمِيعًۢا بَصِيرًا', 'لُوْطٍۢ بِالنُّذُرِ', 'حَدِيثٍۢ بَعْدَهُ']]
     ]
   },
-   38:{
+  38: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham',
     pages: [
@@ -713,7 +713,7 @@ const chapterData = {
       ['مَثَلاً مَّا', 'سِنَةٌ وَّلَا', 'خَيْرًا يَّرَهُ']]
     ]
   },
-   39:{
+  39: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham When the Noon Sakin comes before the Shadd letter',
     pages: [
@@ -742,7 +742,7 @@ const chapterData = {
       ['يَكُنْ لَّهُ', 'نَكُنْ نَّدْعُوْا', 'مِنْ وَّالٍ'],
       ['فَإِنْ رَّجَعَكَ', 'وَلْتَكُنْ مِّنكُمْ', 'إِنْ يُرِيدَا']],
 
-     // Page 3 (Total Page 59)
+      // Page 3 (Total Page 59)
       [['اًلَّ', 'اًرَّ', 'اًنَّ', 'اًمَّ'],
       ['اًوَّ', 'اًىَّ', 'اٌ لَّ', 'اٌ رَّ'],
       ['اٌ نَّ', 'اٌ مَّ', 'اٌ وَّ', 'اٌ ىَّ'],
@@ -773,8 +773,8 @@ const chapterData = {
       ['خَيْرٌ لَّكُمْ', 'سُوْرَةٍ نَّظَرُ', 'رَعْدٌ وَّبَرْقٌ'],
       ['غَفُوْرٌ رَّحِيمٌ', 'مُخْرِجٌ مَّا', 'أُمَّةٌ يَّدْعُوْنَ']]
     ]
-  },   
-  40:{
+  },
+  40: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham on other letters',
     pages: [
@@ -783,8 +783,8 @@ const chapterData = {
       ['قُل رَّبِّ', 'يَلْهَثْ ذّٰلِكَ', 'إِنَّهُمْ مَّعَكُمْ'],
       ['مَهَّدْتُّ', 'نَخْلُقْكُّم', 'أَوْ وَّزَنُوْهُمْ']]
     ]
-  },  
- 41:{
+  },
+  41: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Ikhfa',
     pages: [
@@ -800,8 +800,8 @@ const chapterData = {
       ['مَنْضُوْدٍ', 'شَرَابًا طَهُورًا', 'فَانْظُرْ'],
       ['فَإِنْ فَاءُوْا', 'يَنْقَلِبْ', 'رِزْقٌ كَرِيْمٌ']]
     ]
-  },  
-  42:{
+  },
+  42: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Complete detail of Ghunnah at Meem',
     pages: [
@@ -821,8 +821,8 @@ const chapterData = {
       ['اَمْنَهُمْ مِّنْ', 'اَلَمْ نَشْرَحْ', 'مِنْكُمْ هَدْيًا'],
       ['وَاَنْتُمْ اَذِلَّةٌ']]
     ]
-  },  
-  43:{
+  },
+  43: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Madd (Prolonging the Sound of vowels)',
     pages: [
@@ -834,7 +834,7 @@ const chapterData = {
       [['بَآءَ', 'بِیْٓءَ', 'بُوْٓءَ', 'تٰٓ ءَ'],
       ['تٖٓ ءَ', 'تٗٓ ءَ', 'بَآاَ', 'بِیْٓ اَ'],
       ['بُوْٓ اَ', 'تٰٓ اَ', 'تٖٓ اَ', 'تٗٓ اَ']],
-        // Page 3 (Total Page 70)
+      // Page 3 (Total Page 70)
       [['إِنَّا أَنْزَلْنَهُ', 'لَا أُقْسِمُ', 'يَتَسَاءَلُونَ'],
       ['فَأَوْحَىٰ إِلَيْهِ', 'يَأَيُّهَا النَّبِيُّ', 'اٰبَاءَنَا'],
       ['اٰوٰى إِلَيْهِ', 'إِلَىٰ إِلٰهِكَ', 'إِذَا جَاءَ'],
@@ -842,7 +842,7 @@ const chapterData = {
       ['فَقُوْلِي إِنِّي', 'هَذِهِ إِيمَانًا', 'سِيئَتْ'],
       ['فِي أَمْرِيْ', 'إِنِّي أَخَافُ', 'هَنِيْئًا'],
       ['قُوْا أَنْفُسَكُمْ', 'يَرَهُ أَحَدٌ']],
-        // Page 4 (Total Page 71)
+      // Page 4 (Total Page 71)
       [['اَلصَّآفُّوْنَ', 'تَحٓضُّونَ', 'اَلْعَآدِّينَ'],
       ['الٓمّٓ الٓمّٓرّٓ', 'دَآبَّةٍ', 'وَالصَّٰٓٓفّٰتِ'],
       ['حَاجُّوكَ', 'الٓر صٓ', 'وَلَا الضَّآلِّينَ'],
@@ -851,8 +851,8 @@ const chapterData = {
       ['نٓ قٓ', 'قُلْ ءَآلذَّكَرَيْنِ', 'قُلْ آٰللّٰهُ'],
       ['آلْـٰٔنَ', 'يسٓ الٓمّٓصٓ']],
     ]
-  }, 
-  44:{
+  },
+  44: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'MADD DUE TO PAUSE',
     pages: [
@@ -861,8 +861,8 @@ const chapterData = {
       ['الْقُرْآنُ — الْقُرْآنُ', 'يَسْتَوُوْنَ — يَسْتَوُٓنَ', 'النَّبِيِّينَ — النَّبِيِّنَ'],
       ['خَوْفٍ — خَوْٓفٌ', 'وَالصَّيْفِ — وَالصَّيْٓفُ']]
     ]
-  },   
-  45:{
+  },
+  45: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Examples of Pause after Huroof-e-Maddah',
     pages: [
@@ -873,8 +873,8 @@ const chapterData = {
       ['يَسْتَوُوْنَ — يَسْتَوُونْ', 'اَلْقُرْآنُ — اَلْقُرْآنْ'],
       ['النَّبِيِّينَ — النَّبِيِّينْ']]
     ]
-  }, 
-  46:{
+  },
+  46: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Examples of Pause after Huroof-e-Leen',
     pages: [
@@ -885,8 +885,8 @@ const chapterData = {
       ['وَيَنْتَهُونَ — وَيَنْتَهُونْ', 'يَسْعَوْنَ — يَسْعَوْنْ'],
       ['عَيْنَيْنِ — عَيْنَيْنْ']]
     ]
-  }, 
-  47:{
+  },
+  47: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Pause (Waqf)',
     pages: [
@@ -903,7 +903,7 @@ const chapterData = {
       ['مَنٰسِكَنَا', 'وَالضُّحَىٰ', 'يُحْيٖ'],
       ['سَجَىٰ', 'نَصٰرٰى', 'تَلَوٗا'],
       ['فَـاْوٗا', 'تَجْرِىْ']],
-       // Page 3 (Total Page 77)
+      // Page 3 (Total Page 77)
       [['كَبِيرًا ⇐ كَبِيرَا', 'هُدًى ⇐ هُدَا'],
       ['شَيْئًا ⇐ شَيْـَٔا', 'جُزْءًا ⇐ جُزْءَا'],
       ['مَرَضًا', 'سُجَّدًا'],
@@ -912,7 +912,7 @@ const chapterData = {
       ['بَصِيرًا', 'تَرْتِيلًا'],
       ['سُدًى', 'شَيْئًا'],
       ['بَغِيًا']],
-     // Page 4 (Total Page 78)
+      // Page 4 (Total Page 78)
       [['صَبَرَ ⇐ صَبَرْ', 'ٱلْفَلَقِ ⇐ ٱلْفَلَقْ'],
       ['أَكْبَرُ ⇐ أَكْبَرْ', 'كَافِرٍ ⇐ كَافِرْ'],
       ['أَظْلَمَ', 'فَأَخْرَجَ', 'يُوصَلَ'],
@@ -937,13 +937,13 @@ const chapterData = {
       ['اَلْأَتْقَىٰ ⇐ ٱلْأَتْقَىٰ', 'تَقْوَىٰ ⇐ تَقْوَىٰ'],
       ['مَثْوَىٰ ⇐ مَثْوَىٰ']]
     ]
-  },   
-  48:{
+  },
+  48: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'TINY NOON',
     pages: [
       // Page 1 (Total Page 82)
-      [['Joining Condition', 'Pause Condition', 'Writing Condition'],
+      [['Joining\nCondition', 'Pause\nCondition', 'Writing\nCondition'],
       ['لُمَزَةِ ۨ الَّذِىْ', 'لُمَزَهْ - اَلَّذِىْ', 'لُمَزَةِ ۨ - الَّذِىْ'],
       ['فَخُورَ ۨ الَّذِينَ', 'فَخُورَا - اَلَّذِينَ', 'فَخُورًا ۨ - اَلَّذِينَ']],
       // Page 2 (Total Page 83)
@@ -951,16 +951,16 @@ const chapterData = {
       ['قَوْمَا ۨ اتَّخَذَهَا', 'عَلِيْمُ ۨ اللهُ'],
       ['أَوْ لَهْوَا ۨ انْفَضُّوْا', 'أَحَدُ ۨ اللّهُ الصَّمَدُ']]
     ]
-  },   
- 49:{
+  },
+  49: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Rule of adding Zabar',
     pages: [
       // Page 1 (Total Page 84)
       [['الْكِتٰبِ ⇐ اَلْكِتٰبْ', 'الرَّحْمٰنِ ⇐ اَلرَّحْمٰنْ']]
     ]
-  },  
- 50:{
+  },
+  50: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Rule of adding Zair and Paish',
     pages: [
@@ -968,7 +968,7 @@ const chapterData = {
       [['ادْخُلُوْهَا ⇐ اُدْخُلُوْهَا', 'اقْتُلُوْا ⇐ اُقْتُلُوْا'],
       ['اعْبُدُوْا ⇐ اُعْبُدُوْا', 'ارْجِعِىْ ⇐ اِرْجِعِىْ'],
       ['انفَطَرَتْ ⇐ اِنفَطَرَتْ', 'اتَّبِعُوْا ⇐ اِتَّبِعُوْا']],
-     // Page 2 (Total Page 86)
+      // Page 2 (Total Page 86)
       [['اِسْمُ', 'اِمْرُؤٌا', 'اِبْنٌ'],
       ['اِتَّقُوْا', 'اِمْشُوْا', 'اِيتُوْا'],
       ['اِقْضُوْا', 'اِبْنُوْا', 'أَنْذِرْ'],
@@ -990,8 +990,8 @@ const chapterData = {
       ['مِرْصَادًا', 'لَبِالْمِرْصَادِ'],
       ['فِرْقَةٍ']]
     ]
-  },    
-  
+  },
+
 
 };
 
@@ -1015,8 +1015,8 @@ const LessonPage = ({ pageNumber }) => {
     pageInChapter = 0;
 
   } else if (pageNumber >= 8 && pageNumber <= 11) {
-  currentChapterNum = 5;
-  pageInChapter = pageNumber - 8;
+    currentChapterNum = 5;
+    pageInChapter = pageNumber - 8;
 
   } else if (pageNumber === 12) {
     currentChapterNum = 6;
@@ -1024,115 +1024,115 @@ const LessonPage = ({ pageNumber }) => {
 
   } else if (pageNumber === 13) {
     currentChapterNum = 7;
-    pageInChapter = 0;  
+    pageInChapter = 0;
   } else if (pageNumber === 14) {
     currentChapterNum = 8;
-    pageInChapter = 0;  
+    pageInChapter = 0;
   } else if (pageNumber === 15) {
     currentChapterNum = 9;
-    pageInChapter = 0;    
+    pageInChapter = 0;
   } else if (pageNumber === 16) {
     currentChapterNum = 10;
-    pageInChapter = 0;  
+    pageInChapter = 0;
   } else if (pageNumber === 17) {
     currentChapterNum = 11;
-    pageInChapter = 0;      
+    pageInChapter = 0;
   } else if (pageNumber === 18) {
     currentChapterNum = 12;
-    pageInChapter = 0; 
+    pageInChapter = 0;
   } else if (pageNumber === 19) {
     currentChapterNum = 13;
-    pageInChapter = 0; 
+    pageInChapter = 0;
   } else if (pageNumber === 20) {
     currentChapterNum = 14;
-    pageInChapter = 0;  
+    pageInChapter = 0;
   } else if (pageNumber === 21) {
     currentChapterNum = 15;
     pageInChapter = 0;
   } else if (pageNumber === 22) {
     currentChapterNum = 16;
-    pageInChapter = 0;     
+    pageInChapter = 0;
   } else if (pageNumber === 23) {
     currentChapterNum = 17;
-    pageInChapter = 0;    
+    pageInChapter = 0;
   } else if (pageNumber === 24) {
     currentChapterNum = 18;
-    pageInChapter = 0;    
+    pageInChapter = 0;
   } else if (pageNumber === 25) {
     currentChapterNum = 19;
-    pageInChapter = 0;    
+    pageInChapter = 0;
   } else if (pageNumber === 26) {
     currentChapterNum = 20;
-    pageInChapter = 0;     
+    pageInChapter = 0;
   } else if (pageNumber === 27) {
     currentChapterNum = 21;
-    pageInChapter = 0;   
+    pageInChapter = 0;
   } else if (pageNumber === 28) {
     currentChapterNum = 22;
-    pageInChapter = 0;   
+    pageInChapter = 0;
   } else if (pageNumber === 29) {
     currentChapterNum = 23;
-    pageInChapter = 0;    
+    pageInChapter = 0;
   } else if (pageNumber === 30) {
     currentChapterNum = 24;
-    pageInChapter = 0; 
+    pageInChapter = 0;
   } else if (pageNumber >= 31 && pageNumber <= 32) {
-  currentChapterNum = 25;
-  pageInChapter = pageNumber - 31;       
+    currentChapterNum = 25;
+    pageInChapter = pageNumber - 31;
   } else if (pageNumber >= 33 && pageNumber <= 34) {
-  currentChapterNum = 26;
-  pageInChapter = pageNumber - 33; 
+    currentChapterNum = 26;
+    pageInChapter = pageNumber - 33;
   } else if (pageNumber >= 35 && pageNumber <= 36) {
-  currentChapterNum = 27;
-  pageInChapter = pageNumber - 35;            
+    currentChapterNum = 27;
+    pageInChapter = pageNumber - 35;
   } else if (pageNumber >= 37 && pageNumber <= 40) {
-  currentChapterNum = 28;
-  pageInChapter = pageNumber - 37; 
+    currentChapterNum = 28;
+    pageInChapter = pageNumber - 37;
   } else if (pageNumber === 41) {
     currentChapterNum = 29;
-    pageInChapter = 0;  
+    pageInChapter = 0;
   } else if (pageNumber === 42) {
     currentChapterNum = 30;
     pageInChapter = 0;
   } else if (pageNumber === 43) {
     currentChapterNum = 31;
-    pageInChapter = 0;    
+    pageInChapter = 0;
   } else if (pageNumber >= 44 && pageNumber <= 45) {
-  currentChapterNum = 32;
-  pageInChapter = pageNumber - 44;  
+    currentChapterNum = 32;
+    pageInChapter = pageNumber - 44;
   } else if (pageNumber >= 46 && pageNumber <= 47) {
-  currentChapterNum = 33;
-  pageInChapter = pageNumber - 46; 
+    currentChapterNum = 33;
+    pageInChapter = pageNumber - 46;
   } else if (pageNumber >= 48 && pageNumber <= 49) {
-  currentChapterNum = 34;
-  pageInChapter = pageNumber - 48;   
+    currentChapterNum = 34;
+    pageInChapter = pageNumber - 48;
   } else if (pageNumber >= 50 && pageNumber <= 51) {
-  currentChapterNum = 35;
-  pageInChapter = pageNumber - 50; 
+    currentChapterNum = 35;
+    pageInChapter = pageNumber - 50;
   } else if (pageNumber === 52) {
     currentChapterNum = 36;
     pageInChapter = 0;
   } else if (pageNumber >= 53 && pageNumber <= 54) {
-  currentChapterNum = 37;  
-  pageInChapter = pageNumber - 53;
-    } else if (pageNumber >= 55 && pageNumber <= 56) {
-  currentChapterNum = 38;  
-  pageInChapter = pageNumber - 55;
+    currentChapterNum = 37;
+    pageInChapter = pageNumber - 53;
+  } else if (pageNumber >= 55 && pageNumber <= 56) {
+    currentChapterNum = 38;
+    pageInChapter = pageNumber - 55;
   } else if (pageNumber >= 57 && pageNumber <= 62) {
-  currentChapterNum = 39;  
-  pageInChapter = pageNumber - 57;
+    currentChapterNum = 39;
+    pageInChapter = pageNumber - 57;
   } else if (pageNumber === 63) {
     currentChapterNum = 40;
     pageInChapter = 0;
   } else if (pageNumber >= 64 && pageNumber <= 65) {
-  currentChapterNum = 41;  
-  pageInChapter = pageNumber - 64;  
+    currentChapterNum = 41;
+    pageInChapter = pageNumber - 64;
   } else if (pageNumber >= 66 && pageNumber <= 67) {
-  currentChapterNum = 42;  
-  pageInChapter = pageNumber - 66; 
+    currentChapterNum = 42;
+    pageInChapter = pageNumber - 66;
   } else if (pageNumber >= 68 && pageNumber <= 71) {
-  currentChapterNum = 43;  
-  pageInChapter = pageNumber - 68; 
+    currentChapterNum = 43;
+    pageInChapter = pageNumber - 68;
   } else if (pageNumber === 72) {
     currentChapterNum = 44;
     pageInChapter = 0;
@@ -1144,16 +1144,16 @@ const LessonPage = ({ pageNumber }) => {
     pageInChapter = 0;
   } else if (pageNumber >= 75 && pageNumber <= 81) {
     currentChapterNum = 47;
-    pageInChapter = pageNumber - 75;  
+    pageInChapter = pageNumber - 75;
   } else if (pageNumber >= 82 && pageNumber <= 83) {
     currentChapterNum = 48;
-    pageInChapter = pageNumber - 82; 
+    pageInChapter = pageNumber - 82;
   } else if (pageNumber === 84) {
     currentChapterNum = 49;
-    pageInChapter = 0;   
+    pageInChapter = 0;
   } else if (pageNumber >= 85 && pageNumber <= 88) {
     currentChapterNum = 50;
-    pageInChapter = pageNumber - 85;      
+    pageInChapter = pageNumber - 85;
 
   } else {
     return (
@@ -1183,32 +1183,74 @@ const LessonPage = ({ pageNumber }) => {
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2in', alignItems: 'center' }}>
-        {currentLetters.map((row, i) => (
-          <div key={i} style={{
-            display: 'grid',
-            gridTemplateColumns: `repeat(${row.length}, 1fr)`,
-            gap: '0.2in',
-            width: '100%',
-          }}>
-            {row.map((item, j) => {
-              // Extract text and font from either a string or an object
-              const letter = typeof item === 'object' ? item.text : item;
-              const font = typeof item === 'object' ? item.font : null;
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        padding: '40px 0',
+        overflow: 'visible',
+      }}>
+        {currentLetters.map((row, i) => {
+          // Calculate appropriate width based on number of cards
+          const cardCount = row.length;
+          let rowWidth = '100%';
+          let rowMargin = '0 auto';
 
-              return letter ? (
-                <WordCard 
-                  key={j} 
-                  letter={letter} 
-                  customFont={font} 
-                />
-              ) : (
-                <div key={j}></div>
-              );
-            })}
-          </div>
-        ))}
+          if (cardCount === 1) {
+            rowWidth = '50%';
+          } else if (cardCount === 2) {
+            rowWidth = '70%';
+          } else if (cardCount === 3) {
+            rowWidth = '85%';
+          }
+
+          return (
+            <div key={i} style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${cardCount}, 1fr)`,
+              gap: '0.5in', /* Increased gap */
+              width: rowWidth,
+              margin: rowMargin,
+              marginBottom: '60px', /* Space for hover */
+              position: 'relative',
+            }}>
+              {row.map((item, j) => {
+                const letter = typeof item === 'object' ? item.text : item;
+                const font = typeof item === 'object' ? item.font : null;
+                const useImage = typeof item === 'object' ? item.useImage : false;
+                const imagePath = typeof item === 'object' ? item.imagePath : null;
+                const imageHoverPath = typeof item === 'object' ? item.imageHoverPath : null;
+
+                return letter ? (
+                  <div
+                    key={j}
+                    style={{
+                      position: 'relative',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: '30px', /* Padding for hover space */
+                      margin: '-30px', /* Negative margin to offset padding */
+                    }}
+                  >
+                    <WordCard
+                      letter={letter}
+                      customFont={font}
+                      useImage={useImage}
+                      imagePath={imagePath}
+                      imageHoverPath={imageHoverPath}
+                    />
+                  </div>
+                ) : (
+                  <div key={j}></div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
+
     </div>
   );
 };

@@ -1,6 +1,7 @@
 .word-card {
   /* note: width is controlled by the grid column; don't enforce a fixed width here */
   height: 3.5in;
+  width: 100%; /* Fill the grid cell */
   background: linear-gradient(to bottom, #ffffff 0%, #f6cc44 100%);
   border-radius: 34px;
   border: 1px solid #000;
@@ -12,23 +13,14 @@
   align-items: center;
   justify-content: center;
   user-select: none;
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s, background 0.28s;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.28s, 
+              background 0.28s;
   cursor: default;
+  transform-origin: center;
 }
 
-/* overlay for subtle glow (kept but low opacity by default) */
-.word-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, rgba(255,217,61,0.18), rgba(255,140,140,0.14));
-  opacity: 0;
-  transition: opacity 0.28s ease;
-  border-radius: 34px;
-  pointer-events: none;
-}
-
-/* letter styling (targeted so hover can change it) */
+/* letter styling */
 .word-card .letter {
   font-size: 4.2rem;
   font-weight: 10;
@@ -37,46 +29,38 @@
   transition: color 0.28s;
   line-height: 1;
   direction: rtl;
-  /* prevent letter from being squished */
+  text-align: center;
   white-space: nowrap;
-
-  /* absolutely center the glyph to avoid font-metric shifts */
-  position: absolute;
-  top: 37.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  height: auto;
-  display: block;
-  z-index: 1;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-/* Hover: Grow 1.5× + glow + stays enlarged until mouse leaves */
+/* Hover effects */
 .word-card:hover {
   transform: scale(1.4) translateY(-20px);
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 30px 70px rgba(0,0,0,0.35);
-}
-
-.word-card:hover::before {
-  opacity: 0.28;
-}
-
-/* change letter color and card bg when hovered */
-.word-card:hover {
   background: linear-gradient(to bottom, #3b82f6 0%, #0A2472 100%);
 }
+
+/* Single letter turns white on hover */
 .word-card:hover .letter {
-  color: #1e7f20;
+  color: #ffffff;
 }
 
-/* Responsive: scale letter on small screens */
+/* Special handling for compound letters with = sign */
+.word-card:hover .letter:contains("=") {
+  /* We'll handle this with JavaScript instead */
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .word-card {
     height: 3.0in;
   }
   .word-card .letter {
-    font-size: 3.4rem !important;
+    font-size: 3.4rem;
   }
   .word-card:hover {
     transform: scale(1.4) translateY(-15px);

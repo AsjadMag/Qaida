@@ -1,5 +1,29 @@
+/* Add these styles to the existing App.css */
+.word-card-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate; /* Creates a new stacking context */
+}
+
+/* Ensure cards don't overflow their container */
+.lesson-grid {
+  contain: layout style paint;
+}
+
+/* Fix for Arabic text rendering */
+.arabic-text {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "calt" 1; /* Contextual alternates for Arabic */
+}
+
 .App {
   text-align: center;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .App-logo {

@@ -7,6 +7,19 @@ const chapterData = {
   1: {
     titleArabic: 'الحروف الهجائية',
     titleEnglish: 'The Alphabets',
+    // Teacher instructions & goal for chapter 1
+    teacherInfo: {
+      instructions: [
+        'Teach only single Arabic letters.',
+        'Teacher pronounces first; the student repeats.',
+        'Focus on correct pronunciation and proper identification of dots.',
+        'Practice reading in different directions.',
+        'Correct mistakes immediately.',
+        'Do not proceed until 100% accuracy is achieved.',
+        'Daily revision is mandatory.'
+      ],
+      goal: 'Clear recognition and correct pronunciation of all letters.'
+    },
     pages: [
       [['ا', 'ب', 'ت', 'ث'],
       ['ج', 'ح', 'خ'],
@@ -21,6 +34,16 @@ const chapterData = {
   2: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Arabic Alphabet',
+    // Teacher instructions & goal for chapter 2
+    teacherInfo: {
+    instructions: [
+      'After learning single letters, the student enters the next stage, where letters are joined together.',
+      'These joined or compound letters are known as Murakkabat.',
+      'When two or more letters are joined, they form a Murakkab.',
+      'Upon completion of this lesson, the student will be able to recognize and identify the different shapes of each letter in joined form.'
+    ],
+    goal: 'To develop accurate recognition and understanding of Arabic letters in their joined (Murakkab) form.'
+  },
     pages: [
       // Page 1 (Total Page 2)
       [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/laam_2.png', imageHoverPath: '/images/laam_2_hover.png' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/laam_1.png', imageHoverPath: '/images/laam_1_hover.png' }],
@@ -52,7 +75,32 @@ const chapterData = {
   },
   3: {
     titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Zabar & Zairaa',
+    titleEnglish: 'Movements (Harkaat)',
+    // Teacher instructions & goal for chapter 3 page 1
+teacherInfo: {
+    instructions: [
+      '**Zabar (Fat\'ha):** A little slanting dash {{IMG:/images/Zabar.PNG}} over the letters is called **Zabar (Fat\'ha)**.',
+      'Zabar is delivered by opening both lips in up and down-side in strong manner **without prolonging the voice**.'
+    ],
+    goal: 'To correctly pronounce and apply Zabar (Fat\'ha) in Arabic letters and words.'
+  },
+  // ✨ ONE pageTeacherInfo object with both page indices
+  pageTeacherInfo: {
+    1: { // Page 2 (Zair)
+      instructions: [
+        '**Zair (Kasrah):** A little slanting dash{{IMG:/images/Chapter3 Zair.PNG}} appearing under the letters is called **Zair (Kasrah)**.',
+        'Zair is delivered by opening the lips downwards **without prolonging the voice**.'
+      ],
+      goal: 'To correctly pronounce and apply Zair (Kasrah) in Arabic letters and words.'
+    },
+    2: { // Page 3 (Paish)
+      instructions: [
+        '**Paish (Dhammah):** A little twisted dash{{IMG:/images/paish.PNG}} over the letters is called **Paish (Dummah)**.',
+        'Paish is delivered by making a complete round with the both lips **without prolonging the voice**.'
+      ],
+      goal: 'To correctly pronounce and apply Paish (Dhammah) in Arabic letters and words.'
+    }
+  },
     pages: [
       // Page 1 (Total Page 5)
       [['بَ', 'تَ', 'ثَ', 'جَ', 'حَ'],
@@ -68,14 +116,8 @@ const chapterData = {
       ['سِ', 'شِ', 'صِ', 'ضِ', 'طِ'],
       ['ظِ', 'عِ', 'غِ', 'فِ', 'قِ'],
       ['كِ', 'لِ', 'مِ', 'نِ', 'هِ'],
-      ['وِ', 'ءِ = اِ', 'ىِ']]
-    ]
-  },
-  4: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Pesh & Jazm',
-    pages: [
-      // Page 1 (Total Page 7)
+      ['وِ', 'ءِ = اِ', 'ىِ']],
+      // Page 3 (Total Page 7)
       [['بُ', 'تُ', 'ثُ', 'جُ', 'حُ'],
       ['خُ', 'دُ', 'ذُ', 'رُ', 'زُ'],
       ['سُ', 'شُ', 'صُ', 'ضُ', 'طُ'],
@@ -84,9 +126,18 @@ const chapterData = {
       ['وُ', 'ءُ =اُ', 'ىُ']]
     ]
   },
-  5: {
+
+  4: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'THE CHANGING FACES OF LETTERS',
+    // Teacher instructions & goal for chapter 4 page 1
+teacherInfo: {
+    instructions: [
+      'Arabic letters change their shape depending on their position at the beginning, middle, or end of a word. ',
+      'Learning these positional forms helps students'
+    ],
+    goal: 'To enable students to identify and distinguish Arabic letters in their beginning, middle, and ending forms within joined words.'
+  },
     pages: [
       // Page 1 (Total Page 8)
       [
@@ -115,25 +166,14 @@ const chapterData = {
       ['صُ = صُـ', 'ضُ = ضُـ', 'طُ = طُـ', 'ظُ = ظُـ'],
       ['عُ = عُـ', 'غُ = غُـ', 'فُ = فُـ', 'قُ = قُـ'],
       ['كُ = كُـ', 'لُ = لُـ', 'مُ = مُـ', 'نُ = نُـ'],
-      ['هُ = هُـ', 'وُ = وُ', 'ءُ = اُ', 'يُ = يُـ']],
-      // Page 4 (Total Page 11)
-
-      [
-        ['بَ=بِـ=بُـ', 'تَ=تِـ=تُـ', 'ثَ=ثِـ=ثُـ', 'جَ=جِـ=جُـ'],
-        ['حَ=حِـ=حُـ', 'خَ=خِـ=خُـ', 'دَ=دِ=دُ', 'ذَ=ذِ=ذُ'],
-        ['رَ=رِ=رُ', 'زَ=زِ=زُ', 'سَ=سِـ=سُـ', 'شَ=شِـ=شُـ'],
-        ['صَ=صِـ=صُـ', 'ضَ=ضِـ=ضُـ', 'طَ=طِـ=طُـ', 'ظَ=ظِـ=ظُـ'],
-        ['عَ=عِـ=عُـ', 'غَ=غِـ=غُـ', 'فَ=فِـ=فُـ', 'قَ=قِـ=قُـ'],
-        ['كَ=كِـ=كُـ', 'لَ=لِـ=لُـ', 'مَ=مِـ=مُـ', 'نَ=نِـ=نُـ'],
-        ['هَ=هِـ=هُـ', 'وَ=وِ=وُ', 'ءَ=اِ=اُ', 'يَ=يِـ=يُـ']
-      ]
+      ['هُ = هُـ', 'وُ = وُ', 'ءُ = اُ', 'يُ = يُـ']]
     ]
   },
-  6: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Zair',
-    pages: [
-      // Page 1 (Total Page 12)
+ 5: {
+  titleArabic: 'ترکیب حروف',
+  titleEnglish: 'Exercises of Movements (Zair, Zabar, Paish)',
+  pages: [
+    // Page 1 (Total Page 11) – Exercise of Zair
     [
       ['اِ بِ لِ=اِبِلِ', 'يَ لِ جَ=يَلِجَ', 'سَ فِ هَ=سَفِهَ', 'حَ سِ بَ=حَسِبَ'],
       ['لَ مِ نَ=لَمِنَ', 'مَ لَ كِ=مَلَكِ', 'فَ لَ قِ=فَلَقِ', 'شَ هِ دَ=شَهِدَ'],
@@ -142,14 +182,8 @@ const chapterData = {
       ['غَ ضِ بَ=غَضِبَ', 'رَ ضِ يَ=رَضِيَ', 'بَ رِ قَ=بَرِقَ', 'كَ رِ هَ=كَرِهَ'],
       ['اَ دَ هَ=اَدَهَ', 'عَ رِ مِ=عَرِمِ', 'عَ مِ لَ=عَمِلَ', 'حَ بِ طَ=حَبِطَ'],
       ['بَ خِ لَ=بَخِلَ', 'خَ شِ يَ=خَشِيَ', 'عَ لِ مَ=عَلِمَ', 'فَ لِ مَ=فَلِمَ']
-    ]
-    ]
-  },
-  7: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Zabar',
-    pages: [
-      // Page 1 (Total Page 13)
+    ],
+    // Page 2 (Total Page 12) – Exercise of Zabar
     [
       ['عَ بَ دَ=عَبَدَ', 'اَ مَ رَ=اَمَرَ', 'مَ رَ جَ=مَرَجَ', 'ثَ مَ رَ=ثَمَرَ'],
       ['فَ عَ لَ=فَعَلَ', 'رَ فَ ثَ=رَفَثَ', 'عَ بَ سَ=عَبَسَ', 'نَ كَ صَ=نَكَصَ'],
@@ -158,14 +192,8 @@ const chapterData = {
       ['صَ بَ رَ=صَبَرَ', 'خَ تَ مَ=خَتَمَ', 'مَ طَ رَ=مَطَرَ', 'شَ رَ حَ=شَرَحَ'],
       ['ذَ هَ بَ=ذَهَبَ', 'ظَ هَ رَ=ظَهَرَ', 'اَ حَ دَ=اَحَدَ', 'هَ لَ كَ=هَلَكَ'],
       ['حَ مَ لَ=حَمَلَ', 'عَ شَ رَ=عَشَرَ', 'رَ فَ عَ=رَفَعَ', 'نَ بَ اَ=نَبَاَ']
-    ]
-    ]
-  },
-  8: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Paish',
-    pages: [
-      // Page 1 (Total Page 14)
+    ],
+    // Page 3 (Total Page 13) – Exercise of Paish
     [
       ['رُ سُ لُ=رُسُلُ', 'رُ بُ عُ=رُبُعُ', 'سُ بُ لَ=سُبُلَ', 'وُ جِ دَ=وُجِدَ'],
       ['لُ عِ نَ=لُعِنَ', 'فُ عِ لَ=فُعِلَ', 'جُ عِ لَ=جُعِلَ', 'اُ فُ قِ=اُفُقِ'],
@@ -175,26 +203,39 @@ const chapterData = {
       ['ذُ كِ رَ=ذُكِرَ', 'كُ تِ بَ=كُتِبَ', 'سُ قِ طَ=سُقِطَ', 'وَ هُ وَ=وَهُوَ'],
       ['حُ شِ رَ=حُشِرَ', 'عُ رِ ضَ=عُرِضَ', 'قُ رِ ئَ=قُرِئَ', 'مُ نِ عَ=مُنِعَ']
     ]
-    ]
-  },
-  9: {
+  ]
+},
+  6: {
     titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Alif Maddah',
+    titleEnglish: 'Alif Maddah',
+    teacherInfo: {
+      instructions: [
+        'Alif Maddah: If **Zabar** is placed before an Alif{{IMG:/images/AlifMaddah.PNG}} it is called **Alif Maddah**.',
+        'For example:{{IMG:/images/Bay.PNG}}Zabar{{IMG:/images/Baa.PNG|3rem}} and if it is pronounced twice then{{IMG:/images/Bay.PNG}} Zabar -ALif{{IMG:/images/Baa2.PNG|4rem}}'
+      ],
+      goal: 'Recognize Alif Maddah and pronounce the elongated vowel correctly.'
+    },
+    teacherImage: {
+      imagePath: '/images/ChapterNo.6.png',
+      alt: 'Alif Maddah example diagram'
+    },
+    // Optional per-page titles (page index is zero-based)
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Alif Maddah',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
-      // Page 1 (Total Page 15)
+      // Page 1 (Total Page 14)
       [['بَا', 'تَا', 'ثَا', 'جَا', 'حَا'],
       ['خَا', 'دَا', 'ذَا', 'رَا', 'زَا'],
       ['سَا', 'شَا', 'صَا', 'ضَا', 'طَا'],
       ['ظَا', 'عَا', 'غَا', 'فَا', 'قَا'],
       ['كَا', 'لَا', 'مَا', 'نَا', 'هَا'],
-      ['وَا', 'ءَا', 'يَا']]
-    ]
-  },
-  10: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Alif Maddah',
-    pages: [
-      // Page 1 (Total Page 16)
+      ['وَا', 'ءَا', 'يَا']],
+
+      // Appended exercises (previously chapter 7 Page 1)
       [['قَالَ', 'قَالَا', 'اَرَادَ', 'اَرَادَا'],
       ['حَاقَ', 'ذَاقَا', 'اَصَابَ', 'اَصَابَهَا'],
       ['مَعَاذَ', 'فَمَاذَا', 'فَتَابَ', 'طَاقَةَ'],
@@ -202,27 +243,35 @@ const chapterData = {
       ['ثَالِثُ', 'لِسَانِ', 'اَصَابَ', 'وَكَانَ'],
       ['فَقَالَ', 'هَادِيَ', 'حَارَبَ', 'ذَاتَ'],
       ['ظَاهِر']]
-    ]
+    ],
+
   },
 
-  11: {
+  8: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Yaa-i Maddah',
+    teacherInfo: {
+      instructions: [
+        '**Yaa-i Maddah:** If **Zair** is placed before a Sakin Yaa{{IMG:/images/YaaImaddah.PNG}} it is called **Yaa-i Maddah**.',
+        'For example:{{IMG:/images/Bay.PNG}}Zair{{IMG:/images/BaZair.PNG|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.PNG}}Zair - Yaa{{IMG:/images/BiYa.PNG|4rem}} .'
+      ],
+      goal: 'Recognize the Yaa-i Maddah form and pronounce the combined/elongated Yaa sound correctly.'
+    },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Yaa-i Maddah',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
-      // Page 1 (Total Page 17)
+      // Page 1 (Total Page 16)
       [['بِيْ', 'تِيْ', 'ثِيْ', 'جِيْ', 'حِيْ'],
       ['خِيْ', 'دِيْ', 'ذِيْ', 'رِيْ', 'زِيْ'],
       ['سِيْ', 'شِيْ', 'صِيْ', 'ضِيْ', 'طِيْ'],
       ['ظِيْ', 'عِيْ', 'غِيْ', 'فِيْ', 'قِيْ'],
       ['كِيْ', 'لِيْ', 'مِيْ', 'نِيْ', 'هِيْ'],
-      ['وِيْ', 'اِيْ', 'يِيْ']]
-    ]
-  },
-  12: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Yaa-i Maddah',
-    pages: [
-      // Page 1 (Total Page 18)
+      ['وِيْ', 'اِيْ', 'يِيْ']],
+      // Page 2 (Total Page 17)
       [['صِرَاطِىْ', 'صِرَاطِ', 'عِبَادِيْ', 'عِبَادِ'],
       ['عَذَابِيْ', 'عَذَابِ', 'لِاَخِيْهِ', 'نُرِيْ'],
       ['كُلِيْ', 'يَمِيْزَ', 'بَنَاتِيْ', 'صِرَاطِيْ'],
@@ -232,25 +281,36 @@ const chapterData = {
       ['عَظِيمِ']]
     ]
   },
-  13: {
+  10: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Wao Maddah',
+    teacherInfo: {
+      instructions: [
+        '**Wao Maddah:** If **Paish** is placed before a Sakin Wao{{IMG:/images/waomaddah1.PNG}} it is called **Wao Maddah**.',
+        'For example:{{IMG:/images/Bay.PNG}}Paish {{IMG:/images/waomaddah2.PNG|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.PNG}} Paish - Wao{{IMG:/images/waomaddah3.PNG|3rem}}.'
+      ],
+      goal: 'Recognize Wao Maddah and pronounce the elongated Wao sound correctly.'
+    },
+        teacherImage: {
+      imagePath: '/images/ChapterNo8.png',
+      alt: 'Wao Maddah example diagram'
+    },
+     pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Wao Maddah',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
-      // Page 1 (Total Page 19)
+      // Page 1 (Total Page 18)
       [['بُوْ', 'تُوْ', 'ثُوْ', 'جُوْ'],
       ['حُوْ', 'خُوْ', 'دُوْ', 'ذُوْ'],
       ['رُوْ', 'زُوْ', 'سُوْ', 'شُوْ'],
       ['صُوْ', 'ضُوْ', 'طُوْ', 'ظُوْ'],
       ['عُوْ', 'غُوْ', 'فُوْ', 'قُوْ'],
       ['كُوْ', 'لُوْ', 'مُوْ', 'نُوْ'],
-      ['هُوْ', 'وُوْ', 'اُوْ', 'يُوْ']]
-    ]
-  },
-  14: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Wao-Maddah',
-    pages: [
-      // Page 1 (Total Page 20)
+      ['هُوْ', 'وُوْ', 'اُوْ', 'يُوْ']],
+      // Page 2 (Total Page 19)
     [
       ['فَتُوْبُوْا', 'اَتُوْبُ', 'اَفِيضُوْا', 'تَفِيْضُ'],
       ['تَخَافُوْا', 'اَخَافُ', 'نُوحِيْهَا', 'اُوذِيْنَا'],
@@ -262,25 +322,42 @@ const chapterData = {
     ]
     ]
   },
-  15: {
+  12: {
     titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Huroof-i Maddah and Erected Harkaat',
+    titleEnglish: 'Erected Harkaat',
+     teacherInfo: {
+    instructions: [
+      '**Erected Zabar:** A short vertical line appearing above the letter{{IMG:/images/erected Zabar.PNG|2.5rem}} is called **Erected Zabar**.',
+      'If a small sound is produced by opening the lips slightly upwards on the pronunciation of a letter, it is called **Zabar rule**.',
+      'And if it is pronounced twice as long, it is called the **rule of Alif Maddah and Erected Zabar**.',
+      'For example:{{IMG:/images/erected Zabar1.PNG|3rem}}**=**  Zabar - Alif{{IMG:/images/erected Zabar2.PNG|3rem}}'
+    ],
+    goal: 'Understand that Huroof-i Maddah and Erected Harkaat are pronounced the same (one Alif length), and correctly apply Erected Zabar.'
+  },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Erected Zabar',
+        titleArabic: 'ترکیب حروف'
+      },
+      2: {
+        titleEnglish: 'Erected Zair',
+        titleArabic: 'ترکیب حروف'  
+      },
+      3: {
+        titleEnglish: 'Exercise of Erected Zair',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
-      // Page 1 (Total Page 21)
+      // Page 1 (Total Page 20)
       [['بَا=بٰ', 'تَا=تٰ', 'ثَا=ثٰ', 'جٰ'],
       ['حٰ', 'خٰ', 'دٰ', 'ذٰ'],
       ['رٰ', 'زٰ', 'سٰ', 'شٰ'],
       ['صٰ', 'ضٰ', 'طٰ', 'ظٰ'],
       ['عٰ', 'غٰ', 'فٰ', 'قٰ'],
       ['كٰ', 'لٰ', 'مٰ', 'نٰ'],
-      ['هٰ', 'وٰ', 'يٰ']]
-    ]
-  },
-  16: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Erected Zabar',
-    pages: [
-      // Page 1 (Total Page 22)
+      ['هٰ', 'وٰ', 'يٰ']],
+      // Page 2 (Total Page 21)
     [
       ['مٰلِكِ=مالِكِ', 'كِتٰبُ=كِتَابُ', 'اٰتٰنَا', 'قٰلَ=قَالَ'],
       ['انَّهَا', 'سَمٰوٰتِ', 'اٰيٰتِ', 'شُكْرٰى'],
@@ -288,14 +365,8 @@ const chapterData = {
       ['يُضٰعَفُ', 'اٰثٰرِ', 'اُسٰرٰى', 'نَصٰرٰى'],
       ['مِيْكٰلَ', 'قٰلَ', 'هٰذَا', 'يُوحٰى'],
       ['ذٰلِكُمَا', 'تَظٰهَرَا']
-    ]
-    ]
-  },
-  17: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Erected Zair',
-    pages: [
-      // Page 1 (Total Page 23)
+    ],
+      // Page 3 (Total Page 22)
       [
         ['بي=بٖ', 'تى=تٖ', 'ثى=ثٖ', 'جٖ'],
         ['حٖ', 'خٖ', 'دٖ', 'ذٖ'],
@@ -304,14 +375,8 @@ const chapterData = {
         ['عٖ', 'غٖ', 'فٖ', 'قٖ'],
         ['كٖ', 'لٖ', 'مٖ', 'نٖ'],
         ['هٖ', 'وٖ', 'يٖ']
-      ]
-    ]
-  },
-  18: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Erected Zair',
-    pages: [
-      // Page 1 (Total Page 24)
+      ],
+      // Page 4 (Total Page 23)
       [
         ['اٖلٰفِ=اِيلٰفِ', 'مِيْثَاقِهٖ', 'رُسُلِهٖ', 'رَسُوْلِهٖ'],
         ['اٰيٰتِهٖ', 'بِوَلَدِهٖ', 'عِبَادِهٖ', 'عِبَادَتِهٖ'],
@@ -323,25 +388,34 @@ const chapterData = {
       ]
     ]
   },
-  19: {
+  16: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Inverted Paish',
+    teacherInfo: {
+    instructions: [
+      'This sign on a letter{{IMG:/images/InvertedPaish.PNG|3rem}} is called an **inverted Paih**.',
+      '**inverted Paish**: If a small sound is produced by moving the lips forward, that is, moving the lips towards the full circle, on the pronunciation',
+      'And if it is pronounced with a sound twice as long, **it is called the rule of Wao Maddah and Inverted Paish**.',
+      'For example:{{IMG:/images/InvertedPaish2.PNG|3rem}}Paish - Wao{{IMG:/images/InvertedPaish3.PNG|3rem}}.'
+    ],
+    goal: 'Understand Inverted Paish and its relation to Wao Maddah, and pronounce it correctly.'
+  },
+       pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Inverted Paish',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
-      // Page 1 (Total Page 25)
+      // Page 1 (Total Page 24)
       [['بٗ', 'تٗ', 'ثٗ', 'جٗ'],
       ['حٗ', 'خٗ', 'دٗ', 'ذٗ'],
       ['رٗ', 'زٗ', 'سٗ', 'شٗ'],
       ['صٗ', 'ضٗ', 'طٗ', 'ظٗ'],
       ['عٗ', 'غٗ', 'فٗ', 'قٗ'],
       ['كٗ', 'لٗ', 'مٗ', 'نٗ'],
-      ['هٗ', 'وٗ', 'يٗ']]
-    ]
-  },
-  20: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Inverted Paish',
-    pages: [
-      // Page 1 (Total Page 26)
+      ['هٗ', 'وٗ', 'يٗ']],
+      // Page 2 (Total Page 25)
       [
         ['دَاوٗدُ=دَاوُوْدُ', 'وٗرِيَ=وُوْرِيَ', 'لِيَسُوْءٗا=لِيَسُوْءُوْا', 'كَلِمَتُهٗ'],
         ['اٰيٰتُهٗ', 'مَا وٗرِيَ', 'رِسَالَتَهٗ', 'فِصٰلُهٗ'],
@@ -352,25 +426,37 @@ const chapterData = {
       ]
     ]
   },
-  21: {
+  18: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Wao Leen',
+    teacherInfo: {
+    instructions: [
+      'If Zabar appears before a Sakin Wao{{IMG:/images/waoleen.PNG|3rem}}, it is called **Wao Leen**.',
+      '**Reading Method of Wao Leen:**',
+      'The lips are just to open (like in Zabar) and immediately they are made completely round. The delivery is done very softly without prolonging.'
+    ],
+    goal: 'Recognise Wao Leen and pronounce it correctly with soft, non‑prolonged delivery.'
+  },
+      teacherImage: {
+      imagePath: '/images/spin.png',
+      alt: 'Alif Maddah example diagram'
+    },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Wao Leen',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
-      // Page 1 (Total Page 27)
+      // Page 1 (Total Page 26)
       [['بَوْ', 'تَوْ', 'ثَوْ', 'جَوْ'],
       ['حَوْ', 'خَوْ', 'دَوْ', 'ذَوْ'],
       ['رَوْ', 'زَوْ', 'سَوْ', 'شَوْ'],
       ['صَوْ', 'ضَوْ', 'طَوْ', 'ظَوْ'],
       ['عَوْ', 'غَوْ', 'فَوْ', 'قَوْ'],
       ['كَوْ', 'لَوْ', 'مَوْ', 'نَوْ'],
-      ['هَوْ', 'وَوْ', 'اَوْ', 'يَوْ']]
-    ]
-  },
-  22: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Wao Leen',
-    pages: [
-      // Page 1 (Total Page 28)
+      ['هَوْ', 'وَوْ', 'اَوْ', 'يَوْ']],
+      // Page 2 (Total Page 27)
       [
         ['تَعَالَوْا', 'فَنَادَوْا', 'مَوْجُ', 'طَغَوْا'],
         ['عَلَوْا', 'سَوْفَ', 'فَوْقَ', 'يَرَوْنَا'],
@@ -383,9 +469,24 @@ const chapterData = {
       ]
     ]
   },
-  23: {
+
+  20: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Yaa-i Leen',
+    teacherInfo: {
+    instructions: [
+      'If Zabar appears before a Sakin Yaa {{IMG:/images/Yaa-i-Leen.PNG|3rem}}, it is called **Yaa-i Leen**.',
+      '**Reading Method of Yaa-i Leen:**',
+      'The lips are about to open (like in Zabar) and immediately they are stretched sideways. The delivery is done very softly without prolonging.'
+    ],
+    goal: 'Recognise Yaa-i Leen and pronounce it correctly with soft, non‑prolonged delivery.'
+  },
+  pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Yaa-i Leen',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
       // Page 1 (Total Page 29)
       [['بَيْ', 'تَيْ', 'ثَيْ', 'جَيْ'],
@@ -394,14 +495,8 @@ const chapterData = {
       ['صَيْ', 'ضَيْ', 'طَيْ', 'ظَيْ'],
       ['عَيْ', 'غَيْ', 'فَيْ', 'قَيْ'],
       ['كَيْ', 'لَيْ', 'مَيْ', 'نَيْ'],
-      ['هَيْ', 'وَيْ', 'اَيْ', 'يَيْ']]
-    ]
-  },
-  24: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Yaa-i Leen',
-    pages: [
-      // Page 1 (Total Page 30)
+      ['هَيْ', 'وَيْ', 'اَيْ', 'يَيْ']],
+      // Page 2 (Total Page 30)
       [
         ['اٰتَيْنَا', 'غَيْبِ', 'بَيْنَ', 'عَلَيْهَا'],
         ['عَصَيْنَا', 'فَعَلَيْهَا', 'لَيْلَةُ', 'زَوْجَيْنِ'],
@@ -414,9 +509,55 @@ const chapterData = {
       ]
     ]
   },
-  25: {
+  22: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Jazm or Sukoon',
+    teacherInfo: {
+    instructions: [
+      'This sign {{IMG:/images/Jazm or Sukoon2.PNG|3rem}} is called **Jazm** or **Sukoon**, it is written over the letter.',
+      'Jazm letter always read along with its predecessor having Zabar Zair Paish.',
+      'The letter having Zabar Zair Paish is quickly joined with the Sakin letter and the sound of the Sakin letter is made still at its point of articulation.',
+      'The sound produced should be clear.',
+      'The tongue and the mouth should be completely still while delivering the Sakin letter except The following ⭐'
+    ],
+    goal: 'Understand the concept of Jazm (Sukoon) and correctly pronounce letters carrying this sign.'
+  },
+  teacherImage: {
+      imagePath: '/images/Jazm or Sukoon.png',
+      alt: 'Wao Maddah example diagram'
+    }, 
+  pageTeacherInfo: {
+      1: { // Page 2 (Total Page 32) – Exercise of Jazm
+        instructions: [
+          '{{IMG:/images/Jazm or Sukoon3.PNG}} if these letters have a Jazm then.',
+          'The voice must bounce so keep this in mind.',
+          'If there is a Jazm on Hamzah then both the voice and breath have to be stopped together in a stern manner.',
+          'But the sound should be not removed.'
+        ],
+        imagePath: '/images/Jazm or Sukoon4.png',
+      },
+      3: {
+        instructions: [
+          '{{IMG:/images/Jazm or Sukoon3.PNG}} if these letters have a Jazm then.',
+          'The voice must bounce so keep this in mind.'
+        ],
+        imagePath: '/images/Jazm or Sukoon4.png',
+      },
+    },
+  pageTitles: {
+      1: {
+        titleEnglish: 'Jazm or Sukoon',
+        titleArabic: 'ترکیب حروف'
+      },
+      2: {
+        titleEnglish: 'Exercise of Jazm',
+        titleArabic: 'ترکیب حروف'
+      },
+      3: {
+        titleEnglish: 'Exercise of Jazm',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
       // Page 1 (Total Page 31)
       [
@@ -431,14 +572,8 @@ const chapterData = {
       [
         ['اَقْ اِقْ أُقْ', 'اَطْ اِطْ أُطْ', 'اَبْ اِبْ أُبْ', 'اَجْ اِجْ أُجْ'],
         ['اَدْ اِدْ أُدْ', 'مَءْ مِءْ مُءْ']
-      ]
-    ]
-  },
-  26: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Jazm',
-    pages: [
-      // Page 1 (Total Page 33)
+      ],
+       // Page 3 (Total Page 33)
       [
         ['خِفْتُ', 'يُفْسِدُونَ', 'نَحْنُ', 'اِحْدٰهُمَا'],
         ['مِثْقَالَ', 'يُثْخِنَ', 'اِهْدِنَا', 'يُهْلِكَ'],
@@ -451,7 +586,7 @@ const chapterData = {
         ['نَعْبُدُ', 'يُعْلِنُونَ', 'يَرْجِعُونَ', 'فِتْنَتُكَ'],
         ['فَيَمُتْ', 'تَكْرَهُوْا', 'رُسُلِكْ']
       ],
-      // Page 2 (Total Page 34)
+      // Page 4 (Total Page 34)
       [
         ['خَلَقْنَا', 'شَطْرَهٗ', 'قَبْلِكَ', 'تَجْرِي'],
         ['اَدْنٰى', 'أُقْسِمُ', 'يُطْعِمُ', 'وَتُبُ'],
@@ -462,9 +597,53 @@ const chapterData = {
       ]
     ]
   },
-  27: {
+
+  24: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Shadd',
+    teacherInfo: {
+    instructions: [
+      'This sign{{IMG:/images/shadd.PNG}}is called **Shadd**, it is written over the letter with **Harkaat**.',
+      'A Shadd letter is always read by joining with its predecessor having **Harkaat**.',
+      'In Arabic language, whenever a word has two same letters, first having jazm/sukoon and second having a **Harkaat**,',
+      'Then instead of writing the same letter twice, the letter is written only once with the sign of shadd, so that it read like two letters, therefore reading the shadd letter takes time equivalent to reading two letters.',
+      'For example:{{IMG:/images/shadd2.PNG}}',
+      '**Reading method of shadda:** Read it stronger and clearer than the normal.'
+    ],
+    goal: 'Understand the concept of Shadd and pronounce it correctly with emphasis and clarity.',
+    imagePath: '/images/shadd3.png'
+  },
+   pageTeacherInfo: {
+      2: { 
+        instructions: [
+          '**Exercise of Shadd** And now discussing two more features of the letters regarding voice and breath.',
+          'Some letters have a continous voice and some have stopping voice,',
+          'Some letters have a continous breath and some have stopping breath.'
+        ],
+      }
+    },
+  pageTitles: {
+      1: {
+        titleEnglish: 'Shadd',
+        titleArabic: 'ترکیب حروف'
+      },
+      2: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: 'ترکیب حروف'
+      },
+      3: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: 'ترکیب حروف'
+      },
+      4: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: 'ترکیب حروف'
+      },
+      5: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
       // Page 1 (Total Page 35)
       [['اَبَّ', 'اِبِّ', 'أُبُّ', 'اَتَّ'],
@@ -487,14 +666,8 @@ const chapterData = {
       ['أُلُّ', 'اَنَّ', 'اِنِّ', 'أُنُّ'],
       ['اَمَّ', 'اِمِّ', 'أُمُّ', 'اَهَّ'],
       ['اِهِّ', 'أُهُّ', 'اَوَّْ', 'اِوِّْ'],
-      ['أُؤُّ', 'اَيَّ', 'اِيِّ', 'أُيُّ']]
-    ]
-  },
-  28: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Shadd',
-    pages: [
-      // Page 1 (Total Page 37)
+      ['أُؤُّ', 'اَيَّ', 'اِيِّ', 'أُيُّ']],
+            // Page 1 (Total Page 37)
       [
         ['كَفَّلَهَا', 'يَكُفُّونَ', 'يَزِفُّونَ', 'وُفِّيَتْ'],
         ['شُحَّ', 'لِيُمَحِّصَ', 'شُحَّ', 'الْمُسَحِّرِينَ'],
@@ -536,7 +709,7 @@ const chapterData = {
       ]
     ]
   },
-  29: {
+  26: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: ' Double Shadd',
     pages: [
@@ -549,7 +722,7 @@ const chapterData = {
       ]
     ]
   },
-  30: {
+  27: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Three Variable letters',
     pages: [
@@ -561,7 +734,7 @@ const chapterData = {
       ]
     ]
   },
-  31: {
+  28: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of the following Words',
     pages: [
@@ -576,7 +749,7 @@ const chapterData = {
       ]
     ]
   },
-  32: {
+  29: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Tanween Exercise of Double Zabar',
     pages: [
@@ -594,7 +767,7 @@ const chapterData = {
       ]
     ]
   },
-  33: {
+  30: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Double Zair',
     pages: [
@@ -612,7 +785,7 @@ const chapterData = {
       ]
     ]
   },
-  34: {
+  31: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Double Paish',
     pages: [
@@ -630,7 +803,7 @@ const chapterData = {
       ]
     ]
   },
-  35: {
+  32: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Izhar',
     pages: [
@@ -653,7 +826,7 @@ const chapterData = {
       ['خ', 'مَنْ خَشِيَ', 'لَطِيْفٌ خَبِيْرٌ', 'وَالْمُنْخَنِقَةُ']]
     ]
   },
-  36: {
+  33: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Iqlab',
     pages: [
@@ -664,7 +837,7 @@ const chapterData = {
       ]
     ]
   },
-  37: {
+  34: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Tiny Meem',
     pages: [
@@ -681,7 +854,7 @@ const chapterData = {
       ]
     ]
   },
-  38: {
+  35: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham',
     pages: [
@@ -699,7 +872,7 @@ const chapterData = {
       ]
     ]
   },
-  39: {
+  36: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham When the Noon Sakin comes before the Shadd letter',
     pages: [
@@ -763,7 +936,7 @@ const chapterData = {
       ]
     ]
   },
-  40: {
+  37: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham on other letters',
     pages: [
@@ -775,7 +948,7 @@ const chapterData = {
       ]
     ]
   },
-  41: {
+  38: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Ikhfa',
     pages: [
@@ -793,7 +966,7 @@ const chapterData = {
       ]
     ]
   },
-  42: {
+  39: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Complete detail of Ghunnah at Meem',
     pages: [
@@ -815,7 +988,7 @@ const chapterData = {
       ]
     ]
   },
-  43: {
+  40: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Madd (Prolonging the Sound of vowels)',
     pages: [
@@ -845,7 +1018,7 @@ const chapterData = {
       ]
     ]
   },
-  44: {
+  41: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'MADD DUE TO PAUSE',
     pages: [
@@ -856,7 +1029,7 @@ const chapterData = {
       ]
     ]
   },
-  45: {
+  42: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Examples of Pause after Huroof-e-Maddah',
     pages: [
@@ -868,7 +1041,7 @@ const chapterData = {
       ]
     ]
   },
-  46: {
+  43: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Examples of Pause after Huroof-e-Leen',
     pages: [
@@ -880,7 +1053,7 @@ const chapterData = {
       ]
     ]
   },
-  47: {
+  44: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Pause (Waqf)',
     pages: [
@@ -932,7 +1105,7 @@ const chapterData = {
       ]
     ]
   },
-  48: {
+  45: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'TINY NOON',
     pages: [
@@ -947,7 +1120,7 @@ const chapterData = {
       ]
     ]
   },
-  49: {
+  46: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Rule of adding Zabar',
     pages: [
@@ -955,7 +1128,7 @@ const chapterData = {
       [['الْكِتٰبِ ⇐ اَلْكِتٰبْ', 'الرَّحْمٰنِ ⇐ اَلرَّحْمٰنْ']]
     ]
   },
-  50: {
+  47: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Rule of adding Zair and Paish',
     pages: [
@@ -991,166 +1164,11 @@ const chapterData = {
 };
 
 const LessonPage = ({ pageNumber }) => {
-  // Logic to determine which chapter and which page of that chapter to show
-  let currentChapterNum = 1;
-  let pageInChapter = 0;
+  // Build a numeric-sorted list of chapters and compute total pages
+  const chapterNumbers = Object.keys(chapterData).map(n => parseInt(n, 10)).sort((a, b) => a - b);
+  const totalPages = chapterNumbers.reduce((sum, n) => sum + (chapterData[n].pages ? chapterData[n].pages.length : 0), 0);
 
-  if (pageNumber === 1) {
-    currentChapterNum = 1;
-    pageInChapter = 0;
-  } else if (pageNumber >= 2 && pageNumber <= 4) {
-    currentChapterNum = 2;
-    pageInChapter = pageNumber - 2;
-  } else if (pageNumber >= 5 && pageNumber <= 6) {
-    currentChapterNum = 3;
-    pageInChapter = pageNumber - 5;
-
-  } else if (pageNumber === 7) {
-    currentChapterNum = 4;
-    pageInChapter = 0;
-
-  } else if (pageNumber >= 8 && pageNumber <= 11) {
-    currentChapterNum = 5;
-    pageInChapter = pageNumber - 8;
-
-  } else if (pageNumber === 12) {
-    currentChapterNum = 6;
-    pageInChapter = 0;
-
-  } else if (pageNumber === 13) {
-    currentChapterNum = 7;
-    pageInChapter = 0;
-  } else if (pageNumber === 14) {
-    currentChapterNum = 8;
-    pageInChapter = 0;
-  } else if (pageNumber === 15) {
-    currentChapterNum = 9;
-    pageInChapter = 0;
-  } else if (pageNumber === 16) {
-    currentChapterNum = 10;
-    pageInChapter = 0;
-  } else if (pageNumber === 17) {
-    currentChapterNum = 11;
-    pageInChapter = 0;
-  } else if (pageNumber === 18) {
-    currentChapterNum = 12;
-    pageInChapter = 0;
-  } else if (pageNumber === 19) {
-    currentChapterNum = 13;
-    pageInChapter = 0;
-  } else if (pageNumber === 20) {
-    currentChapterNum = 14;
-    pageInChapter = 0;
-  } else if (pageNumber === 21) {
-    currentChapterNum = 15;
-    pageInChapter = 0;
-  } else if (pageNumber === 22) {
-    currentChapterNum = 16;
-    pageInChapter = 0;
-  } else if (pageNumber === 23) {
-    currentChapterNum = 17;
-    pageInChapter = 0;
-  } else if (pageNumber === 24) {
-    currentChapterNum = 18;
-    pageInChapter = 0;
-  } else if (pageNumber === 25) {
-    currentChapterNum = 19;
-    pageInChapter = 0;
-  } else if (pageNumber === 26) {
-    currentChapterNum = 20;
-    pageInChapter = 0;
-  } else if (pageNumber === 27) {
-    currentChapterNum = 21;
-    pageInChapter = 0;
-  } else if (pageNumber === 28) {
-    currentChapterNum = 22;
-    pageInChapter = 0;
-  } else if (pageNumber === 29) {
-    currentChapterNum = 23;
-    pageInChapter = 0;
-  } else if (pageNumber === 30) {
-    currentChapterNum = 24;
-    pageInChapter = 0;
-  } else if (pageNumber >= 31 && pageNumber <= 32) {
-    currentChapterNum = 25;
-    pageInChapter = pageNumber - 31;
-  } else if (pageNumber >= 33 && pageNumber <= 34) {
-    currentChapterNum = 26;
-    pageInChapter = pageNumber - 33;
-  } else if (pageNumber >= 35 && pageNumber <= 36) {
-    currentChapterNum = 27;
-    pageInChapter = pageNumber - 35;
-  } else if (pageNumber >= 37 && pageNumber <= 40) {
-    currentChapterNum = 28;
-    pageInChapter = pageNumber - 37;
-  } else if (pageNumber === 41) {
-    currentChapterNum = 29;
-    pageInChapter = 0;
-  } else if (pageNumber === 42) {
-    currentChapterNum = 30;
-    pageInChapter = 0;
-  } else if (pageNumber === 43) {
-    currentChapterNum = 31;
-    pageInChapter = 0;
-  } else if (pageNumber >= 44 && pageNumber <= 45) {
-    currentChapterNum = 32;
-    pageInChapter = pageNumber - 44;
-  } else if (pageNumber >= 46 && pageNumber <= 47) {
-    currentChapterNum = 33;
-    pageInChapter = pageNumber - 46;
-  } else if (pageNumber >= 48 && pageNumber <= 49) {
-    currentChapterNum = 34;
-    pageInChapter = pageNumber - 48;
-  } else if (pageNumber >= 50 && pageNumber <= 51) {
-    currentChapterNum = 35;
-    pageInChapter = pageNumber - 50;
-  } else if (pageNumber === 52) {
-    currentChapterNum = 36;
-    pageInChapter = 0;
-  } else if (pageNumber >= 53 && pageNumber <= 54) {
-    currentChapterNum = 37;
-    pageInChapter = pageNumber - 53;
-  } else if (pageNumber >= 55 && pageNumber <= 56) {
-    currentChapterNum = 38;
-    pageInChapter = pageNumber - 55;
-  } else if (pageNumber >= 57 && pageNumber <= 62) {
-    currentChapterNum = 39;
-    pageInChapter = pageNumber - 57;
-  } else if (pageNumber === 63) {
-    currentChapterNum = 40;
-    pageInChapter = 0;
-  } else if (pageNumber >= 64 && pageNumber <= 65) {
-    currentChapterNum = 41;
-    pageInChapter = pageNumber - 64;
-  } else if (pageNumber >= 66 && pageNumber <= 67) {
-    currentChapterNum = 42;
-    pageInChapter = pageNumber - 66;
-  } else if (pageNumber >= 68 && pageNumber <= 71) {
-    currentChapterNum = 43;
-    pageInChapter = pageNumber - 68;
-  } else if (pageNumber === 72) {
-    currentChapterNum = 44;
-    pageInChapter = 0;
-  } else if (pageNumber === 73) {
-    currentChapterNum = 45;
-    pageInChapter = 0;
-  } else if (pageNumber === 74) {
-    currentChapterNum = 46;
-    pageInChapter = 0;
-  } else if (pageNumber >= 75 && pageNumber <= 81) {
-    currentChapterNum = 47;
-    pageInChapter = pageNumber - 75;
-  } else if (pageNumber >= 82 && pageNumber <= 83) {
-    currentChapterNum = 48;
-    pageInChapter = pageNumber - 82;
-  } else if (pageNumber === 84) {
-    currentChapterNum = 49;
-    pageInChapter = 0;
-  } else if (pageNumber >= 85 && pageNumber <= 88) {
-    currentChapterNum = 50;
-    pageInChapter = pageNumber - 85;
-
-  } else {
+  if (!pageNumber || pageNumber < 1 || pageNumber > totalPages) {
     return (
       <div style={{ textAlign: 'center', padding: '100px 1in', fontSize: '3rem', color: '#0f2a44', fontFamily: 'urdu-text, serif' }}>
         صفحہ {pageNumber} جلد ہی شامل کیا جائے گا ان شاء اللہ
@@ -1158,25 +1176,200 @@ const LessonPage = ({ pageNumber }) => {
     );
   }
 
+  // Find which chapter and which page inside that chapter corresponds to the global pageNumber
+  let remaining = pageNumber; // 1-based
+  let currentChapterNum = chapterNumbers[0];
+  let pageInChapter = 0;
+
+  for (const ch of chapterNumbers) {
+    const pages = chapterData[ch].pages ? chapterData[ch].pages.length : 0;
+    if (remaining <= pages) {
+      currentChapterNum = ch;
+      pageInChapter = remaining - 1; // zero-based index inside chapter
+      break;
+    }
+    remaining -= pages;
+  }
+
   const currentChapter = chapterData[currentChapterNum];
   const currentLetters = currentChapter.pages[pageInChapter];
+
+  // Determine page-specific title if provided, otherwise use chapter title
+  const pageTitle = (currentChapter.pageTitles && currentChapter.pageTitles[pageInChapter])
+    ? currentChapter.pageTitles[pageInChapter]
+    : { titleArabic: currentChapter.titleArabic, titleEnglish: currentChapter.titleEnglish };
+
+  // Compute a displayed (sequential) chapter number so missing keys don't create gaps
+  const displayChapterNo = (chapterNumbers.indexOf(currentChapterNum) >= 0)
+    ? (chapterNumbers.indexOf(currentChapterNum) + 1)
+    : currentChapterNum;
 
   return (
     <div style={{ padding: '40px 1in 180px', maxWidth: '100%', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '50px' }}>
         <h3 style={{ fontSize: '2rem', color: '#666', marginBottom: '5px', fontWeight: 'normal', fontFamily: 'Arial, sans-serif' }}>
-          Chapter No. {currentChapterNum.toString().padStart(2, '0')}
+          Chapter No. {displayChapterNo.toString().padStart(2, '0')}
         </h3>
         <h1 style={{ fontSize: '3.5rem', marginBottom: '10px', color: '#0f2a44', fontFamily: 'ArabQuranIslamic_1, serif', fontWeight: 'normal' }}>
-          {currentChapter.titleArabic}
+          {pageTitle.titleArabic}
         </h1>
         <h3 style={{ fontSize: '2rem', color: '#666', marginBottom: '5px', fontWeight: 'normal', fontFamily: 'Arial, sans-serif' }}>
-          {currentChapter.titleEnglish}
+          {pageTitle.titleEnglish}
         </h3>
         <p style={{ fontSize: '1.5rem', color: '#888', fontFamily: 'Arial, sans-serif' }}>
-          Lesson No. {currentChapterNum} (Page {pageInChapter + 1}/{currentChapter.pages.length})
+          Lesson No. {displayChapterNo} (Page {pageNumber}/{totalPages})
         </p>
       </div>
+      {/* ✨ Teacher Instructions – chapter‑level (page 0) OR page‑specific */}
+      {(() => {
+        const selectedTeacher = (pageInChapter === 0 && currentChapter.teacherInfo)
+          ? currentChapter.teacherInfo
+          : (currentChapter.pageTeacherInfo && currentChapter.pageTeacherInfo[pageInChapter])
+            ? currentChapter.pageTeacherInfo[pageInChapter]
+            : null;
+
+        if (!selectedTeacher) return null;
+
+        const selectedImagePath = (
+          selectedTeacher.imagePath ||
+          (selectedTeacher.image && selectedTeacher.image.imagePath) ||
+          (currentChapter.teacherImage && currentChapter.teacherImage.imagePath)
+        );
+
+        const selectedImageAlt = (
+          selectedTeacher.imageAlt ||
+          (selectedTeacher.image && selectedTeacher.image.alt) ||
+          (currentChapter.teacherImage && currentChapter.teacherImage.alt) ||
+          ''
+        );
+
+        return (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '28px',
+              background: '#fef9e7',
+              borderLeft: '8px solid #f6cc44',
+              borderRadius: '12px',
+              padding: '28px 36px',
+              marginBottom: '60px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+              direction: 'ltr',
+              textAlign: 'left',
+              fontFamily: 'Arial, sans-serif',
+            }}
+          >
+            {/* Left: instructions + goal */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h4 style={{
+                fontSize: '2rem',
+                color: '#0f2a44',
+                marginTop: 0,
+                marginBottom: '18px',
+                fontWeight: '600',
+                borderBottom: '2px solid #f6cc44',
+                paddingBottom: '10px',
+                display: 'inline-block'
+              }}>
+                📋 Teacher Instructions
+              </h4>
+
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: '0 0 25px 0',
+                fontSize: '1.6rem',
+                lineHeight: '2.4rem',
+                color: '#2c3e50',
+              }}>
+                {selectedTeacher.instructions.map((item, idx) => (
+                  <li key={idx} style={{
+                    marginBottom: '12px',
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    gap: '10px',
+                  }}>
+                    <span style={{
+                      display: 'inline-block',
+                      width: '10px',
+                      height: '10px',
+                      backgroundColor: '#f6cc44',
+                      borderRadius: '50%',
+                      marginRight: '12px',
+                      flexShrink: 0,
+                    }} />
+                    <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
+                      {item.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                          return <strong key={index}>{part.slice(2, -2)}</strong>;
+                        }
+                        if (part.startsWith('{{IMG:') && part.endsWith('}}')) {
+                          const inner = part.slice(6, -2); // e.g. "/images/Zabar.PNG" or "/images/Zabar.PNG|4rem"
+                          const [src, customSize] = inner.split('|');
+                          return (
+                            <img
+                              key={index}
+                              src={src}
+                              alt="symbol"
+                              style={{
+                                height: customSize || '2.2rem',
+                                width: 'auto',
+                                verticalAlign: 'middle',
+                                display: 'inline-block',
+                                margin: '0 4px',
+                                mixBlendMode: 'multiply',
+                              }}
+                            />
+                          );
+                        }
+                        return <span key={index}>{part}</span>;
+                      })}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {selectedTeacher.goal && (
+                <div style={{
+                  fontSize: '1.6rem',
+                  color: '#0f2a44',
+                  backgroundColor: '#fff3d6',
+                  padding: '16px 24px',
+                  borderRadius: '40px',
+                  marginTop: '5px',
+                  fontWeight: '500',
+                  border: '1px dashed #f6cc44',
+                }}>
+                  🎯 <strong>Goal:</strong> {selectedTeacher.goal}
+                </div>
+              )}
+            </div>
+
+            {/* Right: teacher image */}
+            {selectedImagePath && (
+              <div style={{
+                flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                <img
+                  src={selectedImagePath}
+                  alt={selectedImageAlt}
+                  style={{
+                    width: '280px',
+                    maxWidth: '300px',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       <div style={{
         display: 'flex',

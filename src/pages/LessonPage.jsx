@@ -725,6 +725,20 @@ teacherInfo: {
   27: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Three Variable letters',
+    teacherInfo: {
+      instructions: [
+        '**Three Variable letters:** {{IMG:/images/AaRaLam.PNG}}',
+        'If there is **Zabar** or **Paish** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thick tone**.',
+        '{{IMG:/images/chapter1_v2.png|3rem}}',
+        'If there is **Zair** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thin tone**.',
+        '{{IMG:/images/chapter1_v2-1.png|3rem}}',
+        'If **Alif** comes after a **thick letter** it will be read in a **thick tone**.',
+        '{{IMG:/images/chapter1_v2-2.png|3rem}}',
+        'If **Alif** comes after a **thin letter** it will be read **thin**.',
+        '{{IMG:/images/chapter1_v2-3.png|3rem}}'
+      ],
+      goal: 'Learn and practice three variable letters and their pronunciation rules.'
+    },
     pages: [
       // Page 1 (Total Page 42)
       [
@@ -737,11 +751,17 @@ teacherInfo: {
   28: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of the following Words',
+        teacherInfo: {
+      instructions: [
+        '{{IMG:/images/Chapter_2_V2.png|20rem}}'
+      ],
+      goal: 'Learn and practice three variable letters.'
+    },
     pages: [
       // Page 1 (Total Page 43)
       [
         ['اللهُ', 'إِنَّ اللهَ', 'أَرَادَ اللهُ', 'بِسْمِ اللهِ'],
-        ['لِلهِ', 'الْحَمْدُ لِلهِ', 'أَمْرُ اللهِ', 'طَالُوتَ'],
+        ['لِلّٰهِ', 'الْحَمْدُ لِلّٰهِ', 'أَمْرُ اللهِ', 'طَالُوتَ'],
         ['أَصَابَ', 'بِاللهِ', 'فَتَابَ', 'لِسَانِ'],
         ['مَرْضَاتِ', 'ظَاهِرٌ', 'فَقَالَ', 'وَزَادَهُ'],
         ['ذَاتَ', 'يَكَادُ', 'قَالَ', 'فَقَالَ'],
@@ -752,6 +772,14 @@ teacherInfo: {
   29: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Tanween Exercise of Double Zabar',
+  teacherInfo: {
+      instructions: [
+        '{{IMG:/images/Tanween.PNG|4rem}}',
+        'Double Zabar, Double Zair and Double Paish are called Tanween. Tamweem is read like Noon Sakin. If any letter has double Zabar, double Zair and double Paish then one Zabar, one Zair, and one Paish is read by joining it with Noon e.g.{{IMG:/images/Chapter_3_V2.png|4rem}}',
+        'To conclude Noon Sakin and Tanween, both are the same in pronunciation.'
+      ],
+      imagePath: '/images/Chapter_3_v2(1).png'
+    },
     pages: [
       // Page 1 (Total Page 44)
       [['بًـا = بَنْ', 'تًـا = تَنْ', 'ثًـا = ثَنْ', 'جًـا'],
@@ -798,7 +826,7 @@ teacherInfo: {
       [
         ['نَزْغٌ', 'حَرْثٌ', 'نَفْسٌ', 'حَرِيْصٌ'],
         ['اِلٰهٌ', 'جُنَاحٌ', 'عَزِيْزٌ', 'بِيْضٌ'],
-        ['اٰخْذٌ', 'حَافِظٌ', 'سَبْعٌ', 'ظُلُمٌ'],
+        ['اٰخِذٌ', 'حَافِظٌ', 'سَبْعٌ', 'ظُلُمٌ'],
         ['تارِكٌ', 'خَالِقٌ', 'فُرَاتٌ', 'مُحِيْطٌ']
       ]
     ]
@@ -806,6 +834,14 @@ teacherInfo: {
   32: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Izhar',
+  teacherInfo: {
+      instructions: [
+        'In Quran Majeed whenever **Noon Sakin or Tanween** comes before',
+        'these six letters {{IMG:/images/chapter_4_V2(1).png|3rem}}, the sound of Noon Sakin or Tanween',
+        'pronounced clearly and distinctly. It is called the Rule of Izhar.'
+      ],
+      imagePath: '/images/Chapter_4_V2.png'
+    },
     pages: [
       // Page 1 (Total Page 50)
       [['اَنْ ءَ', 'اِنْ اَ', 'اُنْ اَ', 'اً ءَ'],
@@ -818,7 +854,7 @@ teacherInfo: {
       ['اٍ غَ', 'اٌ غَ', 'اَنْ خَ', 'اِنْ خَ'],
       ['اُنْ خَ', 'اً خَ', 'اٍ خَ', 'اٌ خَ']],
       // Page 2 (Total Page 51)
-      [['ء', 'مَنْ أَعْطَىٰ', 'كِتٰبٌ أَنْزَلْنٰهُ', 'وَيَنْـأَوْنَ'],
+      [['ء', 'مَنْ أَعْطَىٰ', 'كِتٰبٌ أَنْزَلْنٰهُ', 'وَيَنْؤُنَ'],
       ['هـ', 'مَنْ هَاجَرَ', 'فَرِيْقًا هَدَىٰ', 'وَيَنْهَوْنَ'],
       ['ع', 'مِنْ عِلْمٍ', 'سَمِيْعٌ عَلِيْمٌ', 'الْأَنْعَامَ'],
       ['ح', 'مَنْ حِكْمَةٍ', 'عَزِيْزٌ حَكِيْمٌ', 'يَنْحِتُوْنَ'],
@@ -829,10 +865,21 @@ teacherInfo: {
   33: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Iqlab',
+      teacherInfo: {
+      instructions: [
+        '**Tiny Meem**',
+        'In Quran-e-Majeed whenever **Noon Sakin or Tanween** comes',
+        'before the letter **Baa**, there is always the {{IMG:/images/chapter_5_v2(1).png|3rem}} is written',
+        'on **Noon Sakin or Tanween**. So here the Meem is read with',
+        'Ghunna instead of Noon. e.g {{IMG:/images/chapter_5_v2(2).png|3rem}} It is called the rule of Iqlab.'
+      ],
+      goal: 'The Tiny Meem is read by previous Letter Zabar Zair Paish with prolonging Gunnah.',
+      imagePath: '/images/Chapter_5_V2.png'
+    },
     pages: [
       // Page 1 (Total Page 52)
       [
-        ['مِنْ بَعْدِ', 'مَنْ بَخِلَ', 'أَنْبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
+        ['مِنْۢ بَعْدِ', 'مَنْۢ بَخِلَ', 'أَنْۢبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
         ['أَمَدًۢا بَعِيْدًا', 'طَيْرًۢا بِإِذْنِي']
       ]
     ]
@@ -840,6 +887,15 @@ teacherInfo: {
   34: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Exercise of Tiny Meem',
+      teacherInfo: {
+      instructions: [
+        '**Reading method of Tiny Meem with Ghunnah**',
+        'Joining the inner dry-sides of both',
+        'lips very softly and holding the sound',
+        'at root of the nose equivalent to',
+        'one Alif, then read{{IMG:/images/chapter_5_v2(3).png|3rem}}with firm lips.'
+      ],
+    },
     pages: [
       // Page 1 (Total Page 53)
       [
@@ -857,6 +913,24 @@ teacherInfo: {
   35: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham',
+    teacherInfo: {
+    instructions: [
+       'In Quran Majeed whenever **Noon Sakin or Tanween** comes before these six letters',
+        '{{IMG:/images/chapter_6_v2.png|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
+        'in fact the shad of{{IMG:/images/chapter_6_v2.png|2rem}} is joined with Zabar/Zair/Paish ',
+        'in thae case of {{IMG:/images/chapter_6_v2(1).png|3rem}} are joined without Noon sound and',
+        'in the case of {{IMG:/images/chapter_6_v2(2).png|3rem}} are pronounced with Ghunnah.'
+      ],
+      note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).png|3rem}} and {{IMG:/images/chapter_6_v2(2).png|3rem}}.'
+      },
+    pageTeacherInfo: {
+      1: {
+        instructions: [],
+        note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).png|3rem}} and {{IMG:/images/chapter_6_v2(2).png|3rem}}.',
+              '**Reading method**: in this case the single harkat of the Tanween is joined with the Shadd Letter',
+              '{{IMG:/images/chapter_6_v2(3).png|6rem}}  {{IMG:/images/chapter_6_v2(4).png|6rem}}  {{IMG:/images/chapter_6_v2(5).png|6rem}}']
+      }
+    },
     pages: [
       // Page 1 (Total Page 55)
       [
@@ -875,6 +949,42 @@ teacherInfo: {
   36: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham When the Noon Sakin comes before the Shadd letter',
+    teacherInfo: {
+    instructions: [
+       '**Idgham**',
+       'When the Noon Sakin comes before the Shadd letter',
+        '{{IMG:/images/chapter_6_v2(6).png|15rem}}',
+        '{{IMG:/images/chapter_6_v2(7).png|6rem}}'
+      ],
+      },
+       pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of idgham',
+        titleArabic: 'ترکیب حروف'
+      },
+      2: {
+        titleEnglish: 'Exercise of idgham',
+        titleArabic: 'ترکیب حروف'
+      },
+      3: {
+        titleEnglish: 'Exercise of idgham',
+        titleArabic: 'ترکیب حروف'
+      },
+      4: {
+        titleEnglish: 'Exercise of idgham',
+        titleArabic: 'ترکیب حروف'
+      },
+      5: {
+        titleEnglish: 'Exercise of idgham',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
+     pageTeacherInfo: {
+      1: {
+        instructions: ['{{IMG:/images/chapter_6v2(8).png|15rem}}'],
+        
+      }
+    },
     pages: [
       // Page 1 (Total Page 57)
       [['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
@@ -939,18 +1049,38 @@ teacherInfo: {
   37: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'ldgham on other letters',
+        teacherInfo: {
+        instructions: ['**Idgham on the letters**',
+          'In Quran e Majeed The Jazam letter is not read before Shaad letter'
+        ],
+      },
     pages: [
       // Page 1 (Total Page 63)
       [
-        ['قَدْ تَّبَيَّنَ', 'إِذْ ظَّلَمُوْا', 'اِرْكَبْ مَّعَنَا', 'قُل رَّبِّ'],
-        ['يَلْهَثْ ذّٰلِكَ', 'إِنَّهُمْ مَّعَكُمْ', 'مَهَّدْتُّ', 'نَخْلُقْكُّم'],
-        ['أَوْ وَّزَنُوْهُمْ']
+        ['قَدْ تَّبَيَّنَ', 'إِذْ ظَّلَمُوْا', 'اِرْكَبْ مَّعَنَا'],
+        ['قُل رَّبِّ', 'يَلْهَثْ ذّٰلِكَ', 'إِنَّهُمْ مَّعَكُمْ'],
+        ['مَهَّدْتُّ', 'نَخْلُقْكُّم', 'أَوْ وَّزَنُوْهُمْ']
       ]
     ]
   },
   38: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Ikhfa',
+    teacherInfo: {
+        instructions: ['If letters{{IMG:/images/chapter_7_v2.png}} comes after Noon Sakin or Tanween ',
+          'Ghunnah (Ikhfa) always take place. It is called the Rule of Ikhfa.',
+          '**Method of Ghunnah at Noon Sakin and Tanween:**',
+          'By place the tongue at the articulation point of Noon very softly,',
+          'and holding the sound at the root of the nose equivalent to one Alif.',
+          '**Note:**Doing Ghunnah on Noon Shadd the tongue is pressed slightly while doing',
+          'Ghunnah on Noon Sakin and Tanween the tongue is placed very softly.',
+          '{{IMG:/images/chapter_7_v2(6).png}} In case at Noon Sakin and Tanween, **Ghunnah will not take place** because of stopping.',
+          '{{IMG:/images/chapter_7_v2(7).png}} Ghunnah is only done during **consistency in recitatio** {{IMG:/images/chapter_7_v2(3).png|3rem}} ',
+          '{{IMG:/images/chapter_7_v2(8).png}} These are only these six words{{IMG:/images/chapter_7_v2(4).png|2.5rem}} where the rile of ikhfa does not apply, so, they are read with izhar',
+          '{{IMG:/images/chapter_7_v2(8).png}} If a **thick letter** comes afrer Noon Sakin or Tanween, {{IMG:/images/chapter_7_v2(5).png|2.5rem}} Ikhfa (Ghunnah) will also be in a thick tone.'
+        ],
+        imagePaths: ['/images/chapter_7_v2(9).png', '/images/chapter_7_v2(2).png']
+      },
     pages: [
       // Page 1 (Total Page 64)
       [['أَنْ تَ', 'أَنْ ثَ', 'أَنْ جَ', 'اًدَ'],
@@ -1160,7 +1290,6 @@ teacherInfo: {
     ]
   },
 
-
 };
 
 const LessonPage = ({ pageNumber }) => {
@@ -1230,10 +1359,11 @@ const LessonPage = ({ pageNumber }) => {
 
         if (!selectedTeacher) return null;
 
-        const selectedImagePath = (
-          selectedTeacher.imagePath ||
-          (selectedTeacher.image && selectedTeacher.image.imagePath) ||
-          (currentChapter.teacherImage && currentChapter.teacherImage.imagePath)
+        const selectedImagePaths = (
+          selectedTeacher.imagePaths ||
+          (selectedTeacher.imagePath ? [selectedTeacher.imagePath] : null) ||
+          (selectedTeacher.image && selectedTeacher.image.imagePath ? [selectedTeacher.image.imagePath] : null) ||
+          (currentChapter.teacherImage && currentChapter.teacherImage.imagePath ? [currentChapter.teacherImage.imagePath] : null)
         );
 
         const selectedImageAlt = (
@@ -1285,19 +1415,12 @@ const LessonPage = ({ pageNumber }) => {
               }}>
                 {selectedTeacher.instructions.map((item, idx) => (
                   <li key={idx} style={{
-                    marginBottom: '12px',
-                    display: 'flex',
-                    alignItems: 'baseline',
-                    gap: '10px',
+                    marginBottom: '16px',
+                    display: 'block',
+                    listStyle: 'none',
                   }}>
                     <span style={{
-                      display: 'inline-block',
-                      width: '10px',
-                      height: '10px',
-                      backgroundColor: '#f6cc44',
-                      borderRadius: '50%',
-                      marginRight: '12px',
-                      flexShrink: 0,
+                      display: 'none',
                     }} />
                     <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
                       {item.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
@@ -1344,27 +1467,75 @@ const LessonPage = ({ pageNumber }) => {
                   🎯 <strong>Goal:</strong> {selectedTeacher.goal}
                 </div>
               )}
+
+              {selectedTeacher.note && (() => {
+                const noteLines = Array.isArray(selectedTeacher.note) ? selectedTeacher.note : [selectedTeacher.note];
+                const renderNoteParts = (text, lineIdx) =>
+                  text.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
+                    if (part.startsWith('**') && part.endsWith('**'))
+                      return <strong key={`${lineIdx}-${index}`}>{part.slice(2, -2)}</strong>;
+                    if (part.startsWith('{{IMG:') && part.endsWith('}}')) {
+                      const [src, customSize] = part.slice(6, -2).split('|');
+                      return (
+                        <img
+                          key={`${lineIdx}-${index}`}
+                          src={src}
+                          alt="symbol"
+                          style={{ height: customSize || '2.2rem', width: 'auto', verticalAlign: 'middle', display: 'inline-block', margin: '0 4px', mixBlendMode: 'multiply' }}
+                        />
+                      );
+                    }
+                    return <span key={`${lineIdx}-${index}`}>{part}</span>;
+                  });
+                return (
+                  <div style={{
+                    fontSize: '1.6rem',
+                    color: '#0f2a44',
+                    backgroundColor: '#ffe8cc',
+                    padding: '16px 24px',
+                    borderRadius: '40px',
+                    marginTop: '12px',
+                    fontWeight: '500',
+                    border: '1px dashed #ff9800',
+                  }}>
+                    <span style={{ fontSize: '3.5rem', marginRight: '12px', lineHeight: '1', verticalAlign: 'top', display: 'inline-block', marginTop: '4px' }}>☞</span>
+                    <span style={{ display: 'inline-flex', flexDirection: 'column', gap: '8px', verticalAlign: 'top' }}>
+                      {noteLines.map((line, lineIdx) => (
+                        <span key={lineIdx} style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
+                          {renderNoteParts(line, lineIdx)}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                );
+              })()}
+
             </div>
 
-            {/* Right: teacher image */}
-            {selectedImagePath && (
+            {/* Right: teacher image(s) */}
+            {selectedImagePaths && (
               <div style={{
                 flexShrink: 0,
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
+                gap: '12px',
               }}>
-                <img
-                  src={selectedImagePath}
-                  alt={selectedImageAlt}
-                  style={{
-                    width: '280px',
-                    maxWidth: '300px',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    mixBlendMode: 'multiply',
-                  }}
-                />
+                {selectedImagePaths.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={selectedImageAlt}
+                    style={{
+                      width: '400px',
+                      maxWidth: '450px',
+                      height: 'auto',
+                      borderRadius: '8px',
+                      mixBlendMode: 'multiply',
+                    }}
+                  />
+                ))}
               </div>
             )}
           </div>

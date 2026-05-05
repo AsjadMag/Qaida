@@ -169,54 +169,36 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
             // For single Arabic letter, always white on hover
             if (arabicLetterCount === 1 && containsArabicLetter && !isSpaceOrPunctuation) {
               return (
-                <span key={index} style={{
-                  color: isHovered ? '#ffffff' : '#000',
-                  transition: 'color 0.28s'
-                }}>
+                <span key={index} style={{ color: isHovered ? '#ffffff' : '#000', transition: 'color 0.28s' }}>
                   {visualLetter}
                 </span>
               );
             }
-            
+
             // For spaces and punctuation, keep them white
             if (isSpaceOrPunctuation) {
               return (
-                <span key={index} style={{
-                  color: isHovered ? '#ffffff' : '#000',
-                  transition: 'color 0.28s'
-                }}>
+                <span key={index} style={{ color: isHovered ? '#ffffff' : '#000', transition: 'color 0.28s' }}>
                   {visualLetter}
                 </span>
               );
             }
-            
+
             // For actual Arabic letters in multi-letter words: alternate colors
             if (containsArabicLetter && arabicLetterCount > 1) {
-              // Increment letter index only for actual Arabic letters
               const currentLetterIndex = letterIndex;
               letterIndex++;
-              
-              // Alternate colors: even indices white, odd indices green
               const isEvenIndex = currentLetterIndex % 2 === 0;
-              
               return (
-                <span key={index} style={{
-                  color: isHovered 
-                    ? (isEvenIndex ? '#ffffff' : '#4ade80')
-                    : '#000',
-                  transition: 'color 0.28s'
-                }}>
+                <span key={index} style={{ color: isHovered ? (isEvenIndex ? '#ffffff' : '#4ade80') : '#000', transition: 'color 0.28s' }}>
                   {visualLetter}
                 </span>
               );
             }
-            
+
             // For anything else (shouldn't happen), use default
             return (
-              <span key={index} style={{
-                color: isHovered ? '#ffffff' : '#000',
-                transition: 'color 0.28s'
-              }}>
+              <span key={index} style={{ color: isHovered ? '#ffffff' : '#000', transition: 'color 0.28s' }}>
                 {visualLetter}
               </span>
             );

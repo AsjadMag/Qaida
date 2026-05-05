@@ -3,7 +3,7 @@ import WordCard from '../components/WordCard';
 // import '../components/WordCard.css';
 import '../index.css';
 
-const chapterData = {
+export const chapterData = {
   1: {
     titleArabic: 'الحروف الهجائية',
     titleEnglish: 'The Alphabets',
@@ -1081,6 +1081,12 @@ teacherInfo: {
         ],
         imagePaths: ['/images/chapter_7_v2(9).png', '/images/chapter_7_v2(2).png']
       },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Ikhfa',
+        titleArabic: 'ترکیب حروف'
+      }
+    },
     pages: [
       // Page 1 (Total Page 64)
       [['أَنْ تَ', 'أَنْ ثَ', 'أَنْ جَ', 'اًدَ'],
@@ -1089,8 +1095,8 @@ teacherInfo: {
       ['اٍفَ', 'يًا قَ', 'قٌ كَ']],
       // Page 2 (Total Page 65)
       [
-        ['فَمَن تَبِعَ', 'شِهَابٌ ثَاقِبٌ', 'مِنْ جِنَّةٍ', 'وَمَنْ دَخَلَهُ'],
-        ['مُنْذِرٌ', 'مَنْ زَكَّاهَا', 'فَلَا تَنْسَىٰ', 'نَفْسٍ شَيْئًا'],
+        ['فَمَن تَبِعَ', 'شِهَابٌ ثَاقِبٌ', 'مِنْ جَنَّةٍ', 'وَمَنْ دَخَلَهُ'],
+        ['مُنْذِرٌ', 'مَنْ زَكّٰاهَا', 'فَلَا تَنْسَىٰ', 'نَفْسٍ شَيْئًا'],
         ['مِنْ صَلْصَالٍ', 'مَنْضُوْدٍ', 'شَرَابًا طَهُورًا', 'فَانْظُرْ'],
         ['فَإِنْ فَاءُوْا', 'يَنْقَلِبْ', 'رِزْقٌ كَرِيْمٌ']
       ]
@@ -1099,6 +1105,13 @@ teacherInfo: {
   39: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Complete detail of Ghunnah at Meem',
+    teacherInfo: {
+    instructions: [
+       'Complete detail of Ghunnah at Meem:'
+      ],
+      note: '**Meem Shadd** is always pronounced with a Ghunnah.',
+      imagePath: '/images/chapter_8_v2.png'
+      },
     pages: [
       // Page 1 (Total Page 66)
       [
@@ -1121,6 +1134,42 @@ teacherInfo: {
   40: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Madd (Prolonging the Sound of vowels)',
+    teacherInfo: {
+    instructions: [
+       '**Madd** {{IMG:/images/chapter_9_vs2.png}}**[Prolonging the Sound of vowels]**',
+       'In Quran-e-Majeed if Hamzah, Jazm or Shadd comes after Huroof-f-Maddah or Erected Harkaat',
+       'then in this condition, their sounds prolonged up to two or three Alif.',
+       'The Madd sign {{IMG:/images/chapter_9_vs2(1).png}} is already placed so that we can prolong the sound according to the rule.',
+       '{{IMG:/images/chapter_9_vs2(3).png|6rem}}',
+       '{{IMG:/images/chapter_9_vs2(4).png|6rem}}'
+      ],
+      imagePath: '/images/chapter_9_vs2(2).png',
+      imageStyle: { width: '600px', maxWidth: '650px' }
+      },
+      pageTitles: {
+      2: {
+        titleEnglish: 'Exercise of Madd',
+        titleArabic: 'ترکیب حروف'
+      },
+      3: {
+        titleEnglish: 'Exercise of Madd',
+        titleArabic: 'ترکیب حروف'
+      },
+    },
+    pageTeacherInfo: {
+      1: {
+        instructions: ['{{IMG:/images/chapter_9_vs2(5).png|10rem}}'],
+        
+      },
+      2: {
+        instructions: ['**Do Exercise of Madd due to Hamzah by prologing the sound of Huroof-e-Maddah and Erected Harkaat equivalent to 2-Alif.**'],
+        
+      },  
+      3: {
+        instructions: ['**Do Exercise of Madd due to Jazam and Shadd by prologing the sound of Huroof-e-Maddah and Erected Harkaat equivalent to 3-Alif.**'],
+        
+      }
+    },
     pages: [
       // Page 1 (Total Page 68)
       [['بَآبَّ', 'بِيْٓ بِّ', 'بُوْٓبُّ', 'بٰٓ بَّ'],
@@ -1132,7 +1181,7 @@ teacherInfo: {
       ['بُوْٓ اَ', 'تٰٓ اَ', 'تٖٓ اَ', 'تٗٓ اَ']],
       // Page 3 (Total Page 70)
       [
-        ['إِنَّا أَنْزَلْنَهُ', 'لَا أُقْسِمُ', 'يَتَسَاءَلُونَ', 'فَأَوْحَىٰ إِلَيْهِ'],
+        ['إِنّٰا أَنْزَلْنَهُ', 'لَا أُقْسِمُ', 'يَتَسَاءَلُونَ', 'فَأَوْحَىٰ إِلَيْهِ'],
         ['يَأَيُّهَا النَّبِيُّ', 'اٰبَاءَنَا', 'اٰوٰى إِلَيْهِ', 'إِلَىٰ إِلٰهِكَ'],
         ['إِذَا جَاءَ', 'اَلَّتِي أُعِدَّتْ', 'فِي أَنْفُسِكُمْ', 'خَطِيْئَةً'],
         ['فَقُوْلِي إِنِّي', 'هَذِهِ إِيمَانًا', 'سِيئَتْ', 'فِي أَمْرِيْ'],
@@ -1140,10 +1189,10 @@ teacherInfo: {
       ],
       // Page 4 (Total Page 71)
       [
-        ['اَلصَّآفُّوْنَ', 'تَحٓضُّونَ', 'اَلْعَآدِّينَ', 'الٓمّٓ الٓمّٓرّٓ'],
-        ['دَآبَّةٍ', 'وَالصَّٰٓٓفّٰتِ', 'حَاجُّوكَ', 'الٓر صٓ'],
+        ['اَلصَّآفُّوْنَ', 'تَحٓضُّونَ', 'اَلْعَآدِّينَ', 'الٓمّٓ الٓمّٓرّٰ'],
+        ['دَآبَّةٍ', 'وَالصّٰٓفّٰتِ', 'حَآجُّوكَ', 'الٓرٰ صٓ'],
         ['وَلَا الضَّآلِّينَ', 'اَلظَّآنِّينَ', 'وَلَاجَآنٌّ', 'حٰم طسٓمّٓ'],
-        ['اَلطَّآمَّةُ', 'تَأْمُرُوْٓنِّي', 'أَتُحَاجُّونِّي', 'نٓ قٓ'],
+        ['اَلطَّآمَّةُ', 'تَأْمُرُوْٓنِّي', 'أَتُحَآجُّوْٓنِّي', 'نٓ قٓ'],
         ['قُلْ ءَآلذَّكَرَيْنِ', 'قُلْ آٰللّٰهُ', 'آلْـٰٔنَ', 'يسٓ الٓمّٓصٓ']
       ]
     ]
@@ -1151,6 +1200,13 @@ teacherInfo: {
   41: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'MADD DUE TO PAUSE',
+    teacherInfo: {
+    instructions: [
+       '**MADD DUE TO PAUSE:** Whenever due to the rile of Waqf, Jazm is placed after',
+       'Huroof-e-Maddah, Erected Harkaat or Huroof-e-Leen, it can be paused with Madd.',
+       '**Length of a Madd due to Pause:** The length of Madd due to Pause can be up to 1-Alif, or 2-Alif or 3-Alif. (choosing the lenght is up to reciter, it is necessary to continue with the same chosen length at a time of recitation).'
+      ]
+      },
     pages: [
       // Page 1 (Total Page 72)
       [
@@ -1165,7 +1221,7 @@ teacherInfo: {
     pages: [
       // Page 1 (Total Page 73)
       [
-        ['الرَّحِيْمِ — الرَّحِيْمْ', 'الْقَيُّوْمُ — الْقَيُّوْمْ', 'الْمَاعُوْنَ — الْمَاعُونْ', 'الْحِسَابُ — الْحِسَابْ'],
+        ['الرَّحِيْمِ — الرَّحِيٓمْ', 'الْقَيُّوْمُ — الْقَيُّوْٓمْ', 'الْمَاعُوْنَ — الْمَاعُونْ', 'الْحِسَابُ — الْحِسَابْ'],
         ['اَلدِّيْنِ — الدِّينْ', 'يُؤْمِنُوْنَ — يُؤْمِنُوْنْ', 'يَسْتَوُوْنَ — يَسْتَوُونْ', 'اَلْقُرْآنُ — اَلْقُرْآنْ'],
         ['النَّبِيِّينَ — النَّبِيِّينْ']
       ]
@@ -1186,10 +1242,52 @@ teacherInfo: {
   44: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Pause (Waqf)',
+    teacherInfo: {
+    instructions: [
+       'A Pause or Waqf maens short stoppage of voice and breath, while the',
+       'reciter is still in progress. In case of pausing at the end of any word,',
+       'five things should be kept in mind:',
+       '**When pausing at round** {{IMG:/images/chapter_11_v2(2).png}} **and round** {{IMG:/images/chapter_11_v2(3).png}}',
+       '**it is always changed in to a sakin** {{IMG:/images/chapter_11_v2(3).png}}'
+      ],
+      imagePath: '/images/chapter_11_v2.png',
+      imageStyle: { width: '600px', maxWidth: '650px' }
+      },
+       pageTeacherInfo: {
+      1: {
+        instructions: [     
+       'In case of Pause at Huroof-e-Maddah and Erected Harkaat, they are read prolonging equivalent to one ALif (as it is).',
+       ],
+        
+      },
+      2: {
+        instructions: ['In case of pause at Double Zabar letter, they are read prolonging equivalent to one ALif.'],
+        
+      },  
+      3: {
+        instructions: ['In case of Pause at Zabar, Zair, Paish, Double Zair, and Double Paish are replaced by a Jazm/Sukoon.'],
+        
+      },
+      4: {
+        instructions: ['While pausing on a Shadd letter, its Harkat is diminished, but the strength of the Shadd remains,',
+          'so delivery of the Shadd letter, takes the time equivalent to two letters.'
+        ],
+      },
+     5: {
+        instructions: ['**However**, pausing on Noon Shadd and Meem Shadd, the Ghunnah is done equivalent to one ALif.'
+        ],
+      },
+     6: {
+        instructions: ['**NOTE:** If there is inavtive {{IMG:/images/chapter_11_v2(4).png}} comes after zabar,',
+          'then in case of pause it will be prologed equivalent to one ALif.',
+          '{{IMG:/images/chapter_11_v2(5).png|8rem}}'
+        ],
+      }
+    },
     pages: [
       // Page 1 (Total Page 75)
       [
-        ['وَاحِدَةً ⇐ وَاحِدَةٌ', 'بَقَرَةً ⇐ بَقَرَةٌ', 'غَيْرِهِ ⇐ غَيْرُهُ', 'رَسُولِهِ ⇐ رَسُولُهُ'],
+        ['وَاحِدَةً ⇐ وَاحِدَةْ', 'بَقَرَةً ⇐ بَقَرَةْ', 'غَيْرِهِ ⇐ غَيْرُهْ', 'رَسُولِهِ ⇐ رَسُولُهْ'],
         ['بِالْآخِرَةِ', 'بِسُورَةٍ', 'بَعُوضَةً', 'اَلْجَنَّةَ'],
         ['بَعْدِهِ']
       ],
@@ -1206,7 +1304,7 @@ teacherInfo: {
         ['كَبِيرًا ⇐ كَبِيرَا', 'هُدًى ⇐ هُدَا', 'شَيْئًا ⇐ شَيْـَٔا', 'جُزْءًا ⇐ جُزْءَا'],
         ['مَرَضًا', 'سُجَّدًا', 'عَيْنًا', 'جُزْءًا'],
         ['هُدًى', 'أَنْدَادًا', 'بَصِيرًا', 'تَرْتِيلًا'],
-        ['سُدًى', 'شَيْئًا', 'بَغِيًا']
+        ['سُدًى', 'شَيْئًا', 'بَغْيًا']
       ],
       // Page 4 (Total Page 78)
       [
@@ -1225,7 +1323,7 @@ teacherInfo: {
       ],
       // Page 6 (Total Page 80)
       [
-        ['لَهُنَّ ⇐ لَهُنّ', 'اَلْغَمِّ ⇐ اَلْغَمّ', 'اَلظَّنَّ ⇐ ٱلظَّنّ', 'اَلصُّمُّ ⇐ اَلصُّمّ'],
+        ['لَهُنَّ ⇐ لَهُنّ', 'اَلْغَمِّ ⇐ اَلْغَمّ', 'اَلظَّنِّ ⇐ ٱلظَّنّ', 'اَلصُّمَّ ⇐ اَلصُّمّ'],
         ['فَسَوّٰهُنَّ', 'أَلِيَمِّ', 'عَلَيْهِنَّ', 'بِغَمٍّ']
       ],
       // Page 7 (Total Page 81)
@@ -1238,11 +1336,21 @@ teacherInfo: {
   45: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'TINY NOON',
+    teacherInfo: {
+    instructions: [
+       'In Quran Majeed some times, a tiny Noon is placed between two words. Two things are kept in mind:',
+       '- If pause is taken before tiny Noon, it will not be read. Start reading from the next word. For Example,',
+       'if{{IMG:/images/chapter_12_v2.png}}is paused before{{IMG:/images/chapter_12_v2(2).png}}, that is, then reading will start from {{IMG:/images/chapter_12_v2(3).png}}.',
+       '- In joining condition, if Alif comes before a Tiny Noon it will not be read. For example, on {{IMG:/images/chapter_12_v2(4).png}}',
+       'Alif will not at {{IMG:/images/chapter_12_v2(5).png}}rather {{IMG:/images/chapter_12_v2(6).png}}will read.',
+       '{{IMG:/images/chapter_12_v2(7).png|12rem}}'
+      ],
+      },
     pages: [
       // Page 1 (Total Page 82)
       [['Joining\nCondition', 'Pause\nCondition', 'Writing\nCondition'],
       ['لُمَزَةِ ۨ الَّذِىْ', 'لُمَزَهْ - اَلَّذِىْ', 'لُمَزَةِ ۨ - الَّذِىْ'],
-      ['فَخُورَ ۨ الَّذِينَ', 'فَخُورَا - اَلَّذِينَ', 'فَخُورًا ۨ - اَلَّذِينَ']],
+      ['فَخُورَ ۨ الَّذِينَ', 'فَخُورَا - اَلَّذِينَ', 'فَخُورًاِۨ - اَلَّذِينَ']],
       // Page 2 (Total Page 83)
       [
         ['شَهِيدَا ۨ الرِّجَالُ', 'خَيْرُ ۨ اطْمَأَنَّ بِهِ', 'قَوْمَا ۨ اتَّخَذَهَا'],
@@ -1497,9 +1605,12 @@ const LessonPage = ({ pageNumber }) => {
                     marginTop: '12px',
                     fontWeight: '500',
                     border: '1px dashed #ff9800',
+                    display: 'flex',
+                    alignItems: noteLines.length > 1 ? 'flex-start' : 'center',
+                    gap: '12px',
                   }}>
-                    <span style={{ fontSize: '3.5rem', marginRight: '12px', lineHeight: '1', verticalAlign: 'top', display: 'inline-block', marginTop: '4px' }}>☞</span>
-                    <span style={{ display: 'inline-flex', flexDirection: 'column', gap: '8px', verticalAlign: 'top' }}>
+                    <span style={{ fontSize: '3.5rem', lineHeight: '1', flexShrink: 0 }}>☞</span>
+                    <span style={{ display: 'inline-flex', flexDirection: 'column', gap: '8px' }}>
                       {noteLines.map((line, lineIdx) => (
                         <span key={lineIdx} style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
                           {renderNoteParts(line, lineIdx)}
@@ -1533,6 +1644,7 @@ const LessonPage = ({ pageNumber }) => {
                       height: 'auto',
                       borderRadius: '8px',
                       mixBlendMode: 'multiply',
+                      ...selectedTeacher.imageStyle,
                     }}
                   />
                 ))}

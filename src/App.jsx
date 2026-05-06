@@ -71,18 +71,18 @@ function App() {
             Exit
           </button>
 
-          <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
+          <button onClick={goNext} className="nav-btn"
             style={{
               padding: '14px 34px',
               fontSize: '1.4rem',
               borderRadius: '50px',
               border: 'none',
-              background: currentPage === 1 ? '#666' : '#ff6b6b',
+              background: '#4ecdc4',
               color: 'white',
-              cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+              cursor: 'pointer',
               fontFamily: 'Arial, sans-serif'
             }}>
-            Previous
+            Next
           </button>
 
           <button onClick={() => setShowMenu(true)} className="nav-btn"
@@ -111,18 +111,18 @@ function App() {
             Page {currentPage}
           </div>
 
-          <button onClick={goNext} className="nav-btn"
+          <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
             style={{
               padding: '14px 34px',
               fontSize: '1.4rem',
               borderRadius: '50px',
               border: 'none',
-              background: '#4ecdc4',
+              background: currentPage === 1 ? '#666' : '#ff6b6b',
               color: 'white',
-              cursor: 'pointer',
+              cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
               fontFamily: 'Arial, sans-serif'
             }}>
-            Next
+            Previous
           </button>
         </div>
       )}
@@ -134,62 +134,69 @@ function App() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(0,0,0,0.7)',
+            background: 'rgba(15, 42, 68, 0.55)',
             zIndex: 2000,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '20px',
+            backdropFilter: 'blur(6px)',
           }}
         >
           <div
             onClick={e => e.stopPropagation()}
             style={{
-              background: 'linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%)',
-              borderRadius: '20px',
-              border: '2px solid gold',
+              background: 'linear-gradient(170deg, #fffdf5 0%, #fff8dc 55%, #f6e89a 100%)',
+              borderRadius: '24px',
+              border: '2.5px solid #c9960c',
               width: '100%',
               maxWidth: '720px',
-              maxHeight: '80vh',
+              maxHeight: '82vh',
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
+              boxShadow: '0 24px 64px rgba(15,42,68,0.35), inset 0 1px 0 rgba(255,255,255,0.9)',
             }}
           >
             {/* Header */}
             <div style={{
               padding: '20px 28px',
-              borderBottom: '1px solid rgba(255,215,0,0.3)',
+              borderBottom: '1.5px solid rgba(201,150,12,0.35)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
               flexShrink: 0,
+              background: 'linear-gradient(90deg, rgba(246,204,68,0.35) 0%, rgba(255,253,245,0.0) 100%)',
+              position: 'relative',
             }}>
-              <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ffd700', fontFamily: 'Arial, sans-serif', direction: 'ltr' }}>
+              {/* Centered title */}
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#0f2a44', fontFamily: 'Arial, sans-serif', direction: 'ltr' }}>
                   Chapter Index
                 </div>
-                <div style={{ fontSize: '1.4rem', color: '#aaa', fontFamily: 'Arial, sans-serif', direction: 'ltr' }}>
+                <div style={{ fontSize: '1.1rem', color: '#7a6000', fontFamily: 'Arial, sans-serif', direction: 'ltr', marginTop: '2px' }}>
                   {chapterNumbers.length} chapters
                 </div>
               </div>
+              {/* Close button pinned to the right */}
               <button
                 type="button"
                 onClick={() => setShowMenu(false)}
                 style={{
-                  background: 'rgba(255,255,255,0.1)',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  color: 'white',
+                  position: 'absolute',
+                  right: '20px',
+                  background: 'rgba(15,42,68,0.08)',
+                  border: '1.5px solid rgba(15,42,68,0.2)',
+                  color: '#0f2a44',
                   borderRadius: '50%',
                   width: '40px',
                   height: '40px',
-                  fontSize: '1.4rem',
+                  fontSize: '1.3rem',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
+                  transition: 'background 0.2s',
                 }}
               >
                 ✕
@@ -215,8 +222,8 @@ function App() {
                       minWidth: '38px',
                       height: '38px',
                       borderRadius: '50%',
-                      background: isActive ? '#ffd700' : 'rgba(255,215,0,0.2)',
-                      color: isActive ? '#000' : '#ffd700',
+                      background: isActive ? '#c9960c' : 'rgba(201,150,12,0.15)',
+                      color: isActive ? '#fff' : '#7a6000',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -224,23 +231,23 @@ function App() {
                       fontWeight: 'bold',
                       fontFamily: 'Arial, sans-serif',
                       flexShrink: 0,
+                      boxShadow: isActive ? '0 2px 10px rgba(201,150,12,0.4)' : 'none',
                     }}>
                       {idx + 1}
                     </div>
 
                     {/* Titles */}
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '1.6rem', color: isActive ? '#ffd700' : 'white', fontFamily: 'ArabQuranIslamic_1, serif', fontWeight: 'normal' }}>
+                      <div style={{ fontSize: '1.1rem', color: '#9a8050', fontFamily: 'ArabQuranIslamic_1, serif', fontWeight: 'normal' }}>
                         {chapter.titleArabic}
                       </div>
-                      <div style={{ fontSize: '1.1rem', color: '#aaa', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '2px' }}>
+                      <div style={{ fontSize: '1.35rem', fontWeight: 'bold', color: isActive ? '#7a4800' : '#0f2a44', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '3px' }}>
                         {chapter.titleEnglish}
                       </div>
-                    </div>
-
-                    {/* Page indicator */}
-                    <div style={{ fontSize: '1rem', color: '#666', fontFamily: 'Arial, sans-serif', direction: 'ltr', flexShrink: 0 }}>
-                      p.{startPage}
+                      {/* Page indicator — bottom left */}
+                      <div style={{ fontSize: '0.9rem', color: '#9a7800', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '5px', fontWeight: '500' }}>
+                        p.{startPage}
+                      </div>
                     </div>
                   </button>
                 );
@@ -282,9 +289,9 @@ function App() {
           align-items: center;
           gap: 14px;
           padding: 14px 18px;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 12px;
+          background: rgba(255,255,255,0.55);
+          border: 1px solid rgba(201,150,12,0.2);
+          border-radius: 14px;
           cursor: pointer;
           text-align: right;
           direction: rtl;
@@ -292,22 +299,22 @@ function App() {
           width: 100%;
         }
         .chapter-index-btn:hover {
-          background: rgba(255,255,255,0.12) !important;
-          border-color: rgba(255,215,0,0.4) !important;
+          background: rgba(246,204,68,0.35) !important;
+          border-color: rgba(201,150,12,0.55) !important;
           transform: translateX(-4px);
-          box-shadow: 4px 0 16px rgba(255,215,0,0.15);
+          box-shadow: 4px 0 16px rgba(201,150,12,0.2);
         }
         .chapter-index-btn:active {
           transform: translateX(-2px) scale(0.98);
         }
         .chapter-index-btn.active {
-          background: rgba(255,215,0,0.15) !important;
-          border: 1px solid rgba(255,215,0,0.6) !important;
+          background: rgba(246,204,68,0.45) !important;
+          border: 1.5px solid rgba(201,150,12,0.75) !important;
         }
         .chapter-index-btn.active:hover {
-          background: rgba(255,215,0,0.22) !important;
+          background: rgba(246,204,68,0.6) !important;
           transform: translateX(-4px);
-          box-shadow: 4px 0 16px rgba(255,215,0,0.25);
+          box-shadow: 4px 0 16px rgba(201,150,12,0.3);
         }
 
         .nav-btn {

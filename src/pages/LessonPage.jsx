@@ -1003,7 +1003,7 @@ teacherInfo: {
       ['مِنْ وَّ', 'كِنْ يَّ']],
       // Page 2 (Total Page 58)
       [
-        ['فَإِنْ لَّمْ', 'مِنْ نَّفْعِهِمَا', 'مَنْ وُّجَدَ', 'مِن رَّأْسِهِ'],
+        ['فَإِنْ لَّمْ', 'مِنْ نَّفْعِهِمَا', 'مَنْ وُّجِدَ', 'مِن رَّأْسِهِ'],
         ['مِن مُّوصٍ', 'مَنْ يَّقُولُ', 'مَنْ لَّمْ', 'عَنْ نَّفْسٍ'],
         ['مِنْ وَّرَقٍ', 'مَنْ رَّحِمَ', 'مِنْ مَّقَامِ', 'أَن يَضْرِبَ'],
         ['فَمَنْ لَّمْ', 'أَنْ نَّطْمِسَ', 'وَإِنْ وَّجَدْنَا', 'أَنْ رَّآهُ'],
@@ -1274,7 +1274,7 @@ teacherInfo: {
         ],
       },
      5: {
-        instructions: ['**However**, pausing on Noon Shadd and Meem Shadd, the Ghunnah is done equivalent to one ALif.'
+        instructions: ['**However**, pausing on Noon Shadd and Meem Shadd, the Ghunnah is done equivalent to one Alif.'
         ],
       },
      6: {
@@ -1369,6 +1369,28 @@ teacherInfo: {
   47: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Rule of adding Zair and Paish',
+    teacherInfo: {
+    instructions: [
+       '{{IMG:/images/chapter_13_v2(2).png|10rem}}',
+       'If a word is starting with{{IMG:/images/chapter_13_v2(3).png}}, then Zabar is always added on the Hamzah. ',
+       'Apart from {{IMG:/images/chapter_13_v2(3).png}} if a word begins with inactive Hamzah {{IMG:/images/chapter_13_v2(4).png}}, then Zair or Paish is added to Hamzah.',
+       'Easy way to do this, look at the third letter including the{{IMG:/images/chapter_13_v2(4).png}}, if the third letter has a Paish, ',
+       'then will be added to Hamzah.',
+       '{{IMG:/images/chapter_13_v2(5).png|8rem}}',
+       'If the third letter has Zabar or Zair, in both conditions, Zair will be added to Hamzah.',
+       '{{IMG:/images/chapter_13_v2(6).png|8rem}}'
+
+      ],
+      imagePath: '/images/chapter_13_v2.png',
+      },
+        pageTeacherInfo: {
+      1: {
+        instructions: [     
+        'However, there are 9 words in the Quran-e-Majeed, their third letter has a Paish but still only Zair is added to Hamzah, and those 8 words are:',
+       '{{IMG:/images/chapter_13_v2(7).png|5rem}}'
+       ],
+      }
+    },
     pages: [
       // Page 1 (Total Page 85)
       [

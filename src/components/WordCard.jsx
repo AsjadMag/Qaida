@@ -1,7 +1,22 @@
 import React, { useState } from 'react';
 import './WordCard.css';
 
-const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) => {
+const IdghamArrow = () => (
+  <svg
+    viewBox="0 0 100 28"
+    style={{ display: 'block', width: '100%', height: '26px', pointerEvents: 'none', flexShrink: 0 }}
+    aria-hidden="true"
+  >
+    {/*
+      Arc from noon position (right, ~63% of word width)
+      to the shaddah letter (left, ~17% of word width).
+      width:100% scales with the text area so endpoints land on the actual letters.
+    */}
+    <path d="M 63,20 C 63,4 17,4 17,20" fill="none" stroke="#cc0000" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Calculate font size based on text length
@@ -17,7 +32,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
 
   // Check if text contains special separators
   const hasSeparator = letter && (letter.includes('=') || letter.includes('—') || letter.includes('⇐'));
-  
+
   // Check if text is very long
   const isVeryLong = letter && letter.length > 15;
 
@@ -34,25 +49,25 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
         console.log('Intl.Segmenter failed, using fallback');
       }
     }
-    
+
     // Fallback: Manual splitting with improved regex
     // This regex tries to capture Arabic letters along with their diacritics
     const graphemeRegex = /(\p{Script=Arabic}\p{M}*|\p{M}+|[^\p{Script=Arabic}\p{M}])/gu;
     const matches = text.match(graphemeRegex) || [];
-    
+
     // Further grouping: combine base letters with their following marks
     const result = [];
     let current = '';
-    
+
     for (let i = 0; i < matches.length; i++) {
       const char = matches[i];
-      
+
       // Check if it's an Arabic base character
-      const isArabicBase = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(char);
-      
+      const isArabicBase = /[؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]/.test(char);
+
       // Check if it's a combining mark (diacritic)
-      const isCombiningMark = /[\u064B-\u065F\u0610-\u061A\u06D6-\u06ED]/.test(char);
-      
+      const isCombiningMark = /[ً-ٟؐ-ؚۖ-ۭ]/.test(char);
+
       if (isArabicBase && current === '') {
         // Start a new group with Arabic base character
         current = char;
@@ -72,19 +87,19 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
         result.push(char);
       }
     }
-    
+
     // Don't forget the last group
     if (current !== '') {
       result.push(current);
     }
-    
+
     return result;
   };
 
   // Helper function to count actual Arabic letters (ignoring diacritics and spaces)
   const countActualArabicLetters = (text) => {
     // Remove common Arabic diacritics and non-letter characters
-    const cleaned = text.replace(/[\u064B-\u065F\u0610-\u061A\u06D6-\u06ED\s\u200B\u200C\u200D]/g, '');
+    const cleaned = text.replace(/[ً-ٟؐ-ؚۖ-ۭ\s​‌‍]/g, '');
     return cleaned.length;
   };
 
@@ -108,11 +123,11 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
   // Render text with separator
   const renderSeparatedText = (separator) => {
     const parts = letter.split(separator);
-    const separatorChar = separator === '=' ? '=' : 
+    const separatorChar = separator === '=' ? '=' :
                          separator === '—' ? '—' : '⇐';
-    const separatorSize = separator === '=' ? '0.5em' : 
+    const separatorSize = separator === '=' ? '0.5em' :
                          separator === '—' ? '1.5rem' : '1.5rem'; // ⇐ same size as —
-    
+
     return (
       <>
         {/* Part before separator */}
@@ -151,26 +166,46 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
   const renderRegularText = () => {
     // Split the word into visual Arabic letters
     const visualLetters = splitArabicText(letter);
-    
+
     // Count actual Arabic letters (for color alternation)
     const arabicLetterCount = countActualArabicLetters(letter);
-    
+
     // Track position for color alternation
     let letterIndex = 0;
-    
+
     return (
       <div className={`arabic-text ${arabicLetterCount > 1 ? 'multi-letter' : 'single-letter'}`}>
         <span style={{ direction: 'rtl', display: 'inline-block' }}>
           {visualLetters.map((visualLetter, index) => {
             // Check if this visualLetter contains an actual Arabic letter (not just diacritics or spaces)
-            const containsArabicLetter = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(visualLetter);
-            const isSpaceOrPunctuation = /[\s\u200B\u200C\u200D.,!?;:]/.test(visualLetter);
-            
+            const containsArabicLetter = /[؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]/.test(visualLetter);
+            const isSpaceOrPunctuation = /[\s​‌‍.,!?;:]/.test(visualLetter);
+
             // For single Arabic letter, always white on hover
             if (arabicLetterCount === 1 && containsArabicLetter && !isSpaceOrPunctuation) {
               return (
                 <span key={index} style={{ color: isHovered ? '#ffffff' : '#000', transition: 'color 0.28s' }}>
                   {visualLetter}
+                </span>
+              );
+            }
+
+            // Noon + kasra cluster: keep noon at natural height, raise kasra up beneath it
+            if (isSpaceOrPunctuation && visualLetter.includes('ۨ')) {
+              const c = isHovered ? '#ffffff' : '#000';
+              return (
+                <span key={index} style={{
+                  display: 'inline-block',
+                  position: 'relative',
+                  width: '0.7em',
+                  margin: '0 0.1em',
+                  color: c,
+                  transition: 'color 0.28s',
+                }}>
+                  {/* noon at its natural high position */}
+                  <span style={{ fontSize: '0.85em', verticalAlign: 'super', lineHeight: 1 }}>{'ۨ'}</span>
+                  {/* kasra raised up to sit right below the noon */}
+                  <span style={{ fontSize: '0.78em', verticalAlign: '0.35em', lineHeight: 1 }}>{'ِ'}</span>
                 </span>
               );
             }
@@ -208,6 +243,8 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
     );
   };
 
+  const showArrow = annotation === 'idgham' && !useImage;
+
   return (
     <div
       className={`word-card ${isVeryLong ? 'multi-line' : ''}`}
@@ -223,12 +260,13 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath }) =
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: hasSeparator ? '10px' : '0',
+          gap: showArrow ? '22px' : (hasSeparator ? '10px' : '0'),
           width: '100%',
           padding: isVeryLong ? '10px' : '20px',
           whiteSpace: isVeryLong ? 'normal' : 'nowrap',
         }}
       >
+        {showArrow && <IdghamArrow />}
         {useImage ? (
           renderImage()
         ) : hasSeparator && letter.includes('⇐') ? (

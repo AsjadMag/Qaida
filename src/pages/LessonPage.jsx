@@ -753,9 +753,13 @@ teacherInfo: {
     titleEnglish: 'Exercise of the following Words',
         teacherInfo: {
       instructions: [
-        '{{IMG:/images/Chapter_2_V2.png|20rem}}'
+        '**Thin Tone Delivery of Alif and Laam**',
+        'Remember: pronunciation of thin Alif, should not be made so thin that the voice may become Lean. Avoid lips from bending downwards.',
+        '**Thick Tone Delivery of Alif and Laam**',
+        'Remember: pronunciation of thick Alif, should not become so thick that it may resemble Wao. Avoid lips from rounding.'
       ],
-      goal: 'Learn and practice three variable letters.'
+      imagePaths: ['/images/chapter_2_V2(2).png', '/images/chapter_2_V2(3).png'],
+      imageStyle: { width: '200px', maxWidth: '250px' }
     },
     pages: [
       // Page 1 (Total Page 43)
@@ -771,8 +775,8 @@ teacherInfo: {
   },
   29: {
     titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Tanween Exercise of Double Zabar',
-  teacherInfo: {
+    titleEnglish: 'Tanween',
+    teacherInfo: {
       instructions: [
         '{{IMG:/images/Tanween.PNG|4rem}}',
         'Double Zabar, Double Zair and Double Paish are called Tanween. Tamweem is read like Noon Sakin. If any letter has double Zabar, double Zair and double Paish then one Zabar, one Zair, and one Paish is read by joining it with Noon e.g.{{IMG:/images/Chapter_3_V2.png|4rem}}',
@@ -780,49 +784,45 @@ teacherInfo: {
       ],
       imagePath: '/images/Chapter_3_v2(1).png'
     },
+    pageTitles: {
+      1: { titleEnglish: 'Exercise of Double Zabar', titleArabic: 'ترکیب حروف' },
+      2: { titleEnglish: 'Exercise of Double Zabar', titleArabic: 'ترکیب حروف' },
+      3: { titleEnglish: 'Double Zair', titleArabic: 'ترکیب حروف' },
+      4: { titleEnglish: 'Exercise of Double Zair', titleArabic: 'ترکیب حروف' },
+      5: { titleEnglish: 'Double Paish', titleArabic: 'ترکیب حروف' },
+      6: { titleEnglish: 'Exercise of Double Paish', titleArabic: 'ترکیب حروف' },
+    },
     pages: [
-      // Page 1 (Total Page 44)
+      // Page 1 - Exercise of Double Zabar (Total Page 44)
       [['بًـا = بَنْ', 'تًـا = تَنْ', 'ثًـا = ثَنْ', 'جًـا'],
       ['حًـا', 'خًـا', 'سًـا', 'صًـا'],
       ['زًا', 'عًـا', 'رًا', 'كًـا'],
       ['قًـا', 'فًـا', 'ءًا', 'يًـا']],
-      // Page 2 (Total Page 45)
+      // Page 2 - Exercise of Double Zabar (Total Page 45)
       [
         ['بَطْشًا', 'اِنَاثًا', 'لِبَاسًا', 'خَالِصًا'],
         ['اِلٰهًا', 'صُلْحًا', 'عَزِيْزًا', 'مَرِيْضًا'],
         ['جُذَاذًا', 'حَفِيْظًا', 'مَتَاعًا', 'رِدْاً'],
         ['مُبٰرَكًا', 'فَرِيْقًا', 'اَمْوَاتًا', 'اَسْبَاطًا']
-      ]
-    ]
-  },
-  30: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Double Zair',
-    pages: [
-      // Page 1 (Total Page 46)
+      ],
+      // Page 3 - Double Zair (Total Page 46)
       [['بِنْ = بٍ', 'تِنْ = تٍ', 'ثِنْ = ثٍ', 'جٍ'],
       ['حٍ', 'خٍ', 'زٍ', 'ضٍ'],
       ['ءٍ', 'عٍ', 'غٍ', 'رٍ'],
       ['ذٍ', 'ظٍ', 'وٍ', 'يٍ']],
-      // Page 2 (Total Page 47)
+      // Page 4 - Exercise of Double Zair (Total Page 47)
       [
         ['صِبْغٍ', 'مُكْثٍ', 'بَاْسٍ', 'نَقْصٍ'],
         ['اِلٰهٍ', 'بِرِيْحٍ', 'كُنُوْزٍ', 'تَرَاضٍ'],
         ['مَجِيْدٍ', 'مَحْفُوْظٍ', 'اَرْبَعٍ', 'لِسَبَاٍ'],
         ['مُلْكٍ', 'صِدْقٍ', 'حَسَرٰتٍ', 'صِرَاطٍ']
-      ]
-    ]
-  },
-  31: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Double Paish',
-    pages: [
-      // Page 1 (Total Page 48)
+      ],
+      // Page 5 - Double Paish (Total Page 48)
       [['بُنْ = بٌ', 'تُنْ = تٌ', 'ثُنْ = ثٌ', 'جٌ'],
       ['حٌ', 'خٌ', 'سٌ', 'صٌ'],
       ['ءٌ', 'عٌ', 'غٌ', 'رٌ'],
       ['نٌ', 'وٌ', 'هٌ', 'يٌ']],
-      // Page 2 (Total Page 49)
+      // Page 6 - Exercise of Double Paish (Total Page 49)
       [
         ['نَزْغٌ', 'حَرْثٌ', 'نَفْسٌ', 'حَرِيْصٌ'],
         ['اِلٰهٌ', 'جُنَاحٌ', 'عَزِيْزٌ', 'بِيْضٌ'],
@@ -854,7 +854,7 @@ teacherInfo: {
       ['اٍ غَ', 'اٌ غَ', 'اَنْ خَ', 'اِنْ خَ'],
       ['اُنْ خَ', 'اً خَ', 'اٍ خَ', 'اٌ خَ']],
       // Page 2 (Total Page 51)
-      [['ء', 'مَنْ أَعْطَىٰ', 'كِتٰبٌ أَنْزَلْنٰهُ', 'وَيَنْؤُنَ'],
+      [['ء', 'مَنْ أَعْطَىٰ', 'كِتٰبٌ أَنْزَلْنٰهُ', 'وَيَنْهَوْنَ'],
       ['هـ', 'مَنْ هَاجَرَ', 'فَرِيْقًا هَدَىٰ', 'وَيَنْهَوْنَ'],
       ['ع', 'مِنْ عِلْمٍ', 'سَمِيْعٌ عَلِيْمٌ', 'الْأَنْعَامَ'],
       ['ح', 'مَنْ حِكْمَةٍ', 'عَزِيْزٌ حَكِيْمٌ', 'يَنْحِتُوْنَ'],
@@ -865,7 +865,7 @@ teacherInfo: {
   33: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'Iqlab',
-      teacherInfo: {
+    teacherInfo: {
       instructions: [
         '**Tiny Meem**',
         'In Quran-e-Majeed whenever **Noon Sakin or Tanween** comes',
@@ -876,33 +876,31 @@ teacherInfo: {
       goal: 'The Tiny Meem is read by previous Letter Zabar Zair Paish with prolonging Gunnah.',
       imagePath: '/images/Chapter_5_V2.png'
     },
+    pageTitles: {
+      1: { titleEnglish: 'Iqlab', titleArabic: 'ترکیب حروف' },
+      2: { titleEnglish: 'Exercise of Tiny Meem', titleArabic: 'ترکیب حروف' },
+      3: { titleEnglish: 'Exercise of Tiny Meem', titleArabic: 'ترکیب حروف' },
+    },
+    pageTeacherInfo: {
+      2: {
+        instructions: [
+          '**Reading method of Tiny Meem with Ghunnah**',
+          'Joining the inner dry-sides of both lips very softly and holding the sound at root of the nose equivalent to one Alif, then read{{IMG:/images/chapter_5_v2(3).png|3rem}}with firm lips.'
+        ],
+      },
+    },
     pages: [
-      // Page 1 (Total Page 52)
+      // Page 1 - Iqlab (Total Page 52)
       [
         ['مِنْۢ بَعْدِ', 'مَنْۢ بَخِلَ', 'أَنْۢبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
         ['أَمَدًۢا بَعِيْدًا', 'طَيْرًۢا بِإِذْنِي']
-      ]
-    ]
-  },
-  34: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Exercise of Tiny Meem',
-      teacherInfo: {
-      instructions: [
-        '**Reading method of Tiny Meem with Ghunnah**',
-        'Joining the inner dry-sides of both',
-        'lips very softly and holding the sound',
-        'at root of the nose equivalent to',
-        'one Alif, then read{{IMG:/images/chapter_5_v2(3).png|3rem}}with firm lips.'
       ],
-    },
-    pages: [
-      // Page 1 (Total Page 53)
+      // Page 2 - Exercise of Tiny Meem (Total Page 53)
       [
         ['اَنْۢ بَ', 'اِنْۢ بَ', 'اُنْۢ بَ', 'اًۢ بَ'],
         ['اٍۢ بَ', 'اٌۢ بَ']
       ],
-      // Page 2 (Total Page 54)
+      // Page 3 - Exercise of Tiny Meem (Total Page 54)
       [
         ['تَارِكٌۢ بَعْضَ', 'تَفْرِيقًۢا بَيْنَ', 'اَنْۢبَأَهُمْ', 'وَاقِعٌۢ بِهِمْ'],
         ['سَفَهًۢا بِغَيْرِ', 'لَذَنْۢبِكَ', 'حِزْبٍۢ بِمَا', 'بَعْضًاۢ بِمَا'],
@@ -912,81 +910,68 @@ teacherInfo: {
   },
   35: {
     titleArabic: 'ترکیب حروف',
-    titleEnglish: 'ldgham',
+    titleEnglish: 'Idgham',
     teacherInfo: {
-    instructions: [
-       'In Quran Majeed whenever **Noon Sakin or Tanween** comes before these six letters',
+      instructions: [
+        'In Quran Majeed whenever **Noon Sakin or Tanween** comes before these six letters',
         '{{IMG:/images/chapter_6_v2.png|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
         'in fact the shad of{{IMG:/images/chapter_6_v2.png|2rem}} is joined with Zabar/Zair/Paish ',
         'in thae case of {{IMG:/images/chapter_6_v2(1).png|3rem}} are joined without Noon sound and',
         'in the case of {{IMG:/images/chapter_6_v2(2).png|3rem}} are pronounced with Ghunnah.'
       ],
       note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).png|3rem}} and {{IMG:/images/chapter_6_v2(2).png|3rem}}.'
-      },
+    },
+    pageTitles: {
+      1: { titleEnglish: 'Idgham', titleArabic: 'ترکیب حروف' },
+      2: { titleEnglish: 'Idgham', titleArabic: 'ترکیب حروف' },
+      3: { titleEnglish: 'Idgham - Noon Sakin Before Shaddah', titleArabic: 'ترکیب حروف' },
+      4: { titleEnglish: 'Exercise of Idgham', titleArabic: 'ترکیب حروف' },
+      5: { titleEnglish: 'Exercise of Idgham', titleArabic: 'ترکیب حروف' },
+      6: { titleEnglish: 'Exercise of Idgham', titleArabic: 'ترکیب حروف' },
+      7: { titleEnglish: 'Exercise of Idgham', titleArabic: 'ترکیب حروف' },
+      8: { titleEnglish: 'Exercise of Idgham', titleArabic: 'ترکیب حروف' },
+      9: { titleEnglish: 'Idgham on Other Letters', titleArabic: 'ترکیب حروف' },
+    },
     pageTeacherInfo: {
       1: {
         instructions: [],
         note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).png|3rem}} and {{IMG:/images/chapter_6_v2(2).png|3rem}}.',
               '**Reading method**: in this case the single harkat of the Tanween is joined with the Shadd Letter',
               '{{IMG:/images/chapter_6_v2(3).png|6rem}}  {{IMG:/images/chapter_6_v2(4).png|6rem}}  {{IMG:/images/chapter_6_v2(5).png|6rem}}']
-      }
+      },
+      2: {
+        instructions: [
+          '**Idgham — When the Noon Sakin comes before the Shadd letter**',
+          '{{IMG:/images/chapter_6_v2(6).png|15rem}}',
+          '{{IMG:/images/chapter_6_v2(7).png|6rem}}'
+        ],
+      },
+      3: {
+        instructions: [
+          '{{IMG:/images/chapter_6v2(8).png|15rem}}'
+        ],
+      },
+      9: {
+        instructions: ['**Idgham on the letters**',
+          'In Quran e Majeed The Jazam letter is not read before Shaad letter'
+        ],
+      },
     },
+    pageAnnotations: { 2: 'idgham' },
     pages: [
-      // Page 1 (Total Page 55)
+      // Page 1 - Idgham
       [
         ['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
         ['اَنْ وَّ', 'اَنْ يَّ', 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
         ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', 'مَنْ وُّجِدَ', 'مَنْ يَّقُولُ']
       ],
-      // Page 2 (Total Page 56)
+      // Page 2 - Idgham
       [
         ['اً لَّ', 'اً رَّ', 'اً نَّ', 'اً مَّ'],
         ['اً وَّ', 'اً يَّ', 'اِلٰهًا لَّقَدْ', 'زَبَدًا رَّابِيًا'],
         ['خَيْرٌ نُّزُلًا', 'مَثَلاً مَّا', 'سِنَةٌ وَّلَا', 'خَيْرًا يَّرَهُ']
-      ]
-    ]
-  },
-  36: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'ldgham When the Noon Sakin comes before the Shadd letter',
-    teacherInfo: {
-    instructions: [
-       '**Idgham**',
-       'When the Noon Sakin comes before the Shadd letter',
-        '{{IMG:/images/chapter_6_v2(6).png|15rem}}',
-        '{{IMG:/images/chapter_6_v2(7).png|6rem}}'
       ],
-      },
-       pageTitles: {
-      1: {
-        titleEnglish: 'Exercise of idgham',
-        titleArabic: 'ترکیب حروف'
-      },
-      2: {
-        titleEnglish: 'Exercise of idgham',
-        titleArabic: 'ترکیب حروف'
-      },
-      3: {
-        titleEnglish: 'Exercise of idgham',
-        titleArabic: 'ترکیب حروف'
-      },
-      4: {
-        titleEnglish: 'Exercise of idgham',
-        titleArabic: 'ترکیب حروف'
-      },
-      5: {
-        titleEnglish: 'Exercise of idgham',
-        titleArabic: 'ترکیب حروف'
-      }
-    },
-     pageTeacherInfo: {
-      1: {
-        instructions: ['{{IMG:/images/chapter_6v2(8).png|15rem}}'],
-        
-      }
-    },
-    pages: [
-      // Page 1 (Total Page 57)
+      // Page 3 - Idgham Noon Sakin Before Shaddah
       [['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
       ['اَنْ وَّ', 'اَنْ يَّ', 'اُنْ لَّ', 'اُنْ رَّ'],
       ['اُنْ نَّ', 'اُنْ مَّ', 'اُنْ وَّ', 'اُنْ يَّ'],
@@ -1001,7 +986,7 @@ teacherInfo: {
       ['كُنْ نَّ', 'كُنْ مِّ', 'مَنْ وُّ', 'مَنْ يَّ'],
       ['يِنْ لَّ', 'مِنْ رَّ', 'مِنْ نَّ', 'مِنْ مُّ'],
       ['مِنْ وَّ', 'كِنْ يَّ']],
-      // Page 2 (Total Page 58)
+      // Page 4 - Exercise of Idgham
       [
         ['فَإِنْ لَّمْ', 'مِنْ نَّفْعِهِمَا', 'مَنْ وُّجِدَ', 'مِن رَّأْسِهِ'],
         ['مِن مُّوصٍ', 'مَنْ يَّقُولُ', 'مَنْ لَّمْ', 'عَنْ نَّفْسٍ'],
@@ -1010,8 +995,7 @@ teacherInfo: {
         ['عَنْ مِّلَّةِ', 'وَإِنْ يُّقَاتِلُوكُمْ', 'يَكُنْ لَّهُ', 'نَكُنْ نَّدْعُوْا'],
         ['مِنْ وَّالٍ', 'فَإِنْ رَّجَعَكَ', 'وَلْتَكُنْ مِّنكُمْ', 'إِنْ يُرِيدَا']
       ],
-
-      // Page 3 (Total Page 59)
+      // Page 5 - Exercise of Idgham
       [['اًلَّ', 'اًرَّ', 'اًنَّ', 'اًمَّ'],
       ['اًوَّ', 'اًىَّ', 'اٌ لَّ', 'اٌ رَّ'],
       ['اٌ نَّ', 'اٌ مَّ', 'اٌ وَّ', 'اٌ ىَّ'],
@@ -1020,42 +1004,27 @@ teacherInfo: {
       ['بً نَّ', 'بً مَّ', 'بً وَّ', 'بً ىَّ'],
       ['بٌ لَّ', 'بٌ رَّ', 'بٌ نَّ', 'بٌ مَّ'],
       ['بٌ وَّ', 'بٌ ىَّ']],
-
-      // Page 4 (Total Page 60)
+      // Page 6 - Exercise of Idgham
       [['بٍ لَّ', 'بٍ رَّ', 'بٍ نَّ', 'بٍ مَّ'],
       ['بٍ وَّ', 'بٍ ىَّ', 'قًلَّ', 'تً رَّ'],
       ['قً نَّ', 'دًمَّ', 'رًوَّ', 'لً ىَّ'],
       ['عٌ لَّ', 'رٌرَّ', 'عٌ نَّ', 'جٌ مَّ'],
       ['وٌوَّ', 'مٌ ىُّ', 'غٍ لِّ', 'قٍ رِّ'],
       ['عٍ نَّ', 'مٍ مَّ', 'يٍ وَّ', 'يٍ يَّ']],
-
-
-      // Page 5 (Total Page 61)
+      // Page 7 - Exercise of Idgham
       [
         ['إِلٰهًا لَّقَدْ', 'خَيْرًا نُّزُلًا', 'بَشِيرًا وَّنَذِيرًا', 'زَبَدًا رَّابِيًا'],
         ['مَثَلًا مَّا', 'خَيْرًا يَّرَهُ', 'وَفَضْلٌ لَّمْ', 'شَيْءٍ نَّحْنُ'],
         ['طَعَامٍ وَّاحِدٍ']
       ],
-
-      // Page 6 (Total Page 62)
+      // Page 8 - Exercise of Idgham
       [
         ['ثَمَرَةٍ رِّزْقًا', 'بِخَيْرٍ مِّنْهَا', 'لِقَوْمٍ يُّوْقِنُونَ', 'رِزْقًا لَّكُمْ'],
         ['عَهْدًا نَّبَذَهُ', 'سِنَةٌ وَّلَا', 'تَوَّابًا رَّحِيمًا', 'حَسَدًا مِّنْ'],
         ['نُعَاسًا يَّغْشَىٰ', 'خَيْرٌ لَّكُمْ', 'سُوْرَةٍ نَّظَرُ', 'رَعْدٌ وَّبَرْقٌ'],
         ['غَفُوْرٌ رَّحِيمٌ', 'مُخْرِجٌ مَّا', 'أُمَّةٌ يَّدْعُوْنَ']
-      ]
-    ]
-  },
-  37: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'ldgham on other letters',
-        teacherInfo: {
-        instructions: ['**Idgham on the letters**',
-          'In Quran e Majeed The Jazam letter is not read before Shaad letter'
-        ],
-      },
-    pages: [
-      // Page 1 (Total Page 63)
+      ],
+      // Page 9 - Idgham on Other Letters
       [
         ['قَدْ تَّبَيَّنَ', 'إِذْ ظَّلَمُوْا', 'اِرْكَبْ مَّعَنَا'],
         ['قُل رَّبِّ', 'يَلْهَثْ ذّٰلِكَ', 'إِنَّهُمْ مَّعَكُمْ'],
@@ -1201,37 +1170,30 @@ teacherInfo: {
     titleArabic: 'ترکیب حروف',
     titleEnglish: 'MADD DUE TO PAUSE',
     teacherInfo: {
-    instructions: [
-       '**MADD DUE TO PAUSE:** Whenever due to the rile of Waqf, Jazm is placed after',
-       'Huroof-e-Maddah, Erected Harkaat or Huroof-e-Leen, it can be paused with Madd.',
-       '**Length of a Madd due to Pause:** The length of Madd due to Pause can be up to 1-Alif, or 2-Alif or 3-Alif. (choosing the lenght is up to reciter, it is necessary to continue with the same chosen length at a time of recitation).'
+      instructions: [
+        '**MADD DUE TO PAUSE:** Whenever due to the rile of Waqf, Jazm is placed after',
+        'Huroof-e-Maddah, Erected Harkaat or Huroof-e-Leen, it can be paused with Madd.',
+        '**Length of a Madd due to Pause:** The length of Madd due to Pause can be up to 1-Alif, or 2-Alif or 3-Alif. (choosing the lenght is up to reciter, it is necessary to continue with the same chosen length at a time of recitation).'
       ]
-      },
+    },
+    pageTitles: {
+      1: { titleEnglish: 'Madd Due to Pause', titleArabic: 'ترکیب حروف' },
+      2: { titleEnglish: 'Examples - Pause after Huroof-e-Maddah', titleArabic: 'ترکیب حروف' },
+      3: { titleEnglish: 'Examples - Pause after Huroof-e-Leen', titleArabic: 'ترکیب حروف' },
+    },
     pages: [
-      // Page 1 (Total Page 72)
+      // Page 1 - Madd Due to Pause (Total Page 72)
       [
         ['تُكَذِّبَانِ — تُكَذِّبَآنِ', 'الْعَالَمِينَ — الْعَالَمِيٓنَ', 'يُؤْمِنُونَ — يُؤْمِنُوٓنَ', 'الْقُرْآنُ — الْقُرْآنُ'],
         ['يَسْتَوُوْنَ — يَسْتَوُٓنَ', 'النَّبِيِّينَ — النَّبِيِّنَ', 'خَوْفٍ — خَوْٓفٌ', 'وَالصَّيْفِ — وَالصَّيْٓفُ']
-      ]
-    ]
-  },
-  42: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Examples of Pause after Huroof-e-Maddah',
-    pages: [
-      // Page 1 (Total Page 73)
+      ],
+      // Page 2 - Examples of Pause after Huroof-e-Maddah (Total Page 73)
       [
         ['الرَّحِيْمِ — الرَّحِيٓمْ', 'الْقَيُّوْمُ — الْقَيُّوْٓمْ', 'الْمَاعُوْنَ — الْمَاعُونْ', 'الْحِسَابُ — الْحِسَابْ'],
         ['اَلدِّيْنِ — الدِّينْ', 'يُؤْمِنُوْنَ — يُؤْمِنُوْنْ', 'يَسْتَوُوْنَ — يَسْتَوُونْ', 'اَلْقُرْآنُ — اَلْقُرْآنْ'],
         ['النَّبِيِّينَ — النَّبِيِّينْ']
-      ]
-    ]
-  },
-  43: {
-    titleArabic: 'ترکیب حروف',
-    titleEnglish: 'Examples of Pause after Huroof-e-Leen',
-    pages: [
-      // Page 1 (Total Page 74)
+      ],
+      // Page 3 - Examples of Pause after Huroof-e-Leen (Total Page 74)
       [
         ['قُرَيْشٍ — قُرَيْشْ', 'وَالصَّيْفِ — وَالصَّيْفْ', 'وَلَا نَوْمٌ — وَلَا نَوْمْ', 'خَوْفٍ — خَوْفْ'],
         ['الْبَيْتِ — الْبَيْتْ', 'عَلَيْكَ — عَلَيْكْ', 'وَيَنْتَهُونَ — وَيَنْتَهُونْ', 'يَسْعَوْنَ — يَسْعَوْنْ'],
@@ -1293,8 +1255,8 @@ teacherInfo: {
       ],
       // Page 2 (Total Page 76)
       [
-        ['تَلَىٰهَا', 'يَحْيَىٰ', 'قَالُوْا', 'تَلْوٗا'],
-        ['فَادْخُلِىْ', 'يُحْیٖ', 'إِذْهَبَا', 'تَلَىٰهَا'],
+        ['تَلٰىهَا', 'يَحْيَىٰ', 'قَالُوْا', 'تَلْوٗا'],
+        ['فَادْخُلِىْ', 'يُحْیٖ', 'إِذْهَبَا', 'تَلٰىهَا'],
         ['مَرْقَدِنَا', 'مَنٰسِكَنَا', 'وَالضُّحَىٰ', 'يُحْيٖ'],
         ['سَجَىٰ', 'نَصٰرٰى', 'تَلَوٗا', 'فَـاْوٗا'],
         ['تَجْرِىْ']
@@ -1349,12 +1311,12 @@ teacherInfo: {
     pages: [
       // Page 1 (Total Page 82)
       [['Joining\nCondition', 'Pause\nCondition', 'Writing\nCondition'],
-      ['لُمَزَةِ ۨ الَّذِىْ', 'لُمَزَهْ - اَلَّذِىْ', 'لُمَزَةِ ۨ - الَّذِىْ'],
-      ['فَخُورَ ۨ الَّذِينَ', 'فَخُورَا - اَلَّذِينَ', 'فَخُورًاِۨ - اَلَّذِينَ']],
+      ['لُمَزَةِ ِۨ الَّذِىْ', 'لُمَزَهْ - اَلَّذِىْ', 'لُمَزَةِ ِۨ - الَّذِىْ'],
+      ['فَخُورَ ِۨ الَّذِينَ', 'فَخُورَا - اَلَّذِينَ', 'فَخُورًا ِۨ - اَلَّذِينَ']],
       // Page 2 (Total Page 83)
       [
-        ['شَهِيدَا ۨ الرِّجَالُ', 'خَيْرُ ۨ اطْمَأَنَّ بِهِ', 'قَوْمَا ۨ اتَّخَذَهَا'],
-        ['عَلِيْمُ ۨ اللهُ', 'أَوْ لَهْوَا ۨ انْفَضُّوْا', 'أَحَدُ ۨ اللّهُ الصَّمَدُ']
+        ['شَهِيدَا ِۨ الرِّجَالُ', 'خَيْرُ ِۨ اطْمَأَنَّ بِهِ', 'قَوْمَا ِۨ اتَّخَذَهَا'],
+        ['عَلِيْمُ ِۨ اللهُ', 'أَوْ لَهْوَا ِۨ انْفَضُّوْا', 'أَحَدُ ِۨ اللّهُ الصَّمَدُ']
       ]
     ]
   },
@@ -1412,7 +1374,7 @@ teacherInfo: {
       // Page 4 (Total Page 88)
       [
         ['إِنِ ارْتَبْتُمْ', 'رَبِّ ارْحَمْهُمَا', 'لِمَنِ ارْتَضَىٰ', 'رَبِّ ارْجِعُونِ'],
-        ['أَمِ ارْتَابُوْا', 'اَلَّذِي ارْتَضَىٰ', 'عَذَابِ ۨ ارْكُضْ', 'مَنِ ارْتَضَىٰ'],
+        ['أَمِ ارْتَابُوْا', 'اَلَّذِي ارْتَضَىٰ', 'عَذَابِ ِۨ ارْكُضْ', 'مَنِ ارْتَضَىٰ'],
         ['ارْكَبْ مَّعَنَا', 'ارْجِعْ', 'ارْجِعُوْا', 'ارْجِعِيْ'],
         ['قِرْطَاسٍ', 'وَإِرْصَادًا', 'مِرْصَادًا', 'لَبِالْمِرْصَادِ'],
         ['فِرْقَةٍ']
@@ -1452,6 +1414,7 @@ const LessonPage = ({ pageNumber }) => {
 
   const currentChapter = chapterData[currentChapterNum];
   const currentLetters = currentChapter.pages[pageInChapter];
+  const pageAnnotation = currentChapter.pageAnnotations?.[pageInChapter] ?? null;
 
   // Determine page-specific title if provided, otherwise use chapter title
   const pageTitle = (currentChapter.pageTitles && currentChapter.pageTitles[pageInChapter])
@@ -1733,6 +1696,7 @@ const LessonPage = ({ pageNumber }) => {
                       useImage={useImage}
                       imagePath={imagePath}
                       imageHoverPath={imageHoverPath}
+                      annotation={pageAnnotation}
                     />
                   </div>
                 ) : (

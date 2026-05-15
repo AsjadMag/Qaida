@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import TitlePage from './pages/TitlePage';
 import LessonPage, { chapterData } from './pages/LessonPage';
 
@@ -14,16 +14,43 @@ for (const num of chapterNumbers) {
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [goToPageInput, setGoToPageInput] = useState('');
+  const activeChapterRef = useRef(null);
+  const chapterListRef = useRef(null);
+
+  useEffect(() => {
+    if (showMenu && activeChapterRef.current && chapterListRef.current) {
+      setTimeout(() => {
+        activeChapterRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }, 80);
+    }
+  }, [showMenu]);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const goNext = () => { setCurrentPage(prev => prev + 1); scrollToTop(); };
+  const totalPages = pageCounter - 1;
+  const isLastPage = currentPage >= totalPages;
+  const goNext = () => { if (!isLastPage) { setCurrentPage(prev => prev + 1); scrollToTop(); } };
   const goPrev = () => { setCurrentPage(prev => Math.max(1, prev - 1)); scrollToTop(); };
 
   const jumpToChapter = (chapterNum) => {
     setCurrentPage(chapterStartPages[chapterNum]);
     setShowMenu(false);
+    setSearchQuery('');
+    setGoToPageInput('');
     scrollToTop();
+  };
+
+  const handleGoToPage = () => {
+    const p = parseInt(goToPageInput, 10);
+    if (!isNaN(p) && p >= 1 && p <= totalPages) {
+      setCurrentPage(p);
+      setShowMenu(false);
+      setSearchQuery('');
+      setGoToPageInput('');
+      scrollToTop();
+    }
   };
 
   return (
@@ -36,6 +63,94 @@ function App() {
     }}>
       {currentPage === 0 ? (
         <TitlePage onStart={() => setCurrentPage(1)} />
+      ) : isLastPage ? (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '80vh',
+          background: 'linear-gradient(160deg, #0a1628 0%, #0d2744 40%, #1a4a7a 75%, #c9960c 100%)',
+          borderRadius: '28px',
+          padding: '60px 40px',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          gap: '28px',
+        }}>
+          {/* radial glow */}
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%, -60%)',
+            width: '500px', height: '500px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(246,204,68,0.15) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+
+          {/* top icon */}
+          <div style={{ fontSize: '4rem', filter: 'drop-shadow(0 0 16px rgba(255,215,0,0.8))', zIndex: 1 }}>☪️</div>
+
+          {/* gem divider */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 1 }}>
+            <div style={{ width: '60px', height: '2px', background: 'linear-gradient(90deg, transparent, #ffd700)' }} />
+            <span style={{ color: '#ffd700', fontSize: '1.2rem' }}>✦</span>
+            <span style={{ color: '#ffd700', fontSize: '1.4rem' }}>✦</span>
+            <span style={{ color: '#ffd700', fontSize: '1.2rem' }}>✦</span>
+            <div style={{ width: '60px', height: '2px', background: 'linear-gradient(90deg, #ffd700, transparent)' }} />
+          </div>
+
+          {/* main card */}
+          <div style={{
+            background: 'rgba(255,255,255,0.06)',
+            border: '2px solid rgba(255,215,0,0.4)',
+            borderRadius: '24px',
+            padding: '32px 48px',
+            backdropFilter: 'blur(10px)',
+            boxShadow: '0 8px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
+            zIndex: 1,
+          }}>
+            <p style={{
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              fontWeight: 'bold',
+              color: '#ffd700',
+              margin: '0 0 12px',
+              fontFamily: 'Arial, sans-serif',
+              letterSpacing: '2px',
+              textShadow: '0 0 30px rgba(255,215,0,0.6)',
+            }}>
+              🎉 Thank You for Reading! 🎉
+            </p>
+            <p style={{
+              fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
+              color: 'rgba(255,235,150,0.9)',
+              fontFamily: 'Arial, sans-serif',
+              letterSpacing: '3px',
+              margin: 0,
+              textTransform: 'uppercase',
+            }}>
+              May Allah Bless Your Learning
+            </p>
+          </div>
+
+          {/* floating icons row */}
+          <div style={{ display: 'flex', gap: '18px', zIndex: 1 }}>
+            {['📖','🌙','⭐','🌙','📖'].map((e, i) => (
+              <span key={i} style={{ fontSize: '2rem', filter: 'drop-shadow(0 2px 8px rgba(255,215,0,0.6))' }}>{e}</span>
+            ))}
+          </div>
+
+          {/* bottom tagline */}
+          <p style={{
+            color: 'rgba(255,235,150,0.6)',
+            fontFamily: 'Arial, sans-serif',
+            letterSpacing: '2px',
+            fontSize: '0.95rem',
+            zIndex: 1,
+            margin: 0,
+          }}>
+            ★ &nbsp; Keep Practicing &nbsp; ★ &nbsp; Stay Consistent &nbsp; ★
+          </p>
+        </div>
       ) : (
         <LessonPage pageNumber={currentPage} />
       )}
@@ -72,32 +187,18 @@ function App() {
           </button>
 
           <button onClick={goNext} className="nav-btn"
+            disabled={isLastPage}
             style={{
               padding: '14px 34px',
               fontSize: '1.4rem',
               borderRadius: '50px',
               border: 'none',
-              background: '#4ecdc4',
+              background: isLastPage ? '#666' : '#4ecdc4',
               color: 'white',
-              cursor: 'pointer',
+              cursor: isLastPage ? 'not-allowed' : 'pointer',
               fontFamily: 'Arial, sans-serif'
             }}>
             Next
-          </button>
-
-          <button onClick={() => setShowMenu(true)} className="nav-btn"
-            style={{
-              padding: '14px 24px',
-              fontSize: '1.4rem',
-              borderRadius: '50px',
-              border: '2px solid gold',
-              background: 'transparent',
-              color: 'gold',
-              cursor: 'pointer',
-              fontFamily: 'Arial, sans-serif',
-              letterSpacing: '1px'
-            }}>
-            ☰ Index
           </button>
 
           <div style={{
@@ -124,13 +225,31 @@ function App() {
             }}>
             Previous
           </button>
+
+          {/* Index pinned to the right edge */}
+          <button onClick={() => setShowMenu(true)} className="nav-btn"
+            style={{
+              position: 'absolute',
+              right: '24px',
+              padding: '14px 24px',
+              fontSize: '1.4rem',
+              borderRadius: '50px',
+              border: '2px solid gold',
+              background: 'transparent',
+              color: 'gold',
+              cursor: 'pointer',
+              fontFamily: 'Arial, sans-serif',
+              letterSpacing: '1px'
+            }}>
+            ☰ Index
+          </button>
         </div>
       )}
 
       {/* Chapter Index Overlay */}
       {showMenu && (
         <div
-          onClick={() => setShowMenu(false)}
+          onClick={() => { setShowMenu(false); setSearchQuery(''); setGoToPageInput(''); }}
           style={{
             position: 'fixed',
             inset: 0,
@@ -180,7 +299,7 @@ function App() {
               {/* Close button pinned to the right */}
               <button
                 type="button"
-                onClick={() => setShowMenu(false)}
+                onClick={() => { setShowMenu(false); setSearchQuery(''); setGoToPageInput(''); }}
                 style={{
                   position: 'absolute',
                   right: '20px',
@@ -203,16 +322,95 @@ function App() {
               </button>
             </div>
 
+            {/* Search + Go to page */}
+            <div style={{
+              padding: '12px 16px',
+              borderBottom: '1.5px solid rgba(201,150,12,0.25)',
+              display: 'flex',
+              gap: '10px',
+              flexShrink: 0,
+              background: 'rgba(255,255,255,0.4)',
+            }}>
+              {/* Chapter search */}
+              <input
+                type="text"
+                placeholder="🔍  Search chapter..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                style={{
+                  flex: 1,
+                  padding: '10px 16px',
+                  fontSize: '1.1rem',
+                  borderRadius: '50px',
+                  border: '1.5px solid rgba(201,150,12,0.4)',
+                  background: 'rgba(255,255,255,0.85)',
+                  color: '#0f2a44',
+                  fontFamily: 'Arial, sans-serif',
+                  outline: 'none',
+                  direction: 'ltr',
+                }}
+              />
+              {/* Go to page */}
+              <input
+                type="number"
+                placeholder={`Page 1–${totalPages}`}
+                value={goToPageInput}
+                onChange={e => setGoToPageInput(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && handleGoToPage()}
+                min={1}
+                max={totalPages}
+                style={{
+                  width: '130px',
+                  padding: '10px 14px',
+                  fontSize: '1.1rem',
+                  borderRadius: '50px',
+                  border: '1.5px solid rgba(201,150,12,0.4)',
+                  background: 'rgba(255,255,255,0.85)',
+                  color: '#0f2a44',
+                  fontFamily: 'Arial, sans-serif',
+                  outline: 'none',
+                  direction: 'ltr',
+                }}
+              />
+              <button
+                type="button"
+                onClick={handleGoToPage}
+                style={{
+                  padding: '10px 18px',
+                  fontSize: '1.1rem',
+                  borderRadius: '50px',
+                  border: 'none',
+                  background: '#c9960c',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontFamily: 'Arial, sans-serif',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Go
+              </button>
+            </div>
+
             {/* Chapter list */}
-            <div style={{ overflowY: 'auto', padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {chapterNumbers.map((num, idx) => {
+            <div ref={chapterListRef} style={{ overflowY: 'auto', padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {chapterNumbers.filter(num => {
+                if (!searchQuery.trim()) return true;
+                const q = searchQuery.toLowerCase();
+                return (
+                  chapterData[num].titleEnglish.toLowerCase().includes(q) ||
+                  chapterData[num].titleArabic.includes(searchQuery)
+                );
+              }).map((num) => {
+                const realIdx = chapterNumbers.indexOf(num);
                 const chapter = chapterData[num];
                 const startPage = chapterStartPages[num];
                 const isActive = currentPage >= startPage &&
-                  (idx === chapterNumbers.length - 1 || currentPage < chapterStartPages[chapterNumbers[idx + 1]]);
+                  (realIdx === chapterNumbers.length - 1 || currentPage < chapterStartPages[chapterNumbers[realIdx + 1]]);
                 return (
                   <button
                     key={num}
+                    ref={isActive ? activeChapterRef : null}
                     type="button"
                     onClick={() => jumpToChapter(num)}
                     className={`chapter-index-btn${isActive ? ' active' : ''}`}
@@ -233,7 +431,7 @@ function App() {
                       flexShrink: 0,
                       boxShadow: isActive ? '0 2px 10px rgba(201,150,12,0.4)' : 'none',
                     }}>
-                      {idx + 1}
+                      {realIdx + 1}
                     </div>
 
                     {/* Titles */}

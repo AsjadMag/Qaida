@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import './WordCard.css';
 
-const IdghamArrow = () => (
-  <svg
-    viewBox="0 0 100 28"
-    style={{ display: 'block', width: '100%', height: '26px', pointerEvents: 'none', flexShrink: 0 }}
-    aria-hidden="true"
-  >
-    {/*
-      Arc from noon position (right, ~63% of word width)
-      to the shaddah letter (left, ~17% of word width).
-      width:100% scales with the text area so endpoints land on the actual letters.
-    */}
-    <path d="M 63,20 C 63,4 17,4 17,20" fill="none" stroke="#cc0000" strokeWidth="2.5" strokeLinecap="round" />
-  </svg>
-);
+const IdghamArrow = ({ src = '/images/Curved%20Arrow.png' }) => {
+  // The green ghunnah arrow (NotArrow) is wider/flatter, so it needs a larger
+  // width than the red curved arrow to render at the same visual height.
+  const isGhunnah = src.includes('NotArrow');
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden="true"
+      style={{ display: 'block', width: isGhunnah ? '26%' : '22%', height: 'auto', pointerEvents: 'none', flexShrink: 0 }}
+    />
+  );
+};
 
-const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation }) => {
+const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation, arrowImage }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Calculate font size based on text length
@@ -266,7 +265,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
           whiteSpace: isVeryLong ? 'normal' : 'nowrap',
         }}
       >
-        {showArrow && <IdghamArrow />}
+        {showArrow && <IdghamArrow src={arrowImage || undefined} />}
         {useImage ? (
           renderImage()
         ) : hasSeparator && letter.includes('⇐') ? (

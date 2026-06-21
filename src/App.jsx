@@ -53,6 +53,9 @@ function App() {
     }
   };
 
+  // Tracks the current section (basic/advanced) while rendering the chapter index
+  let lastSection = null;
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -407,7 +410,28 @@ function App() {
                 const startPage = chapterStartPages[num];
                 const isActive = currentPage >= startPage &&
                   (realIdx === chapterNumbers.length - 1 || currentPage < chapterStartPages[chapterNumbers[realIdx + 1]]);
+                // Insert a section divider when entering the Basic (ch 1–15) or Advanced (ch 16+) group
+                const section = realIdx < 15 ? 'basic' : 'advanced';
+                const showHeader = section !== lastSection;
+                lastSection = section;
+                const sectionHeader = showHeader ? (
+                  <div key={`hdr-${section}`} style={{
+                    display: 'flex', alignItems: 'center', gap: '10px',
+                    direction: 'ltr', margin: realIdx === 0 ? '2px 4px 6px' : '14px 4px 6px',
+                  }}>
+                    <div style={{ flex: 1, height: '2px', background: 'linear-gradient(90deg, transparent, rgba(201,150,12,0.55))' }} />
+                    <span style={{
+                      fontSize: '1.15rem', fontWeight: 'bold', color: '#7a4800',
+                      fontFamily: 'Arial, sans-serif', whiteSpace: 'nowrap', letterSpacing: '0.5px',
+                    }}>
+                      {section === 'basic' ? 'Basic Qaida · Chapters 1–15' : 'Advanced Qaida · Chapters 16+'}
+                    </span>
+                    <div style={{ flex: 1, height: '2px', background: 'linear-gradient(90deg, rgba(201,150,12,0.55), transparent)' }} />
+                  </div>
+                ) : null;
                 return (
+                  <React.Fragment key={`row-${num}`}>
+                  {sectionHeader}
                   <button
                     key={num}
                     ref={isActive ? activeChapterRef : null}
@@ -436,9 +460,11 @@ function App() {
 
                     {/* Titles */}
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '1.1rem', color: '#9a8050', fontFamily: 'ArabQuranIslamic_1, serif', fontWeight: 'normal' }}>
-                        {chapter.titleArabic}
-                      </div>
+                      {chapter.titleArabic && (
+                        <div style={{ fontSize: '1.1rem', color: '#9a8050', fontFamily: 'ArabQuranIslamic_1, serif', fontWeight: 'normal' }}>
+                          {chapter.titleArabic}
+                        </div>
+                      )}
                       <div style={{ fontSize: '1.35rem', fontWeight: 'bold', color: isActive ? '#7a4800' : '#0f2a44', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '3px' }}>
                         {chapter.titleEnglish}
                       </div>
@@ -448,6 +474,7 @@ function App() {
                       </div>
                     </div>
                   </button>
+                  </React.Fragment>
                 );
               })}
             </div>

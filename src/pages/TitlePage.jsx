@@ -15,7 +15,68 @@ const floaters = [
   { emoji: '⭐', top: '92%', left: '55%', size: '2rem',   dur: '2.5s', delay: '1.2s'  },
 ];
 
-const TitlePage = ({ onStart }) => {
+// Big landing-page mode button (gold = Basic, blue = Advanced)
+const ModeButton = ({ label, sublabel, icon, onClick, variant }) => {
+  const palettes = {
+    gold: {
+      bg: 'linear-gradient(135deg, #ffd700 0%, #ff9500 50%, #ffd700 100%)',
+      base: '0 6px 0 #b36e00, 0 10px 40px rgba(255,150,0,0.55)',
+      hover: '0 10px 0 #b36e00, 0 18px 55px rgba(255,150,0,0.75)',
+      color: '#0a1628',
+      subColor: 'rgba(10,22,40,0.65)',
+    },
+    blue: {
+      bg: 'linear-gradient(135deg, #4aa3e0 0%, #1a4a7a 50%, #4aa3e0 100%)',
+      base: '0 6px 0 #0c2c4d, 0 10px 40px rgba(46,127,196,0.55)',
+      hover: '0 10px 0 #0c2c4d, 0 18px 55px rgba(46,127,196,0.8)',
+      color: '#ffffff',
+      subColor: 'rgba(255,255,255,0.8)',
+    },
+  };
+  const p = palettes[variant];
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '4px',
+        padding: '20px 52px',
+        minWidth: '260px',
+        background: p.bg,
+        backgroundSize: '200% 200%',
+        color: p.color,
+        border: 'none',
+        borderRadius: '54px',
+        cursor: 'pointer',
+        fontFamily: 'Arial, sans-serif',
+        boxShadow: p.base,
+        zIndex: 1,
+        animation: 'btnShimmer 2.5s linear infinite',
+        transition: 'transform 0.15s, box-shadow 0.15s',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'scale(1.06) translateY(-4px)';
+        e.currentTarget.style.boxShadow = p.hover;
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = 'scale(1) translateY(0)';
+        e.currentTarget.style.boxShadow = p.base;
+      }}
+    >
+      <span style={{ fontSize: 'clamp(1.5rem, 3.4vw, 2.1rem)', fontWeight: 'bold', letterSpacing: '1.5px' }}>
+        {icon} {label}
+      </span>
+      <span style={{ fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', color: p.subColor }}>
+        {sublabel}
+      </span>
+    </button>
+  );
+};
+
+const TitlePage = ({ onBasic, onAdvanced }) => {
   return (
     <div style={{
       minHeight: '100vh',
@@ -147,38 +208,30 @@ const TitlePage = ({ onStart }) => {
         ))}
       </div>
 
-      {/* Start button */}
-      <button
-        className="urdu-text"
-        onClick={onStart}
-        style={{
-          position: 'relative',
-          padding: '22px 88px',
-          fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
-          background: 'linear-gradient(135deg, #ffd700 0%, #ff9500 50%, #ffd700 100%)',
-          backgroundSize: '200% 200%',
-          color: '#0a1628',
-          border: 'none',
-          borderRadius: '60px',
-          cursor: 'pointer',
-          fontWeight: 'bold',
-          letterSpacing: '3px',
-          boxShadow: '0 6px 0 #b36e00, 0 10px 40px rgba(255,150,0,0.55)',
-          zIndex: 1,
-          animation: 'btnShimmer 2.5s linear infinite, btnBounce 1.8s ease-in-out infinite',
-          transition: 'transform 0.15s, box-shadow 0.15s',
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.transform = 'scale(1.08) translateY(-4px)';
-          e.currentTarget.style.boxShadow = '0 10px 0 #b36e00, 0 18px 55px rgba(255,150,0,0.75)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.transform = 'scale(1) translateY(0)';
-          e.currentTarget.style.boxShadow = '0 6px 0 #b36e00, 0 10px 40px rgba(255,150,0,0.55)';
-        }}
-      >
-         شروع کریں
-      </button>
+      {/* Mode buttons — choose Basic or Advanced Qaida */}
+      <div style={{
+        display: 'flex',
+        gap: '28px',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        direction: 'ltr',
+        zIndex: 1,
+      }}>
+        <ModeButton
+          variant="gold"
+          icon="📖"
+          label="Basic Qaida"
+          sublabel="Start from the beginning"
+          onClick={onBasic}
+        />
+        <ModeButton
+          variant="blue"
+          icon="🌟"
+          label="Advanced Qaida"
+          sublabel="Rules &amp; advanced lessons"
+          onClick={onAdvanced}
+        />
+      </div>
 
       {/* Bottom tagline */}
       <p style={{

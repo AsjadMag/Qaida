@@ -11,6 +11,12 @@ for (const num of chapterNumbers) {
   pageCounter += chapterData[num].pages ? chapterData[num].pages.length : 0;
 }
 
+// Chapters with a display number <= 15 are "Basic Qaida", the rest are
+// "Advanced Qaida" (must match the section label logic in LessonPage).
+const BASIC_MAX_DISPLAY_CHAPTER = 15;
+const advancedStartChapterNum = chapterNumbers.find((num, idx) => (idx + 1) > BASIC_MAX_DISPLAY_CHAPTER);
+const advancedStartPage = advancedStartChapterNum ? chapterStartPages[advancedStartChapterNum] : 1;
+
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
@@ -65,7 +71,10 @@ function App() {
       position: 'relative'
     }}>
       {currentPage === 0 ? (
-        <TitlePage onStart={() => setCurrentPage(1)} />
+        <TitlePage
+          onBasic={() => { setCurrentPage(1); scrollToTop(); }}
+          onAdvanced={() => { setCurrentPage(advancedStartPage); scrollToTop(); }}
+        />
       ) : isLastPage ? (
         <div style={{
           display: 'flex',

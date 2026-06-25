@@ -42,14 +42,14 @@ const ModeButton = ({ label, sublabel, icon, onClick, variant }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '4px',
-        padding: '20px 52px',
-        minWidth: '260px',
+        gap: '3px',
+        padding: '13px 36px',
+        minWidth: '210px',
         background: p.bg,
         backgroundSize: '200% 200%',
         color: p.color,
         border: 'none',
-        borderRadius: '54px',
+        borderRadius: '42px',
         cursor: 'pointer',
         fontFamily: 'Arial, sans-serif',
         boxShadow: p.base,
@@ -66,10 +66,10 @@ const ModeButton = ({ label, sublabel, icon, onClick, variant }) => {
         e.currentTarget.style.boxShadow = p.base;
       }}
     >
-      <span style={{ fontSize: 'clamp(1.5rem, 3.4vw, 2.1rem)', fontWeight: 'bold', letterSpacing: '1.5px' }}>
+      <span style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)', fontWeight: 'bold', letterSpacing: '1px' }}>
         {icon} {label}
       </span>
-      <span style={{ fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', color: p.subColor }}>
+      <span style={{ fontSize: '0.72rem', letterSpacing: '1.6px', textTransform: 'uppercase', color: p.subColor }}>
         {sublabel}
       </span>
     </button>
@@ -117,96 +117,60 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
         }}>{f.emoji}</span>
       ))}
 
-      {/* Top crescent */}
-      <div style={{
-        fontSize: '4.5rem',
-        marginBottom: '4px',
-        zIndex: 1,
-        animation: 'floatBob 3.5s ease-in-out infinite alternate',
-        filter: 'drop-shadow(0 0 18px rgba(255,215,0,0.8))',
-      }}>☪️</div>
-
-      {/* Gem divider */}
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: '8px',
-        marginBottom: '18px', zIndex: 1,
-      }}>
-        <div style={{ width: '80px', height: '2px', background: 'linear-gradient(90deg, transparent, #ffd700)' }} />
-        <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1rem',  color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1.4rem', color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1rem',  color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✦</span>
-        <div style={{ width: '80px', height: '2px', background: 'linear-gradient(90deg, #ffd700, transparent)' }} />
-      </div>
-
-      {/* Main title card */}
+      {/* Hero logo — themed emblem (gold wordmark) directly on the gradient */}
       <div style={{
         position: 'relative',
         zIndex: 1,
-        background: 'rgba(255,255,255,0.06)',
-        border: '2px solid rgba(255,215,0,0.4)',
-        borderRadius: '28px',
-        padding: '28px 50px',
-        backdropFilter: 'blur(10px)',
-        boxShadow: '0 8px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15)',
-        marginBottom: '28px',
+        marginBottom: '26px',
       }}>
-        {/* Corner ornaments */}
-        {['top:10px;left:12px', 'top:10px;right:12px', 'bottom:10px;left:12px', 'bottom:10px;right:12px'].map((pos, i) => (
-          <span key={i} style={{
-            position: 'absolute',
-            ...Object.fromEntries(pos.split(';').map(p => p.split(':'))),
-            fontSize: '1.3rem', color: '#ffd700', opacity: 0.7,
-          }}>✦</span>
-        ))}
-
-        <h1 className="urdu-text" style={{
-          fontSize: 'clamp(3.8rem, 11vw, 7rem)',
-          fontWeight: 'bold',
-          color: '#ffd700',
-          textShadow: '0 0 30px rgba(255,215,0,0.6), 0 4px 20px rgba(0,0,0,0.4)',
-          margin: 0,
-          lineHeight: 1.2,
-          animation: 'glow 2.5s ease-in-out infinite alternate',
-        }}>
-          نورانی قاعدہ
-        </h1>
-
-        <p style={{
-          margin: '12px 0 0',
-          fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-          color: 'rgba(255,235,150,0.9)',
-          fontFamily: 'Arial, sans-serif',
-          letterSpacing: '3px',
-          textTransform: 'uppercase',
-          fontWeight: '600',
-        }}>
-          ✨ Learn the Holy Quran ✨
-        </p>
+        {/* Warm glow pooling behind the logo */}
+        <div style={{
+          position: 'absolute',
+          inset: '-50px',
+          background: 'radial-gradient(circle, rgba(255,205,60,0.22) 0%, transparent 68%)',
+          filter: 'blur(8px)',
+          pointerEvents: 'none',
+          zIndex: -1,
+        }} />
+        <img
+          src="/images/TajweedClassLogo_themed.png"
+          alt="Tajweed Classes"
+          style={{
+            display: 'block',
+            width: 'min(500px, 84vw)',
+            height: 'auto',
+            filter: 'drop-shadow(0 6px 22px rgba(0,0,0,0.45)) drop-shadow(0 0 24px rgba(255,200,50,0.28))',
+          }}
+        />
       </div>
 
-      {/* Floating icon row */}
-      <div style={{
-        display: 'flex', gap: '20px',
-        marginBottom: '36px',
+      {/* App name — supporting subtitle under the hero logo */}
+      <h1 className="urdu-text" style={{
+        fontSize: 'clamp(2.4rem, 6.5vw, 4rem)',
+        fontWeight: 'bold',
+        color: '#ffd700',
+        textShadow: '0 0 26px rgba(255,215,0,0.55), 0 4px 16px rgba(0,0,0,0.45)',
+        margin: 0,
+        padding: '0.18em 0.1em 0.12em',
+        lineHeight: 1.6,
+        textAlign: 'center',
+        zIndex: 1,
+        animation: 'glow 2.5s ease-in-out infinite alternate',
+      }}>
+        نورانی قاعدہ
+      </h1>
+      <p style={{
+        margin: '4px 0 34px',
+        fontSize: 'clamp(0.85rem, 2.2vw, 1.15rem)',
+        color: 'rgba(255,235,150,0.9)',
+        fontFamily: 'Arial, sans-serif',
+        letterSpacing: '3px',
+        textTransform: 'uppercase',
+        fontWeight: '600',
         zIndex: 1,
       }}>
-        {[
-          { e: '📖', d: '0s'  },
-          { e: '🌙', d: '0.2s'},
-          { e: '⭐', d: '0.4s'},
-          { e: '🌙', d: '0.6s'},
-          { e: '📖', d: '0.8s'},
-        ].map(({ e, d }, i) => (
-          <span key={i} style={{
-            fontSize: '2.4rem',
-            animation: `floatBob 2.8s ${d} infinite ease-in-out alternate`,
-            filter: 'drop-shadow(0 2px 10px rgba(255,215,0,0.6))',
-            display: 'inline-block',
-          }}>{e}</span>
-        ))}
-      </div>
+        ✨ Learn the Holy Quran ✨
+      </p>
 
       {/* Mode buttons — choose Basic or Advanced Qaida */}
       <div style={{

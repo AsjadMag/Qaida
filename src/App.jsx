@@ -99,8 +99,18 @@ function App() {
             pointerEvents: 'none',
           }} />
 
-          {/* top icon */}
-          <div style={{ fontSize: '4rem', filter: 'drop-shadow(0 0 16px rgba(255,215,0,0.8))', zIndex: 1 }}>☪️</div>
+          {/* brand logo */}
+          <img
+            src="/images/TajweedClassLogo_themed.png"
+            alt="Tajweed Classes"
+            style={{
+              display: 'block',
+              width: 'min(380px, 82vw)',
+              height: 'auto',
+              zIndex: 1,
+              filter: 'drop-shadow(0 6px 22px rgba(0,0,0,0.45)) drop-shadow(0 0 24px rgba(255,200,50,0.28))',
+            }}
+          />
 
           {/* gem divider */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 1 }}>

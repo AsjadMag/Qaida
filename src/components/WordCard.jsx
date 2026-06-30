@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './WordCard.css';
 
-const IdghamArrow = ({ src = '/images/Curved%20Arrow.png' }) => {
+const IdghamArrow = ({ src = '/images/Curved%20Arrow.webp' }) => {
   // The green ghunnah arrow (NotArrow) is wider/flatter, so it needs a larger
   // width than the red curved arrow to render at the same visual height.
   const isGhunnah = src.includes('NotArrow');
@@ -15,7 +15,7 @@ const IdghamArrow = ({ src = '/images/Curved%20Arrow.png' }) => {
   );
 };
 
-const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation, arrowImage }) => {
+const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation, arrowImage, downArrow }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Calculate font size based on text length
@@ -276,6 +276,22 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
           renderSeparatedText('=')
         ) : (
           renderRegularText()
+        )}
+        {downArrow && (
+          <div
+            aria-hidden="true"
+            style={{
+              direction: 'ltr',
+              fontFamily: 'Arial, sans-serif',
+              fontSize: '2.4rem',
+              lineHeight: 1,
+              marginTop: '14px',
+              color: isHovered ? '#ffffff' : '#1b5e20',
+              transition: 'color 0.28s',
+            }}
+          >
+            ↓
+          </div>
         )}
       </div>
     </div>

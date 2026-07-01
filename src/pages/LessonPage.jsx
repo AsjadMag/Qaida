@@ -1,0 +1,1772 @@
+﻿import React from 'react';
+import WordCard from '../components/WordCard';
+import useIsMobile from '../useIsMobile';
+import '../index.css';
+
+export const chapterData = {
+  1: {
+    titleArabic: 'الحروف الهجائية',
+    titleEnglish: 'The Alphabets',
+    // Teacher instructions & goal for chapter 1
+    teacherInfo: {
+      instructions: [
+        'Teach only single Arabic letters.',
+        'Teacher pronounces first; the student repeats.',
+        'Focus on correct pronunciation and proper identification of dots.',
+        'Practice reading in different directions.',
+        'Correct mistakes immediately.',
+        'Do not proceed until 100% accuracy is achieved.',
+        'Daily revision is mandatory.'
+      ],
+      goal: 'Clear recognition and correct pronunciation of all letters.'
+    },
+    pages: [
+      [['ا', 'ب', 'ت', 'ث'],
+      ['ج', 'ح', 'خ'],
+      ['د', 'ذ', 'ر', 'ز'],
+      ['س', 'ش', 'ص', 'ض'],
+      ['ط', 'ظ', 'ع', 'غ'],
+      ['ف', 'ق', 'ك'],
+      ['ل', 'م', 'ن', 'و'],
+      ['هـ', 'ء', 'ى']]
+    ]
+  },
+  2: {
+    titleArabic: '',
+    titleEnglish: 'Arabic Alphabet',
+    // Teacher instructions & goal for chapter 2
+    teacherInfo: {
+    instructions: [
+      'After learning single letters, the student enters the next stage, where letters are joined together.',
+      'These joined or compound letters are known as Murakkabat.',
+      'When two or more letters are joined, they form a Murakkab.',
+      'Upon completion of this lesson, the student will be able to recognize and identify the different shapes of each letter in joined form.'
+    ],
+    goal: 'To develop accurate recognition and understanding of Arabic letters in their joined (Murakkab) form.'
+  },
+    pages: [
+      // Page 1 (Total Page 2)
+      [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/laam_2.webp', imageHoverPath: '/images/laam_2_hover.webp' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/laam_1.webp', imageHoverPath: '/images/laam_1_hover.webp' }],
+      ['ل', { text: 'لا', useImage: true, imagePath: '/images/laam_2.webp', imageHoverPath: '/images/laam_2_hover.webp' }, 'لح', { text: 'لا', useImage: true, imagePath: '/images/laam_1.webp', imageHoverPath: '/images/laam_1_hover.webp' }, 'بلب'],
+      ['ك', 'كب', 'كب', 'كا', 'بکت'],
+      ['تكث', 'ب', 'ت', 'ث', 'ن'],
+      ['ى', 'با', 'نا', 'تا', 'یا'],
+      ['ثا', 'بس', 'يس', 'نس', 'تس'],
+      ['ثس', 'ثح', 'تح']],
+      // Page 2 (Total Page 3)
+      [['نخ', 'یح', 'بج', 'یم', 'بم'],
+      ['تين', 'يتن', 'ثثن', 'ج', 'ح'],
+      ['خ', 'حث', 'خب', 'جت', 'تحت'],
+      ['يجب', 'بخت', 'ة', 'ه', 'بة'],
+      ['يه', 'ته', 'نة', 'ه', 'يهب'],
+      ['بها', 'بهم', 'د', 'ذ', 'جذ'],
+      ['خذ', 'ر', 'ز', 'جر']],
+      // Page 3 (Total Page 4)
+      [['خز', 'ر', 'ز', 'ير', 'تز'],
+      ['س', 'ش', 'سل', 'شل', 'ص'],
+      ['ض', 'ط', 'ظ', 'صب', 'طب'],
+      ['ضا', 'ظا', 'ع', 'غ', 'ء'],
+      ['عز', 'غر', 'صع', 'ضغ', 'بعد'],
+      ['تغذ', 'أ', 'ؤ', 'يئ', 'ف'],
+      ['ق', 'و', 'قو', 'فو', 'فقل'],
+      ['قفل', 'يف', 'م', 'م', 'حم'],
+      ['لم', 'تمت']]
+    ]
+  },
+  3: {
+    titleArabic: '',
+    titleEnglish: 'Movements (Harkaat)',
+    // Teacher instructions & goal for chapter 3 page 1
+teacherInfo: {
+    instructions: [
+      '**Zabar (Fat\'ha):** A little slanting dash {{IMG:/images/Zabar.webp}} over the letters is called **Zabar (Fat\'ha)**.',
+      'Zabar is delivered by opening both lips in up and down-side in strong manner **without prolonging the voice**.'
+    ],
+    goal: 'To correctly pronounce and apply Zabar (Fat\'ha) in Arabic letters and words.'
+  },
+  // ✨ ONE pageTeacherInfo object with both page indices
+  pageTeacherInfo: {
+    1: { // Page 2 (Zair)
+      instructions: [
+        '**Zair (Kasrah):** A little slanting dash{{IMG:/images/Chapter3 Zair.webp}} appearing under the letters is called **Zair (Kasrah)**.',
+        'Zair is delivered by opening the lips downwards **without prolonging the voice**.'
+      ],
+      goal: 'To correctly pronounce and apply Zair (Kasrah) in Arabic letters and words.'
+    },
+    2: { // Page 3 (Paish)
+      instructions: [
+        '**Paish (Dhammah):** A little twisted dash{{IMG:/images/paish.webp}} over the letters is called **Paish (Dummah)**.',
+        'Paish is delivered by making a complete round with the both lips **without prolonging the voice**.'
+      ],
+      goal: 'To correctly pronounce and apply Paish (Dhammah) in Arabic letters and words.'
+    }
+  },
+    pages: [
+      // Page 1 (Total Page 5)
+      [['بَ', 'تَ', 'ثَ', 'جَ', 'حَ'],
+      ['خَ', 'دَ', 'ذَ', 'رَ', 'زَ'],
+      ['سَ', 'شَ', 'صَ', 'ضَ', 'طَ'],
+      ['ظَ', 'عَ', 'غَ', 'فَ', 'قَ'],
+      ['كَ', 'لَ', 'مَ', 'نَ', 'هَ'],
+      ['وَ', 'ءَ =اَ', 'ىَ']],
+
+      // Page 2 (Total Page 6)
+      [['بِ', 'تِ', 'ثِ', 'جِ', 'حِ'],
+      ['خِ', 'دِ', 'ذِ', 'رِ', 'زِ'],
+      ['سِ', 'شِ', 'صِ', 'ضِ', 'طِ'],
+      ['ظِ', 'عِ', 'غِ', 'فِ', 'قِ'],
+      ['كِ', 'لِ', 'مِ', 'نِ', 'وِ'],
+      ['هِ', 'ءِ = اِ', 'ىِ']],
+      // Page 3 (Total Page 7)
+      [['بُ', 'تُ', 'ثُ', 'جُ', 'حُ'],
+      ['خُ', 'دُ', 'ذُ', 'رُ', 'زُ'],
+      ['سُ', 'شُ', 'صُ', 'ضُ', 'طُ'],
+      ['ظُ', 'عُ', 'غُ', 'فُ', 'قُ'],
+      ['كُ', 'لُ', 'مُ', 'نُ', 'هُ'],
+      ['وُ', 'ءُ =اُ', 'ىُ']]
+    ]
+  },
+
+  4: {
+    titleArabic: '',
+    titleEnglish: 'THE CHANGING FACES OF LETTERS',
+    // Teacher instructions & goal for chapter 4 page 1
+teacherInfo: {
+    instructions: [
+      'Arabic letters change their shape depending on their position at the beginning, middle, or end of a word. ',
+      'Learning these positional forms helps students'
+    ],
+    goal: 'To enable students to identify and distinguish Arabic letters in their beginning, middle, and ending forms within joined words.'
+  },
+    pages: [
+      // Page 1 (Total Page 8)
+      [
+        ['بَ = بَـ', 'تَ = تَـ', 'ثَ = ثَـ', 'جَ = جَـ'],
+        ['حَ = حَـ', 'خَ = خَـ', 'دَ = ـدَ', 'ذَ = ـذَ'],
+        ['رَ = ـرَ', 'زَ = ـزَ', 'سَ = سَـ', 'شَ = شَـ'],
+        ['صَ = صَـ', 'ضَ = ضَـ', 'طَ = طَـ', 'ظَ = ظَـ'],
+        ['عَ = عَـ', 'غَ = غَـ', 'فَ = فَـ', 'قَ = قَـ'],
+        ['كَ = كَـ', 'لَ = لَـ', 'مَ = مَـ', 'نَ = نَـ'],
+        ['هَ = هَـ', 'وَ = وَ', 'ءَ = اَ', 'يَ = يَـ']
+      ],
+      // Page 2 (Total Page 9)
+
+      [['بِ = بِـ', 'تِ = تِـ', 'ثِ = ثِـ', 'جِ = جِـ'],
+      ['حِ = حِـ', 'خِ = خِـ', 'دِ = دِ', 'ذِ = ذِ'],
+      ['رِ = رِ', 'زِ = زِ', 'سِ = سِـ', 'شِ = شِـ'],
+      ['صِ = صِـ', 'ضِ = ضِـ', 'طِ = طِـ', 'ظِ = ظِـ'],
+      ['عِ = عِـ', 'غِ = غِـ', 'فِ = فِـ', 'قِ = قِـ'],
+      ['كِ = كِـ', 'لِ = لِـ', 'مِ = مِـ', 'نِ = نِـ'],
+      ['هِ = هِـ', 'وِ = وِ', 'ءِ = اِ', 'يِ = يِـ']],
+      // Page 3 (Total Page 10)
+
+      [['بُ = بُـ', 'تُ = تُـ', 'ثُ = ثُـ', 'جُ = جُـ'],
+      ['حُ = حُـ', 'خُ = خُـ', 'دُ = دُ', 'ذُ = ذُ'],
+      ['رُ = رُ', 'زُ = زُ', 'سُ = سُـ', 'شُ = شُـ'],
+      ['صُ = صُـ', 'ضُ = ضُـ', 'طُ = طُـ', 'ظُ = ظُـ'],
+      ['عُ = عُـ', 'غُ = غُـ', 'فُ = فُـ', 'قُ = قُـ'],
+      ['كُ = كُـ', 'لُ = لُـ', 'مُ = مُـ', 'نُ = نُـ'],
+      ['هُ = هُـ', 'وُ = وُ', 'ءُ = اُ', 'يُ = يُـ']]
+    ]
+  },
+ 5: {
+  titleArabic: '',
+  titleEnglish: 'Exercises of Movements (Zair, Zabar, Paish)',
+  pages: [
+    // Page 1 (Total Page 11) – Exercise of Zair
+    [
+      ['اِ بِ لِ=اِبِلِ', 'يَ لِ جَ=يَلِجَ', 'سَ فِ هَ=سَفِهَ', 'حَ سِ بَ=حَسِبَ'],
+      ['لَ مِ نَ=لَمِنَ', 'مَ لَ كِ=مَلَكِ', 'فَ لَ قِ=فَلَقِ', 'شَ هِ دَ=شَهِدَ'],
+      ['رَ حِ مَ=رَحِمَ', 'وَ سِ عَ=وَسِعَ', 'لَ بِ ثَ=لَبِثَ', 'يَ بِ سَ=يَبِسَ'],
+      ['صَ عِ قَ=صَعِقَ', 'اَ ذِ نَ=اَذِنَ', 'عَ مِ يَ=عَمِيَ', 'فَ زِ عَ=فَزِعَ'],
+      ['غَ ضِ بَ=غَضِبَ', 'رَ ضِ يَ=رَضِيَ', 'بَ رِ قَ=بَرِقَ', 'كَ رِ هَ=كَرِهَ'],
+      ['اِ رَ مَ=اِرَمَ', 'عَ رِ مِ=عَرِمِ', 'عَ مِ لَ=عَمِلَ', 'حَ بِ طَ=حَبِطَ'],
+      ['بَ خِ لَ=بَخِلَ', 'خَ شِ يَ=خَشِيَ', 'عَ لِ مَ=عَلِمَ', 'فَ لِ مَ=فَلِمَ']
+    ],
+    // Page 2 (Total Page 12) – Exercise of Zabar
+    [
+      ['عَ بَ دَ=عَبَدَ', 'اَ مَ رَ=اَمَرَ', 'مَ رَ جَ=مَرَجَ', 'ثَ مَ رَ=ثَمَرَ'],
+      ['فَ عَ لَ=فَعَلَ', 'رَ فَ ثَ=رَفَثَ', 'عَ بَ سَ=عَبَسَ', 'نَ كَ صَ=نَكَصَ'],
+      ['كَ فَ رَ=كَفَرَ', 'قَ تَ لَ=قَتَلَ', 'بَ لَ غَ=بَلَغَ', 'حَ ضَ رَ=حَضَرَ'],
+      ['زَ عَ مَ=زَعَمَ', 'ضَ رَ بَ=ضَرَبَ', 'صَ لَ حَ=صَلَحَ', 'حَ حسَ دَ=حَسَدَ'],
+      ['صَ بَ رَ=صَبَرَ', 'خَ تَ مَ=خَتَمَ', 'مَ طَ رَ=مَطَرَ', 'شَ رَ حَ=شَرَحَ'],
+      ['ذَ هَ بَ=ذَهَبَ', 'ظَ هَ رَ=ظَهَرَ', 'اَ حَ دَ=اَحَدَ', 'هَ لَ كَ=هَلَكَ'],
+      ['حَ مَ لَ=حَمَلَ', 'عَ شَ رَ=عَشَرَ', 'رَ فَ عَ=رَفَعَ', 'نَ بَ اَ=نَبَاَ']
+    ],
+    // Page 3 (Total Page 13) – Exercise of Paish
+    [
+      ['رُ سُ لُ=رُسُلُ', 'رُ بُ عُ=رُبُعُ', 'سُ بُ لَ=سُبُلَ', 'وُ جِ دَ=وُجِدَ'],
+      ['لُ عِ نَ=لُعِنَ', 'فُ عِ لَ=فُعِلَ', 'جُ عِ لَ=جُعِلَ', 'اُ فُ قِ=اُفُقِ'],
+      ['حُ بُ كِ=حُبُكِ', 'خُ لِ قَ=خُلِقَ', 'تَ زِ رُ=تَزِرُ', 'قُ ضِ يَ=قُضِيَ'],
+      ['يَ هَ بُ=يَهَبُ', 'فُ تِ حَ=فُتِحَ', 'اُ خَ رُ=اُخَرُ', 'خَ بُ ثَ=خَبُثَ'],
+      ['حَ سُ نَ=حَسُنَ', 'سُ ئِ لَ=سُئِلَ', 'صُ حُ فِ=صُحُفِ', 'اَ عِ ظُ=اَعِظُ'],
+      ['ذُ كِ رَ=ذُكِرَ', 'كُ تِ بَ=كُتِبَ', 'سُ قِ طَ=سُقِطَ', 'وَ هُ وَ=وَهُوَ'],
+      ['حُ شِ رَ=حُشِرَ', 'عُ رِ ضَ=عُرِضَ', 'قُ رِ ئَ=قُرِئَ', 'مُ نِ عَ=مُنِعَ']
+    ]
+  ]
+},
+  6: {
+    titleArabic: '',
+    titleEnglish: 'Alif Maddah',
+    teacherInfo: {
+      instructions: [
+        'Alif Maddah: If **Zabar** is placed before an Alif{{IMG:/images/AlifMaddah.webp}} it is called **Alif Maddah**.',
+        'For example:{{IMG:/images/Bay.webp}}Zabar{{IMG:/images/Baa.webp|3rem}} and if it is pronounced twice then{{IMG:/images/Bay.webp}} Zabar -ALif{{IMG:/images/Baa2.webp|4rem}}'
+      ],
+      goal: 'Recognize Alif Maddah and pronounce the elongated vowel correctly.'
+    },
+    teacherImage: {
+      imagePath: '/images/ChapterNo.6.webp',
+      alt: 'Alif Maddah example diagram'
+    },
+    // Optional per-page titles (page index is zero-based)
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Alif Maddah',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 14)
+      [['بَا', 'تَا', 'ثَا', 'جَا', 'حَا'],
+      ['خَا', 'دَا', 'ذَا', 'رَا', 'زَا'],
+      ['سَا', 'شَا', 'صَا', 'ضَا', 'طَا'],
+      ['ظَا', 'عَا', 'غَا', 'فَا', 'قَا'],
+      ['كَا', 'لَا', 'مَا', 'نَا', 'هَا'],
+      ['وَا', 'ءَا', 'يَا']],
+
+      // Appended exercises (previously chapter 7 Page 1)
+      [['قَالَ', 'قَالَا', 'اَرَادَ', 'اَرَادَا'],
+      ['حَاقَ', 'ذَاقَا', 'اَصَابَ', 'اَصَابَهَا'],
+      ['مَعَاذَ', 'فَمَاذَا', 'فَتَابَ', 'طَاقَةَ'],
+      ['ءَامَنَ', 'عَاقَبَ', 'يَزَالُ', 'وَضَاقَ'],
+      ['ثَالِثُ', 'لِسَانِ', 'اَصَابَ', 'وَكَانَ'],
+      ['فَقَالَ', 'هَادِيَ', 'حَارَبَ', 'ذَاتَ'],
+      ['ظَاهِر']]
+    ],
+
+  },
+
+  8: {
+    titleArabic: '',
+    titleEnglish: 'Yaa-i Maddah',
+    teacherInfo: {
+      instructions: [
+        '**Yaa-i Maddah:** If **Zair** is placed before a Sakin Yaa{{IMG:/images/YaaImaddah.webp}} it is called **Yaa-i Maddah**.',
+        'For example:{{IMG:/images/Bay.webp}}Zair{{IMG:/images/BaZair.webp|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.webp}}Zair - Yaa{{IMG:/images/BiYa.webp|4rem}} .'
+      ],
+      goal: 'Recognize the Yaa-i Maddah form and pronounce the combined/elongated Yaa sound correctly.'
+    },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Yaa-i Maddah',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 16)
+      // In تيِْ / ثيِْ the kasra is written after the yaa (not the taa/thaa) so the
+      // font stacks it below the yaa's two dots instead of colliding with them.
+      [['بِيْ', 'تيِْ', 'ثيِْ', 'جِيْ', 'حِيْ'],
+      ['خِيْ', 'دِيْ', 'ذِيْ', 'رِيْ', 'زِيْ'],
+      ['سِيْ', 'شِيْ', 'صِيْ', 'ضِيْ', 'طِيْ'],
+      ['ظِيْ', 'عِيْ', 'غِيْ', 'فِيْ', 'قِيْ'],
+      ['كِيْ', 'لِيْ', 'مِيْ', 'نِيْ', 'هِيْ'],
+      ['وِيْ', 'اِيْ', 'يِيْ']],
+      // Page 2 (Total Page 17)
+      [['صِرَاطِىْ', 'صِرَاطِ', 'عِبَادِيْ', 'عِبَادِ'],
+      ['عَذَابِيْ', 'عَذَابِ', 'لِاَخِيْهِ', 'نُرِيْ'],
+      ['كُلِيْ', 'يَمِيْزَ', 'بَنَاتِيْ', 'صِرَاطِيْ'],
+      ['اِيمَانَ', 'عِيْدِ', 'سَنَزِيدُ', 'يَضِيْقُ'],
+      ['تُثِيْرُ', 'نَسِيْتُ', 'اُصِيْبَ', 'وَقِيْلَ'],
+      ['اَكِيْدُ', 'مُهِيْنِ', 'وَحِيْنَ', 'ذِيْ ثَلَاثِ'],
+      ['عَظِيمِ']]
+    ]
+  },
+  10: {
+    titleArabic: '',
+    titleEnglish: 'Wao Maddah',
+    teacherInfo: {
+      instructions: [
+        '**Wao Maddah:** If **Paish** is placed before a Sakin Wao{{IMG:/images/waomaddah1.webp}} it is called **Wao Maddah**.',
+        'For example:{{IMG:/images/Bay.webp}}Paish {{IMG:/images/waomaddah2.webp|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.webp}} Paish - Wao{{IMG:/images/waomaddah3.webp|3rem}}.'
+      ],
+      goal: 'Recognize Wao Maddah and pronounce the elongated Wao sound correctly.'
+    },
+        teacherImage: {
+      imagePath: '/images/ChapterNo8.webp',
+      alt: 'Wao Maddah example diagram'
+    },
+     pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Wao Maddah',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 18)
+      [['بُوْ', 'تُوْ', 'ثُوْ', 'جُوْ'],
+      ['حُوْ', 'خُوْ', 'دُوْ', 'ذُوْ'],
+      ['رُوْ', 'زُوْ', 'سُوْ', 'شُوْ'],
+      ['صُوْ', 'ضُوْ', 'طُوْ', 'ظُوْ'],
+      ['عُوْ', 'غُوْ', 'فُوْ', 'قُوْ'],
+      ['كُوْ', 'لُوْ', 'مُوْ', 'نُوْ'],
+      ['هُوْ', 'وُوْ', 'اُوْ', 'يُوْ']],
+      // Page 2 (Total Page 19)
+    [
+      ['فَتُوْبُوْا', 'اَتُوْبُ', 'اَفِيضُوْا', 'تَفِيْضُ'],
+      ['تَخَافُوْا', 'اَخَافُ', 'نُوحِيْهَا', 'اُوذِيْنَا'],
+      ['اَطِيْعُوْنِي', 'يَقُوْلُوْنَ', 'فَتُوْبُوْا', 'وَرَابِطُوْا'],
+      ['اُوْتِيَ', 'عُوْقِبَ', 'بَرَزُوْا', 'وَرَضُوْا'],
+      ['لِمَا نُهُوْا', 'فَرِحُوْا', 'نَكَثُوْا', 'فَنَسُوْا'],
+      ['خَلَصُوْا', 'وَاُوْذُوْا', 'حَافِظُوْا', 'تَرَكُوْا'],
+      ['خَرَقُوْا']
+    ]
+    ]
+  },
+  12: {
+    titleArabic: '',
+    titleEnglish: 'Erected Harkaat',
+     teacherInfo: {
+    instructions: [
+      '**Erected Zabar:** A short vertical line appearing above the letter{{IMG:/images/erected Zabar.webp|2.5rem}} is called **Erected Zabar**.',
+      'If a small sound is produced by opening the lips slightly upwards on the pronunciation of a letter, it is called **Zabar rule**.',
+      'And if it is pronounced twice as long, it is called the **rule of Alif Maddah and Erected Zabar**.',
+      'For example:{{IMG:/images/erected Zabar1.webp|3rem}}**=**  Zabar - Alif{{IMG:/images/erected Zabar2.webp|3rem}}'
+    ],
+    goal: 'Understand that Huroof-i Maddah and Erected Harkaat are pronounced the same (one Alif length), and correctly apply Erected Zabar.'
+  },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Erected Zabar',
+        titleArabic: ''
+      },
+      2: {
+        titleEnglish: 'Erected Zair',
+        titleArabic: ''  
+      },
+      3: {
+        titleEnglish: 'Exercise of Erected Zair',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 20)
+      [['بَا=بٰ', 'تَا=تٰ', 'ثَا=ثٰ', 'جٰ'],
+      ['حٰ', 'خٰ', 'دٰ', 'ذٰ'],
+      ['رٰ', 'زٰ', 'سٰ', 'شٰ'],
+      ['صٰ', 'ضٰ', 'طٰ', 'ظٰ'],
+      ['عٰ', 'غٰ', 'فٰ', 'قٰ'],
+      ['كٰ', 'لٰ', 'مٰ', 'نٰ'],
+      ['وٰ', 'هٰ', 'ءٰ = اٰ', 'ىٰ']],
+      // Page 2 (Total Page 21)
+    [
+      ['مٰلِكِ=مالِكِ', 'كِتٰبُ=كِتَابُ', 'قٰلَ=قَالَ', 'اَتٰهَا'],
+      ['سَمٰوٰتِ', 'اٰيٰتِ', 'سُكٰرٰى', 'اٰتِنَا'],
+      ['خَلَتْكَ', 'اٰمَنُوا', 'عٰهَدُوا', 'تَزٰوَرُ'],
+      ['يُضٰعَفُ', 'اٰثٰرِ', 'اُسٰرٰى', 'نَصٰرٰى'],
+      ['مِيْكٰلَ', 'قٰلَ', 'هٰذَا', 'يُوحٰى'],
+      ['ذٰلِكُمَا', 'تَظٰهَرَا']
+    ],
+      // Page 3 (Total Page 22)
+      [
+        ['بي=بٖ', 'تى=تٖ', 'ثى=ثٖ', 'جٖ'],
+        ['حٖ', 'خٖ', 'دٖ', 'ذٖ'],
+        ['رٖ', 'زٖ', 'سٖ', 'شٖ'],
+        ['صٖ', 'ضٖ', 'طٖ', 'ظٖ'],
+        ['عٖ', 'غٖ', 'فٖ', 'قٖ'],
+        ['كٖ', 'لٖ', 'مٖ', 'نٖ'],
+        ['وٖ', 'هٖ', 'ءٖ = اٖ', 'ىٖ']
+      ],
+      // Page 4 (Total Page 23)
+      [
+        ['اٖلٰفِ=اِيلٰفِ', 'مِيْثَاقِهٖ', 'رُسُلِهٖ', 'رَسُوْلِهٖ'],
+        ['اٰيٰتِهٖ', 'بِوَلَدِهٖ', 'عِبَادِهٖ', 'عِبَادَتِهٖ'],
+        ['ثَمَرِهٖ', 'تِلَاوَتِهٖ', 'كُتُبِهٖ', 'وَجُنُوْدِهٖ'],
+        ['سَعَتِهٖ', 'هٰذِهٖ', 'بِيَدِهٖ', 'مَوَاضِعِهٖ'],
+        ['سَبِيْلِهٖ', 'مِيْثَاقِهٖ', 'رُسُلِهٖ', 'رَسُوْلِهٖ'],
+        ['اٰيٰتِهٖ', 'اٰيَتِهٖ', 'عِبَادِهٖ', 'عِبَادَتِهٖ'],
+        ['ثَمَرِهٖ']
+      ]
+    ]
+  },
+  16: {
+    titleArabic: '',
+    titleEnglish: 'Inverted Paish',
+    teacherInfo: {
+    instructions: [
+      'This sign on a letter{{IMG:/images/InvertedPaish.webp|3rem}} is called an **inverted Paih**.',
+      '**inverted Paish** If a small sound is produced by moving the lips forward, that is, moving the lips towards the full circle, on the pronunciation',
+      'And if it is pronounced with a sound twice as long, **it is called the rule of Wao Maddah and Inverted Paish**.',
+      'For example:{{IMG:/images/InvertedPaish2.webp|3rem}}Paish - Wao{{IMG:/images/InvertedPaish3.webp|3rem}}.'
+    ],
+    goal: 'Understand Inverted Paish and its relation to Wao Maddah, and pronounce it correctly.'
+  },
+       pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Inverted Paish',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 24)
+      [['بٗ', 'تٗ', 'ثٗ', 'جٗ'],
+      ['حٗ', 'خٗ', 'دٗ', 'ذٗ'],
+      ['رٗ', 'زٗ', 'سٗ', 'شٗ'],
+      ['صٗ', 'ضٗ', 'طٗ', 'ظٗ'],
+      ['عٗ', 'غٗ', 'فٗ', 'قٗ'],
+      ['كٗ', 'لٗ', 'مٗ', 'نٗ'],
+      ['وٗ', 'هٗ', 'ءٗ ', 'ىٗ']],
+      // Page 2 (Total Page 25)
+      [
+        ['دَاوٗدُ=دَاوُوْدُ', 'وٗرِيَ=وُوْرِيَ', 'لِيَسُوْءٗا=لِيَسُوْءُوْا', 'كَلِمَتُهٗ'],
+        ['اٰيٰتُهٗ', 'مَا وٗرِيَ', 'رِسَالَتَهٗ', 'فِصٰلُهٗ'],
+        ['لِيُرِيَهٗ', 'نَصَرَهٗ', 'خِتٰمُهٗ', 'فَقَتَلَهٗ'],
+        ['مِزَاجُهٗ', 'وَرِثَهٗ', 'مَا وٗرِيَ', 'كَلِمَتُهٗ'],
+        ['لِيُرِيَهٗ', 'رِسَالَتَهٗ', 'فِصٰلُهٗ', 'يَرَهٗ'],
+        ['اٰيٰتُهٗ', 'خِتٰمُهٗ']
+      ]
+    ]
+  },
+  18: {
+    titleArabic: '',
+    titleEnglish: 'Wao Leen',
+    teacherInfo: {
+    instructions: [
+      'If Zabar appears before a Sakin Wao{{IMG:/images/waoleen.webp|3rem}}, it is called **Wao Leen**.',
+      '**Reading Method of Wao Leen:**',
+      'The lips are just to open (like in Zabar) and immediately they are made completely round. The delivery is done very softly without prolonging.'
+    ],
+    goal: 'Recognise Wao Leen and pronounce it correctly with soft, non‑prolonged delivery.'
+  },
+      teacherImage: {
+      imagePath: '/images/spin.webp',
+      alt: 'Alif Maddah example diagram',
+      imageStyle: { mixBlendMode: 'normal' }
+    },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Wao Leen',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 26)
+      [['بَوْ', 'تَوْ', 'ثَوْ', 'جَوْ'],
+      ['حَوْ', 'خَوْ', 'دَوْ', 'ذَوْ'],
+      ['رَوْ', 'زَوْ', 'سَوْ', 'شَوْ'],
+      ['صَوْ', 'ضَوْ', 'طَوْ', 'ظَوْ'],
+      ['عَوْ', 'غَوْ', 'فَوْ', 'قَوْ'],
+      ['كَوْ', 'لَوْ', 'مَوْ', 'نَوْ'],
+      ['هَوْ', 'وَوْ', 'اَوْ', 'يَوْ']],
+      // Page 2 (Total Page 27)
+      [
+        ['تَعَالَوْا', 'فَنَادَوْا', 'مَوْجُ', 'طَغَوْا'],
+        ['عَلَوْا', 'سَوْفَ', 'فَوْقَ', 'يَرَوْنَا'],
+        ['حَوْلَ', 'فَتَعَاطَوْا', 'نَوْمَ', 'خَوْفَ'],
+        ['قَضَوْا', 'وَتَوَاصَوْا', 'عَوْرَاتِ', 'اَوْسَطَ'],
+        ['ثَوْبُ', 'سَوْءَةَ', 'بِصَوْتِكَ', 'كَوْثَرَ'],
+        ['قَوْمُكَ', 'اَذَوْا', 'زَوْجَهَا', 'تَرَاضَوْا'],
+        ['وَنَهَوْا', 'حَوْلَهُ', 'عَفَوْنَا', 'مَوْقُوفُونَ'],
+        ['اَوْحَىٰ لَهَا', 'يَرَوْنَهَوْا']
+      ]
+    ]
+  },
+
+  20: {
+    titleArabic: '',
+    titleEnglish: 'Yaa-i Leen',
+    teacherInfo: {
+    instructions: [
+      'If Zabar appears before a Sakin Yaa {{IMG:/images/Yaa-i-Leen.webp|3rem}}, it is called **Yaa-i Leen**.',
+      '**Reading Method of Yaa-i Leen:**',
+      'The lips are about to open (like in Zabar) and immediately they are stretched sideways. The delivery is done very softly without prolonging.'
+    ],
+    goal: 'Recognise Yaa-i Leen and pronounce it correctly with soft, non‑prolonged delivery.'
+  },
+  pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Yaa-i Leen',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 28)
+      [['بَيْ', 'تَيْ', 'ثَيْ', 'جَيْ'],
+      ['حَيْ', 'خَيْ', 'دَيْ', 'ذَيْ'],
+      ['رَيْ', 'زَيْ', 'سَيْ', 'شَيْ'],
+      ['صَيْ', 'ضَيْ', 'طَيْ', 'ظَيْ'],
+      ['عَيْ', 'غَيْ', 'فَيْ', 'قَيْ'],
+      ['كَيْ', 'لَيْ', 'مَيْ', 'نَيْ'],
+      ['هَيْ', 'وَيْ', 'اَيْ', 'يَيْ']],
+      // Page 2 (Total Page 29)
+      [
+        ['اٰتَيْنَا', 'غَيْبِ', 'بَيْنَ', 'عَلَيْهَا'],
+        ['عَصَيْنَا', 'فَعَلَيْهَا', 'لَيْلَةُ', 'زَوْجَيْنِ'],
+        ['هَيْهَاتَ', 'عَيْنَيْنِ', 'شَيْطٰنٍ', 'بَيْنِىْ'],
+        ['وَبَيْنَكَ', 'يٰوَيْلَتٰى', 'لَيْتَنِىْ', 'قَوْسَيْنِ'],
+        ['لَا رَيْبَ', 'سُلَيْمٰنَ', 'اَيْنَ', 'عَيْنَ'],
+        ['فَكَيْفَ', 'سَقَيْتَ', 'سَيْلَ', 'صَيْدُ'],
+        ['زَيْتُهَا', 'ضَيْفِهِ', 'اِلٰهَيْنِ', 'صَالِحَيْنَ'],
+        ['حَوْلَيْنِ', 'كٰامِلَيْنِ']
+      ]
+    ]
+  },
+  22: {
+    titleArabic: '',
+    titleEnglish: 'Jazm or Sukoon',
+    teacherInfo: {
+    instructions: [
+      'This sign {{IMG:/images/Jazm or Sukoon2.webp|3rem}} is called **Jazm** or **Sukoon**, it is written over the letter.',
+      'Jazm letter always read along with its predecessor having Zabar Zair Paish.',
+      'The letter having Zabar Zair Paish is quickly joined with the Sakin letter and the sound of the Sakin letter is made still at its point of articulation.',
+      'The sound produced should be clear.',
+      'The tongue and the mouth should be completely still while delivering the Sakin letter except The following'
+    ],
+    goal: 'Understand the concept of Jazm (Sukoon) and correctly pronounce letters carrying this sign.'
+  },
+  teacherImage: {
+      imagePath: '/images/Jazm or Sukoon.webp',
+      alt: 'Wao Maddah example diagram'
+    }, 
+  pageTeacherInfo: {
+      1: { // Page 2 (Total Page 30) – Exercise of Jazm
+        instructions: [
+          '{{IMG:/images/Jazm or Sukoon3.webp}} if these letters have a Jazm then.',
+          'The voice must bounce so keep this in mind.',
+          'If there is a Jazm on Hamzah then both the voice and breath have to be stopped together in a stern manner.',
+          'But the sound should be not removed.'
+        ],
+        imagePath: '/images/Jazm or Sukoon4.webp',
+        imageStyle: { mixBlendMode: 'normal' },
+      },
+      3: {
+        instructions: [
+          '{{IMG:/images/Jazm or Sukoon3.webp}} if these letters have a Jazm then.',
+          'The voice must bounce so keep this in mind.'
+        ],
+        imagePath: '/images/Jazm or Sukoon4.webp',
+        imageStyle: { mixBlendMode: 'normal' },
+      },
+    },
+  pageTitles: {
+      1: {
+        titleEnglish: 'Jazm or Sukoon',
+        titleArabic: ''
+      },
+      2: {
+        titleEnglish: 'Exercise of Jazm',
+        titleArabic: ''
+      },
+      3: {
+        titleEnglish: 'Exercise of Jazm',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 30)
+      [
+        ['اَفْ اِفْ اُفْ', 'اَحْ اِحْ اُحْ', 'اَثْ اِثْ اُثْ', 'اَهْ اِهْ اُهْ'],
+        ['اَشْ اِشْ اُشْ', 'اَخْ اِخْ اُخْ', 'اَصْ اِصْ اُصْ', 'اَسْ اِسْ اُسْ'],
+        ['اَغْ اِغْ اُغْ', 'اَزْ اِزْ اُزْ', 'اَضْ اِضْ اُضْ', 'اَذْ اِذْ اُذْ'],
+        ['اَظْ اِظْ اُظْ', 'اَوْ اُوْ', 'اَيْ اُيْ', 'اَلْ اِلْ اُلْ'],
+        ['اَنْ اِنْ اُنْ', 'اَعْ اِعْ اُعْ', 'اَمْ اِمْ اُمْ', 'اَرْ اِرْ اُرْ'],
+        ['تَ عْ تِ عْ تُ عْ', 'اَكْ اِكْ اُكْ']
+      ],
+      // Page 2 (Total Page 31)
+      [
+        ['اَقْ اِقْ أُقْ', 'اَطْ اِطْ أُطْ', 'اَبْ اِبْ أُبْ', 'اَجْ اِجْ أُجْ'],
+        ['اَدْ اِدْ أُدْ', 'مَءْ مِءْ مُءْ']
+      ],
+       // Page 3 (Total Page 32)
+      [
+        ['خِفْتُ', 'يُفْسِدُونَ', 'نَحْنُ', 'اِحْدٰهُمَا'],
+        ['مِثْقَالَ', 'يُثْخِنَ', 'اِهْدِنَا', 'يُهْلِكَ'],
+        ['خَشْيَةَ', 'اِشْرَبُوا', 'اِخْرَاجُ', 'يُخْلِفَ'],
+        ['اَصْلَحَ', 'نُصْلِيْهِ', 'عَسْعَسَ', 'اِسْحٰقَ'],
+        ['تُحْشَرُونَ', 'اَحْسَنُ', 'يَزِغْ', 'يُغْنِ'],
+        ['أُزْلِفَتْ', 'حِزْبَ', 'يُضْلِلِ', 'بِاِذْنِ'],
+        ['يُذْكَرَ', 'اَظْلَمُ', 'اِيْتُونِي', 'اَيْنَ'],
+        ['أُوذُوا', 'اَوْفُوا', 'فَقُلْ', 'صُنْعَ'],
+        ['نَعْبُدُ', 'يُعْلِنُونَ', 'يَرْجِعُونَ', 'فِتْنَتُكَ'],
+        ['فَيَمُتْ', 'تَكْرَهُوْا', 'رُسُلِكْ']
+      ],
+      // Page 4 (Total Page 33)
+      [
+        ['خَلَقْنَا', 'شَطْرَهٗ', 'قَبْلِكَ', 'تَجْرِي'],
+        ['اَدْنٰى', 'أُقْسِمُ', 'يُطْعِمُ', 'وَتُبْ'],
+        ['تُجْزَوْنَ', 'يَجِدْ', 'رَزَقْنَا', 'اِطْعَامٌ'],
+        ['جِبْرِيلَ', 'رِجْزٌ', 'وَتُدْلُوْا', 'يُقْبَلُ'],
+        ['تُطْعِمُونَ', 'سُبْحٰنَكَ', 'مَجْرٰيهَا', 'عُدْوَانَ'],
+        ['نَاْتِ', 'يُؤْمِنُونَ', 'رُؤْيَاكَ', 'شِئْتُمَا']
+      ]
+    ]
+  },
+
+  24: {
+    titleArabic: '',
+    titleEnglish: 'Shadd',
+    teacherInfo: {
+    instructions: [
+      'This sign{{IMG:/images/shadd.webp}}is called **Shadd**, it is written over the letter with **Harkaat**.',
+      'A Shadd letter is always read by joining with its predecessor having **Harkaat**.',
+      'In Arabic language, whenever a word has two same letters, first having jazm/sukoon and second having a **Harkaat**,',
+      'Then instead of writing the same letter twice, the letter is written only once with the sign of shadd, so that it read like two letters, therefore reading the shadd letter takes time equivalent to reading two letters.',
+      'For example:{{IMG:/images/shadd2.webp}}',
+      '**Reading method of shadda:** Read it stronger and clearer than the normal.'
+    ],
+    goal: 'Understand the concept of Shadd and pronounce it correctly with emphasis and clarity.',
+    imagePath: '/images/shadd3.webp'
+  },
+   pageTeacherInfo: {
+      2: { 
+        instructions: [
+          '**Exercise of Shadd** And now discussing two more features of the letters regarding voice and breath.',
+          'Some letters have a continous voice and some have stopping voice,',
+          'Some letters have a continous breath and some have stopping breath.'
+        ],
+      }
+    },
+  pageTitles: {
+      1: {
+        titleEnglish: 'Shadd',
+        titleArabic: ''
+      },
+      2: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: ''
+      },
+      3: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: ''
+      },
+      4: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: ''
+      },
+      5: {
+        titleEnglish: 'Exercise of Shadd',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 34)
+      [['اَبَّ', 'اِبِّ', 'أُبُّ', 'اَتَّ'],
+      ['اِتِّ', 'أُتُّ', 'اَثَّ', 'اِثِّ'],
+      ['أُثُّ', 'اَجَّ', 'اِجِّ', 'أُجُّ'],
+      ['اَحَّ', 'اِحِّ', 'أُحُّ', 'اَخَّ'],
+      ['اِخِّ', 'أُخُّ', 'اَدَّ', 'اِدِّ'],
+      ['أُدُّ', 'اَذَّ', 'اِذِّ', 'أُذُّ'],
+      ['اَرَّ', 'اِرِّ', 'أُرُّ', 'اَزَّ'],
+      ['اِزِّ', 'أُزُّ', 'اَسَّ', 'اِسِّ'],
+      ['أُسُّ', 'اَشَّ', 'اِشِّ', 'أُشُّ'],
+      ['اَصَّ', 'اِصِّ', 'أُصُّ', 'اَضَّ'],
+      ['اِضِّ', 'أُضُّ', 'اَطَّ', 'اِطِّ', 'أُطُّ']],
+      // Page 2 (Total Page 35)
+      [['اَظَّ', 'اِظِّ', 'أُظُّ', 'اَعَّ'],
+      ['اِعِّ', 'أُعُّ', 'اَغَّ', 'اِغِّ'],
+      ['أُغُّ', 'اَفَّ', 'اِفِّ', 'أُفُّ'],
+      ['اَقَّ', 'اِقِّ', 'أُقُّ', 'اَكَّ'],
+      ['اِكِّ', 'أُكُّ', 'اَلَّ', 'اِلِّ'],
+      ['أُلُّ', 'اَنَّ', 'اِنِّ', 'أُنُّ'],
+      ['اَمَّ', 'اِمِّ', 'أُمُّ', 'اَهَّ'],
+      ['اِهِّ', 'أُهُّ', 'اَوَّ', 'اِوِّ'],
+      ['أُؤُّ', 'اَيَّ', 'اِيِّ', 'أُيُّ']],
+            // Page 1 (Total Page 36)
+      [
+        ['كَفَّلَهَا', 'يَكُفُّونَ', 'يَزِفُّونَ', 'وُفِّيَتْ'],
+        ['شُحَّ', 'لِيُمَحِّصَ', 'شُحَّ', 'الْمُسَحِّرِينَ'],
+        ['وَبَثَّ', 'يَبُثُّ', 'بَثِّيْ', 'اَلثُّلُثُ'],
+        ['فَمَهِّلِ', 'اَلْوَهَّابُ', 'تَلَهّٰى', 'اَلْقَهَّارُ'],
+        ['يُنَشَّأُ', 'اَهُشُّ', 'بِالشَّهَادَةِ', 'بُشِّرَ'],
+        ['الْفَخَّارِ', 'وَسَخَّرَ', 'تَاَخَّرَ', 'يُؤَخِّرُ'],
+        ['اَلصَّلِحٰتِ', 'فَصَّلَ', 'يَقُصُّ', 'حُصَّلَ'],
+        ['اَحَسَّ', 'يَدُسُّهُ', 'يُمَسِّكُونَ', 'اُسِّسَ']
+      ],
+      // Page 2 (Total Page 37)
+      [
+        ['يَغْشٰى', 'تُغْنِىَ', 'يَزِغْ', 'يُغْنِ'],
+        ['نَزَّلَهٗ', 'وَالْعُزّٰى', 'وَتُعِزُّ', 'تَؤُزُّهُمْ'],
+        ['نَضَّاخَتَانِ', 'فَضَّلَ', 'يَحُضُّ', 'نُفَضِّلُ'],
+        ['وَاَيَّدْنٰهٗ', 'اِيَّاكَ', 'زُيِّنَ', 'اَمَانِيُّهُمْ'],
+        ['كَذَّبُوْا', 'اَلذَّكَرُ', 'فَاَذَّنَ', 'اَلذُّنُوْبَ'],
+        ['وَالظَّاهِرُ', 'اَلظَّهِيرَةِ', 'اَلظُّلُمٰتُ', 'حَظِّ'],
+        ['جَوِّ', 'اَوَّلُ', 'عَدُوِّىْ', 'تُبَوِّيءُ']
+      ],
+      // Page 3 (Total Page 38)
+      [
+        ['وَالْعَافِيْنَ', 'بِسْمِ اللهِ', 'بِكُلِّ', 'فَغُلُّوهُ'],
+        ['أَنْعَمْتَ', 'مِنْهَا', 'اٰمَنَّا', 'فَإِنَّى'],
+        ['نَعْبُدُ', 'يُعْلِنُوْنَ', 'يَدُعُّ', 'سُعِّرَتْ'],
+        ['عَلَيْهِمْ', 'مَالَمْ', 'فَلَمَّا', 'وَأُمُّهُ'],
+        ['يَرْجِعُونَ', 'فِرْعَوْنَ', 'مَرَّاتٍ', 'وَبُرِّزَتْ'],
+        ['كَانَتْ', 'فَيَمُتْ', 'سِتِّينَ', 'عَنِتُّمْ'],
+        ['رُسُلِكَ', 'تَكْرَهُوْا', 'بِبَكَّةَ', 'سُكِّرَتْ']
+      ],
+      // Page 4 (Total Page 39)
+      [
+        ['فَتَلَقّٰى', 'حَقَّتْ', 'وَيُحِقَّ', 'لِلْحَقِّ'],
+        ['اَلطَّاغُوتِ', 'اَطَّلَعَ', 'اَلطُّوْرِ', 'عُطِّلَتْ'],
+        ['رَبَّنَا', 'تَسُبُّوا', 'نُسَبِّحُ', 'شُبِّهَ'],
+        ['تَعَجَّلَ', 'فَنُجِّيَ', 'حِجُّ', 'لَجُّوْا'],
+        ['فَبَدَّلَ', 'فَرُدُّوْهُ', 'يَهْدِيْ', 'يَصُدُّوْنَ'],
+        ['وَتَرَى الشَّمْسَ', 'عَمِلُوا الصَّالِحَاتِ', 'وَالْقَمَرِ', 'فِي الْكُتُبِ']
+      ]
+    ]
+  },
+  26: {
+    titleArabic: '',
+    titleEnglish: ' Double Shadd',
+    pages: [
+      // Page 1 (Total Page 40)
+      [
+        ['يَزَّكّٰى', 'اَلْمُزَّمِّلُ', 'اَلْمُدَّثِّرُ', 'يَشَّقَّقُ'],
+        ['يَسَّمَّعُونَ', 'يَصَّعَّدُ', 'يَذَّكَّرُ', 'عِلِّيِّيْنَ'],
+        ['رِبِّيُّونَ', 'إِنَّ السَّمْعَ', 'مُطَّهِّرِينَ', 'ذُرِّيَّتَهٗ'],
+        ['اِلَّا الَّذِينَ', 'مِنَ الطَّيِّبٰتِ', 'أَشَدُّ النَّاسِ']
+      ]
+    ]
+  },
+  27: {
+    titleArabic: '',
+    titleEnglish: 'Three Variable letters',
+    teacherInfo: {
+      instructions: [
+        '**Three Variable letters:** {{IMG:/images/AaRaLam.webp}}',
+        'If there is **Zabar** or **Paish** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thick tone**.',
+        '{{IMG:/images/chapter1_v2.webp|3rem}}',
+        'If there is **Zair** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thin tone**.',
+        '{{IMG:/images/chapter1_v2-1.webp|3rem}}',
+        'If **Alif** comes after a **thick letter** it will be read in a **thick tone**.',
+        '{{IMG:/images/chapter1_v2-2.webp|3rem}}',
+        'If **Alif** comes after a **thin letter** it will be read **thin**.',
+        '{{IMG:/images/chapter1_v2-3.webp|3rem}}'
+      ],
+      goal: 'Learn and practice three variable letters and their pronunciation rules.'
+    },
+    pages: [
+      // Page 1 (Total Page 41)
+      [
+        ['هُوَ اللّٰهُ', 'نَارُ اللّٰهِ', 'بِسْمِ اللّٰهِ', 'لِلّٰهِ'],
+        ['طَالُوتَ', 'أَصَابَ', 'ظَاهِرٌ', 'فَقَالَ'],
+        ['خَالِدِينَ', 'كِتَابٌ', 'لِسَانٌ']
+      ]
+    ]
+  },
+  28: {
+    titleArabic: '',
+    titleEnglish: 'Exercise of the following Words',
+        teacherInfo: {
+      instructions: [
+        '**Thin Tone Delivery of Alif and Laam**',
+        'Remember: pronunciation of thin Alif, should not be made so thin that the voice may become Lean. Avoid lips from bending downwards.',
+        '**Thick Tone Delivery of Alif and Laam**',
+        'Remember: pronunciation of thick Alif, should not become so thick that it may resemble Wao. Avoid lips from rounding.'
+      ],
+      imagePaths: ['/images/chapter_2_V2(2).webp', '/images/chapter_2_V2(3).webp'],
+      imageStyle: { width: '200px', maxWidth: '250px' }
+    },
+    pages: [
+      // Page 1 (Total Page 42)
+      [
+        ['اَللهُ', 'إِنَّ اللهَ', 'أَرَادَ اللهُ', 'بِسْمِ اللهِ'],
+        ['لِلّٰهِ', 'اَلْحَمْدُ لِلّٰهِ', 'اَمْرُ اللهِ', 'طَالُوتَ'],
+        ['أَصَابَ', 'بِاللهِ', 'فَتَابَ', 'لِسَانِ'],
+        ['مَرْضَاتِ', 'ظَاهِرٌ', 'فَقَالَ', 'وَزَادَهُ'],
+        ['ذَاتَ', 'يَكَادُ', 'قَالَ', 'فَقَالَ'],
+        ['وَضَاقَ', 'عَاقِبَةَ', 'وَكَانَ', 'يَزَالُ']
+      ]
+    ]
+  },
+  29: {
+    titleArabic: '',
+    titleEnglish: 'Tanween',
+    teacherInfo: {
+      instructions: [
+        '{{IMG:/images/Tanween.webp|4rem}}',
+        'Double Zabar, Double Zair and Double Paish are called Tanween. Tamweem is read like Noon Sakin. If any letter has double Zabar, double Zair and double Paish then one Zabar, one Zair, and one Paish is read by joining it with Noon e.g.{{IMG:/images/Chapter_3_V2.webp|4rem}}',
+        'To conclude Noon Sakin and Tanween, both are the same in pronunciation.'
+      ],
+      imagePath: '/images/Chapter_3_v2(1).webp'
+    },
+    pageTitles: {
+      1: { titleEnglish: 'Exercise of Double Zabar', titleArabic: '' },
+      2: { titleEnglish: 'Exercise of Double Zabar', titleArabic: '' },
+      3: { titleEnglish: 'Double Zair', titleArabic: '' },
+      4: { titleEnglish: 'Exercise of Double Zair', titleArabic: '' },
+      5: { titleEnglish: 'Double Paish', titleArabic: '' },
+      6: { titleEnglish: 'Exercise of Double Paish', titleArabic: '' },
+    },
+    pages: [
+      // Page 1 - Exercise of Double Zabar (Total Page 44)
+      [['بًـا = بَنْ', 'تًـا = تَنْ', 'ثًـا = ثَنْ', 'جًـا'],
+      ['حًـا', 'خًـا', 'سًـا', 'صًـا'],
+      ['زًا', 'عًـا', 'رًا', 'كًـا'],
+      ['قًـا', 'فًـا', 'ءًا', 'يًـا']],
+      // Page 2 - Exercise of Double Zabar (Total Page 45)
+      [
+        ['بَطْشًا', 'اِنَاثًا', 'لِبَاسًا', 'خَالِصًا'],
+        ['اِلٰهًا', 'صُلْحًا', 'عَزِيْزًا', 'مَرِيْضًا'],
+        ['جُذَاذًا', 'حَفِيْظًا', 'مَتَاعًا', 'رِدْاً'],
+        ['مُبٰرَكًا', 'فَرِيْقًا', 'اَمْوَاتًا', 'اَسْبَاطًا']
+      ],
+      // Page 3 - Double Zair (Total Page 46)
+      [['بِنْ = بٍ', 'تِنْ = تٍ', 'ثِنْ = ثٍ', 'جٍ'],
+      ['حٍ', 'خٍ', 'زٍ', 'ضٍ'],
+      ['ءٍ', 'عٍ', 'غٍ', 'رٍ'],
+      ['ذٍ', 'ظٍ', 'وٍ', 'يٍ']],
+      // Page 4 - Exercise of Double Zair (Total Page 47)
+      [
+        ['صِبْغٍ', 'مُكْثٍ', 'بَاْسٍ', 'نَقْصٍ'],
+        ['اِلٰهٍ', 'بِرِيْحٍ', 'كُنُوْزٍ', 'تَرَاضٍ'],
+        ['مَجِيْدٍ', 'مَحْفُوْظٍ', 'اَرْبَعٍ', 'لِسَبَاٍ'],
+        ['مُلْكٍ', 'صِدْقٍ', 'حَسَرٰتٍ', 'صِرَاطٍ']
+      ],
+      // Page 5 - Double Paish (Total Page 48)
+      [['بُنْ = بٌ', 'تُنْ = تٌ', 'ثُنْ = ثٌ', 'جٌ'],
+      ['حٌ', 'خٌ', 'سٌ', 'صٌ'],
+      ['ءٌ', 'عٌ', 'غٌ', 'رٌ'],
+      ['نٌ', 'وٌ', 'هٌ', 'يٌ']],
+      // Page 6 - Exercise of Double Paish (Total Page 49)
+      [
+        ['نَزْغٌ', 'حَرْثٌ', 'نَفْسٌ', 'حَرِيْصٌ'],
+        ['اِلٰهٌ', 'جُنَاحٌ', 'عَزِيْزٌ', 'بِيْضٌ'],
+        ['اٰخِذٌ', 'حَافِظٌ', 'سَبْعٌ', 'ظُلُمٌ'],
+        ['تارِكٌ', 'خَالِقٌ', 'فُرَاتٌ', 'مُحِيْطٌ']
+      ]
+    ]
+  },
+  32: {
+    titleArabic: '',
+    titleEnglish: 'Izhar',
+  teacherInfo: {
+      instructions: [
+        'In Quran Majeed whenever **Noon Sakin or Tanween** comes before',
+        'these six letters {{IMG:/images/chapter_4_V2(1).webp|3rem}}, the sound of Noon Sakin or Tanween',
+        'pronounced clearly and distinctly. It is called the Rule of Izhar.'
+      ],
+      imagePath: '/images/Chapter_4_V2.webp'
+    },
+    pages: [
+      // Page 1 (Total Page 50)
+      [['اَنْ ءَ', 'اِنْ اَ', 'اُنْ اَ', 'اً ءَ'],
+      ['اٍ اَ', 'اٌ اَ', 'اَنْ هَ', 'اِنْ هَ'],
+      ['اُنْ هَ', 'اً هَ', 'اٍ هَ', 'اٌ هَ'],
+      ['اَنْ عَ', 'اِنْ عَ', 'اُنْ عَ', 'اً عَ'],
+      ['اٍ عَ', 'اٌ عَ', 'اَنْ حَ', 'اِنْ حَ'],
+      ['اُنْ حَ', 'اً حَ', 'اٍ حَ', 'اٌ حَ'],
+      ['اَنْ غَ', 'اِنْ غَ', 'اُنْ غَ', 'اً غَ'],
+      ['اٍ غَ', 'اٌ غَ', 'اَنْ خَ', 'اِنْ خَ'],
+      ['اُنْ خَ', 'اً خَ', 'اٍ خَ', 'اٌ خَ']],
+      // Page 2 (Total Page 51)
+      [['ء', 'مَنْ أَعْطَىٰ', 'كِتٰبٌ أَنْزَلْنٰهُ', 'وَيَنْهَوْنَ'],
+      ['هـ', 'مَنْ هَاجَرَ', 'فَرِيْقًا هَدَىٰ', 'وَيَنْهَوْنَ'],
+      ['ع', 'مِنْ عِلْمٍ', 'سَمِيْعٌ عَلِيْمٌ', 'الْأَنْعَامَ'],
+      ['ح', 'مِنْ حِكْمَةٍ', 'عَزِيْزٌ حَكِيْمٌ', 'يَنْحِتُوْنَ'],
+      ['غ', 'مِنْ غِسْلِيْنٍ', 'قَوْلًا غَيْرَ', 'فَسَيُنْغِضُوْنَ'],
+      ['خ', 'مَنْ خَشِيَ', 'لَطِيْفٌ خَبِيْرٌ', 'وَالْمُنْخَنِقَةُ']]
+    ]
+  },
+  33: {
+    titleArabic: '',
+    titleEnglish: 'Iqlab',
+    teacherInfo: {
+      instructions: [
+        '**Tiny Meem**',
+        'In Quran-e-Majeed whenever **Noon Sakin or Tanween** comes',
+        'before the letter **Baa**, there is always the {{IMG:/images/chapter_5_v2(1).webp|3rem}} is written',
+        'on **Noon Sakin or Tanween**. So here the Meem is read with',
+        'Ghunna instead of Noon. e.g {{IMG:/images/chapter_5_v2(2).webp|3rem}} It is called the rule of Iqlab.'
+      ],
+      goal: 'The Tiny Meem is read by previous Letter Zabar Zair Paish with prolonging Gunnah.',
+      imagePath: '/images/Chapter_5_V2.webp'
+    },
+    pageTitles: {
+      1: { titleEnglish: 'Iqlab', titleArabic: '' },
+      2: { titleEnglish: 'Exercise of Tiny Meem', titleArabic: '' },
+      3: { titleEnglish: 'Exercise of Tiny Meem', titleArabic: '' },
+    },
+    pageTeacherInfo: {
+      2: {
+        instructions: [
+          '**Reading method of Tiny Meem with Ghunnah**',
+          'Joining the inner dry-sides of both lips very softly and holding the sound at root of the nose equivalent to one Alif, then read{{IMG:/images/chapter_5_v2(3).webp|3rem}}with firm lips.'
+        ],
+      },
+    },
+    pages: [
+      // Page 1 - Iqlab (Total Page 52)
+      [
+        ['مِنْۢ بَعْدِ', 'مَنْۢ بَخِلَ', 'أَنْۢبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
+        ['أَمَدًۢا بَعِيْدًا', 'طَيْرًۢا بِإِذْنِي']
+      ],
+      // Page 2 - Exercise of Tiny Meem (Total Page 53)
+      [
+        ['اَنْۢ بَ', 'اِنْۢ بَ', 'اُنْۢ بَ', 'اًۢ بَ'],
+        ['اٍۢ بَ', 'اٌۢ بَ']
+      ],
+      // Page 3 - Exercise of Tiny Meem (Total Page 54)
+      [
+        ['تَارِكٌۢ بَعْضَ', 'تَفْرِيقًۢا بَيْنَ', 'اَنْۢبَأَهُمْ', 'وَاقِعٌۢ بِهِمْ'],
+        ['سَفَهًۢا بِغَيْرِ', 'لَذَنْۢبِكَ', 'حِزْبٍۢ بِمَا', 'بَعْضًاۢ بِمَا'],
+        ['سُنْۢبُلٰتٍ', 'سَمِيعًۢا بَصِيرًا', 'لُوْطٍۢ بِالنُّذُرِ', 'حَدِيثٍۢ بَعْدَهُ']
+      ]
+    ]
+  },
+  35: {
+    titleArabic: '',
+    titleEnglish: 'Idgham',
+    teacherInfo: {
+      instructions: [
+        'In Quran Majeed whenever **Noon Sakin or Tanween** comes before these six letters',
+        '{{IMG:/images/chapter_6_v2.webp|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
+        'in fact the shad of{{IMG:/images/chapter_6_v2.webp|2rem}} is joined with Zabar/Zair/Paish ',
+        'in thae case of {{IMG:/images/chapter_6_v2(1).webp|3rem}} are joined without Noon sound and',
+        'in the case of {{IMG:/images/chapter_6_v2(2).webp|3rem}} are pronounced with Ghunnah.'
+      ],
+      note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapter_6_v2(2).webp|3rem}}.',
+      imagePath: '/images/new.webp',
+      imageStyle: { width: '800px', maxWidth: '850px' }
+    },
+    pageTitles: {
+      1: { titleEnglish: 'Idgham', titleArabic: '' },
+      2: { titleEnglish: 'Idgham', titleArabic: '' },
+      3: { titleEnglish: 'Idgham - Noon Sakin Before Shaddah', titleArabic: '' },
+      4: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
+      5: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
+      6: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
+      7: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
+      8: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
+      9: { titleEnglish: 'Idgham on Other Letters', titleArabic: '' },
+    },
+    pageTeacherInfo: {
+      1: {
+        instructions: [],
+        note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapter_6_v2(2).webp|3rem}}.',
+              '**Reading method**: in this case the single harkat of the Tanween is joined with the Shadd Letter',
+              '{{IMG:/images/chapter_6_v2(3).webp|6rem}}  {{IMG:/images/chapter_6_v2(4).webp|6rem}}  {{IMG:/images/chapter_6_v2(5).webp|6rem}}']
+      },
+      2: {
+        instructions: [
+          '**Idgham: When the Noon Sakin comes before the Shadd letter**',
+          '{{IMG:/images/chapter_6_v2(6).webp|15rem}}',
+          '{{IMG:/images/chapter_6_v2(7).webp|6rem}}'
+        ],
+      },
+      3: {
+        instructions: [
+          '{{IMG:/images/chapter_6v2(8).webp|15rem}}'
+        ],
+      },
+      4: {
+        instructions: [
+          '{{IMG:/images/Version3.webp|20rem}}'
+        ],
+      },
+      9: {
+        instructions: ['**Idgham on the letters**',
+          'In Quran e Majeed The Jazam letter is not read before Shaad letter'
+        ],
+      },
+    },
+    pageAnnotations: { 0: 'idgham', 2: 'idgham', 3: 'idgham' },
+    pages: [
+      // Page 1 - Idgham
+      [
+        ['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
+        [{ text: 'اَنْ وَّ', arrowImage: '/images/NotArrow.webp' }, { text: 'اَنْ يَّ', arrowImage: '/images/NotArrow.webp' }, 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
+        ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', { text: 'مَنْ وُّجِدَ', arrowImage: '/images/NotArrow.webp' }, { text: 'مَنْ يَّقُولُ', arrowImage: '/images/NotArrow.webp' }]
+      ],
+      // Page 2 - Idgham
+      [
+        ['اً لَّ', 'اً رَّ', 'اً نَّ', 'اً مَّ'],
+        ['اً وَّ', 'اً يَّ', 'اِلٰهًا لَّقَدْ', 'زَبَدًا رَّابِيًا'],
+        ['خَيْرٌ نُّزُلًا', 'مَثَلاً مَّا', 'سِنَةٌ وَّلَا', 'خَيْرًا يَّرَهُ']
+      ],
+      // Page 3 - Idgham Noon Sakin Before Shaddah
+      [['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
+      ['اَنْ وَّ', 'اَنْ يَّ', 'اُنْ لَّ', 'اُنْ رَّ'],
+      ['اُنْ نَّ', 'اُنْ مَّ', 'اُنْ وَّ', 'اُنْ يَّ'],
+      ['اِنْ لَّ', 'اِنْ رَّ', 'اِنْ نَّ', 'اِنْ مَّ'],
+      ['اِنْ وَّ', 'اِنْ يَّ', 'بَ نْ لَّ', 'بَ نْ رَّ'],
+      ['بَ نْ نَّ', 'بَ نْ مَّ', 'بَ نْ وَّ', 'بَ نْ يَّ'],
+      ['بُ نْ لَّ', 'بُ نْ رَّ', 'بُ نْ نَّ', 'بُ نْ مَّ'],
+      ['بُ نْ وَّ', 'بُ نْ يَّ', 'بِ نْ لَّ', 'بِ نْ رَّ'],
+      ['بِ نْ نَّ', 'بِ نْ مَّ', 'بِ نْ وَّ', 'بِ نْ يَّ'],
+      ['مَنْ لَّ', 'مَنْ رَّ', 'عَنْ نَّ', 'عَنْ مُّ'],
+      ['عَنْ وَّ', 'لَنْ يَّ', 'كُنْ لَّ', 'كُنْ رَّ'],
+      ['كُنْ نَّ', 'كُنْ مِّ', 'مَنْ وُّ', 'مَنْ يَّ'],
+      ['يِنْ لَّ', 'مِنْ رَّ', 'مِنْ نَّ', 'مِنْ مُّ'],
+      ['مِنْ وَّ', 'كِنْ يَّ']],
+      // Page 4 - Exercise of Idgham
+      [
+        ['فَإِنْ لَّمْ', 'مِنْ نَّفْعِهِمَا', 'مَنْ وُّجِدَ', 'مِن رَّأْسِهِ'],
+        ['مِن مُّوصٍ', 'مَنْ يَّقُولُ', 'مَنْ لَّمْ', 'عَنْ نَّفْسٍ'],
+        ['مِنْ وَّرَقٍ', 'مَنْ رَّحِمَ', 'مِنْ مَّقَامِ', 'أَن يَضْرِبَ'],
+        ['فَمَنْ لَّمْ', 'أَنْ نَّطْمِسَ', 'وَإِنْ وَّجَدْنَا', 'أَنْ رَّآهُ'],
+        ['عَنْ مِّلَّةِ', 'وَإِنْ يُّقَاتِلُوكُمْ', 'يَكُنْ لَّهُ', 'نَكُنْ نَّدْعُوْا'],
+        ['مِنْ وَّالٍ', 'فَإِنْ رَّجَعَكَ', 'وَلْتَكُنْ مِّنكُمْ', 'اِنْ يُرِيدَا']
+      ],
+      // Page 5 - Exercise of Idgham
+      [['اًلَّ', 'اًرَّ', 'اًنَّ', 'اًمَّ'],
+      ['اًوَّ', 'اًىَّ', 'اٌ لَّ', 'اٌ رَّ'],
+      ['اٌ نَّ', 'اٌ مَّ', 'اٌ وَّ', 'اٌ ىَّ'],
+      ['اٍلَّ', 'اٍرَّ', 'اٍنَّ', 'اٍمَّ'],
+      ['اٍوَّ', 'اٍىَّ', 'بً لَّ', 'بً رَّ'],
+      ['بً نَّ', 'بً مَّ', 'بً وَّ', 'بً ىَّ'],
+      ['بٌ لَّ', 'بٌ رَّ', 'بٌ نَّ', 'بٌ مَّ'],
+      ['بٌ وَّ', 'بٌ ىَّ']],
+      // Page 6 - Exercise of Idgham
+      [['بٍ لَّ', 'بٍ رَّ', 'بٍ نَّ', 'بٍ مَّ'],
+      ['بٍ وَّ', 'بٍ ىَّ', 'قًالِّ', 'تً رَّ'],
+      ['قًا نَّ', 'دًمَّ', 'رًوَّ', 'لً ىَّ'],
+      ['عٌ لَّ', 'رٌرَّ', 'عٌ نَّ', 'جٌ مَّ'],
+      ['وٍوَّ', 'مٌ ىُّ', 'غٍ لِّ', 'قٍ رِّ'],
+      ['عٍ نَّ', 'مٍ مَّ', 'يٍ وَّ', 'يٍ يَّ']],
+      // Page 7 - Exercise of Idgham
+      [
+        ['إِلٰهًا لَّقَدْ', 'خَيْرًا نُّزُلًا', 'بَشِيرًا وَّنَذِيرًا', 'زَبَدًا رَّابِيًا'],
+        ['مَثَلًا مَّا', 'خَيْرًا يَّرَهُ',' وَفَضْلٍ لَّمْ', 'شَيْءٍ نَّحْنُ'],
+        ['طَعَامٍ وَّاحِدٍ']
+      ],
+      // Page 8 - Exercise of Idgham
+      [
+        ['ثَمَرَةٍ رِّزْقًا', 'بِخَيْرٍ مِّنْهَا', 'لِقَوْمٍ يُّوْقِنُونَ', 'رِزْقًا لَّكُمْ'],
+        ['عَهْدًا نَّبَذَهُ', 'سِنَةٌ وَّلَا', 'تَوَّابًا رَّحِيمًا', 'حَسَدًا مِّنْ'],
+        ['نُعَاسًا يَّغْشَىٰ', 'خَيْرٌ لَّكُمْ',' سُوْرَةٌ نَّظَرَ', 'رَعْدٌ وَّبَرْقٌ'],
+        ['غَفُوْرٌ رَّحِيمٌ', 'مُخْرِجٌ مَّا', 'أُمَّةٌ يَّدْعُوْنَ']
+      ],
+      // Page 9 - Idgham on Other Letters
+      [
+        ['قَدْ تَّبَيَّنَ', 'إِذْ ظَّلَمُوْا', 'اِرْكَبْ مَّعَنَا'],
+        ['قُل رَّبِّ', 'يَلْهَثْ ذّٰلِكَ', 'إِنَّهُمْ مَّعَكُمْ'],
+        ['مَهَّدْتُّ', 'نَخْلُقْكُّم', 'أَوْ وَّزَنُوْهُمْ']
+      ]
+    ]
+  },
+  38: {
+    titleArabic: '',
+    titleEnglish: 'Ikhfa',
+    teacherInfo: {
+        instructions: ['If letters{{IMG:/images/chapter_7_v2.webp}} comes after Noon Sakin or Tanween ',
+          'Ghunnah (Ikhfa) always take place. It is called the Rule of Ikhfa.',
+          '**Method of Ghunnah at Noon Sakin and Tanween:**',
+          'By place the tongue at the articulation point of Noon very softly,',
+          'and holding the sound at the root of the nose equivalent to one Alif.',
+          '**Note:**Doing Ghunnah on Noon Shadd the tongue is pressed slightly while doing',
+          'Ghunnah on Noon Sakin and Tanween the tongue is placed very softly.',
+          '{{IMG:/images/chapter_7_v2(6).webp}} In case at Noon Sakin and Tanween, **Ghunnah will not take place** because of stopping.',
+          '{{IMG:/images/chapter_7_v2(7).webp}} Ghunnah is only done during **consistency in recitatio** {{IMG:/images/chapter_7_v2(3).webp|3rem}} ',
+          '{{IMG:/images/chapter_7_v2(8).webp}} These are only these six words{{IMG:/images/chapter_7_v2(4).webp|2.5rem}} where the rule of ikhfa does not apply, so, they are read with izhar',
+          '{{IMG:/images/chapter_7_v2(8).webp}} If a **thick letter** comes afrer Noon Sakin or Tanween, {{IMG:/images/chapter_7_v2(5).webp|2.5rem}} Ikhfa (Ghunnah) will also be in a thick tone.'
+        ],
+        imagePaths: ['/images/chapter_7_v2(9).webp', '/images/chapter_7_v2(2).webp']
+      },
+    pageTitles: {
+      1: {
+        titleEnglish: 'Exercise of Ikhfa',
+        titleArabic: ''
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 64)
+      [['أَنْ تَ', 'أَنْ ثَ', 'أَنْ جَ', 'اًدَ'],
+      ['اًذَ', 'مَنْ زَ', 'تَن سَ', 'سٍ شَ'],
+      ['مَنْ صَ', 'مَنْ ضَ', 'بًاطَ', 'فًاظَ'],
+      ['اٍفَ', 'يًا قَ', 'قٌ كَ']],
+      // Page 2 (Total Page 65)
+      [
+        ['فَمَنْ تَبِعَ', 'شِهَابٌ ثَاقِبٌ', 'مِنْ جَنَّةٍ', 'وَمَنْ دَخَلَهُ'],
+        ['مُنْذِرٌ', 'مَنْ زَكّٰاهَا', 'فَلَا تَنْسَىٰ', 'نَفْسٍ شَيْئًا'],
+        ['مِنْ صَلْصَالٍ', 'مَنْضُوْدٍ', 'شَرَابًا طَهُورًا', 'فَانْظُرْ'],
+        ['فَإِنْ فَاءُوْا', 'يَنْقَلِبْ', 'رِزْقٌ كَرِيْمٌ']
+      ]
+    ]
+  },
+  39: {
+    titleArabic: '',
+    titleEnglish: 'Complete detail of Ghunnah at Meem',
+    teacherInfo: {
+    instructions: [
+       'Complete detail of Ghunnah at Meem:'
+      ],
+      note: [
+        '**Meem Shadd** is always pronounced with a Ghunnah.',
+        '**If letter Baa comes after Meem Sakin only** then Meem Sakin will be read with a Ghunnah.'
+      ],
+      imagePath: '/images/chapter_8_v2.webp'
+      },
+    pages: [
+      // Page 1 (Total Page 66)
+      [
+        ['آمَنَهُمْ مِنْ', 'رَبِّهِمْ مَنْ', 'تُحَمِّلْنَا', 'ثُمَّ'],
+        ['فَلَمَّا', 'عَلَيْهِمْ بِالْإِثْمِ', 'تَرْمِيهِمْ بِحِجَارَةٍ', 'أَلَمْ يَعْلَمْ'],
+        ['بِأَنَّ', 'رَبَّهُمْ بِهِمْ']
+      ],
+      // Page 2 (Total Page 67)
+      [
+        ['رَبَّهُمْ بِهِمْ', 'لَهُمْ تَعَالَوْا', 'كَهْفُهُمْ ثَلٰثَ', 'اَمْ حَسِبْتُمْ'],
+        ['هُمْ خَيْرٌ', 'اَلْحَمْدُ', 'اَنْفُسَكُمْ ذٰلِكُمْ', 'اَمْرًا'],
+        ['بَيْنَهُمْ زُبُرًا', 'عَلَيْهِمْ سَيْلَ', 'هُمْ شَرُّ', 'عَلَيْهِمْ صَيْحَةً'],
+        ['لَكُمْ ضَرًّا', 'لَهُمْ طَعَامٌ', 'اِنَّكُمْ ظَلَمْتُمْ', 'لَكُمْ عَدُوٌّ'],
+        ['عَلَيْهِمْ غَيْرِ', 'هُمْ فِيْهِ', 'عَلَيْهِمْ قَامُوْا', 'بِاَنَّهُمْ كَانُوْا'],
+        ['لَا تَمْلِكُ', 'اَمْنَهُمْ مِّنْ', 'اَلَمْ نَشْرَحْ', 'مِنْكُمْ هَدْيًا'],
+        ['وَاَنْتُمْ اَذِلَّةٌ']
+      ]
+    ]
+  },
+  40: {
+    titleArabic: '',
+    titleEnglish: 'Madd (Prolonging the Sound of vowels)',
+    teacherInfo: {
+    instructions: [
+       '**Madd** {{IMG:/images/chapter_9_vs2.webp}}**[Prolonging the Sound of vowels]**',
+       'In Quran-e-Majeed if Hamzah, Jazm or Shadd comes after Huroof-f-Maddah or Erected Harkaat',
+       'then in this condition, their sounds prolonged up to two or three Alif.',
+       'The Madd sign {{IMG:/images/chapter_9_vs2(1).webp}} is already placed so that we can prolong the sound according to the rule.',
+       '{{IMG:/images/chapter_9_vs2(3).webp|6rem}}',
+       '{{IMG:/images/chapter_9_vs2(4).webp|6rem}}'
+      ],
+      imagePath: '/images/chapter_9_vs2(2).webp',
+      imageStyle: { width: '600px', maxWidth: '650px' }
+      },
+      pageTitles: {
+      2: {
+        titleEnglish: 'Exercise of Madd',
+        titleArabic: ''
+      },
+      3: {
+        titleEnglish: 'Exercise of Madd',
+        titleArabic: ''
+      },
+    },
+    pageTeacherInfo: {
+      1: {
+        instructions: ['**When Hamzah comes after Huroof-e-Maddah or Erected Harkaat.**'],
+        
+      },
+      2: {
+        instructions: ['**Do Exercise of Madd due to Hamzah by prolonging the sound of Huroof-e-Maddah and Erected Harkaat equivalent to 2-Alif.**'],
+        
+      },  
+      3: {
+        instructions: ['**Do Exercise of Madd due to Jazam and Shadd by prolonging the sound of Huroof-e-Maddah and Erected Harkaat equivalent to 3-Alif.**'],
+        
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 68)
+      [['بَآبَّ', 'بِيْٓ بِّ', 'بُوْٓبُّ', 'بٰٓ بَّ'],
+      ['بٖٓ بِّ', 'بٗٓ بُّ', 'لَآمْ', 'مِيْٓ مْ'],
+      ['سِيْٓ نْ', 'نُوْٓنُ', 'آٰ لْ', 'صَآدْ']],
+      // Page 2 (Total Page 69)
+      [['بَآءَ', 'بِیْٓءَ', 'بُوْٓءَ', 'تٰٓ ءَ'],
+      ['تٖٓ ءَ', 'تٗٓ ءَ', 'بَآاَ', 'بِیْٓ اَ'],
+      ['بُوْٓ اَ', 'تٰٓ اَ', 'تٖٓ اَ', 'تٗٓ اَ']],
+      // Page 3 (Total Page 70)
+      [
+        ['إِنّٰا أَنْزَلْنَهُ', 'لَا أُقْسِمُ', 'يَتَسَآءَلُوْنَ', 'فَاَوْحٰٓى اِلَيْهِ'],
+        ['يٰاَيُّهَا النَّبِيُّ', 'اٰبَآءُنَا', 'اٰوٰى اِلَيْهِ', 'اِلٰٓى اِلٰهِكَ'],
+        ['اِذَا جَاءَ', 'اَلَّتِي اُعِدَّتْ', 'فِي اَنْفُسِكُمْ', 'خَطِيْئَةً'],
+        ['فَقُوْلِي إِنِّي', 'هَذِهِ إِيمَانًا', 'سِيئَتْ', 'فِي أَمْرِيْ'],
+        ['إِنِّي أَخَافُ', 'هَنِيْئًا', 'قُوْا أَنْفُسَكُمْ', 'يَرَهُ أَحَدٌ']
+      ],
+      // Page 4 (Total Page 71)
+      [
+        ['اَلصَّآفُّوْنَ', 'تَحٰٓضُّونَ', 'اَلْعَآدِّينَ', 'الٓمّٓ الٓمّٓرّٰ'],
+        ['دَآبَّةٍ', 'وَالصّٰٓفّٰتِ', 'حَآجُّوكَ', 'الٓرٰ صٓ'],
+        ['وَلَا الضَّآلِّينَ', 'اَلظَّآنِّينَ', 'وَلَاجَآنٌّ', 'حٰم طسٓمّٓ'],
+        ['اَلطَّآمَّةُ', 'تَأْمُرُوْٓنِّي', 'أَتُحَآجُّوْٓنِّي', 'نٓ قٓ'],
+        ['قُلْ ءَآلذَّكَرَيْنِ', 'قُلْ آٰللّٰهُ', 'آٰلْـٰٔنَ', 'يسٓ الٓمّٓصٓ']
+      ]
+    ]
+  },
+  41: {
+    titleArabic: '',
+    titleEnglish: 'MADD DUE TO PAUSE',
+    teacherInfo: {
+      instructions: [
+        '**MADD DUE TO PAUSE:** Whenever due to the rule of Waqf, Jazm is placed after',
+        'Huroof-e-Maddah, Erected Harkaat or Huroof-e-Leen, it can be paused with Madd.',
+        '**Length of a Madd due to Pause:** The length of Madd due to Pause can be up to 1-Alif, or 2-Alif or 3-Alif. (choosing the lenght is up to reciter, it is necessary to continue with the same chosen length at a time of recitation).'
+      ]
+    },
+    pageTitles: {
+      1: { titleEnglish: 'Madd Due to Pause', titleArabic: '' },
+      2: { titleEnglish: 'Examples - Pause after Huroof-e-Maddah', titleArabic: '' },
+      3: { titleEnglish: 'Examples - Pause after Huroof-e-Leen', titleArabic: '' },
+    },
+    pages: [
+      // Page 1 - Madd Due to Pause (Total Page 72)
+      [
+        ['تُكَذِّبَانِ — تُكَذِّبَآنْ', 'الْعَالَمِينَ — الْعَالَمِيٓنْ', 'يُؤْمِنُونَ — يُؤْمِنُوٓنْ', 'الْقُرْآنُ — الْقُرْآنْ'],
+        ['يَسْتَوُوْنَ — يَسْتَوُٓنْ', 'النَّبِيِّينَ — النَّبِيِّنْ', 'خَوْفٍ — خَوْٓفْ', 'وَالصَّيْفِ — وَالصَّيْٓفْ']
+      ],
+      // Page 2 - Examples of Pause after Huroof-e-Maddah (Total Page 73)
+      [
+        ['الرَّحِيْمِ — الرَّحِيٓمْ', 'الْقَيُّوْمُ — الْقَيُّوْٓمْ', 'الْمَاعُوْنَ — الْمَآعُونْ', 'الْحِسَابُ — الْحِسَآبْ'],
+        ['اَلدِّيْنِ — الدِّينْ', 'يُؤْمِنُوْنَ — يُؤْمِنُوْنْ', 'يَسْتَوُوْنَ — يَسْتَوُونْ', 'اَلْقُرْآنُ — اَلْقُرْآنْ'],
+        ['النَّبِيِّينَ — النَّبِيِّينْ']
+      ],
+      // Page 3 - Examples of Pause after Huroof-e-Leen (Total Page 74)
+      [
+        ['قُرَيْشٍ — قُرَيْشْ', 'وَالصَّيْفِ — وَالصَّيْفْ', 'وَلَا نَوْمٌ — وَلَا نَوْمْ', 'خَوْفٍ — خَوْفْ'],
+        ['الْبَيْتِ — الْبَيْتْ', 'عَلَيْكَ — عَلَيْكْ', 'وَيَنْتَهُونَ — وَيَنْتَهُونْ', 'يَسْعَوْنَ — يَسْعَوْنْ'],
+        ['عَيْنَيْنِ — عَيْنَيْنْ']
+      ]
+    ]
+  },
+  44: {
+    titleArabic: '',
+    titleEnglish: 'Pause (Waqf)',
+    teacherInfo: {
+    instructions: [
+       'A Pause or Waqf maens short stoppage of voice and breath, while the',
+       'reciter is still in progress. In case of pausing at the end of any word,',
+       'five things should be kept in mind:',
+       '**When pausing at round** {{IMG:/images/chapter_11_v2(2).webp}} **and round** {{IMG:/images/chapter_11_v2(3).webp}}',
+       '**it is always changed in to a sakin** {{IMG:/images/chapter_11_v2(3).webp}}'
+      ],
+      imagePath: '/images/chapter_11_v2.webp',
+      imageStyle: { width: '600px', maxWidth: '650px' }
+      },
+       pageTeacherInfo: {
+      1: {
+        instructions: [     
+       'In case of Pause at Huroof-e-Maddah and Erected Harkaat, they are read prolonging equivalent to one ALif (as it is).',
+       ],
+        
+      },
+      2: {
+        instructions: ['In case of pause at Double Zabar letter, they are read prolonging equivalent to one ALif.'],
+        
+      },  
+      3: {
+        instructions: ['In case of Pause at Zabar, Zair, Paish, Double Zair, and Double Paish are replaced by a Jazm/Sukoon.'],
+        
+      },
+      4: {
+        instructions: ['While pausing on a Shadd letter, its Harkat is diminished, but the strength of the Shadd remains,',
+          'so delivery of the Shadd letter, takes the time equivalent to two letters.'
+        ],
+      },
+     5: {
+        instructions: ['**However**, pausing on Noon Shadd and Meem Shadd, the Ghunnah is done equivalent to one Alif.'
+        ],
+      },
+     6: {
+        instructions: ['**NOTE:** If there is an inactive {{IMG:/images/chapter_11_v2(4).webp}} after zabar,',
+          'then in case of pause it will be prolonged equivalent to one Alif.',
+          '{{IMG:/images/chapter_11_v2(5).webp|8rem}}'
+        ],
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 75)
+      [
+        ['وَاحِدَةً ⇐ وَاحِدَهْ', 'بَقَرَةً ⇐ بَقَرَهْ', 'غَيْرِهِ ⇐ غَيْرُهْ', 'رَسُولِهِ ⇐ رَسُولُهْ'],
+        ['بِالْآخِرَةِ', 'بِسُورَةٍ', 'بَعُوضَةً', 'اَلْجَنَّةَ'],
+        ['بَعْدِهِ']
+      ],
+      // Page 2 (Total Page 76)
+      [
+        ['تَلٰىهَا', 'يَحْيَىٰ', 'قَالُوْا', 'تَلْوٗا'],
+        ['فَادْخُلِىْ', 'يُحْیٖ', 'إِذْهَبَا', 'تَلٰىهَا'],
+        ['مَرْقَدِنَا', 'مَنٰسِكَنَا', 'وَالضُّحَىٰ', 'يُحْيٖ'],
+        ['سَجَىٰ', 'نَصٰرٰى', 'تَلَوٗا', 'فَـاْوٗا'],
+        ['تَجْرِىْ']
+      ],
+      // Page 3 (Total Page 77)
+      [
+        ['كَبِيرًا ⇐ كَبِيرَا', 'هُدًى ⇐ هُدَا', 'شَيْئًا ⇐ شَيْـَٔا', 'جُزْءًا ⇐ جُزْءَا'],
+        ['مَرَضًا', 'سُجَّدًا', 'عَيْنًا', 'جُزْءًا'],
+        ['هُدًى', 'أَنْدَادًا', 'بَصِيرًا', 'تَرْتِيلًا'],
+        ['سُدًى', 'شَيْئًا', 'بَغْيًا']
+      ],
+      // Page 4 (Total Page 78)
+      [
+        ['صَبَرَ ⇐ صَبَرْ', 'ٱلْفَلَقِ ⇐ ٱلْفَلَقْ', 'أَكْبَرُ ⇐ أَكْبَرْ', 'كَافِرٍ ⇐ كَافِرْ'],
+        ['أَظْلَمَ', 'فَأَخْرَجَ', 'يُوصَلَ', 'إِلَّا هُوَ'],
+        ['مَلِكِ', 'بِالْبٰطِلِ', 'يَتَبَدَّلِ', 'الْمَسْجِدِ'],
+        ['أَنُؤْمِنُ', 'أَتَجْعَلُ', 'يُفْسِدُ', 'أَعْلَمُ'],
+        ['وَاحِدٍ', 'بِغَضَبٍ', 'ظُلَلٍ', 'سَفَرٍ'],
+        ['جَاعِلٌ']
+      ],
+      // Page 5 (Total Page 79)
+      [
+        ['فَطَلٌّ ⇐ فَطَلّ', 'وَتَبَّ ⇐ وَتَبّ', 'إِلَىَّ ⇐ إِلَىّ', 'أَشَقُّ ⇐ أَشَقّ'],
+        ['فَظَلٌّ', 'بِالْحَقِّ', 'وَتَبَّ', 'اَلْحَجَّ'],
+        ['اَلْحَرَّ', 'اَلْقَوِيُّ', 'يَبُثُّ', 'اَلرَّسِّ']
+      ],
+      // Page 6 (Total Page 80)
+      [
+        ['لَهُنَّ ⇐ لَهُنّ', 'اَلْغَمِّ ⇐ اَلْغَمّ', 'اَلظَّنِّ ⇐ ٱلظَّنّ', 'اَلصُّمَّ ⇐ اَلصُّمّ'],
+        ['فَسَوّٰهُنَّ', 'أَلِيَمِّ', 'عَلَيْهِنَّ', 'بِغَمٍّ']
+      ],
+      // Page 7 (Total Page 81)
+      [
+        ['اَلْاَعْلَىَ ⇐ ٱلْاَعْلَىٰ', 'اَلْاَشْقَىَ ⇐ ٱلْاَشْقَىٰ', 'اَلْاَتْقَىَ ⇐ ٱلْاَتْقَىٰ', 'تَقْوَىَ ⇐ تَقْوَىٰ'],
+        ['مَثْوَىَ ⇐ مَثْوَىٰ']
+      ]
+    ]
+  },
+  45: {
+    titleArabic: '',
+    titleEnglish: 'TINY NOON',
+    teacherInfo: {
+    instructions: [
+       'In Quran Majeed some times, a tiny Noon is placed between two words. Two things are kept in mind:',
+       '- If pause is taken before tiny Noon, it will not be read. Start reading from the next word. For Example,',
+       'if{{IMG:/images/chapter_12_v2.webp}}is paused before{{IMG:/images/chapter_12_v2(2).webp}}, that is, then reading will start from {{IMG:/images/chapter_12_v2(3).webp}}.',
+       '- In joining condition, if Alif comes before a Tiny Noon it will not be read. For example, on {{IMG:/images/chapter_12_v2(4).webp}}',
+       'Alif will not at {{IMG:/images/chapter_12_v2(5).webp}}rather {{IMG:/images/chapter_12_v2(4).webp}}will read.',
+       '{{IMG:/images/chapter_12_v2(7).webp|12rem}}'
+      ],
+      },
+    pages: [
+      // Page 1 (Total Page 82)
+      [[{ text: 'Joining\nCondition', downArrow: true }, { text: 'Pause\nCondition', downArrow: true }, { text: 'Writing\nCondition', downArrow: true }],
+      ['لُمَزَةِ ِۨ ○ الَّذِىْ', 'لُمَزَهْ ○ اَلَّذِىْ', 'لُمَزَةِ ِۨ ○ الَّذِىْ'],
+      ['فَخُورَ ِۨ ○ الَّذِينَ', 'فَخُورَا ○ اَلَّذِينَ', 'فَخُورًا ِۨ ○ اَلَّذِينَ']],
+      // Page 2 (Total Page 83)
+      [
+        ['شَهِيدَا ِۨ ○ الرِّجَالُ', 'خَيْرُ ِۨ ○ اطْمَأَنَّ بِهِ', 'قَوْمَا ِۨ ○ اتَّخَذَهَا'],
+        ['عَلِيْمُ ِۨ ○ اللهُ', 'أَوْ لَهْوَا ِۨ ○ انْفَضُّوْا', 'أَحَدُ ِۨ ○ اللّهُ الصَّمَدُ']
+      ]
+    ]
+  },
+  46: {
+    titleArabic: '',
+    titleEnglish: 'Rule of adding Zabar',
+    pages: [
+      // Page 1 (Total Page 84)
+      [['الْكِتٰبِ ⇐ اَلْكِتٰبْ', 'الرَّحْمٰنِ ⇐ اَلرَّحْمٰنْ']]
+    ]
+  },
+  47: {
+    titleArabic: '',
+    titleEnglish: 'Rule of adding Zair and Paish',
+    teacherInfo: {
+    instructions: [
+       '{{IMG:/images/chapter_13_v2(2).webp|10rem}}',
+       'If a word is starting with{{IMG:/images/chapter_13_v2(3).webp}}, then Zabar is always added on the Hamzah. ',
+       'Apart from {{IMG:/images/chapter_13_v2(3).webp}} if a word begins with inactive Hamzah {{IMG:/images/chapter_13_v2(4).webp}}, then Zair or Paish is added to Hamzah.',
+       'Easy way to do this, look at the third letter including the{{IMG:/images/chapter_13_v2(4).webp}}, if the third letter has a Paish, ',
+       'then will be added to Hamzah.',
+       '{{IMG:/images/chapter_13_v2(5).webp|8rem}}',
+       'If the third letter has Zabar or Zair, in both conditions, Zair will be added to Hamzah.',
+       '{{IMG:/images/chapter_13_v2(6).webp|8rem}}'
+
+      ],
+      imagePath: '/images/chapter_13_v2.webp',
+      },
+        pageTeacherInfo: {
+      1: {
+        instructions: [     
+        'However, there are 9 words in the Quran-e-Majeed, their third letter has a Paish but still only Zair is added to Hamzah, and those 8 words are:',
+       '{{IMG:/images/chapter_13_v2(7).webp|5rem}}'
+       ],
+      }
+    },
+    pages: [
+      // Page 1 (Total Page 85)
+      [
+        ['ادْخُلُوْهَا ⇐ اُدْخُلُوْهَا', 'اقْتُلُوْا ⇐ اُقْتُلُوْا', 'اعْبُدُوْا ⇐ اُعْبُدُوْا', 'ارْجِعِىْ ⇐ اِرْجِعِىْ'],
+        ['انفَطَرَتْ ⇐ اِنفَطَرَتْ', 'اتَّبِعُوْا ⇐ اِتَّبِعُوْا']
+      ],
+      // Page 2 (Total Page 86)
+      [
+        ['اِسْمُ', 'اِمْرُؤٌا', 'اِبْنٌ', 'اِتَّقُوْا'],
+        ['اِمْشُوْا', 'اِيتُوْا', 'اِقْضُوْا', 'اِبْنُوْا'],
+        ['أَنْذِرْ', 'فِرْعَوْنَ', 'يُهَاجِرْ', 'شِرْعَةً']
+      ],
+      // Page 3 (Total Page 87)
+      [
+        ['السِّحْرَ ⇐ السِّحْرْ', 'حِجْرٍ ⇐ حِجْرْ', 'قَدِيرٌ ⇐ قَدِيْرْ', 'خَيْرَ ⇐ خَيْرْ'],
+        ['غَيْرَ ⇐ غَيْرْ', 'الطَّيْرِ ⇐ الطَّيْرْ', 'ضَيْرَ ⇐ ضَيْرْ', 'السَّيْرِ ⇐ السَّيْرْ'],
+        ['عُزَيْرُ ⇐ عُزَيْرْ']
+      ],
+      // Page 4 (Total Page 88)
+      [
+        ['إِنِ ارْتَبْتُمْ', 'رَبِّ ارْحَمْهُمَا', 'لِمَنِ ارْتَضَىٰ', 'رَبِّ ارْجِعُونِ'],
+        ['أَمِ ارْتَابُوْا', 'اَلَّذِي ارْتَضَىٰ', 'عَذَابِ ِۨ ارْكُضْ', 'مَنِ ارْتَضَىٰ'],
+        ['ارْكَبْ مَّعَنَا', 'ارْجِعْ', 'ارْجِعُوْا', 'ارْجِعِيْ'],
+        ['قِرْطَاسٍ', 'وَإِرْصَادًا', 'مِرْصَادًا', 'لَبِالْمِرْصَادِ'],
+        ['فِرْقَةٍ']
+      ]
+    ]
+  },
+
+};
+
+const LessonPage = ({ pageNumber }) => {
+  const isMobile = useIsMobile();
+  // Build a numeric-sorted list of chapters and compute total pages
+  const chapterNumbers = Object.keys(chapterData).map(n => parseInt(n, 10)).sort((a, b) => a - b);
+  const totalPages = chapterNumbers.reduce((sum, n) => sum + (chapterData[n].pages ? chapterData[n].pages.length : 0), 0);
+
+  if (!pageNumber || pageNumber < 1 || pageNumber > totalPages) {
+    return (
+      <div style={{ textAlign: 'center', padding: '100px 1in', fontSize: '3rem', color: '#0f2a44', fontFamily: 'urdu-text, serif' }}>
+        صفحہ {pageNumber} جلد ہی شامل کیا جائے گا ان شاء اللہ
+      </div>
+    );
+  }
+
+  // Find which chapter and which page inside that chapter corresponds to the global pageNumber
+  let remaining = pageNumber; // 1-based
+  let currentChapterNum = chapterNumbers[0];
+  let pageInChapter = 0;
+
+  for (const ch of chapterNumbers) {
+    const pages = chapterData[ch].pages ? chapterData[ch].pages.length : 0;
+    if (remaining <= pages) {
+      currentChapterNum = ch;
+      pageInChapter = remaining - 1; // zero-based index inside chapter
+      break;
+    }
+    remaining -= pages;
+  }
+
+  const currentChapter = chapterData[currentChapterNum];
+  const currentLetters = currentChapter.pages[pageInChapter];
+  const pageAnnotation = currentChapter.pageAnnotations?.[pageInChapter] ?? null;
+
+  // Determine page-specific title if provided, otherwise use chapter title
+  const pageTitle = (currentChapter.pageTitles && currentChapter.pageTitles[pageInChapter])
+    ? currentChapter.pageTitles[pageInChapter]
+    : { titleArabic: currentChapter.titleArabic, titleEnglish: currentChapter.titleEnglish };
+
+  // Compute a displayed (sequential) chapter number so missing keys don't create gaps
+  const displayChapterNo = (chapterNumbers.indexOf(currentChapterNum) >= 0)
+    ? (chapterNumbers.indexOf(currentChapterNum) + 1)
+    : currentChapterNum;
+
+  return (
+    <div className="lesson-container" style={{ padding: '40px 1in 180px', maxWidth: '100%', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '55px' }}>
+        {/* Section label — Basic / Advanced */}
+        <div style={{
+          display: 'inline-block',
+          fontSize: '0.95rem',
+          fontWeight: 700,
+          color: '#7a4800',
+          background: 'rgba(246,204,68,0.20)',
+          border: '1px solid rgba(201,150,12,0.45)',
+          borderRadius: '50px',
+          padding: '6px 22px',
+          marginBottom: '20px',
+          fontFamily: 'Arial, sans-serif',
+          letterSpacing: '2.5px',
+          textTransform: 'uppercase',
+        }}>
+          {displayChapterNo <= 15 ? 'Basic Qaida' : 'Advanced Qaida'}
+        </div>
+
+        {/* Chapter overline */}
+        <div style={{
+          fontSize: '1.05rem',
+          fontWeight: 700,
+          color: '#c9960c',
+          letterSpacing: '4px',
+          textTransform: 'uppercase',
+          fontFamily: 'Arial, sans-serif',
+          marginBottom: '10px',
+        }}>
+          Chapter {displayChapterNo.toString().padStart(2, '0')}
+        </div>
+
+        {/* Prominent chapter title (English, consistent) */}
+        <h1 className="lesson-header-title" style={{
+          fontSize: '3.4rem',
+          fontWeight: 800,
+          color: '#0f2a44',
+          fontFamily: 'Arial, sans-serif',
+          margin: '0 auto 16px',
+          lineHeight: 1.15,
+          letterSpacing: '0.3px',
+          maxWidth: '900px',
+        }}>
+          {pageTitle.titleEnglish}
+        </h1>
+
+        {/* Gold underline accent */}
+        <div style={{
+          width: '96px',
+          height: '4px',
+          margin: '0 auto',
+          borderRadius: '2px',
+          background: 'linear-gradient(90deg, #f6cc44, #c9960c)',
+        }} />
+      </div>
+      {/* ✨ Teacher Instructions – chapter‑level (page 0) OR page‑specific */}
+      {(() => {
+        const selectedTeacher = (pageInChapter === 0 && currentChapter.teacherInfo)
+          ? currentChapter.teacherInfo
+          : (currentChapter.pageTeacherInfo && currentChapter.pageTeacherInfo[pageInChapter])
+            ? currentChapter.pageTeacherInfo[pageInChapter]
+            : null;
+
+        if (!selectedTeacher) return null;
+
+        const selectedImagePaths = (
+          selectedTeacher.imagePaths ||
+          (selectedTeacher.imagePath ? [selectedTeacher.imagePath] : null) ||
+          (selectedTeacher.image && selectedTeacher.image.imagePath ? [selectedTeacher.image.imagePath] : null) ||
+          (currentChapter.teacherImage && currentChapter.teacherImage.imagePath ? [currentChapter.teacherImage.imagePath] : null)
+        );
+
+        const selectedImageAlt = (
+          selectedTeacher.imageAlt ||
+          (selectedTeacher.image && selectedTeacher.image.alt) ||
+          (currentChapter.teacherImage && currentChapter.teacherImage.alt) ||
+          ''
+        );
+
+        return (
+          <div
+            className="teacher-panel"
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '28px',
+              background: '#fef9e7',
+              borderLeft: '8px solid #f6cc44',
+              borderRadius: '12px',
+              padding: '28px 36px',
+              marginBottom: '60px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+              direction: 'ltr',
+              textAlign: 'left',
+              fontFamily: 'Arial, sans-serif',
+            }}
+          >
+            {/* Left: instructions + goal */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h4 className="teacher-title" style={{
+                fontSize: '2rem',
+                color: '#0f2a44',
+                marginTop: 0,
+                marginBottom: '18px',
+                fontWeight: '600',
+                borderBottom: '2px solid #f6cc44',
+                paddingBottom: '10px',
+                display: 'inline-block'
+              }}>
+                Teacher Instructions
+              </h4>
+
+              <ul className="teacher-list" style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: '0 0 25px 0',
+                fontSize: '1.6rem',
+                lineHeight: '2.4rem',
+                color: '#2c3e50',
+              }}>
+                {selectedTeacher.instructions.map((item, idx) => (
+                  <li key={idx} style={{
+                    marginBottom: '16px',
+                    display: 'block',
+                    listStyle: 'none',
+                  }}>
+                    <span style={{ display: 'inline', overflowWrap: 'anywhere' }}>
+                      {item.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                          return <strong key={index}>{part.slice(2, -2)}</strong>;
+                        }
+                        if (part.startsWith('{{IMG:') && part.endsWith('}}')) {
+                          const inner = part.slice(6, -2); // e.g. "/images/Zabar.webp" or "/images/Zabar.webp|4rem"
+                          const [src, customSize] = inner.split('|');
+                          return (
+                            <img
+                              key={index}
+                              src={src}
+                              alt="symbol"
+                              style={{
+                                height: customSize || '2.2rem',
+                                width: 'auto',
+                                verticalAlign: 'middle',
+                                display: 'inline-block',
+                                margin: '0 4px',
+                                mixBlendMode: 'multiply',
+                              }}
+                            />
+                          );
+                        }
+                        return <span key={index}>{part}</span>;
+                      })}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {selectedTeacher.goal && (
+                <div className="teacher-goal" style={{
+                  fontSize: '1.6rem',
+                  color: '#0f2a44',
+                  backgroundColor: '#fff3d6',
+                  padding: '16px 24px',
+                  borderRadius: '40px',
+                  marginTop: '5px',
+                  fontWeight: '500',
+                  border: '1px dashed #f6cc44',
+                }}>
+                  <strong>Goal:</strong> {selectedTeacher.goal}
+                </div>
+              )}
+
+              {selectedTeacher.note && (() => {
+                const noteLines = Array.isArray(selectedTeacher.note) ? selectedTeacher.note : [selectedTeacher.note];
+                const renderNoteParts = (text, lineIdx) =>
+                  text.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
+                    if (part.startsWith('**') && part.endsWith('**'))
+                      return <strong key={`${lineIdx}-${index}`}>{part.slice(2, -2)}</strong>;
+                    if (part.startsWith('{{IMG:') && part.endsWith('}}')) {
+                      const [src, customSize] = part.slice(6, -2).split('|');
+                      return (
+                        <img
+                          key={`${lineIdx}-${index}`}
+                          src={src}
+                          alt="symbol"
+                          style={{ height: customSize || '2.2rem', width: 'auto', verticalAlign: 'middle', display: 'inline-block', margin: '0 4px', mixBlendMode: 'multiply' }}
+                        />
+                      );
+                    }
+                    return <span key={`${lineIdx}-${index}`}>{part}</span>;
+                  });
+                return noteLines.map((line, lineIdx) => (
+                  <div key={lineIdx} className="teacher-note" style={{
+                    fontSize: '1.6rem',
+                    color: '#0f2a44',
+                    backgroundColor: '#ffe8cc',
+                    padding: '16px 24px',
+                    borderRadius: '40px',
+                    marginTop: '12px',
+                    fontWeight: '500',
+                    border: '1px dashed #ff9800',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                  }}>
+                    <span style={{ width: '5px', alignSelf: 'stretch', borderRadius: '3px', background: '#ff9800', flexShrink: 0 }} />
+                    <span style={{ display: 'inline', overflowWrap: 'anywhere' }}>
+                      {renderNoteParts(line, lineIdx)}
+                    </span>
+                  </div>
+                ));
+              })()}
+
+            </div>
+
+            {/* Right: teacher image(s) */}
+            {selectedImagePaths && (
+              <div className="teacher-images" style={{
+                flexShrink: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px',
+              }}>
+                {selectedImagePaths.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={selectedImageAlt}
+                    style={{
+                      width: '400px',
+                      maxWidth: '450px',
+                      height: 'auto',
+                      borderRadius: '8px',
+                      mixBlendMode: 'multiply',
+                      ...selectedTeacher.imageStyle,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })()}
+
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        padding: '40px 0',
+        overflow: 'visible',
+      }}>
+        {currentLetters.map((row, i) => {
+          // Calculate appropriate width based on number of cards
+          const cardCount = row.length;
+          let rowWidth = '100%';
+          let rowMargin = '0 auto';
+
+          if (cardCount === 1) {
+            rowWidth = isMobile ? '80%' : '50%';
+          } else if (cardCount === 2) {
+            rowWidth = isMobile ? '96%' : '70%';
+          } else if (cardCount === 3) {
+            rowWidth = isMobile ? '100%' : '85%';
+          }
+
+          return (
+            <div key={i} className="lesson-row" style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${cardCount}, 1fr)`,
+              gap: isMobile ? '10px' : '0.5in', /* Increased gap */
+              width: rowWidth,
+              margin: rowMargin,
+              marginBottom: '60px', /* Space for hover */
+              position: 'relative',
+            }}>
+              {row.map((item, j) => {
+                const letter = typeof item === 'object' ? item.text : item;
+                const font = typeof item === 'object' ? item.font : null;
+                const useImage = typeof item === 'object' ? item.useImage : false;
+                const imagePath = typeof item === 'object' ? item.imagePath : null;
+                const imageHoverPath = typeof item === 'object' ? item.imageHoverPath : null;
+                const arrowImage = typeof item === 'object' ? item.arrowImage : null;
+                const downArrow = typeof item === 'object' ? item.downArrow : false;
+
+                return letter ? (
+                  <div
+                    key={j}
+                    className="lesson-card-wrap"
+                    style={{
+                      position: 'relative',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: '30px', /* Padding for hover space */
+                      margin: '-30px', /* Negative margin to offset padding */
+                    }}
+                  >
+                    <WordCard
+                      letter={letter}
+                      customFont={font}
+                      useImage={useImage}
+                      imagePath={imagePath}
+                      imageHoverPath={imageHoverPath}
+                      annotation={pageAnnotation}
+                      arrowImage={arrowImage}
+                      downArrow={downArrow}
+                    />
+                  </div>
+                ) : (
+                  <div key={j}></div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+
+    </div>
+  );
+};
+
+export default LessonPage;
+

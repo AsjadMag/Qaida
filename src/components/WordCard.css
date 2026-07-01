@@ -38,20 +38,15 @@
 
 /* Hover effects */
 .word-card:hover {
-  transform: scale(1.4) translateY(-20px);
+  transform: scale(1.15) translateY(-10px);
   z-index: 1000;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.3);
   background: linear-gradient(to bottom, #3b82f6 0%, #0A2472 100%);
 }
 
 /* Single letter turns white on hover */
 .word-card:hover .letter {
   color: #ffffff;
-}
-
-/* Special handling for compound letters with = sign */
-.word-card:hover .letter:contains("=") {
-  /* We'll handle this with JavaScript instead */
 }
 
 /* Responsive */
@@ -63,6 +58,6 @@
     font-size: 3.4rem;
   }
   .word-card:hover {
-    transform: scale(1.4) translateY(-15px);
+    transform: scale(1.15) translateY(-10px);
   }
 }

@@ -1,36 +1,21 @@
 import React from 'react';
 
-const floaters = [
-  { emoji: '⭐', top: '8%',  left: '5%',  size: '2.4rem', dur: '3.1s', delay: '0s'    },
-  { emoji: '🌙', top: '12%', left: '88%', size: '2.8rem', dur: '3.8s', delay: '0.4s'  },
-  { emoji: '⭐', top: '22%', left: '93%', size: '1.8rem', dur: '2.6s', delay: '0.9s'  },
-  { emoji: '✨', top: '35%', left: '3%',  size: '2rem',   dur: '3.4s', delay: '0.2s'  },
-  { emoji: '🌟', top: '55%', left: '90%', size: '2.2rem', dur: '2.9s', delay: '1.1s'  },
-  { emoji: '⭐', top: '70%', left: '6%',  size: '1.9rem', dur: '3.6s', delay: '0.7s'  },
-  { emoji: '✨', top: '80%', left: '85%', size: '2.1rem', dur: '3s',   delay: '0.3s'  },
-  { emoji: '🌙', top: '88%', left: '15%', size: '2.5rem', dur: '4s',   delay: '1.4s'  },
-  { emoji: '⭐', top: '15%', left: '50%', size: '1.6rem', dur: '2.7s', delay: '0.6s'  },
-  { emoji: '🌟', top: '45%', left: '96%', size: '2rem',   dur: '3.3s', delay: '1.8s'  },
-  { emoji: '✨', top: '60%', left: '1%',  size: '2.3rem', dur: '3.7s', delay: '0.5s'  },
-  { emoji: '⭐', top: '92%', left: '55%', size: '2rem',   dur: '2.5s', delay: '1.2s'  },
-];
-
-// Big landing-page mode button (gold = Basic, blue = Advanced)
-const ModeButton = ({ label, sublabel, icon, onClick, variant }) => {
+// Big landing-page mode button (green = Basic, gold = Advanced) — matches the brand logo
+const ModeButton = ({ label, sublabel, onClick, variant }) => {
   const palettes = {
-    gold: {
-      bg: 'linear-gradient(135deg, #ffd700 0%, #ff9500 50%, #ffd700 100%)',
-      base: '0 6px 0 #b36e00, 0 10px 40px rgba(255,150,0,0.55)',
-      hover: '0 10px 0 #b36e00, 0 18px 55px rgba(255,150,0,0.75)',
-      color: '#0a1628',
-      subColor: 'rgba(10,22,40,0.65)',
-    },
-    blue: {
-      bg: 'linear-gradient(135deg, #4aa3e0 0%, #1a4a7a 50%, #4aa3e0 100%)',
-      base: '0 6px 0 #0c2c4d, 0 10px 40px rgba(46,127,196,0.55)',
-      hover: '0 10px 0 #0c2c4d, 0 18px 55px rgba(46,127,196,0.8)',
+    green: {
+      bg: 'linear-gradient(135deg, #4caf50 0%, #2e7d32 50%, #4caf50 100%)',
+      base: '0 5px 0 #1b5e20, 0 12px 30px rgba(46,125,50,0.28)',
+      hover: '0 8px 0 #1b5e20, 0 18px 42px rgba(46,125,50,0.4)',
       color: '#ffffff',
-      subColor: 'rgba(255,255,255,0.8)',
+      subColor: 'rgba(255,255,255,0.82)',
+    },
+    gold: {
+      bg: 'linear-gradient(135deg, #f6cc44 0%, #d4a017 50%, #f6cc44 100%)',
+      base: '0 5px 0 #9a7500, 0 12px 30px rgba(212,160,23,0.28)',
+      hover: '0 8px 0 #9a7500, 0 18px 42px rgba(212,160,23,0.42)',
+      color: '#1b3a1c',
+      subColor: 'rgba(27,58,28,0.68)',
     },
   };
   const p = palettes[variant];
@@ -43,38 +28,46 @@ const ModeButton = ({ label, sublabel, icon, onClick, variant }) => {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '4px',
-        padding: '20px 52px',
-        minWidth: '260px',
+        padding: '15px 44px',
+        minWidth: '230px',
         background: p.bg,
         backgroundSize: '200% 200%',
         color: p.color,
         border: 'none',
-        borderRadius: '54px',
+        borderRadius: '14px',
         cursor: 'pointer',
         fontFamily: 'Arial, sans-serif',
         boxShadow: p.base,
         zIndex: 1,
-        animation: 'btnShimmer 2.5s linear infinite',
-        transition: 'transform 0.15s, box-shadow 0.15s',
+        transition: 'transform 0.18s, box-shadow 0.18s',
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.transform = 'scale(1.06) translateY(-4px)';
+        e.currentTarget.style.transform = 'translateY(-3px)';
         e.currentTarget.style.boxShadow = p.hover;
       }}
       onMouseLeave={e => {
-        e.currentTarget.style.transform = 'scale(1) translateY(0)';
+        e.currentTarget.style.transform = 'translateY(0)';
         e.currentTarget.style.boxShadow = p.base;
       }}
     >
-      <span style={{ fontSize: 'clamp(1.5rem, 3.4vw, 2.1rem)', fontWeight: 'bold', letterSpacing: '1.5px' }}>
-        {icon} {label}
+      <span style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)', fontWeight: 'bold', letterSpacing: '0.5px' }}>
+        {label}
       </span>
-      <span style={{ fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', color: p.subColor }}>
+      <span style={{ fontSize: '0.7rem', letterSpacing: '1.8px', textTransform: 'uppercase', color: p.subColor }}>
         {sublabel}
       </span>
     </button>
   );
 };
+
+// A small, refined gold ornament divider (pure CSS — no emoji)
+const Ornament = () => (
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', zIndex: 1 }}>
+    <div style={{ width: 'clamp(50px, 14vw, 110px)', height: '1.5px', background: 'linear-gradient(90deg, transparent, #c9960c)' }} />
+    <div style={{ width: '9px', height: '9px', background: '#c9960c', transform: 'rotate(45deg)', borderRadius: '2px', boxShadow: '0 0 8px rgba(201,150,12,0.5)' }} />
+    <div style={{ width: 'clamp(50px, 14vw, 110px)', height: '1.5px', background: 'linear-gradient(90deg, #c9960c, transparent)' }} />
+  </div>
+);
 
 const TitlePage = ({ onBasic, onAdvanced }) => {
   return (
@@ -88,145 +81,113 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
-      background: 'linear-gradient(160deg, #0a1628 0%, #0d2744 30%, #1a4a7a 65%, #c9960c 100%)',
+      background: 'linear-gradient(165deg, #ffffff 0%, #f0faea 40%, #dcefcf 68%, #f1dfa0 100%)',
     }}>
 
-      {/* Radial glow behind center */}
+      {/* Brand logo — pinned to the top-left corner with tagline beneath */}
+      <div style={{
+        position: 'absolute',
+        top: '24px',
+        left: '30px',
+        zIndex: 3,
+        textAlign: 'left',
+        direction: 'ltr',
+      }}>
+        <img
+          src="/images/TajweedClassLogo_trans.webp"
+          alt="Tajweed Classes"
+          style={{
+            display: 'block',
+            width: 'min(225px, 46vw)',
+            height: 'auto',
+            filter: 'drop-shadow(0 4px 12px rgba(27,94,32,0.16))',
+          }}
+        />
+        <p style={{
+          margin: '6px 0 0 6px',
+          fontSize: 'clamp(0.72rem, 1.7vw, 0.92rem)',
+          fontWeight: 700,
+          color: '#2e7d32',
+          fontFamily: 'Arial, sans-serif',
+          letterSpacing: '1.5px',
+        }}>
+          Love Quran <span style={{ color: '#d4a017' }}>•</span> Learn Quran
+        </p>
+      </div>
+
+      {/* Soft centered glow */}
       <div style={{
         position: 'absolute',
         top: '50%', left: '50%',
-        transform: 'translate(-50%, -60%)',
-        width: '600px', height: '600px',
+        transform: 'translate(-50%, -52%)',
+        width: '680px', height: '680px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(246,204,68,0.18) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(246,204,68,0.22) 0%, rgba(76,175,80,0.07) 48%, transparent 72%)',
         pointerEvents: 'none',
         zIndex: 0,
       }} />
 
-      {/* Floating emojis */}
-      {floaters.map((f, i) => (
-        <span key={i} style={{
-          position: 'absolute',
-          top: f.top, left: f.left,
-          fontSize: f.size,
-          animation: `floatBob ${f.dur} ${f.delay} infinite ease-in-out alternate`,
-          pointerEvents: 'none',
-          userSelect: 'none',
-          zIndex: 0,
-          filter: 'drop-shadow(0 2px 8px rgba(255,215,0,0.5))',
-        }}>{f.emoji}</span>
-      ))}
-
-      {/* Top crescent */}
+      {/* Bismillah — centered Quranic calligraphy */}
       <div style={{
-        fontSize: '4.5rem',
-        marginBottom: '4px',
-        zIndex: 1,
-        animation: 'floatBob 3.5s ease-in-out infinite alternate',
-        filter: 'drop-shadow(0 0 18px rgba(255,215,0,0.8))',
-      }}>☪️</div>
-
-      {/* Gem divider */}
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: '8px',
-        marginBottom: '18px', zIndex: 1,
-      }}>
-        <div style={{ width: '80px', height: '2px', background: 'linear-gradient(90deg, transparent, #ffd700)' }} />
-        <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1rem',  color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1.4rem', color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1rem',  color: '#ffd700' }}>✦</span>
-        <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✦</span>
-        <div style={{ width: '80px', height: '2px', background: 'linear-gradient(90deg, #ffd700, transparent)' }} />
-      </div>
-
-      {/* Main title card */}
-      <div style={{
-        position: 'relative',
-        zIndex: 1,
-        background: 'rgba(255,255,255,0.06)',
-        border: '2px solid rgba(255,215,0,0.4)',
-        borderRadius: '28px',
-        padding: '28px 50px',
-        backdropFilter: 'blur(10px)',
-        boxShadow: '0 8px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15)',
-        marginBottom: '28px',
-      }}>
-        {/* Corner ornaments */}
-        {['top:10px;left:12px', 'top:10px;right:12px', 'bottom:10px;left:12px', 'bottom:10px;right:12px'].map((pos, i) => (
-          <span key={i} style={{
-            position: 'absolute',
-            ...Object.fromEntries(pos.split(';').map(p => p.split(':'))),
-            fontSize: '1.3rem', color: '#ffd700', opacity: 0.7,
-          }}>✦</span>
-        ))}
-
-        <h1 className="urdu-text" style={{
-          fontSize: 'clamp(3.8rem, 11vw, 7rem)',
-          fontWeight: 'bold',
-          color: '#ffd700',
-          textShadow: '0 0 30px rgba(255,215,0,0.6), 0 4px 20px rgba(0,0,0,0.4)',
-          margin: 0,
-          lineHeight: 1.2,
-          animation: 'glow 2.5s ease-in-out infinite alternate',
-        }}>
-          نورانی قاعدہ
-        </h1>
-
-        <p style={{
-          margin: '12px 0 0',
-          fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-          color: 'rgba(255,235,150,0.9)',
-          fontFamily: 'Arial, sans-serif',
-          letterSpacing: '3px',
-          textTransform: 'uppercase',
-          fontWeight: '600',
-        }}>
-          ✨ Learn the Holy Quran ✨
-        </p>
-      </div>
-
-      {/* Floating icon row */}
-      <div style={{
-        display: 'flex', gap: '20px',
-        marginBottom: '36px',
+        fontFamily: "'Amiri Quran', serif",
+        fontSize: 'clamp(2rem, 6vw, 3.6rem)',
+        color: '#1b5e20',
+        direction: 'rtl',
+        lineHeight: 1.7,
+        marginBottom: '22px',
+        padding: '0 0.2em',
+        textShadow: '0 2px 14px rgba(212,160,23,0.25)',
         zIndex: 1,
       }}>
-        {[
-          { e: '📖', d: '0s'  },
-          { e: '🌙', d: '0.2s'},
-          { e: '⭐', d: '0.4s'},
-          { e: '🌙', d: '0.6s'},
-          { e: '📖', d: '0.8s'},
-        ].map(({ e, d }, i) => (
-          <span key={i} style={{
-            fontSize: '2.4rem',
-            animation: `floatBob 2.8s ${d} infinite ease-in-out alternate`,
-            filter: 'drop-shadow(0 2px 10px rgba(255,215,0,0.6))',
-            display: 'inline-block',
-          }}>{e}</span>
-        ))}
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
       </div>
+
+      <Ornament />
+
+      {/* App name — hero title */}
+      <h1 className="urdu-text" style={{
+        fontSize: 'clamp(2.6rem, 7vw, 4.4rem)',
+        fontWeight: 'bold',
+        color: '#1b5e20',
+        textShadow: '0 2px 0 rgba(255,255,255,0.55), 0 6px 18px rgba(212,160,23,0.22)',
+        margin: '20px 0 0',
+        padding: '0.18em 0.1em 0.12em',
+        lineHeight: 1.5,
+        textAlign: 'center',
+        zIndex: 1,
+      }}>
+        نورانی قاعدہ
+      </h1>
+      <p style={{
+        margin: '2px 0 36px',
+        fontSize: 'clamp(0.82rem, 2.1vw, 1.1rem)',
+        color: '#2e7d32',
+        fontFamily: 'Arial, sans-serif',
+        letterSpacing: '4px',
+        textTransform: 'uppercase',
+        fontWeight: '600',
+        zIndex: 1,
+      }}>
+        Official Tajweed Classes Learning
+      </p>
 
       {/* Mode buttons — choose Basic or Advanced Qaida */}
       <div style={{
         display: 'flex',
-        gap: '28px',
+        gap: '24px',
         flexWrap: 'wrap',
         justifyContent: 'center',
         direction: 'ltr',
         zIndex: 1,
       }}>
         <ModeButton
-          variant="gold"
-          icon="📖"
+          variant="green"
           label="Basic Qaida"
           sublabel="Start from the beginning"
           onClick={onBasic}
         />
         <ModeButton
-          variant="blue"
-          icon="🌟"
+          variant="gold"
           label="Advanced Qaida"
           sublabel="Rules &amp; advanced lessons"
           onClick={onAdvanced}
@@ -235,34 +196,16 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
 
       {/* Bottom tagline */}
       <p style={{
-        marginTop: '28px',
-        fontSize: '1rem',
-        color: 'rgba(255,235,150,0.6)',
+        marginTop: '34px',
+        fontSize: '0.95rem',
+        color: 'rgba(27,94,32,0.6)',
         fontFamily: 'Arial, sans-serif',
-        letterSpacing: '2px',
+        letterSpacing: '2.5px',
+        fontWeight: 600,
         zIndex: 1,
       }}>
-        ★ &nbsp; Step by Step &nbsp; ★ &nbsp; Fun &amp; Easy &nbsp; ★ &nbsp; For Kids &nbsp; ★
+        Step by Step <span style={{ color: '#d4a017' }}>•</span> Fun &amp; Easy <span style={{ color: '#d4a017' }}>•</span> For Kids
       </p>
-
-      <style>{`
-        @keyframes floatBob {
-          0%   { transform: translateY(0px) rotate(-4deg); }
-          100% { transform: translateY(-14px) rotate(4deg); }
-        }
-        @keyframes glow {
-          0%   { text-shadow: 0 0 20px rgba(255,215,0,0.4), 0 4px 20px rgba(0,0,0,0.4); }
-          100% { text-shadow: 0 0 50px rgba(255,215,0,0.95), 0 0 80px rgba(255,150,0,0.5), 0 4px 20px rgba(0,0,0,0.4); }
-        }
-        @keyframes btnShimmer {
-          0%   { background-position: 0% 50%; }
-          100% { background-position: 200% 50%; }
-        }
-        @keyframes btnBounce {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-5px); }
-        }
-      `}</style>
     </div>
   );
 };

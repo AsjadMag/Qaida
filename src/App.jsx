@@ -2,6 +2,45 @@ import React, { useState, useRef, useEffect } from 'react';
 import TitlePage from './pages/TitlePage';
 import LessonPage, { chapterData } from './pages/LessonPage';
 
+// Small inline-SVG flags (regional-indicator emoji don't render as flags on Windows)
+const flagStyle = {
+  width: '22px',
+  height: '15px',
+  borderRadius: '2px',
+  verticalAlign: '-2px',
+  marginRight: '7px',
+  boxShadow: '0 0 0 1px rgba(255,255,255,0.35)',
+  flexShrink: 0,
+};
+
+const USFlag = () => (
+  <svg viewBox="0 0 7410 3900" style={flagStyle} aria-label="USA" role="img">
+    <rect width="7410" height="3900" fill="#b22234" />
+    <g fill="#fff">
+      <rect y="300" width="7410" height="300" />
+      <rect y="900" width="7410" height="300" />
+      <rect y="1500" width="7410" height="300" />
+      <rect y="2100" width="7410" height="300" />
+      <rect y="2700" width="7410" height="300" />
+      <rect y="3300" width="7410" height="300" />
+    </g>
+    <rect width="2964" height="2100" fill="#3c3b6e" />
+  </svg>
+);
+
+const UKFlag = () => (
+  <svg viewBox="0 0 60 30" style={flagStyle} aria-label="UK" role="img">
+    <clipPath id="ukclip"><rect width="60" height="30" /></clipPath>
+    <g clipPath="url(#ukclip)">
+      <rect width="60" height="30" fill="#012169" />
+      <path d="M0,0 60,30 M60,0 0,30" stroke="#fff" strokeWidth="6" />
+      <path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" strokeWidth="4" clipPath="url(#ukclip)" />
+      <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10" />
+      <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6" />
+    </g>
+  </svg>
+);
+
 const chapterNumbers = Object.keys(chapterData).map(n => parseInt(n, 10)).sort((a, b) => a - b);
 
 const chapterStartPages = {};
@@ -81,90 +120,120 @@ function App() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '80vh',
-          background: 'linear-gradient(160deg, #0a1628 0%, #0d2744 40%, #1a4a7a 75%, #c9960c 100%)',
+          minHeight: '86vh',
+          background: 'linear-gradient(165deg, #ffffff 0%, #f0faea 40%, #dcefcf 68%, #f1dfa0 100%)',
           borderRadius: '28px',
-          padding: '60px 40px',
+          padding: '60px 40px 120px',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
-          gap: '28px',
+          gap: '26px',
         }}>
-          {/* radial glow */}
+          {/* soft centered glow */}
           <div style={{
             position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%, -60%)',
-            width: '500px', height: '500px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(246,204,68,0.15) 0%, transparent 70%)',
-            pointerEvents: 'none',
+            transform: 'translate(-50%, -55%)',
+            width: '640px', height: '640px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(246,204,68,0.22) 0%, rgba(76,175,80,0.07) 48%, transparent 72%)',
+            pointerEvents: 'none', zIndex: 0,
           }} />
 
-          {/* top icon */}
-          <div style={{ fontSize: '4rem', filter: 'drop-shadow(0 0 16px rgba(255,215,0,0.8))', zIndex: 1 }}>☪️</div>
+          {/* brand logo */}
+          <img
+            src="/images/TajweedClassLogo_trans.webp"
+            alt="Tajweed Classes"
+            style={{
+              display: 'block',
+              width: 'min(320px, 74vw)',
+              height: 'auto',
+              zIndex: 1,
+              filter: 'drop-shadow(0 6px 18px rgba(27,94,32,0.18))',
+            }}
+          />
 
-          {/* gem divider */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 1 }}>
-            <div style={{ width: '60px', height: '2px', background: 'linear-gradient(90deg, transparent, #ffd700)' }} />
-            <span style={{ color: '#ffd700', fontSize: '1.2rem' }}>✦</span>
-            <span style={{ color: '#ffd700', fontSize: '1.4rem' }}>✦</span>
-            <span style={{ color: '#ffd700', fontSize: '1.2rem' }}>✦</span>
-            <div style={{ width: '60px', height: '2px', background: 'linear-gradient(90deg, #ffd700, transparent)' }} />
-          </div>
-
-          {/* main card */}
+          {/* Arabic — JazakAllah Khairan */}
           <div style={{
-            background: 'rgba(255,255,255,0.06)',
-            border: '2px solid rgba(255,215,0,0.4)',
-            borderRadius: '24px',
-            padding: '32px 48px',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '0 8px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
+            fontFamily: "'Amiri Quran', serif",
+            fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+            color: '#1b5e20',
+            direction: 'rtl',
+            lineHeight: 1.7,
+            padding: '0 0.2em',
+            textShadow: '0 2px 14px rgba(212,160,23,0.25)',
             zIndex: 1,
           }}>
-            <p style={{
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: 'bold',
-              color: '#ffd700',
-              margin: '0 0 12px',
-              fontFamily: 'Arial, sans-serif',
-              letterSpacing: '2px',
-              textShadow: '0 0 30px rgba(255,215,0,0.6)',
-            }}>
-              🎉 Thank You for Reading! 🎉
-            </p>
-            <p style={{
-              fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-              color: 'rgba(255,235,150,0.9)',
-              fontFamily: 'Arial, sans-serif',
-              letterSpacing: '3px',
-              margin: 0,
-              textTransform: 'uppercase',
-            }}>
-              May Allah Bless Your Learning
-            </p>
+            جَزَاكُمُ اللَّهُ خَيْرًا
           </div>
 
-          {/* floating icons row */}
-          <div style={{ display: 'flex', gap: '18px', zIndex: 1 }}>
-            {['📖','🌙','⭐','🌙','📖'].map((e, i) => (
-              <span key={i} style={{ fontSize: '2rem', filter: 'drop-shadow(0 2px 8px rgba(255,215,0,0.6))' }}>{e}</span>
-            ))}
+          {/* gold ornament divider */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', zIndex: 1 }}>
+            <div style={{ width: 'clamp(50px, 14vw, 110px)', height: '1.5px', background: 'linear-gradient(90deg, transparent, #c9960c)' }} />
+            <div style={{ width: '9px', height: '9px', background: '#c9960c', transform: 'rotate(45deg)', borderRadius: '2px', boxShadow: '0 0 8px rgba(201,150,12,0.5)' }} />
+            <div style={{ width: 'clamp(50px, 14vw, 110px)', height: '1.5px', background: 'linear-gradient(90deg, #c9960c, transparent)' }} />
           </div>
+
+          {/* main heading */}
+          <h2 style={{
+            fontSize: 'clamp(2rem, 5.5vw, 3.2rem)',
+            fontWeight: 'bold',
+            color: '#1b5e20',
+            margin: 0,
+            fontFamily: 'Arial, sans-serif',
+            letterSpacing: '1px',
+            direction: 'ltr',
+            textShadow: '0 2px 0 rgba(255,255,255,0.55), 0 6px 18px rgba(212,160,23,0.22)',
+            zIndex: 1,
+          }}>
+            Thank You for Reading!
+          </h2>
+          <p style={{
+            fontSize: 'clamp(0.9rem, 2.4vw, 1.2rem)',
+            color: '#2e7d32',
+            fontFamily: 'Arial, sans-serif',
+            letterSpacing: '3px',
+            margin: 0,
+            direction: 'ltr',
+            textTransform: 'uppercase',
+            fontWeight: 600,
+            zIndex: 1,
+          }}>
+            May Allah Bless Your Learning
+          </p>
 
           {/* bottom tagline */}
           <p style={{
-            color: 'rgba(255,235,150,0.6)',
+            color: 'rgba(27,94,32,0.6)',
             fontFamily: 'Arial, sans-serif',
-            letterSpacing: '2px',
+            letterSpacing: '2.5px',
             fontSize: '0.95rem',
+            fontWeight: 600,
             zIndex: 1,
-            margin: 0,
+            margin: '8px 0 0',
           }}>
-            ★ &nbsp; Keep Practicing &nbsp; ★ &nbsp; Stay Consistent &nbsp; ★
+            Keep Practicing <span style={{ color: '#d4a017' }}>•</span> Stay Consistent
           </p>
         </div>
       ) : (
-        <LessonPage pageNumber={currentPage} />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <LessonPage pageNumber={currentPage} />
+        </div>
+      )}
+
+      {/* "Tajweed Classes" watermark — tiled faintly behind the lesson content */}
+      {currentPage >= 1 && !isLastPage && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: 'none',
+            backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(
+              `<svg xmlns='http://www.w3.org/2000/svg' width='340' height='220'><text x='10' y='130' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='rgba(46,125,50,0.07)' transform='rotate(-28 170 110)'>Tajweed Classes</text></svg>`
+            )}")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
       )}
 
       {currentPage >= 1 && (
@@ -173,88 +242,135 @@ function App() {
           bottom: 0,
           left: 0,
           right: 0,
-          background: 'rgba(0,0,0,0.85)',
-          padding: '18px 10px',
+          background: 'linear-gradient(180deg, #14401a 0%, #0d2a11 100%)',
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '25px',
+          flexDirection: 'column',
           backdropFilter: 'blur(12px)',
-          borderTop: '3px solid gold',
+          borderTop: '3px solid #f6cc44',
           zIndex: 1000
         }}>
-          <button onClick={() => setCurrentPage(0)} className="nav-btn"
-            style={{
-              padding: '14px 28px',
-              fontSize: '1.4rem',
-              borderRadius: '50px',
-              border: 'none',
-              background: '#ff4757',
-              color: 'white',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-              fontFamily: 'sans-serif'
-            }}>
-            Exit
-          </button>
-
-          <button onClick={goNext} className="nav-btn"
-            disabled={isLastPage}
-            style={{
-              padding: '14px 34px',
-              fontSize: '1.4rem',
-              borderRadius: '50px',
-              border: 'none',
-              background: isLastPage ? '#666' : '#4ecdc4',
-              color: 'white',
-              cursor: isLastPage ? 'not-allowed' : 'pointer',
-              fontFamily: 'Arial, sans-serif'
-            }}>
-            Next
-          </button>
-
+          {/* Navigation row */}
           <div style={{
-            fontSize: '2rem',
-            fontWeight: 'bold',
-            minWidth: '130px',
-            textAlign: 'center',
-            color: '#ffd700',
-            fontFamily: 'Arial, sans-serif'
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '16px',
+            padding: '14px 24px',
+            direction: 'ltr',
           }}>
-            Page {currentPage}
-          </div>
+            {/* Contact details list on the left */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              gap: '3px',
+              flexShrink: 0,
+              direction: 'ltr',
+              fontFamily: 'Arial, sans-serif',
+            }}>
+              <a href="https://tajweedclasses.com" target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', color: '#dff5dc', fontSize: '0.90rem', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.2px' }}>
+                <span style={{ color: '#f6cc44', marginRight: '7px', fontSize: '1rem', lineHeight: 1 }}>›</span>
+                🌐 tajweedclasses.com
+              </a>
+              <a href="tel:+19342012717"
+                style={{ display: 'inline-flex', alignItems: 'center', color: '#dff5dc', fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.2px' }}>
+                <span style={{ color: '#f6cc44', marginRight: '7px', fontSize: '1rem', lineHeight: 1 }}>›</span>
+                <USFlag /> USA: +1 934 201 2717
+              </a>
+              <a href="tel:+447482798122"
+                style={{ display: 'inline-flex', alignItems: 'center', color: '#dff5dc', fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.2px' }}>
+                <span style={{ color: '#f6cc44', marginRight: '7px', fontSize: '1rem', lineHeight: 1 }}>›</span>
+                <UKFlag /> UK: +44 74 8279 8122
+              </a>
+            </div>
 
-          <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
-            style={{
-              padding: '14px 34px',
-              fontSize: '1.4rem',
-              borderRadius: '50px',
-              border: 'none',
-              background: currentPage === 1 ? '#666' : '#ff6b6b',
-              color: 'white',
-              cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+            {/* Center navigation buttons */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '25px',
+              flex: '1 1 auto',
+              flexWrap: 'nowrap',
+              direction: 'rtl',
+            }}>
+            <button onClick={() => setCurrentPage(0)} className="nav-btn"
+              style={{
+                padding: '14px 28px',
+                fontSize: '1.4rem',
+                borderRadius: '50px',
+                border: 'none',
+                background: '#e05a4f',
+                color: 'white',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                fontFamily: 'sans-serif'
+              }}>
+              Exit
+            </button>
+
+            <button onClick={goNext} className="nav-btn"
+              disabled={isLastPage}
+              style={{
+                padding: '14px 34px',
+                fontSize: '1.4rem',
+                borderRadius: '50px',
+                border: 'none',
+                background: isLastPage ? '#666' : 'linear-gradient(135deg, #4caf50, #2e7d32)',
+                color: 'white',
+                cursor: isLastPage ? 'not-allowed' : 'pointer',
+                fontWeight: 'bold',
+                fontFamily: 'Arial, sans-serif'
+              }}>
+              Next
+            </button>
+
+            <div style={{
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              minWidth: '130px',
+              textAlign: 'center',
+              color: '#f6cc44',
               fontFamily: 'Arial, sans-serif'
             }}>
-            Previous
-          </button>
+              Page {currentPage}
+            </div>
 
-          {/* Index pinned to the right edge */}
-          <button onClick={() => setShowMenu(true)} className="nav-btn"
-            style={{
-              position: 'absolute',
-              right: '24px',
-              padding: '14px 24px',
-              fontSize: '1.4rem',
-              borderRadius: '50px',
-              border: '2px solid gold',
-              background: 'transparent',
-              color: 'gold',
-              cursor: 'pointer',
-              fontFamily: 'Arial, sans-serif',
-              letterSpacing: '1px'
-            }}>
-            ☰ Index
-          </button>
+            <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
+              style={{
+                padding: '14px 34px',
+                fontSize: '1.4rem',
+                borderRadius: '50px',
+                border: 'none',
+                background: currentPage === 1 ? '#666' : 'linear-gradient(135deg, #f6cc44, #d4a017)',
+                color: currentPage === 1 ? 'white' : '#1b3a1c',
+                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                fontWeight: 'bold',
+                fontFamily: 'Arial, sans-serif'
+              }}>
+              Previous
+            </button>
+            </div>
+
+            {/* Index on the right */}
+            <button onClick={() => setShowMenu(true)} className="nav-btn"
+              style={{
+                flexShrink: 0,
+                padding: '14px 24px',
+                fontSize: '1.4rem',
+                borderRadius: '50px',
+                border: '2px solid #f6cc44',
+                background: 'transparent',
+                color: '#f6cc44',
+                cursor: 'pointer',
+                fontFamily: 'Arial, sans-serif',
+                letterSpacing: '1px'
+              }}>
+              ☰ Index
+            </button>
+          </div>
         </div>
       )}
 
@@ -265,7 +381,7 @@ function App() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(15, 42, 68, 0.55)',
+            background: 'rgba(13, 42, 17, 0.55)',
             zIndex: 2000,
             display: 'flex',
             alignItems: 'center',
@@ -301,7 +417,7 @@ function App() {
             }}>
               {/* Centered title */}
               <div style={{ flex: 1, textAlign: 'center' }}>
-                <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#0f2a44', fontFamily: 'Arial, sans-serif', direction: 'ltr' }}>
+                <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1b5e20', fontFamily: 'Arial, sans-serif', direction: 'ltr' }}>
                   Chapter Index
                 </div>
                 <div style={{ fontSize: '1.1rem', color: '#7a6000', fontFamily: 'Arial, sans-serif', direction: 'ltr', marginTop: '2px' }}>
@@ -315,9 +431,9 @@ function App() {
                 style={{
                   position: 'absolute',
                   right: '20px',
-                  background: 'rgba(15,42,68,0.08)',
-                  border: '1.5px solid rgba(15,42,68,0.2)',
-                  color: '#0f2a44',
+                  background: 'rgba(27,94,32,0.08)',
+                  border: '1.5px solid rgba(27,94,32,0.25)',
+                  color: '#1b5e20',
                   borderRadius: '50%',
                   width: '40px',
                   height: '40px',
@@ -346,7 +462,7 @@ function App() {
               {/* Chapter search */}
               <input
                 type="text"
-                placeholder="🔍  Search chapter..."
+                placeholder="Search chapter..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 style={{
@@ -356,7 +472,7 @@ function App() {
                   borderRadius: '50px',
                   border: '1.5px solid rgba(201,150,12,0.4)',
                   background: 'rgba(255,255,255,0.85)',
-                  color: '#0f2a44',
+                  color: '#1b5e20',
                   fontFamily: 'Arial, sans-serif',
                   outline: 'none',
                   direction: 'ltr',
@@ -378,7 +494,7 @@ function App() {
                   borderRadius: '50px',
                   border: '1.5px solid rgba(201,150,12,0.4)',
                   background: 'rgba(255,255,255,0.85)',
-                  color: '#0f2a44',
+                  color: '#1b5e20',
                   fontFamily: 'Arial, sans-serif',
                   outline: 'none',
                   direction: 'ltr',
@@ -474,12 +590,12 @@ function App() {
                           {chapter.titleArabic}
                         </div>
                       )}
-                      <div style={{ fontSize: '1.35rem', fontWeight: 'bold', color: isActive ? '#7a4800' : '#0f2a44', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '3px' }}>
+                      <div style={{ fontSize: '1.35rem', fontWeight: 'bold', color: isActive ? '#1b5e20' : '#14401a', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '3px' }}>
                         {chapter.titleEnglish}
                       </div>
                       {/* Page indicator — bottom left */}
                       <div style={{ fontSize: '0.9rem', color: '#9a7800', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '5px', fontWeight: '500' }}>
-                        p.{startPage}
+                        Page {startPage}
                       </div>
                     </div>
                   </button>
@@ -493,13 +609,6 @@ function App() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
-
-        @font-face {
-          font-family: 'ArabQuranIslamic_1';
-          src: url('data:font/truetype;charset=utf-8;base64,') format('truetype');
-          font-weight: normal;
-          font-style: normal;
-        }
 
         * {
           margin: 0;

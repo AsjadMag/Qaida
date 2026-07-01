@@ -1,6 +1,5 @@
 ﻿import React from 'react';
 import WordCard from '../components/WordCard';
-// import '../components/WordCard.css';
 import '../index.css';
 
 export const chapterData = {
@@ -46,8 +45,8 @@ export const chapterData = {
   },
     pages: [
       // Page 1 (Total Page 2)
-      [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/laam_2.png', imageHoverPath: '/images/laam_2_hover.png' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/laam_1.png', imageHoverPath: '/images/laam_1_hover.png' }],
-      ['ل', { text: 'لا', useImage: true, imagePath: '/images/laam_2.png', imageHoverPath: '/images/laam_2_hover.png' }, 'لح', { text: 'لا', useImage: true, imagePath: '/images/laam_1.png', imageHoverPath: '/images/laam_1_hover.png' }, 'بلب'],
+      [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/laam_2.webp', imageHoverPath: '/images/laam_2_hover.webp' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/laam_1.webp', imageHoverPath: '/images/laam_1_hover.webp' }],
+      ['ل', { text: 'لا', useImage: true, imagePath: '/images/laam_2.webp', imageHoverPath: '/images/laam_2_hover.webp' }, 'لح', { text: 'لا', useImage: true, imagePath: '/images/laam_1.webp', imageHoverPath: '/images/laam_1_hover.webp' }, 'بلب'],
       ['ك', 'كب', 'كب', 'كا', 'بکت'],
       ['تكث', 'ب', 'ت', 'ث', 'ن'],
       ['ى', 'با', 'نا', 'تا', 'یا'],
@@ -79,7 +78,7 @@ export const chapterData = {
     // Teacher instructions & goal for chapter 3 page 1
 teacherInfo: {
     instructions: [
-      '**Zabar (Fat\'ha):** A little slanting dash {{IMG:/images/Zabar.PNG}} over the letters is called **Zabar (Fat\'ha)**.',
+      '**Zabar (Fat\'ha):** A little slanting dash {{IMG:/images/Zabar.webp}} over the letters is called **Zabar (Fat\'ha)**.',
       'Zabar is delivered by opening both lips in up and down-side in strong manner **without prolonging the voice**.'
     ],
     goal: 'To correctly pronounce and apply Zabar (Fat\'ha) in Arabic letters and words.'
@@ -88,14 +87,14 @@ teacherInfo: {
   pageTeacherInfo: {
     1: { // Page 2 (Zair)
       instructions: [
-        '**Zair (Kasrah):** A little slanting dash{{IMG:/images/Chapter3 Zair.PNG}} appearing under the letters is called **Zair (Kasrah)**.',
+        '**Zair (Kasrah):** A little slanting dash{{IMG:/images/Chapter3 Zair.webp}} appearing under the letters is called **Zair (Kasrah)**.',
         'Zair is delivered by opening the lips downwards **without prolonging the voice**.'
       ],
       goal: 'To correctly pronounce and apply Zair (Kasrah) in Arabic letters and words.'
     },
     2: { // Page 3 (Paish)
       instructions: [
-        '**Paish (Dhammah):** A little twisted dash{{IMG:/images/paish.PNG}} over the letters is called **Paish (Dummah)**.',
+        '**Paish (Dhammah):** A little twisted dash{{IMG:/images/paish.webp}} over the letters is called **Paish (Dummah)**.',
         'Paish is delivered by making a complete round with the both lips **without prolonging the voice**.'
       ],
       goal: 'To correctly pronounce and apply Paish (Dhammah) in Arabic letters and words.'
@@ -210,13 +209,13 @@ teacherInfo: {
     titleEnglish: 'Alif Maddah',
     teacherInfo: {
       instructions: [
-        'Alif Maddah: If **Zabar** is placed before an Alif{{IMG:/images/AlifMaddah.PNG}} it is called **Alif Maddah**.',
-        'For example:{{IMG:/images/Bay.PNG}}Zabar{{IMG:/images/Baa.PNG|3rem}} and if it is pronounced twice then{{IMG:/images/Bay.PNG}} Zabar -ALif{{IMG:/images/Baa2.PNG|4rem}}'
+        'Alif Maddah: If **Zabar** is placed before an Alif{{IMG:/images/AlifMaddah.webp}} it is called **Alif Maddah**.',
+        'For example:{{IMG:/images/Bay.webp}}Zabar{{IMG:/images/Baa.webp|3rem}} and if it is pronounced twice then{{IMG:/images/Bay.webp}} Zabar -ALif{{IMG:/images/Baa2.webp|4rem}}'
       ],
       goal: 'Recognize Alif Maddah and pronounce the elongated vowel correctly.'
     },
     teacherImage: {
-      imagePath: '/images/ChapterNo.6.png',
+      imagePath: '/images/ChapterNo.6.webp',
       alt: 'Alif Maddah example diagram'
     },
     // Optional per-page titles (page index is zero-based)
@@ -252,8 +251,8 @@ teacherInfo: {
     titleEnglish: 'Yaa-i Maddah',
     teacherInfo: {
       instructions: [
-        '**Yaa-i Maddah:** If **Zair** is placed before a Sakin Yaa{{IMG:/images/YaaImaddah.PNG}} it is called **Yaa-i Maddah**.',
-        'For example:{{IMG:/images/Bay.PNG}}Zair{{IMG:/images/BaZair.PNG|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.PNG}}Zair - Yaa{{IMG:/images/BiYa.PNG|4rem}} .'
+        '**Yaa-i Maddah:** If **Zair** is placed before a Sakin Yaa{{IMG:/images/YaaImaddah.webp}} it is called **Yaa-i Maddah**.',
+        'For example:{{IMG:/images/Bay.webp}}Zair{{IMG:/images/BaZair.webp|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.webp}}Zair - Yaa{{IMG:/images/BiYa.webp|4rem}} .'
       ],
       goal: 'Recognize the Yaa-i Maddah form and pronounce the combined/elongated Yaa sound correctly.'
     },
@@ -289,13 +288,13 @@ teacherInfo: {
     titleEnglish: 'Wao Maddah',
     teacherInfo: {
       instructions: [
-        '**Wao Maddah:** If **Paish** is placed before a Sakin Wao{{IMG:/images/waomaddah1.PNG}} it is called **Wao Maddah**.',
-        'For example:{{IMG:/images/Bay.PNG}}Paish {{IMG:/images/waomaddah2.PNG|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.PNG}} Paish - Wao{{IMG:/images/waomaddah3.PNG|3rem}}.'
+        '**Wao Maddah:** If **Paish** is placed before a Sakin Wao{{IMG:/images/waomaddah1.webp}} it is called **Wao Maddah**.',
+        'For example:{{IMG:/images/Bay.webp}}Paish {{IMG:/images/waomaddah2.webp|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.webp}} Paish - Wao{{IMG:/images/waomaddah3.webp|3rem}}.'
       ],
       goal: 'Recognize Wao Maddah and pronounce the elongated Wao sound correctly.'
     },
         teacherImage: {
-      imagePath: '/images/ChapterNo8.png',
+      imagePath: '/images/ChapterNo8.webp',
       alt: 'Wao Maddah example diagram'
     },
      pageTitles: {
@@ -330,10 +329,10 @@ teacherInfo: {
     titleEnglish: 'Erected Harkaat',
      teacherInfo: {
     instructions: [
-      '**Erected Zabar:** A short vertical line appearing above the letter{{IMG:/images/erected Zabar.PNG|2.5rem}} is called **Erected Zabar**.',
+      '**Erected Zabar:** A short vertical line appearing above the letter{{IMG:/images/erected Zabar.webp|2.5rem}} is called **Erected Zabar**.',
       'If a small sound is produced by opening the lips slightly upwards on the pronunciation of a letter, it is called **Zabar rule**.',
       'And if it is pronounced twice as long, it is called the **rule of Alif Maddah and Erected Zabar**.',
-      'For example:{{IMG:/images/erected Zabar1.PNG|3rem}}**=**  Zabar - Alif{{IMG:/images/erected Zabar2.PNG|3rem}}'
+      'For example:{{IMG:/images/erected Zabar1.webp|3rem}}**=**  Zabar - Alif{{IMG:/images/erected Zabar2.webp|3rem}}'
     ],
     goal: 'Understand that Huroof-i Maddah and Erected Harkaat are pronounced the same (one Alif length), and correctly apply Erected Zabar.'
   },
@@ -396,10 +395,10 @@ teacherInfo: {
     titleEnglish: 'Inverted Paish',
     teacherInfo: {
     instructions: [
-      'This sign on a letter{{IMG:/images/InvertedPaish.PNG|3rem}} is called an **inverted Paih**.',
-      '**inverted Paish**: If a small sound is produced by moving the lips forward, that is, moving the lips towards the full circle, on the pronunciation',
+      'This sign on a letter{{IMG:/images/InvertedPaish.webp|3rem}} is called an **inverted Paih**.',
+      '**inverted Paish** If a small sound is produced by moving the lips forward, that is, moving the lips towards the full circle, on the pronunciation',
       'And if it is pronounced with a sound twice as long, **it is called the rule of Wao Maddah and Inverted Paish**.',
-      'For example:{{IMG:/images/InvertedPaish2.PNG|3rem}}Paish - Wao{{IMG:/images/InvertedPaish3.PNG|3rem}}.'
+      'For example:{{IMG:/images/InvertedPaish2.webp|3rem}}Paish - Wao{{IMG:/images/InvertedPaish3.webp|3rem}}.'
     ],
     goal: 'Understand Inverted Paish and its relation to Wao Maddah, and pronounce it correctly.'
   },
@@ -434,15 +433,16 @@ teacherInfo: {
     titleEnglish: 'Wao Leen',
     teacherInfo: {
     instructions: [
-      'If Zabar appears before a Sakin Wao{{IMG:/images/waoleen.PNG|3rem}}, it is called **Wao Leen**.',
+      'If Zabar appears before a Sakin Wao{{IMG:/images/waoleen.webp|3rem}}, it is called **Wao Leen**.',
       '**Reading Method of Wao Leen:**',
       'The lips are just to open (like in Zabar) and immediately they are made completely round. The delivery is done very softly without prolonging.'
     ],
     goal: 'Recognise Wao Leen and pronounce it correctly with soft, non‑prolonged delivery.'
   },
       teacherImage: {
-      imagePath: '/images/spin.png',
-      alt: 'Alif Maddah example diagram'
+      imagePath: '/images/spin.webp',
+      alt: 'Alif Maddah example diagram',
+      imageStyle: { mixBlendMode: 'normal' }
     },
     pageTitles: {
       1: {
@@ -478,7 +478,7 @@ teacherInfo: {
     titleEnglish: 'Yaa-i Leen',
     teacherInfo: {
     instructions: [
-      'If Zabar appears before a Sakin Yaa {{IMG:/images/Yaa-i-Leen.PNG|3rem}}, it is called **Yaa-i Leen**.',
+      'If Zabar appears before a Sakin Yaa {{IMG:/images/Yaa-i-Leen.webp|3rem}}, it is called **Yaa-i Leen**.',
       '**Reading Method of Yaa-i Leen:**',
       'The lips are about to open (like in Zabar) and immediately they are stretched sideways. The delivery is done very softly without prolonging.'
     ],
@@ -517,34 +517,36 @@ teacherInfo: {
     titleEnglish: 'Jazm or Sukoon',
     teacherInfo: {
     instructions: [
-      'This sign {{IMG:/images/Jazm or Sukoon2.PNG|3rem}} is called **Jazm** or **Sukoon**, it is written over the letter.',
+      'This sign {{IMG:/images/Jazm or Sukoon2.webp|3rem}} is called **Jazm** or **Sukoon**, it is written over the letter.',
       'Jazm letter always read along with its predecessor having Zabar Zair Paish.',
       'The letter having Zabar Zair Paish is quickly joined with the Sakin letter and the sound of the Sakin letter is made still at its point of articulation.',
       'The sound produced should be clear.',
-      'The tongue and the mouth should be completely still while delivering the Sakin letter except The following ⭐'
+      'The tongue and the mouth should be completely still while delivering the Sakin letter except The following'
     ],
     goal: 'Understand the concept of Jazm (Sukoon) and correctly pronounce letters carrying this sign.'
   },
   teacherImage: {
-      imagePath: '/images/Jazm or Sukoon.png',
+      imagePath: '/images/Jazm or Sukoon.webp',
       alt: 'Wao Maddah example diagram'
     }, 
   pageTeacherInfo: {
       1: { // Page 2 (Total Page 30) – Exercise of Jazm
         instructions: [
-          '{{IMG:/images/Jazm or Sukoon3.PNG}} if these letters have a Jazm then.',
+          '{{IMG:/images/Jazm or Sukoon3.webp}} if these letters have a Jazm then.',
           'The voice must bounce so keep this in mind.',
           'If there is a Jazm on Hamzah then both the voice and breath have to be stopped together in a stern manner.',
           'But the sound should be not removed.'
         ],
-        imagePath: '/images/Jazm or Sukoon4.png',
+        imagePath: '/images/Jazm or Sukoon4.webp',
+        imageStyle: { mixBlendMode: 'normal' },
       },
       3: {
         instructions: [
-          '{{IMG:/images/Jazm or Sukoon3.PNG}} if these letters have a Jazm then.',
+          '{{IMG:/images/Jazm or Sukoon3.webp}} if these letters have a Jazm then.',
           'The voice must bounce so keep this in mind.'
         ],
-        imagePath: '/images/Jazm or Sukoon4.png',
+        imagePath: '/images/Jazm or Sukoon4.webp',
+        imageStyle: { mixBlendMode: 'normal' },
       },
     },
   pageTitles: {
@@ -606,15 +608,15 @@ teacherInfo: {
     titleEnglish: 'Shadd',
     teacherInfo: {
     instructions: [
-      'This sign{{IMG:/images/shadd.PNG}}is called **Shadd**, it is written over the letter with **Harkaat**.',
+      'This sign{{IMG:/images/shadd.webp}}is called **Shadd**, it is written over the letter with **Harkaat**.',
       'A Shadd letter is always read by joining with its predecessor having **Harkaat**.',
       'In Arabic language, whenever a word has two same letters, first having jazm/sukoon and second having a **Harkaat**,',
       'Then instead of writing the same letter twice, the letter is written only once with the sign of shadd, so that it read like two letters, therefore reading the shadd letter takes time equivalent to reading two letters.',
-      'For example:{{IMG:/images/shadd2.PNG}}',
+      'For example:{{IMG:/images/shadd2.webp}}',
       '**Reading method of shadda:** Read it stronger and clearer than the normal.'
     ],
     goal: 'Understand the concept of Shadd and pronounce it correctly with emphasis and clarity.',
-    imagePath: '/images/shadd3.png'
+    imagePath: '/images/shadd3.webp'
   },
    pageTeacherInfo: {
       2: { 
@@ -730,15 +732,15 @@ teacherInfo: {
     titleEnglish: 'Three Variable letters',
     teacherInfo: {
       instructions: [
-        '**Three Variable letters:** {{IMG:/images/AaRaLam.PNG}}',
+        '**Three Variable letters:** {{IMG:/images/AaRaLam.webp}}',
         'If there is **Zabar** or **Paish** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thick tone**.',
-        '{{IMG:/images/chapter1_v2.png|3rem}}',
+        '{{IMG:/images/chapter1_v2.webp|3rem}}',
         'If there is **Zair** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thin tone**.',
-        '{{IMG:/images/chapter1_v2-1.png|3rem}}',
+        '{{IMG:/images/chapter1_v2-1.webp|3rem}}',
         'If **Alif** comes after a **thick letter** it will be read in a **thick tone**.',
-        '{{IMG:/images/chapter1_v2-2.png|3rem}}',
+        '{{IMG:/images/chapter1_v2-2.webp|3rem}}',
         'If **Alif** comes after a **thin letter** it will be read **thin**.',
-        '{{IMG:/images/chapter1_v2-3.png|3rem}}'
+        '{{IMG:/images/chapter1_v2-3.webp|3rem}}'
       ],
       goal: 'Learn and practice three variable letters and their pronunciation rules.'
     },
@@ -761,7 +763,7 @@ teacherInfo: {
         '**Thick Tone Delivery of Alif and Laam**',
         'Remember: pronunciation of thick Alif, should not become so thick that it may resemble Wao. Avoid lips from rounding.'
       ],
-      imagePaths: ['/images/chapter_2_V2(2).png', '/images/chapter_2_V2(3).png'],
+      imagePaths: ['/images/chapter_2_V2(2).webp', '/images/chapter_2_V2(3).webp'],
       imageStyle: { width: '200px', maxWidth: '250px' }
     },
     pages: [
@@ -781,11 +783,11 @@ teacherInfo: {
     titleEnglish: 'Tanween',
     teacherInfo: {
       instructions: [
-        '{{IMG:/images/Tanween.PNG|4rem}}',
-        'Double Zabar, Double Zair and Double Paish are called Tanween. Tamweem is read like Noon Sakin. If any letter has double Zabar, double Zair and double Paish then one Zabar, one Zair, and one Paish is read by joining it with Noon e.g.{{IMG:/images/Chapter_3_V2.png|4rem}}',
+        '{{IMG:/images/Tanween.webp|4rem}}',
+        'Double Zabar, Double Zair and Double Paish are called Tanween. Tamweem is read like Noon Sakin. If any letter has double Zabar, double Zair and double Paish then one Zabar, one Zair, and one Paish is read by joining it with Noon e.g.{{IMG:/images/Chapter_3_V2.webp|4rem}}',
         'To conclude Noon Sakin and Tanween, both are the same in pronunciation.'
       ],
-      imagePath: '/images/Chapter_3_v2(1).png'
+      imagePath: '/images/Chapter_3_v2(1).webp'
     },
     pageTitles: {
       1: { titleEnglish: 'Exercise of Double Zabar', titleArabic: '' },
@@ -840,10 +842,10 @@ teacherInfo: {
   teacherInfo: {
       instructions: [
         'In Quran Majeed whenever **Noon Sakin or Tanween** comes before',
-        'these six letters {{IMG:/images/chapter_4_V2(1).png|3rem}}, the sound of Noon Sakin or Tanween',
+        'these six letters {{IMG:/images/chapter_4_V2(1).webp|3rem}}, the sound of Noon Sakin or Tanween',
         'pronounced clearly and distinctly. It is called the Rule of Izhar.'
       ],
-      imagePath: '/images/Chapter_4_V2.png'
+      imagePath: '/images/Chapter_4_V2.webp'
     },
     pages: [
       // Page 1 (Total Page 50)
@@ -872,12 +874,12 @@ teacherInfo: {
       instructions: [
         '**Tiny Meem**',
         'In Quran-e-Majeed whenever **Noon Sakin or Tanween** comes',
-        'before the letter **Baa**, there is always the {{IMG:/images/chapter_5_v2(1).png|3rem}} is written',
+        'before the letter **Baa**, there is always the {{IMG:/images/chapter_5_v2(1).webp|3rem}} is written',
         'on **Noon Sakin or Tanween**. So here the Meem is read with',
-        'Ghunna instead of Noon. e.g {{IMG:/images/chapter_5_v2(2).png|3rem}} It is called the rule of Iqlab.'
+        'Ghunna instead of Noon. e.g {{IMG:/images/chapter_5_v2(2).webp|3rem}} It is called the rule of Iqlab.'
       ],
       goal: 'The Tiny Meem is read by previous Letter Zabar Zair Paish with prolonging Gunnah.',
-      imagePath: '/images/Chapter_5_V2.png'
+      imagePath: '/images/Chapter_5_V2.webp'
     },
     pageTitles: {
       1: { titleEnglish: 'Iqlab', titleArabic: '' },
@@ -888,7 +890,7 @@ teacherInfo: {
       2: {
         instructions: [
           '**Reading method of Tiny Meem with Ghunnah**',
-          'Joining the inner dry-sides of both lips very softly and holding the sound at root of the nose equivalent to one Alif, then read{{IMG:/images/chapter_5_v2(3).png|3rem}}with firm lips.'
+          'Joining the inner dry-sides of both lips very softly and holding the sound at root of the nose equivalent to one Alif, then read{{IMG:/images/chapter_5_v2(3).webp|3rem}}with firm lips.'
         ],
       },
     },
@@ -917,13 +919,13 @@ teacherInfo: {
     teacherInfo: {
       instructions: [
         'In Quran Majeed whenever **Noon Sakin or Tanween** comes before these six letters',
-        '{{IMG:/images/chapter_6_v2.png|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
-        'in fact the shad of{{IMG:/images/chapter_6_v2.png|2rem}} is joined with Zabar/Zair/Paish ',
-        'in thae case of {{IMG:/images/chapter_6_v2(1).png|3rem}} are joined without Noon sound and',
-        'in the case of {{IMG:/images/chapter_6_v2(2).png|3rem}} are pronounced with Ghunnah.'
+        '{{IMG:/images/chapter_6_v2.webp|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
+        'in fact the shad of{{IMG:/images/chapter_6_v2.webp|2rem}} is joined with Zabar/Zair/Paish ',
+        'in thae case of {{IMG:/images/chapter_6_v2(1).webp|3rem}} are joined without Noon sound and',
+        'in the case of {{IMG:/images/chapter_6_v2(2).webp|3rem}} are pronounced with Ghunnah.'
       ],
-      note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).png|3rem}} {{IMG:/images/chapter_6_v2(2).png|3rem}}.',
-      imagePath: '/images/new.png',
+      note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapter_6_v2(2).webp|3rem}}.',
+      imagePath: '/images/new.webp',
       imageStyle: { width: '800px', maxWidth: '850px' }
     },
     pageTitles: {
@@ -940,25 +942,25 @@ teacherInfo: {
     pageTeacherInfo: {
       1: {
         instructions: [],
-        note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).png|3rem}} {{IMG:/images/chapter_6_v2(2).png|3rem}}.',
+        note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapter_6_v2(2).webp|3rem}}.',
               '**Reading method**: in this case the single harkat of the Tanween is joined with the Shadd Letter',
-              '{{IMG:/images/chapter_6_v2(3).png|6rem}}  {{IMG:/images/chapter_6_v2(4).png|6rem}}  {{IMG:/images/chapter_6_v2(5).png|6rem}}']
+              '{{IMG:/images/chapter_6_v2(3).webp|6rem}}  {{IMG:/images/chapter_6_v2(4).webp|6rem}}  {{IMG:/images/chapter_6_v2(5).webp|6rem}}']
       },
       2: {
         instructions: [
-          '**Idgham — When the Noon Sakin comes before the Shadd letter**',
-          '{{IMG:/images/chapter_6_v2(6).png|15rem}}',
-          '{{IMG:/images/chapter_6_v2(7).png|6rem}}'
+          '**Idgham: When the Noon Sakin comes before the Shadd letter**',
+          '{{IMG:/images/chapter_6_v2(6).webp|15rem}}',
+          '{{IMG:/images/chapter_6_v2(7).webp|6rem}}'
         ],
       },
       3: {
         instructions: [
-          '{{IMG:/images/chapter_6v2(8).png|15rem}}'
+          '{{IMG:/images/chapter_6v2(8).webp|15rem}}'
         ],
       },
       4: {
         instructions: [
-          '{{IMG:/images/Version3.png|20rem}}'
+          '{{IMG:/images/Version3.webp|20rem}}'
         ],
       },
       9: {
@@ -972,8 +974,8 @@ teacherInfo: {
       // Page 1 - Idgham
       [
         ['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
-        [{ text: 'اَنْ وَّ', arrowImage: '/images/NotArrow.png' }, { text: 'اَنْ يَّ', arrowImage: '/images/NotArrow.png' }, 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
-        ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', { text: 'مَنْ وُّجِدَ', arrowImage: '/images/NotArrow.png' }, { text: 'مَنْ يَّقُولُ', arrowImage: '/images/NotArrow.png' }]
+        [{ text: 'اَنْ وَّ', arrowImage: '/images/NotArrow.webp' }, { text: 'اَنْ يَّ', arrowImage: '/images/NotArrow.webp' }, 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
+        ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', { text: 'مَنْ وُّجِدَ', arrowImage: '/images/NotArrow.webp' }, { text: 'مَنْ يَّقُولُ', arrowImage: '/images/NotArrow.webp' }]
       ],
       // Page 2 - Idgham
       [
@@ -1046,19 +1048,19 @@ teacherInfo: {
     titleArabic: '',
     titleEnglish: 'Ikhfa',
     teacherInfo: {
-        instructions: ['If letters{{IMG:/images/chapter_7_v2.png}} comes after Noon Sakin or Tanween ',
+        instructions: ['If letters{{IMG:/images/chapter_7_v2.webp}} comes after Noon Sakin or Tanween ',
           'Ghunnah (Ikhfa) always take place. It is called the Rule of Ikhfa.',
           '**Method of Ghunnah at Noon Sakin and Tanween:**',
           'By place the tongue at the articulation point of Noon very softly,',
           'and holding the sound at the root of the nose equivalent to one Alif.',
           '**Note:**Doing Ghunnah on Noon Shadd the tongue is pressed slightly while doing',
           'Ghunnah on Noon Sakin and Tanween the tongue is placed very softly.',
-          '{{IMG:/images/chapter_7_v2(6).png}} In case at Noon Sakin and Tanween, **Ghunnah will not take place** because of stopping.',
-          '{{IMG:/images/chapter_7_v2(7).png}} Ghunnah is only done during **consistency in recitatio** {{IMG:/images/chapter_7_v2(3).png|3rem}} ',
-          '{{IMG:/images/chapter_7_v2(8).png}} These are only these six words{{IMG:/images/chapter_7_v2(4).png|2.5rem}} where the rule of ikhfa does not apply, so, they are read with izhar',
-          '{{IMG:/images/chapter_7_v2(8).png}} If a **thick letter** comes afrer Noon Sakin or Tanween, {{IMG:/images/chapter_7_v2(5).png|2.5rem}} Ikhfa (Ghunnah) will also be in a thick tone.'
+          '{{IMG:/images/chapter_7_v2(6).webp}} In case at Noon Sakin and Tanween, **Ghunnah will not take place** because of stopping.',
+          '{{IMG:/images/chapter_7_v2(7).webp}} Ghunnah is only done during **consistency in recitatio** {{IMG:/images/chapter_7_v2(3).webp|3rem}} ',
+          '{{IMG:/images/chapter_7_v2(8).webp}} These are only these six words{{IMG:/images/chapter_7_v2(4).webp|2.5rem}} where the rule of ikhfa does not apply, so, they are read with izhar',
+          '{{IMG:/images/chapter_7_v2(8).webp}} If a **thick letter** comes afrer Noon Sakin or Tanween, {{IMG:/images/chapter_7_v2(5).webp|2.5rem}} Ikhfa (Ghunnah) will also be in a thick tone.'
         ],
-        imagePaths: ['/images/chapter_7_v2(9).png', '/images/chapter_7_v2(2).png']
+        imagePaths: ['/images/chapter_7_v2(9).webp', '/images/chapter_7_v2(2).webp']
       },
     pageTitles: {
       1: {
@@ -1092,7 +1094,7 @@ teacherInfo: {
         '**Meem Shadd** is always pronounced with a Ghunnah.',
         '**If letter Baa comes after Meem Sakin only** then Meem Sakin will be read with a Ghunnah.'
       ],
-      imagePath: '/images/chapter_8_v2.png'
+      imagePath: '/images/chapter_8_v2.webp'
       },
     pages: [
       // Page 1 (Total Page 66)
@@ -1118,14 +1120,14 @@ teacherInfo: {
     titleEnglish: 'Madd (Prolonging the Sound of vowels)',
     teacherInfo: {
     instructions: [
-       '**Madd** {{IMG:/images/chapter_9_vs2.png}}**[Prolonging the Sound of vowels]**',
+       '**Madd** {{IMG:/images/chapter_9_vs2.webp}}**[Prolonging the Sound of vowels]**',
        'In Quran-e-Majeed if Hamzah, Jazm or Shadd comes after Huroof-f-Maddah or Erected Harkaat',
        'then in this condition, their sounds prolonged up to two or three Alif.',
-       'The Madd sign {{IMG:/images/chapter_9_vs2(1).png}} is already placed so that we can prolong the sound according to the rule.',
-       '{{IMG:/images/chapter_9_vs2(3).png|6rem}}',
-       '{{IMG:/images/chapter_9_vs2(4).png|6rem}}'
+       'The Madd sign {{IMG:/images/chapter_9_vs2(1).webp}} is already placed so that we can prolong the sound according to the rule.',
+       '{{IMG:/images/chapter_9_vs2(3).webp|6rem}}',
+       '{{IMG:/images/chapter_9_vs2(4).webp|6rem}}'
       ],
-      imagePath: '/images/chapter_9_vs2(2).png',
+      imagePath: '/images/chapter_9_vs2(2).webp',
       imageStyle: { width: '600px', maxWidth: '650px' }
       },
       pageTitles: {
@@ -1222,10 +1224,10 @@ teacherInfo: {
        'A Pause or Waqf maens short stoppage of voice and breath, while the',
        'reciter is still in progress. In case of pausing at the end of any word,',
        'five things should be kept in mind:',
-       '**When pausing at round** {{IMG:/images/chapter_11_v2(2).png}} **and round** {{IMG:/images/chapter_11_v2(3).png}}',
-       '**it is always changed in to a sakin** {{IMG:/images/chapter_11_v2(3).png}}'
+       '**When pausing at round** {{IMG:/images/chapter_11_v2(2).webp}} **and round** {{IMG:/images/chapter_11_v2(3).webp}}',
+       '**it is always changed in to a sakin** {{IMG:/images/chapter_11_v2(3).webp}}'
       ],
-      imagePath: '/images/chapter_11_v2.png',
+      imagePath: '/images/chapter_11_v2.webp',
       imageStyle: { width: '600px', maxWidth: '650px' }
       },
        pageTeacherInfo: {
@@ -1253,9 +1255,9 @@ teacherInfo: {
         ],
       },
      6: {
-        instructions: ['**NOTE:** If there is an inactive {{IMG:/images/chapter_11_v2(4).png}} after zabar,',
+        instructions: ['**NOTE:** If there is an inactive {{IMG:/images/chapter_11_v2(4).webp}} after zabar,',
           'then in case of pause it will be prolonged equivalent to one Alif.',
-          '{{IMG:/images/chapter_11_v2(5).png|8rem}}'
+          '{{IMG:/images/chapter_11_v2(5).webp|8rem}}'
         ],
       }
     },
@@ -1315,15 +1317,15 @@ teacherInfo: {
     instructions: [
        'In Quran Majeed some times, a tiny Noon is placed between two words. Two things are kept in mind:',
        '- If pause is taken before tiny Noon, it will not be read. Start reading from the next word. For Example,',
-       'if{{IMG:/images/chapter_12_v2.png}}is paused before{{IMG:/images/chapter_12_v2(2).png}}, that is, then reading will start from {{IMG:/images/chapter_12_v2(3).png}}.',
-       '- In joining condition, if Alif comes before a Tiny Noon it will not be read. For example, on {{IMG:/images/chapter_12_v2(4).png}}',
-       'Alif will not at {{IMG:/images/chapter_12_v2(5).png}}rather {{IMG:/images/chapter_12_v2(6).png}}will read.',
-       '{{IMG:/images/chapter_12_v2(7).png|12rem}}'
+       'if{{IMG:/images/chapter_12_v2.webp}}is paused before{{IMG:/images/chapter_12_v2(2).webp}}, that is, then reading will start from {{IMG:/images/chapter_12_v2(3).webp}}.',
+       '- In joining condition, if Alif comes before a Tiny Noon it will not be read. For example, on {{IMG:/images/chapter_12_v2(4).webp}}',
+       'Alif will not at {{IMG:/images/chapter_12_v2(5).webp}}rather {{IMG:/images/chapter_12_v2(4).webp}}will read.',
+       '{{IMG:/images/chapter_12_v2(7).webp|12rem}}'
       ],
       },
     pages: [
       // Page 1 (Total Page 82)
-      [['Joining\nCondition', 'Pause\nCondition', 'Writing\nCondition'],
+      [[{ text: 'Joining\nCondition', downArrow: true }, { text: 'Pause\nCondition', downArrow: true }, { text: 'Writing\nCondition', downArrow: true }],
       ['لُمَزَةِ ِۨ ○ الَّذِىْ', 'لُمَزَهْ ○ اَلَّذِىْ', 'لُمَزَةِ ِۨ ○ الَّذِىْ'],
       ['فَخُورَ ِۨ ○ الَّذِينَ', 'فَخُورَا ○ اَلَّذِينَ', 'فَخُورًا ِۨ ○ اَلَّذِينَ']],
       // Page 2 (Total Page 83)
@@ -1346,23 +1348,23 @@ teacherInfo: {
     titleEnglish: 'Rule of adding Zair and Paish',
     teacherInfo: {
     instructions: [
-       '{{IMG:/images/chapter_13_v2(2).png|10rem}}',
-       'If a word is starting with{{IMG:/images/chapter_13_v2(3).png}}, then Zabar is always added on the Hamzah. ',
-       'Apart from {{IMG:/images/chapter_13_v2(3).png}} if a word begins with inactive Hamzah {{IMG:/images/chapter_13_v2(4).png}}, then Zair or Paish is added to Hamzah.',
-       'Easy way to do this, look at the third letter including the{{IMG:/images/chapter_13_v2(4).png}}, if the third letter has a Paish, ',
+       '{{IMG:/images/chapter_13_v2(2).webp|10rem}}',
+       'If a word is starting with{{IMG:/images/chapter_13_v2(3).webp}}, then Zabar is always added on the Hamzah. ',
+       'Apart from {{IMG:/images/chapter_13_v2(3).webp}} if a word begins with inactive Hamzah {{IMG:/images/chapter_13_v2(4).webp}}, then Zair or Paish is added to Hamzah.',
+       'Easy way to do this, look at the third letter including the{{IMG:/images/chapter_13_v2(4).webp}}, if the third letter has a Paish, ',
        'then will be added to Hamzah.',
-       '{{IMG:/images/chapter_13_v2(5).png|8rem}}',
+       '{{IMG:/images/chapter_13_v2(5).webp|8rem}}',
        'If the third letter has Zabar or Zair, in both conditions, Zair will be added to Hamzah.',
-       '{{IMG:/images/chapter_13_v2(6).png|8rem}}'
+       '{{IMG:/images/chapter_13_v2(6).webp|8rem}}'
 
       ],
-      imagePath: '/images/chapter_13_v2.png',
+      imagePath: '/images/chapter_13_v2.webp',
       },
         pageTeacherInfo: {
       1: {
         instructions: [     
         'However, there are 9 words in the Quran-e-Majeed, their third letter has a Paish but still only Zair is added to Hamzah, and those 8 words are:',
-       '{{IMG:/images/chapter_13_v2(7).png|5rem}}'
+       '{{IMG:/images/chapter_13_v2(7).webp|5rem}}'
        ],
       }
     },
@@ -1566,16 +1568,13 @@ const LessonPage = ({ pageNumber }) => {
                     display: 'block',
                     listStyle: 'none',
                   }}>
-                    <span style={{
-                      display: 'none',
-                    }} />
                     <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
                       {item.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
                         if (part.startsWith('**') && part.endsWith('**')) {
                           return <strong key={index}>{part.slice(2, -2)}</strong>;
                         }
                         if (part.startsWith('{{IMG:') && part.endsWith('}}')) {
-                          const inner = part.slice(6, -2); // e.g. "/images/Zabar.PNG" or "/images/Zabar.PNG|4rem"
+                          const inner = part.slice(6, -2); // e.g. "/images/Zabar.webp" or "/images/Zabar.webp|4rem"
                           const [src, customSize] = inner.split('|');
                           return (
                             <img
@@ -1728,6 +1727,7 @@ const LessonPage = ({ pageNumber }) => {
                 const imagePath = typeof item === 'object' ? item.imagePath : null;
                 const imageHoverPath = typeof item === 'object' ? item.imageHoverPath : null;
                 const arrowImage = typeof item === 'object' ? item.arrowImage : null;
+                const downArrow = typeof item === 'object' ? item.downArrow : false;
 
                 return letter ? (
                   <div
@@ -1749,6 +1749,7 @@ const LessonPage = ({ pageNumber }) => {
                       imageHoverPath={imageHoverPath}
                       annotation={pageAnnotation}
                       arrowImage={arrowImage}
+                      downArrow={downArrow}
                     />
                   </div>
                 ) : (

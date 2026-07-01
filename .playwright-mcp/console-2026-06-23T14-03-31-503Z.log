@@ -1,9 +1,0 @@
-[     372ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/static/js/bundle.js:17977
-[   30085ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0
-[   30085ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0
-[   30085ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0
-[   30085ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0
-[  153231ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/static/js/bundle.js:17977
-[  158254ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0
-[  158254ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0
-[  158254ms] [WARNING] Failed to decode downloaded font: data:font/truetype;charset=utf-8;base64, @ http://localhost:3000/:0

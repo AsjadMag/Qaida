@@ -18,15 +18,20 @@ const IdghamArrow = ({ src = '/images/Curved%20Arrow.webp' }) => {
 const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation, arrowImage, downArrow }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Calculate font size based on text length
+  // Calculate font size based on text length.
+  // Uses container-query units: cqw (% of card width) caps the width so text
+  // doesn't overflow narrow cards, and cqh (% of card height) caps the glyph
+  // height so tall Arabic letters (with harakat) fit short cards on mobile.
+  // Desktop cards are tall & wide, so both terms exceed the rem cap there and
+  // the original desktop sizing is preserved exactly.
   const getFontSize = (text) => {
-    if (!text || useImage) return '6rem';
+    if (!text || useImage) return 'clamp(1rem, min(40cqw, 48cqh), 6rem)';
     const length = text.length;
-    if (length <= 5) return '6rem';
-    if (length <= 10) return '5rem';
-    if (length <= 15) return '4rem';
-    if (length <= 20) return '3.5rem';
-    return '3rem'; // Very long strings
+    if (length <= 5) return 'clamp(1rem, min(40cqw, 48cqh), 6rem)';
+    if (length <= 10) return 'clamp(1rem, min(33cqw, 48cqh), 5rem)';
+    if (length <= 15) return 'clamp(0.9rem, min(27cqw, 46cqh), 4rem)';
+    if (length <= 20) return 'clamp(0.8rem, min(23cqw, 44cqh), 3.5rem)';
+    return 'clamp(0.7rem, min(20cqw, 42cqh), 3rem)'; // Very long strings
   };
 
   // Check if text contains special separators
@@ -107,6 +112,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
     const currentImagePath = isHovered && imageHoverPath ? imageHoverPath : imagePath;
     return (
       <img
+        className="card-image"
         src={currentImagePath}
         alt={letter}
         style={{
@@ -246,7 +252,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
 
   return (
     <div
-      className={`word-card ${isVeryLong ? 'multi-line' : ''}`}
+      className={`word-card ${isVeryLong ? 'multi-line' : ''} ${downArrow ? 'has-down-arrow' : ''} ${hasSeparator ? 'has-separator' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -280,6 +286,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
         {downArrow && (
           <div
             aria-hidden="true"
+            className="down-arrow"
             style={{
               direction: 'ltr',
               fontFamily: 'Arial, sans-serif',

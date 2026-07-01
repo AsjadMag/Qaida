@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TitlePage from './pages/TitlePage';
 import LessonPage, { chapterData } from './pages/LessonPage';
+import useIsMobile from './useIsMobile';
 
 // Small inline-SVG flags (regional-indicator emoji don't render as flags on Windows)
 const flagStyle = {
@@ -57,6 +58,7 @@ const advancedStartChapterNum = chapterNumbers.find((num, idx) => (idx + 1) > BA
 const advancedStartPage = advancedStartChapterNum ? chapterStartPages[advancedStartChapterNum] : 1;
 
 function App() {
+  const isMobile = useIsMobile();
   const [currentPage, setCurrentPage] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -249,7 +251,8 @@ function App() {
           borderTop: '3px solid #f6cc44',
           zIndex: 1000
         }}>
-          {/* Navigation row */}
+          {/* Navigation row — desktop / tablet */}
+          {!isMobile && (
           <div style={{
             position: 'relative',
             display: 'flex',
@@ -371,6 +374,74 @@ function App() {
               ☰ Index
             </button>
           </div>
+          )}
+
+          {/* Navigation — mobile (compact, stacked) */}
+          {isMobile && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px 12px', direction: 'ltr' }}>
+            {/* Row 1: Previous · Page · Next */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', direction: 'rtl' }}>
+              <button onClick={goNext} className="nav-btn" disabled={isLastPage}
+                style={{
+                  flex: '1 1 0', padding: '11px 8px', fontSize: '1rem', borderRadius: '50px', border: 'none',
+                  background: isLastPage ? '#666' : 'linear-gradient(135deg, #4caf50, #2e7d32)', color: 'white',
+                  cursor: isLastPage ? 'not-allowed' : 'pointer', fontWeight: 'bold', fontFamily: 'Arial, sans-serif',
+                }}>
+                Next
+              </button>
+              <div style={{ fontSize: '1.2rem', fontWeight: 'bold', minWidth: '84px', textAlign: 'center', color: '#f6cc44', fontFamily: 'Arial, sans-serif', flexShrink: 0 }}>
+                Page {currentPage}
+              </div>
+              <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
+                style={{
+                  flex: '1 1 0', padding: '11px 8px', fontSize: '1rem', borderRadius: '50px', border: 'none',
+                  background: currentPage === 1 ? '#666' : 'linear-gradient(135deg, #f6cc44, #d4a017)',
+                  color: currentPage === 1 ? 'white' : '#1b3a1c', cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                  fontWeight: 'bold', fontFamily: 'Arial, sans-serif',
+                }}>
+                Previous
+              </button>
+            </div>
+
+            {/* Row 2: Exit · Index */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+              <button onClick={() => setCurrentPage(0)} className="nav-btn"
+                style={{
+                  flex: '1 1 0', padding: '10px 8px', fontSize: '0.95rem', borderRadius: '50px', border: 'none',
+                  background: '#e05a4f', color: 'white', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'sans-serif',
+                }}>
+                Exit
+              </button>
+              <button onClick={() => setShowMenu(true)} className="nav-btn"
+                style={{
+                  flex: '1 1 0', padding: '10px 8px', fontSize: '0.95rem', borderRadius: '50px', border: '2px solid #f6cc44',
+                  background: 'transparent', color: '#f6cc44', cursor: 'pointer', fontFamily: 'Arial, sans-serif', letterSpacing: '1px',
+                }}>
+                ☰ Index
+              </button>
+            </div>
+
+            {/* Row 3: contact strip */}
+            <div style={{
+              display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center',
+              gap: '3px 14px', direction: 'ltr', fontFamily: 'Arial, sans-serif',
+              paddingTop: '6px', borderTop: '1px solid rgba(246,204,68,0.22)',
+            }}>
+              <a href="https://tajweedclasses.com" target="_blank" rel="noopener noreferrer"
+                style={{ color: '#dff5dc', fontSize: '0.72rem', fontWeight: 600, textDecoration: 'none' }}>
+                🌐 tajweedclasses.com
+              </a>
+              <a href="tel:+19342012717"
+                style={{ display: 'inline-flex', alignItems: 'center', color: '#dff5dc', fontSize: '0.72rem', fontWeight: 600, textDecoration: 'none' }}>
+                <USFlag /> +1 934 201 2717
+              </a>
+              <a href="tel:+447482798122"
+                style={{ display: 'inline-flex', alignItems: 'center', color: '#dff5dc', fontSize: '0.72rem', fontWeight: 600, textDecoration: 'none' }}>
+                <UKFlag /> +44 74 8279 8122
+              </a>
+            </div>
+          </div>
+          )}
         </div>
       )}
 
@@ -451,11 +522,12 @@ function App() {
             </div>
 
             {/* Search + Go to page */}
-            <div style={{
+            <div className="index-search-row" style={{
               padding: '12px 16px',
               borderBottom: '1.5px solid rgba(201,150,12,0.25)',
               display: 'flex',
               gap: '10px',
+              flexWrap: 'wrap',
               flexShrink: 0,
               background: 'rgba(255,255,255,0.4)',
             }}>
@@ -620,11 +692,53 @@ function App() {
           overflow-x: hidden;
         }
 
+        /* ---- Responsive: lesson content ---- */
         @media (max-width: 768px) {
-          .word-card {
-            height: 3.0in !important;
-            font-size: 3.4rem !important;
+          .lesson-container { padding: 20px 14px 240px !important; }
+          .lesson-header-title { font-size: clamp(1.7rem, 7vw, 2.6rem) !important; }
+          .lesson-row { gap: 14px !important; margin-bottom: 34px !important; }
+          .lesson-card-wrap { padding: 12px !important; margin: -12px !important; }
+          /* Fixed 20px padding is huge on a small phone card — shrink it so
+             letters and card images have room to render at a usable size.
+             white-space:normal lets over-wide labels (e.g. "Pause Condition")
+             wrap instead of being clipped; Arabic words have no internal break
+             points so they stay on one line and are unaffected. */
+          .word-card .letter { padding: 10px !important; white-space: normal !important; }
+          /* Condition header cards ("Writing/Pause/Joining Condition" + down arrow):
+             shrink the label and arrow so the full two-line label + arrow fit. */
+          .word-card.has-down-arrow .letter { font-size: 1rem !important; line-height: 1.15 !important; }
+          .word-card.has-down-arrow .down-arrow { font-size: 1.4rem !important; margin-top: 6px !important; }
+          /* Separator cards ("X ⇐ Y", "a = b") stack their parts vertically and
+             each part may contain spaced letters — keep them on one line (nowrap)
+             and size by width AND height (3 stacked lines) so everything fits. */
+          .word-card.has-separator .letter { white-space: nowrap !important; font-size: min(24cqw, 20cqh) !important; gap: 2px !important; }
+
+          .teacher-panel {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 16px !important;
+            padding: 18px 18px !important;
+            margin-bottom: 40px !important;
           }
+          .teacher-panel > div { min-width: 0 !important; }
+          .teacher-panel .teacher-title { font-size: 1.5rem !important; }
+          .teacher-panel .teacher-list { font-size: 1.1rem !important; line-height: 1.7rem !important; }
+          .teacher-panel .teacher-goal,
+          .teacher-panel .teacher-note { font-size: 1.1rem !important; padding: 12px 16px !important; }
+          .teacher-panel .teacher-images { width: 100% !important; }
+          /* Cap wide/landscape diagrams to the available width so they fill the
+             screen without being cut, while small images keep their intended size. */
+          .teacher-panel .teacher-images img { max-width: 100% !important; height: auto !important; }
+
+          /* WordCard images are tiny at 50% on a small phone card — enlarge them. */
+          .card-image { max-width: 92% !important; max-height: 92% !important; }
+        }
+
+        @media (max-width: 480px) {
+          .lesson-container { padding: 16px 8px 240px !important; }
+          .lesson-row { gap: 10px !important; }
+          .word-card .letter { padding: 6px !important; }
+          .index-search-row input[type="text"] { flex: 1 1 100% !important; }
         }
 
         .chapter-index-btn {

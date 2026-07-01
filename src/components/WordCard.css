@@ -2,6 +2,7 @@
   /* note: width is controlled by the grid column; don't enforce a fixed width here */
   height: 3.5in;
   width: 100%; /* Fill the grid cell */
+  container-type: size; /* lets letters size with cqw (width) AND cqh (height) */
   background: linear-gradient(to bottom, #ffffff 0%, #f6cc44 100%);
   border-radius: 34px;
   border: 1px solid #000;
@@ -52,12 +53,18 @@
 /* Responsive */
 @media (max-width: 768px) {
   .word-card {
-    height: 3.0in;
-  }
-  .word-card .letter {
-    font-size: 3.4rem;
+    height: clamp(120px, 30vw, 2.4in);
+    border-radius: 22px;
   }
   .word-card:hover {
-    transform: scale(1.15) translateY(-10px);
+    /* touch devices don't hover-zoom nicely; keep it subtle */
+    transform: scale(1.06) translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .word-card {
+    height: clamp(104px, 30vw, 150px);
+    border-radius: 16px;
   }
 }

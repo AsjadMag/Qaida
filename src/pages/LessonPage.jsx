@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import WordCard from '../components/WordCard';
+import useIsMobile from '../useIsMobile';
 import '../index.css';
 
 export const chapterData = {
@@ -1399,6 +1400,7 @@ teacherInfo: {
 };
 
 const LessonPage = ({ pageNumber }) => {
+  const isMobile = useIsMobile();
   // Build a numeric-sorted list of chapters and compute total pages
   const chapterNumbers = Object.keys(chapterData).map(n => parseInt(n, 10)).sort((a, b) => a - b);
   const totalPages = chapterNumbers.reduce((sum, n) => sum + (chapterData[n].pages ? chapterData[n].pages.length : 0), 0);
@@ -1441,7 +1443,7 @@ const LessonPage = ({ pageNumber }) => {
     : currentChapterNum;
 
   return (
-    <div style={{ padding: '40px 1in 180px', maxWidth: '100%', margin: '0 auto' }}>
+    <div className="lesson-container" style={{ padding: '40px 1in 180px', maxWidth: '100%', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '55px' }}>
         {/* Section label — Basic / Advanced */}
         <div style={{
@@ -1475,7 +1477,7 @@ const LessonPage = ({ pageNumber }) => {
         </div>
 
         {/* Prominent chapter title (English, consistent) */}
-        <h1 style={{
+        <h1 className="lesson-header-title" style={{
           fontSize: '3.4rem',
           fontWeight: 800,
           color: '#0f2a44',
@@ -1523,6 +1525,7 @@ const LessonPage = ({ pageNumber }) => {
 
         return (
           <div
+            className="teacher-panel"
             style={{
               display: 'flex',
               alignItems: 'flex-start',
@@ -1540,7 +1543,7 @@ const LessonPage = ({ pageNumber }) => {
           >
             {/* Left: instructions + goal */}
             <div style={{ flex: 1, minWidth: 0 }}>
-              <h4 style={{
+              <h4 className="teacher-title" style={{
                 fontSize: '2rem',
                 color: '#0f2a44',
                 marginTop: 0,
@@ -1553,7 +1556,7 @@ const LessonPage = ({ pageNumber }) => {
                 Teacher Instructions
               </h4>
 
-              <ul style={{
+              <ul className="teacher-list" style={{
                 listStyle: 'none',
                 padding: 0,
                 margin: '0 0 25px 0',
@@ -1567,7 +1570,7 @@ const LessonPage = ({ pageNumber }) => {
                     display: 'block',
                     listStyle: 'none',
                   }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
+                    <span style={{ display: 'inline', overflowWrap: 'anywhere' }}>
                       {item.split(/(\*\*.*?\*\*|\{\{IMG:.*?\}\})/g).map((part, index) => {
                         if (part.startsWith('**') && part.endsWith('**')) {
                           return <strong key={index}>{part.slice(2, -2)}</strong>;
@@ -1599,7 +1602,7 @@ const LessonPage = ({ pageNumber }) => {
               </ul>
 
               {selectedTeacher.goal && (
-                <div style={{
+                <div className="teacher-goal" style={{
                   fontSize: '1.6rem',
                   color: '#0f2a44',
                   backgroundColor: '#fff3d6',
@@ -1633,7 +1636,7 @@ const LessonPage = ({ pageNumber }) => {
                     return <span key={`${lineIdx}-${index}`}>{part}</span>;
                   });
                 return noteLines.map((line, lineIdx) => (
-                  <div key={lineIdx} style={{
+                  <div key={lineIdx} className="teacher-note" style={{
                     fontSize: '1.6rem',
                     color: '#0f2a44',
                     backgroundColor: '#ffe8cc',
@@ -1647,7 +1650,7 @@ const LessonPage = ({ pageNumber }) => {
                     gap: '12px',
                   }}>
                     <span style={{ width: '5px', alignSelf: 'stretch', borderRadius: '3px', background: '#ff9800', flexShrink: 0 }} />
-                    <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
+                    <span style={{ display: 'inline', overflowWrap: 'anywhere' }}>
                       {renderNoteParts(line, lineIdx)}
                     </span>
                   </div>
@@ -1658,7 +1661,7 @@ const LessonPage = ({ pageNumber }) => {
 
             {/* Right: teacher image(s) */}
             {selectedImagePaths && (
-              <div style={{
+              <div className="teacher-images" style={{
                 flexShrink: 0,
                 display: 'flex',
                 flexDirection: 'column',
@@ -1702,18 +1705,18 @@ const LessonPage = ({ pageNumber }) => {
           let rowMargin = '0 auto';
 
           if (cardCount === 1) {
-            rowWidth = '50%';
+            rowWidth = isMobile ? '80%' : '50%';
           } else if (cardCount === 2) {
-            rowWidth = '70%';
+            rowWidth = isMobile ? '96%' : '70%';
           } else if (cardCount === 3) {
-            rowWidth = '85%';
+            rowWidth = isMobile ? '100%' : '85%';
           }
 
           return (
-            <div key={i} style={{
+            <div key={i} className="lesson-row" style={{
               display: 'grid',
               gridTemplateColumns: `repeat(${cardCount}, 1fr)`,
-              gap: '0.5in', /* Increased gap */
+              gap: isMobile ? '10px' : '0.5in', /* Increased gap */
               width: rowWidth,
               margin: rowMargin,
               marginBottom: '60px', /* Space for hover */
@@ -1731,6 +1734,7 @@ const LessonPage = ({ pageNumber }) => {
                 return letter ? (
                   <div
                     key={j}
+                    className="lesson-card-wrap"
                     style={{
                       position: 'relative',
                       display: 'flex',

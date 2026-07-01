@@ -168,7 +168,7 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
         fontWeight: '600',
         zIndex: 1,
       }}>
-        Official Tajweed Classes Learning
+        A Complete Noorani Qaida Course by Tajweedclasses.com
       </p>
 
       {/* Mode buttons — choose Basic or Advanced Qaida */}

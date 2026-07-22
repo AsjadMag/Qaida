@@ -135,6 +135,38 @@
 
 **Impact:** Keep `pageTextLength` as the page-level scale input. Any new card variant must fit within the protected card content area and use a layout-specific height cap when it stacks content vertically.
 
+## 2026-07-22: Word separators have protected lanes
+
+**Decision:** Render paired-word separators as a structured three-row layout: first word, dedicated separator lane, second word.
+
+**Reason:** A loose flex stack let fixed-size dashes and equals signs crowd adjacent Arabic diacritics, most visibly on global page 72.
+
+**Impact:** Dashes use a bold, responsive scale and a widened stroke; equals signs scale proportionally. Separator row gaps and lane heights use the current card font size, with small clamps to prevent collapse. Do not reintroduce raw separator spans directly inside the card's flex container.
+
+## 2026-07-22: Arabic ink optical centering
+
+**Decision:** Apply a small font-relative upward optical correction to Arabic content inside cards.
+
+**Reason:** The Quran font reserves descent space for marks below the baseline, so mathematically centered line boxes appeared visually low and produced unequal visible top and bottom margins.
+
+**Impact:** Keep the correction in the shared card stylesheet and express it in `em`, so it scales with each page’s active font size. Do not compensate with per-chapter or per-card pixel offsets.
+
+## 2026-07-22: Teacher-panel images always scale to fit, never a fixed box
+
+**Decision:** Inline `{{IMG:...}}` symbols in teacher instructions/notes use `maxHeight` (from the optional `|size` suffix) plus `maxWidth: 100%` with `width`/`height: auto`, instead of a fixed `height` and unconstrained `width: auto`. The teacher-panel side image (`imagePath`/`imageStyle`) keeps its per-chapter base `width` but `maxWidth: '100%'` is always applied last, after the chapter's `imageStyle` spread, so it can never be overridden.
+
+**Reason:** A wide strip diagram given a large explicit height (e.g. `chapter-21.js`'s `Version3.webp|20rem`, `chapter-26.js` page 80's `chapter_11_v2(5).webp|8rem`) rendered at that height with `width: auto` and no cap, so its natural aspect ratio pushed it far past the panel and off the viewport on narrow screens. The `.teacher-images img` side-panel case already had CSS breakpoint overrides with `!important`, but the inline symbols had no class hook at all, so no breakpoint protected them.
+
+**Impact:** Any future `{{IMG:...|size}}` usage scales down proportionally to fit its panel on any screen width; the `|size` suffix is now a maximum, not a fixed dimension. Do not reintroduce a bare `height` on these inline images without a matching `maxWidth`.
+
+## 2026-07-22: Inline teacher-instruction symbols size in `em`, not `rem`
+
+**Decision:** The `|size` suffix on inline `{{IMG:...}}` symbols (e.g. `chapter_5_v2(1).webp|3rem`) is reinterpreted as `em` at render time (`inlineSymbolMaxHeight` in `src/pages/LessonPage.jsx`), not taken literally as `rem`.
+
+**Reason:** `rem` resolves against the document root's font-size, which this app never changes. The surrounding instruction/note text scales responsively via `clamp(1.1rem, 2.5vw, 1.6rem)` (17.6px on a 375px phone up to 24-25.6px on desktop), but a `rem`-sized inline symbol stayed pinned at its literal pixel size regardless of viewport. Measured on chapter 20 page 51 ("Tiny Meem" and the "man baad" example): the symbol stayed 48px tall at both 375px and 1920px, while the text shrank, so the image-to-text ratio grew from 2.0x on desktop to 2.73x on mobile, i.e. it visibly got proportionally bigger exactly where screen space is tightest. `em` inherits the same computed font-size as the surrounding text (nothing else in the chain overrides `font-size` between the `<img>` and the `<ul>`/`<div>` that carries the clamp), so the ratio is now a constant ~3.0x at every breakpoint.
+
+**Impact:** Chapter data keeps authoring sizes as `Nrem` strings for readability; the `rem` -> `em` string swap happens once, in `inlineSymbolMaxHeight`. Do not size these symbols in `px` or `rem` again, and do not special-case individual chapters, since the ratio is meant to be uniform across all of them.
+
 ## 2026-07-22: Lesson structure is verified by a script, not by inspection
 
 **Decision:** `scripts/audit-lessons.js` (`npm run audit:lessons`) is the authority on chapter numbering, page counts, and image references. It loads the chapter modules through Babel and evaluates them rather than pattern-matching source text.

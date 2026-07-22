@@ -7,6 +7,22 @@ hardening are complete as of 2026-07-22. No task is in progress.
 
 ## Completed
 
+### Teacher-panel image overflow (2026-07-22)
+
+- Fixed inline `{{IMG:...}}` symbols in teacher instructions/notes (`src/pages/LessonPage.jsx`) so a custom `|size` is a `maxHeight` cap, not a fixed `height`, and always paired with `maxWidth: 100%`. Previously a wide strip diagram given a large explicit height (e.g. chapter 26 page 80, chapter 21's `Version3.webp|20rem`) rendered at its native aspect ratio with no width limit, overflowing the panel and viewport on narrow screens.
+- The teacher-panel side image (`imagePath`/`imageStyle`) now always applies `maxWidth: '100%'` after the per-chapter `imageStyle` spread, so a chapter's fixed base `width` (e.g. chapter 21's `800px`) can no longer defeat the cap.
+- See `docs/memory/decision-log.md` ("Teacher-panel images always scale to fit, never a fixed box") for the reasoning.
+- Verified live via Playwright at 375px, 768px, and 1920px on chapter 26 page 80 (the reported case) and chapter 21 pages 54/58 (the most extreme `|size` values in the data, 800px and 20rem). All scale to fit with no clipping and no horizontal page overflow (`document.documentElement.scrollWidth` matched `clientWidth`).
+- `npm.cmd run build`: `Compiled successfully.` (+13 B). `npm run audit:lessons`: passes, unchanged page/image counts.
+
+### Inline teacher-symbol scaling (2026-07-22)
+
+- Root cause of a second, related report (chapter 20 page 51: "Tiny Meem" symbol and the "man baad" example looking oversized on small screens): the `|size` suffix on inline `{{IMG:...}}` symbols was a literal `rem` value, which resolves against the document root's font-size, not the surrounding text's `clamp(1.1rem, 2.5vw, 1.6rem)`. Measured before the fix: the symbol stayed a fixed 48px tall at both 375px and 1920px viewports while the instruction text shrank from 24px to 17.6px, so the image looked proportionally ~36% bigger on mobile than desktop.
+- Fixed in one place, `inlineSymbolMaxHeight()` in `src/pages/LessonPage.jsx`: the `rem` suffix is swapped for `em` at render time, so the symbol inherits the same responsive font-size as its surrounding text. Measured after the fix: a constant ~3.0x image-to-text ratio at both 375px and 1920px.
+- See `docs/memory/decision-log.md` ("Inline teacher-instruction symbols size in `em`, not `rem`").
+- Verified live via Playwright on chapter 20 page 51 (the reported case), chapter 26 page 80, and chapter 21 page 58 (the largest `|size` in the data, `20rem`) at 375px and 1920px; no clipping, ratio confirmed constant via `getBoundingClientRect()` measurements.
+- `npm.cmd run build`: `Compiled successfully.` (+24 B). `npm run audit:lessons`: passes, unchanged page/image counts.
+
 ### Setup and memory
 
 - Established the approved repository-setup design and execution plan.
@@ -54,6 +70,9 @@ hardening are complete as of 2026-07-22. No task is in progress.
 - The pre-existing dirty image and content worktree remains preserved.
 - Playwright responsive layout audit: all 87 lesson pages passed at 375px, 768px, 1280px, and 1440px, with no card scroll overflow or visible content extending outside its card.
 - Verified visual reference: `docs/screenshots/page-22-card-layout-verified.png` shows the corrected Erected Zair page.
+- Separator-layout verification: all paired-word cards passed the same 87-page, four-viewport Playwright audit. `docs/screenshots/page-72-separator-layout-verified.png` records the corrected Madd Due to Pause page.
+- Separator spacing verification: page 72 measured a responsive row gap of approximately 6px at 375px, 13px at 768px, and 14px at 1280px, matching the active word scale instead of using oversized fixed mobile spacing.
+- Optical-centering verification: page 45 now applies a font-relative correction for Arabic descent metrics; the full 87-page, four-viewport Playwright audit remains at zero overflow findings.
 
 ### Lesson structure audit (2026-07-22)
 
@@ -67,6 +86,7 @@ hardening are complete as of 2026-07-22. No task is in progress.
 - No chapter folder exists without a matching chapter.
 - Chapter 25 still carries its 26 em dash separators after the title correction.
 - `npm.cmd run build`: `Compiled successfully.`
+
 
 ## Known Gaps
 

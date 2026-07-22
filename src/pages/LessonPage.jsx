@@ -4,6 +4,12 @@ import useIsMobile from '../useIsMobile';
 import '../index.css';
 import { chapterData, chapterNumbers, totalPages } from '../data';
 
+// Inline {{IMG:...|size}} symbols must scale with the surrounding (already
+// responsive) text. `rem` is fixed to the document root, so a size authored
+// in `rem` would stay full-size on small screens while the text shrinks;
+// `em` scales with the inherited, clamp()-driven font-size instead.
+const inlineSymbolMaxHeight = (customSize) => (customSize || '2.2rem').replace(/rem$/, 'em');
+
 const LessonPage = ({ pageNumber }) => {
   const isMobile = useIsMobile();
 
@@ -189,8 +195,10 @@ const LessonPage = ({ pageNumber }) => {
                               src={src}
                               alt="symbol"
                               style={{
-                                height: customSize || '2.2rem',
+                                height: 'auto',
                                 width: 'auto',
+                                maxHeight: inlineSymbolMaxHeight(customSize),
+                                maxWidth: '100%',
                                 verticalAlign: 'middle',
                                 display: 'inline-block',
                                 margin: '0 4px',
@@ -234,7 +242,7 @@ const LessonPage = ({ pageNumber }) => {
                           key={`${lineIdx}-${index}`}
                           src={src}
                           alt="symbol"
-                          style={{ height: customSize || '2.2rem', width: 'auto', verticalAlign: 'middle', display: 'inline-block', margin: '0 4px', mixBlendMode: 'multiply' }}
+                          style={{ height: 'auto', width: 'auto', maxHeight: inlineSymbolMaxHeight(customSize), maxWidth: '100%', verticalAlign: 'middle', display: 'inline-block', margin: '0 4px', mixBlendMode: 'multiply' }}
                         />
                       );
                     }
@@ -281,11 +289,11 @@ const LessonPage = ({ pageNumber }) => {
                     alt={selectedImageAlt}
                     style={{
                       width: 'min(400px, 38vw)',
-                      maxWidth: '100%',
                       height: 'auto',
                       borderRadius: '8px',
                       mixBlendMode: 'multiply',
                       ...selectedTeacher.imageStyle,
+                      maxWidth: '100%',
                     }}
                   />
                 ))}

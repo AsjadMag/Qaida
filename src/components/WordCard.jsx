@@ -125,12 +125,11 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
     const parts = letter.split(separator);
     const separatorChar = separator === '=' ? '=' :
                          separator === '—' ? '—' : '⇐';
-    const separatorSize = separator === '=' ? '0.78em' :
-                         separator === '—' ? '1.5rem' : '1.5rem'; // Keep both separators the same size.
+    const separatorType = separator === '=' ? 'equals' :
+      separator === '—' ? 'dash' : 'arrow';
 
     return (
-      <>
-        {/* Part before separator */}
+      <div className={`separated-text separator-${separatorType}`}>
         <span style={{
           color: isHovered ? '#ffffff' : '#000',
           transition: 'color 0.28s',
@@ -140,16 +139,13 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
           {parts[0]}
         </span>
 
-        {/* Separator */}
-        <span style={{
+        <span className="word-separator" style={{
           color: isHovered ? '#ffffff' : '#000',
-          fontSize: separatorSize,
           transition: 'color 0.28s',
         }}>
           {separatorChar}
         </span>
 
-        {/* Part after separator */}
         <span style={{
           color: isHovered ? '#4ade80' : '#000',
           transition: 'color 0.28s',
@@ -158,7 +154,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
         }}>
           {parts[1]}
         </span>
-      </>
+      </div>
     );
   };
 
@@ -212,8 +208,16 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
 
             // For spaces and punctuation, keep them white
             if (isSpaceOrPunctuation) {
+              // The Arabic Quran fonts used here render U+0020/U+00A0 with zero
+              // advance width, so a literal space in card text is invisible unless
+              // we give it an explicit width ourselves.
+              const isWhitespace = /^[\s​‌‍]+$/.test(visualLetter);
               return (
-                <span key={index} style={{ color: isHovered ? '#ffffff' : '#000', transition: 'color 0.28s' }}>
+                <span key={index} style={{
+                  color: isHovered ? '#ffffff' : '#000',
+                  transition: 'color 0.28s',
+                  ...(isWhitespace ? { display: 'inline-block', width: '0.3em' } : {}),
+                }}>
                   {visualLetter}
                 </span>
               );

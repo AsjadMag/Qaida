@@ -1,7 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TitlePage from './pages/TitlePage';
-import LessonPage, { chapterData } from './pages/LessonPage';
+import LessonPage from './pages/LessonPage';
+import { chapterData, chapterNumbers, chapterStartPages, totalPages, advancedStartPage } from './data';
 import useIsMobile from './useIsMobile';
+
+// Inline search magnifying-glass icon - matches the style of the arrow SVGs
+const SearchIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="11" cy="11" r="7.5" stroke="#9a8050" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M20.5 20.5L16.5 16.5" stroke="#9a8050" strokeWidth="2.2" strokeLinecap="round"/>
+  </svg>
+);
+
+// Watermark background - computed once, not on every render
+const WATERMARK_BG = `url("data:image/svg+xml,${encodeURIComponent(
+  `<svg xmlns='http://www.w3.org/2000/svg' width='340' height='220'><text x='10' y='130' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='rgba(46,125,50,0.07)' transform='rotate(-28 170 110)'>Tajweed Classes</text></svg>`
+)}")`;
 
 // Small inline-SVG flags (regional-indicator emoji don't render as flags on Windows)
 const flagStyle = {
@@ -42,21 +56,6 @@ const UKFlag = () => (
   </svg>
 );
 
-const chapterNumbers = Object.keys(chapterData).map(n => parseInt(n, 10)).sort((a, b) => a - b);
-
-const chapterStartPages = {};
-let pageCounter = 1;
-for (const num of chapterNumbers) {
-  chapterStartPages[num] = pageCounter;
-  pageCounter += chapterData[num].pages ? chapterData[num].pages.length : 0;
-}
-
-// Chapters with a display number <= 15 are "Basic Qaida", the rest are
-// "Advanced Qaida" (must match the section label logic in LessonPage).
-const BASIC_MAX_DISPLAY_CHAPTER = 15;
-const advancedStartChapterNum = chapterNumbers.find((num, idx) => (idx + 1) > BASIC_MAX_DISPLAY_CHAPTER);
-const advancedStartPage = advancedStartChapterNum ? chapterStartPages[advancedStartChapterNum] : 1;
-
 function App() {
   const isMobile = useIsMobile();
   const [currentPage, setCurrentPage] = useState(0);
@@ -67,19 +66,37 @@ function App() {
   const chapterListRef = useRef(null);
 
   useEffect(() => {
-    if (showMenu && activeChapterRef.current && chapterListRef.current) {
-      setTimeout(() => {
-        activeChapterRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
-      }, 80);
-    }
+    if (!showMenu || !activeChapterRef.current || !chapterListRef.current) return;
+    const t = setTimeout(() => {
+      activeChapterRef.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }, 80);
+    return () => clearTimeout(t);
   }, [showMenu]);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const totalPages = pageCounter - 1;
   const isLastPage = currentPage >= totalPages;
   const goNext = () => { if (!isLastPage) { setCurrentPage(prev => prev + 1); scrollToTop(); } };
   const goPrev = () => { setCurrentPage(prev => Math.max(1, prev - 1)); scrollToTop(); };
+
+  // Arrow-key navigation - ref keeps the handler stable without stale closures
+  const currentPageRef = useRef(currentPage);
+  useEffect(() => { currentPageRef.current = currentPage; }, [currentPage]);
+  useEffect(() => {
+    const handleKey = (e) => {
+      const tag = document.activeElement?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      if (showMenu) return;
+      const p = currentPageRef.current;
+      if (e.key === 'ArrowRight' && p >= 1 && p < totalPages) {
+        setCurrentPage(p + 1); window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (e.key === 'ArrowLeft' && p > 1) {
+        setCurrentPage(p - 1); window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [showMenu]);
 
   const jumpToChapter = (chapterNum) => {
     setCurrentPage(chapterStartPages[chapterNum]);
@@ -125,7 +142,7 @@ function App() {
           minHeight: '86vh',
           background: 'linear-gradient(165deg, #ffffff 0%, #f0faea 40%, #dcefcf 68%, #f1dfa0 100%)',
           borderRadius: '28px',
-          padding: '60px 40px 120px',
+          padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 40px) clamp(60px, 12vw, 120px)',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
@@ -135,14 +152,14 @@ function App() {
           <div style={{
             position: 'absolute', top: '50%', left: '50%',
             transform: 'translate(-50%, -55%)',
-            width: '640px', height: '640px', borderRadius: '50%',
+            width: 'clamp(300px, 80vw, 640px)', height: 'clamp(300px, 80vw, 640px)', borderRadius: '50%',
             background: 'radial-gradient(circle, rgba(246,204,68,0.22) 0%, rgba(76,175,80,0.07) 48%, transparent 72%)',
             pointerEvents: 'none', zIndex: 0,
           }} />
 
           {/* brand logo */}
           <img
-            src="/images/TajweedClassLogo_trans.webp"
+            src="/images/brand/TajweedClassLogo_trans.webp"
             alt="Tajweed Classes"
             style={{
               display: 'block',
@@ -153,7 +170,7 @@ function App() {
             }}
           />
 
-          {/* Arabic — JazakAllah Khairan */}
+          {/* Arabic - JazakAllah Khairan */}
           <div style={{
             fontFamily: "'Amiri Quran', serif",
             fontSize: 'clamp(1.8rem, 5vw, 3rem)',
@@ -207,7 +224,7 @@ function App() {
             color: 'rgba(27,94,32,0.6)',
             fontFamily: 'Arial, sans-serif',
             letterSpacing: '2.5px',
-            fontSize: '0.95rem',
+            fontSize: 'clamp(0.72rem, 1.8vw, 0.95rem)',
             fontWeight: 600,
             zIndex: 1,
             margin: '8px 0 0',
@@ -221,7 +238,7 @@ function App() {
         </div>
       )}
 
-      {/* "Tajweed Classes" watermark — tiled faintly behind the lesson content */}
+      {/* "Tajweed Classes" watermark - tiled faintly behind the lesson content */}
       {currentPage >= 1 && !isLastPage && (
         <div
           aria-hidden="true"
@@ -230,9 +247,7 @@ function App() {
             inset: 0,
             zIndex: 0,
             pointerEvents: 'none',
-            backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(
-              `<svg xmlns='http://www.w3.org/2000/svg' width='340' height='220'><text x='10' y='130' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='rgba(46,125,50,0.07)' transform='rotate(-28 170 110)'>Tajweed Classes</text></svg>`
-            )}")`,
+            backgroundImage: WATERMARK_BG,
             backgroundRepeat: 'repeat',
           }}
         />
@@ -247,11 +262,10 @@ function App() {
           background: 'linear-gradient(180deg, #14401a 0%, #0d2a11 100%)',
           display: 'flex',
           flexDirection: 'column',
-          backdropFilter: 'blur(12px)',
           borderTop: '3px solid #f6cc44',
           zIndex: 1000
         }}>
-          {/* Navigation row — desktop / tablet */}
+          {/* Navigation row - desktop / tablet */}
           {!isMobile && (
           <div style={{
             position: 'relative',
@@ -301,59 +315,72 @@ function App() {
             }}>
             <button onClick={() => setCurrentPage(0)} className="nav-btn"
               style={{
-                padding: '14px 28px',
-                fontSize: '1.4rem',
+                padding: '15px 30px',
+                minHeight: '54px',
+                fontSize: '1.1rem',
                 borderRadius: '50px',
-                border: 'none',
-                background: '#e05a4f',
-                color: 'white',
+                border: '2px solid #f6cc44',
+                background: 'linear-gradient(135deg, #1b5e20 0%, #0d3b1f 100%)',
+                color: '#fff',
                 cursor: 'pointer',
-                fontWeight: 'bold',
-                fontFamily: 'sans-serif'
+                fontWeight: '600',
+                fontFamily: 'Arial, sans-serif',
+                letterSpacing: '0.4px',
+                boxShadow: '0 3px 14px rgba(13,59,31,0.48)',
               }}>
-              Exit
+              Home
             </button>
 
             <button onClick={goNext} className="nav-btn"
               disabled={isLastPage}
               style={{
-                padding: '14px 34px',
-                fontSize: '1.4rem',
+                padding: '15px 38px',
+                minHeight: '54px',
+                fontSize: '1.15rem',
                 borderRadius: '50px',
                 border: 'none',
-                background: isLastPage ? '#666' : 'linear-gradient(135deg, #4caf50, #2e7d32)',
-                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                background: isLastPage ? 'rgba(255,255,255,0.12)' : 'linear-gradient(135deg, #4caf50 0%, #2e7d32 100%)',
+                color: isLastPage ? 'rgba(255,255,255,0.35)' : 'white',
                 cursor: isLastPage ? 'not-allowed' : 'pointer',
-                fontWeight: 'bold',
-                fontFamily: 'Arial, sans-serif'
+                fontWeight: '700',
+                fontFamily: 'Arial, sans-serif',
+                letterSpacing: '0.5px',
+                boxShadow: isLastPage ? 'none' : '0 3px 14px rgba(46,125,50,0.45)',
               }}>
               Next
             </button>
 
             <div style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              minWidth: '130px',
-              textAlign: 'center',
-              color: '#f6cc44',
-              fontFamily: 'Arial, sans-serif'
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              minWidth: '100px',
+              direction: 'ltr',
             }}>
-              Page {currentPage}
+              <div style={{ fontSize: '2rem', fontWeight: '800', color: '#f6cc44', fontFamily: 'Arial, sans-serif', lineHeight: 1.05 }}>{currentPage}</div>
+              <div style={{ fontSize: '0.72rem', color: 'rgba(246,204,68,0.5)', fontFamily: 'Arial, sans-serif', letterSpacing: '0.5px' }}>of {totalPages}</div>
             </div>
 
             <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
               style={{
-                padding: '14px 34px',
-                fontSize: '1.4rem',
+                padding: '15px 38px',
+                minHeight: '54px',
+                fontSize: '1.15rem',
                 borderRadius: '50px',
                 border: 'none',
-                background: currentPage === 1 ? '#666' : 'linear-gradient(135deg, #f6cc44, #d4a017)',
-                color: currentPage === 1 ? 'white' : '#1b3a1c',
+                display: 'flex',
+                alignItems: 'center',
+                background: currentPage === 1 ? 'rgba(255,255,255,0.12)' : 'linear-gradient(135deg, #f6cc44 0%, #c9960c 100%)',
+                color: currentPage === 1 ? 'rgba(255,255,255,0.35)' : '#1b3a1c',
                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                fontWeight: 'bold',
-                fontFamily: 'Arial, sans-serif'
+                fontWeight: '700',
+                fontFamily: 'Arial, sans-serif',
+                letterSpacing: '0.5px',
+                boxShadow: currentPage === 1 ? 'none' : '0 3px 14px rgba(201,150,12,0.4)',
               }}>
-              Previous
+              Prev
             </button>
             </div>
 
@@ -361,45 +388,50 @@ function App() {
             <button onClick={() => setShowMenu(true)} className="nav-btn"
               style={{
                 flexShrink: 0,
-                padding: '14px 24px',
-                fontSize: '1.4rem',
+                padding: '13px 24px',
+                fontSize: '1.1rem',
                 borderRadius: '50px',
                 border: '2px solid #f6cc44',
                 background: 'transparent',
                 color: '#f6cc44',
                 cursor: 'pointer',
                 fontFamily: 'Arial, sans-serif',
-                letterSpacing: '1px'
+                letterSpacing: '0.5px',
+                fontWeight: '600',
               }}>
-              ☰ Index
+              ☰ Chapters
             </button>
           </div>
           )}
 
-          {/* Navigation — mobile (compact, stacked) */}
+          {/* Navigation - mobile (compact, stacked) */}
           {isMobile && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '10px 12px', direction: 'ltr' }}>
             {/* Row 1: Previous · Page · Next */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', direction: 'rtl' }}>
               <button onClick={goNext} className="nav-btn" disabled={isLastPage}
                 style={{
-                  flex: '1 1 0', padding: '11px 8px', fontSize: '1rem', borderRadius: '50px', border: 'none',
-                  background: isLastPage ? '#666' : 'linear-gradient(135deg, #4caf50, #2e7d32)', color: 'white',
-                  cursor: isLastPage ? 'not-allowed' : 'pointer', fontWeight: 'bold', fontFamily: 'Arial, sans-serif',
+                  flex: '1 1 0', padding: '14px 10px', minHeight: '52px', fontSize: '1.05rem', borderRadius: '50px', border: 'none',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: isLastPage ? 'rgba(255,255,255,0.12)' : 'linear-gradient(135deg, #4caf50, #2e7d32)',
+                  color: isLastPage ? 'rgba(255,255,255,0.35)' : 'white',
+                  cursor: isLastPage ? 'not-allowed' : 'pointer', fontWeight: '700', fontFamily: 'Arial, sans-serif',
                 }}>
                 Next
               </button>
-              <div style={{ fontSize: '1.2rem', fontWeight: 'bold', minWidth: '84px', textAlign: 'center', color: '#f6cc44', fontFamily: 'Arial, sans-serif', flexShrink: 0 }}>
-                Page {currentPage}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '64px', flexShrink: 0, direction: 'ltr' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: '800', color: '#f6cc44', fontFamily: 'Arial, sans-serif', lineHeight: 1 }}>{currentPage}</div>
+                <div style={{ fontSize: '0.6rem', color: 'rgba(246,204,68,0.5)', fontFamily: 'Arial, sans-serif' }}>of {totalPages}</div>
               </div>
               <button onClick={goPrev} disabled={currentPage === 1} className="nav-btn"
                 style={{
-                  flex: '1 1 0', padding: '11px 8px', fontSize: '1rem', borderRadius: '50px', border: 'none',
-                  background: currentPage === 1 ? '#666' : 'linear-gradient(135deg, #f6cc44, #d4a017)',
-                  color: currentPage === 1 ? 'white' : '#1b3a1c', cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                  fontWeight: 'bold', fontFamily: 'Arial, sans-serif',
+                  flex: '1 1 0', padding: '14px 10px', minHeight: '52px', fontSize: '1.05rem', borderRadius: '50px', border: 'none',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: currentPage === 1 ? 'rgba(255,255,255,0.12)' : 'linear-gradient(135deg, #f6cc44, #c9960c)',
+                  color: currentPage === 1 ? 'rgba(255,255,255,0.35)' : '#1b3a1c',
+                  cursor: currentPage === 1 ? 'not-allowed' : 'pointer', fontWeight: '700', fontFamily: 'Arial, sans-serif',
                 }}>
-                Previous
+                Prev
               </button>
             </div>
 
@@ -407,17 +439,20 @@ function App() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
               <button onClick={() => setCurrentPage(0)} className="nav-btn"
                 style={{
-                  flex: '1 1 0', padding: '10px 8px', fontSize: '0.95rem', borderRadius: '50px', border: 'none',
-                  background: '#e05a4f', color: 'white', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'sans-serif',
+                  flex: '1 1 0', padding: '12px 10px', minHeight: '50px', fontSize: '1rem', borderRadius: '50px',
+                  border: '2px solid #f6cc44', background: 'linear-gradient(135deg, #1b5e20, #0d3b1f)',
+                  color: '#fff', cursor: 'pointer', fontWeight: '700', fontFamily: 'Arial, sans-serif',
+                  boxShadow: '0 3px 12px rgba(13,59,31,0.45)',
                 }}>
-                Exit
+                Home
               </button>
               <button onClick={() => setShowMenu(true)} className="nav-btn"
                 style={{
-                  flex: '1 1 0', padding: '10px 8px', fontSize: '0.95rem', borderRadius: '50px', border: '2px solid #f6cc44',
-                  background: 'transparent', color: '#f6cc44', cursor: 'pointer', fontFamily: 'Arial, sans-serif', letterSpacing: '1px',
+                  flex: '1 1 0', padding: '10px 8px', minHeight: '44px', fontSize: '0.9rem', borderRadius: '50px',
+                  border: '2px solid #f6cc44', background: 'transparent',
+                  color: '#f6cc44', cursor: 'pointer', fontFamily: 'Arial, sans-serif', fontWeight: '600',
                 }}>
-                ☰ Index
+                ☰ Chapters
               </button>
             </div>
 
@@ -468,7 +503,7 @@ function App() {
               borderRadius: '24px',
               border: '2.5px solid #c9960c',
               width: '100%',
-              maxWidth: '720px',
+              maxWidth: 'min(90vw, 720px)',
               maxHeight: '82vh',
               display: 'flex',
               flexDirection: 'column',
@@ -498,6 +533,7 @@ function App() {
               {/* Close button pinned to the right */}
               <button
                 type="button"
+                aria-label="Close chapter index"
                 onClick={() => { setShowMenu(false); setSearchQuery(''); setGoToPageInput(''); }}
                 style={{
                   position: 'absolute',
@@ -506,8 +542,8 @@ function App() {
                   border: '1.5px solid rgba(27,94,32,0.25)',
                   color: '#1b5e20',
                   borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
+                  width: '44px',
+                  height: '44px',
                   fontSize: '1.3rem',
                   cursor: 'pointer',
                   display: 'flex',
@@ -521,84 +557,97 @@ function App() {
               </button>
             </div>
 
-            {/* Search + Go to page */}
-            <div className="index-search-row" style={{
-              padding: '12px 16px',
-              borderBottom: '1.5px solid rgba(201,150,12,0.25)',
-              display: 'flex',
-              gap: '10px',
-              flexWrap: 'wrap',
+            {/* Single unified search + page-jump bar */}
+            <div style={{
+              padding: '14px 20px',
+              borderBottom: '1.5px solid rgba(201,150,12,0.2)',
               flexShrink: 0,
               background: 'rgba(255,255,255,0.4)',
             }}>
-              {/* Chapter search */}
-              <input
-                type="text"
-                placeholder="Search chapter..."
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                style={{
-                  flex: 1,
-                  padding: '10px 16px',
-                  fontSize: '1.1rem',
-                  borderRadius: '50px',
-                  border: '1.5px solid rgba(201,150,12,0.4)',
-                  background: 'rgba(255,255,255,0.85)',
-                  color: '#1b5e20',
-                  fontFamily: 'Arial, sans-serif',
-                  outline: 'none',
-                  direction: 'ltr',
-                }}
-              />
-              {/* Go to page */}
-              <input
-                type="number"
-                placeholder={`Page 1–${totalPages}`}
-                value={goToPageInput}
-                onChange={e => setGoToPageInput(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && handleGoToPage()}
-                min={1}
-                max={totalPages}
-                style={{
-                  width: '130px',
-                  padding: '10px 14px',
-                  fontSize: '1.1rem',
-                  borderRadius: '50px',
-                  border: '1.5px solid rgba(201,150,12,0.4)',
-                  background: 'rgba(255,255,255,0.85)',
-                  color: '#1b5e20',
-                  fontFamily: 'Arial, sans-serif',
-                  outline: 'none',
-                  direction: 'ltr',
-                }}
-              />
-              <button
-                type="button"
-                onClick={handleGoToPage}
-                style={{
-                  padding: '10px 18px',
-                  fontSize: '1.1rem',
-                  borderRadius: '50px',
-                  border: 'none',
-                  background: '#c9960c',
-                  color: 'white',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  fontFamily: 'Arial, sans-serif',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                Go
-              </button>
+              <div className="index-search-bar" style={{
+                display: 'flex',
+                alignItems: 'center',
+                background: 'rgba(255,255,255,0.92)',
+                border: '1.5px solid rgba(201,150,12,0.32)',
+                borderRadius: '10px',
+                overflow: 'hidden',
+                direction: 'ltr',
+              }}>
+                {/* Search icon */}
+                <div style={{ padding: '0 13px 0 14px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+                  <SearchIcon />
+                </div>
+                {/* Chapter name search */}
+                <input
+                  type="text"
+                  aria-label="Search chapters"
+                  placeholder="Search chapter…"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  style={{
+                    flex: 1,
+                    padding: '12px 4px',
+                    fontSize: '0.97rem',
+                    border: 'none',
+                    outline: 'none',
+                    background: 'transparent',
+                    color: '#14401a',
+                    fontFamily: 'Arial, sans-serif',
+                    minWidth: 0,
+                  }}
+                />
+                {/* Clear search button */}
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    aria-label="Clear search"
+                    style={{
+                      padding: '0 10px',
+                      background: 'none',
+                      border: 'none',
+                      color: '#9a8050',
+                      cursor: 'pointer',
+                      fontSize: '1rem',
+                      lineHeight: 1,
+                      flexShrink: 0,
+                    }}>×</button>
+                )}
+                {/* Vertical divider */}
+                <div style={{ width: '1px', height: '28px', background: 'rgba(201,150,12,0.28)', flexShrink: 0 }} />
+                {/* Page number spinner - press Enter to jump */}
+                <input
+                  type="number"
+                  aria-label="Jump to page"
+                  placeholder="Page"
+                  value={goToPageInput}
+                  onChange={e => setGoToPageInput(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && handleGoToPage()}
+                  min={1}
+                  max={totalPages}
+                  style={{
+                    width: '76px',
+                    padding: '12px 10px',
+                    fontSize: '0.9rem',
+                    border: 'none',
+                    outline: 'none',
+                    background: 'transparent',
+                    color: '#7a6000',
+                    fontFamily: 'Arial, sans-serif',
+                    textAlign: 'center',
+                    flexShrink: 0,
+                  }}
+                />
+              </div>
             </div>
 
             {/* Chapter list */}
-            <div ref={chapterListRef} style={{ overflowY: 'auto', padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div ref={chapterListRef} className="chapter-list-scroll" style={{ overflowY: 'auto', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {chapterNumbers.filter(num => {
                 if (!searchQuery.trim()) return true;
                 const q = searchQuery.toLowerCase();
                 return (
-                  chapterData[num].titleEnglish.toLowerCase().includes(q) ||
+                  (chapterData[num].titleEnglish ?? '').toLowerCase().includes(q) ||
                   chapterData[num].titleArabic.includes(searchQuery)
                 );
               }).map((num) => {
@@ -636,40 +685,59 @@ function App() {
                     onClick={() => jumpToChapter(num)}
                     className={`chapter-index-btn${isActive ? ' active' : ''}`}
                   >
-                    {/* Chapter number badge */}
+                    {/* Chapter number tag - rectangular badge, left-aligned */}
                     <div style={{
-                      minWidth: '38px',
-                      height: '38px',
-                      borderRadius: '50%',
-                      background: isActive ? '#c9960c' : 'rgba(201,150,12,0.15)',
+                      minWidth: '48px',
+                      height: '26px',
+                      borderRadius: '6px',
+                      background: isActive
+                        ? 'linear-gradient(135deg, #c9960c 0%, #a07808 100%)'
+                        : 'rgba(201,150,12,0.12)',
                       color: isActive ? '#fff' : '#7a6000',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.2rem',
-                      fontWeight: 'bold',
+                      fontSize: '0.82rem',
+                      fontWeight: '700',
                       fontFamily: 'Arial, sans-serif',
                       flexShrink: 0,
-                      boxShadow: isActive ? '0 2px 10px rgba(201,150,12,0.4)' : 'none',
+                      letterSpacing: '0.5px',
+                      border: isActive ? 'none' : '1px solid rgba(201,150,12,0.28)',
+                      boxShadow: isActive ? '0 2px 8px rgba(201,150,12,0.35)' : 'none',
                     }}>
-                      {realIdx + 1}
+                      {String(realIdx + 1).padStart(2, '0')}
                     </div>
 
-                    {/* Titles */}
-                    <div style={{ flex: 1 }}>
-                      {chapter.titleArabic && (
-                        <div style={{ fontSize: '1.1rem', color: '#9a8050', fontFamily: 'ArabQuranIslamic_1, serif', fontWeight: 'normal' }}>
-                          {chapter.titleArabic}
-                        </div>
-                      )}
-                      <div style={{ fontSize: '1.35rem', fontWeight: 'bold', color: isActive ? '#1b5e20' : '#14401a', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '3px' }}>
+                    {/* English title only - Arabic titles removed for consistency */}
+                    <div style={{ flex: 1, direction: 'ltr', textAlign: 'left' }}>
+                      <div style={{
+                        fontSize: '1.05rem',
+                        fontWeight: isActive ? '700' : '600',
+                        color: isActive ? '#1b5e20' : '#14401a',
+                        fontFamily: 'Arial, sans-serif',
+                        lineHeight: 1.3,
+                      }}>
                         {chapter.titleEnglish}
                       </div>
-                      {/* Page indicator — bottom left */}
-                      <div style={{ fontSize: '0.9rem', color: '#9a7800', fontFamily: 'Arial, sans-serif', direction: 'ltr', textAlign: 'left', marginTop: '5px', fontWeight: '500' }}>
+                      <div style={{
+                        fontSize: '0.8rem',
+                        color: isActive ? '#5a8c00' : '#9a7800',
+                        fontFamily: 'Arial, sans-serif',
+                        marginTop: '3px',
+                        fontWeight: '500',
+                      }}>
                         Page {startPage}
                       </div>
                     </div>
+
+                    {/* Active indicator dot */}
+                    {isActive && (
+                      <div style={{
+                        width: '8px', height: '8px', borderRadius: '50%',
+                        background: '#c9960c', flexShrink: 0,
+                        boxShadow: '0 0 6px rgba(201,150,12,0.6)',
+                      }} />
+                    )}
                   </button>
                   </React.Fragment>
                 );
@@ -693,12 +761,23 @@ function App() {
         }
 
         /* ---- Responsive: lesson content ---- */
+
+        /* ── Tablet (769–1024px) ── */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .lesson-container { padding: 30px clamp(20px, 5vw, 60px) 200px !important; }
+          .lesson-header-title { font-size: clamp(2rem, 4vw, 3rem) !important; }
+          .lesson-row { gap: clamp(12px, 2vw, 24px) !important; }
+          .teacher-panel { gap: 18px !important; padding: 22px 24px !important; }
+          .teacher-panel .teacher-images img { max-width: min(340px, 38vw) !important; }
+        }
+
+        /* ── Mobile ≤ 768px ── */
         @media (max-width: 768px) {
           .lesson-container { padding: 20px 14px 240px !important; }
           .lesson-header-title { font-size: clamp(1.7rem, 7vw, 2.6rem) !important; }
           .lesson-row { gap: 14px !important; margin-bottom: 34px !important; }
           .lesson-card-wrap { padding: 12px !important; margin: -12px !important; }
-          /* Fixed 20px padding is huge on a small phone card — shrink it so
+          /* Fixed 20px padding is huge on a small phone card - shrink it so
              letters and card images have room to render at a usable size.
              white-space:normal lets over-wide labels (e.g. "Pause Condition")
              wrap instead of being clipped; Arabic words have no internal break
@@ -709,7 +788,7 @@ function App() {
           .word-card.has-down-arrow .letter { font-size: 1rem !important; line-height: 1.15 !important; }
           .word-card.has-down-arrow .down-arrow { font-size: 1.4rem !important; margin-top: 6px !important; }
           /* Separator cards ("X ⇐ Y", "a = b") stack their parts vertically and
-             each part may contain spaced letters — keep them on one line (nowrap)
+             each part may contain spaced letters - keep them on one line (nowrap)
              and size by width AND height (3 stacked lines) so everything fits. */
           .word-card.has-separator .letter { white-space: nowrap !important; font-size: min(24cqw, 20cqh) !important; gap: 2px !important; }
 
@@ -730,10 +809,11 @@ function App() {
              screen without being cut, while small images keep their intended size. */
           .teacher-panel .teacher-images img { max-width: 100% !important; height: auto !important; }
 
-          /* WordCard images are tiny at 50% on a small phone card — enlarge them. */
+          /* WordCard images are tiny at 50% on a small phone card - enlarge them. */
           .card-image { max-width: 92% !important; max-height: 92% !important; }
         }
 
+        /* ── Small mobile ≤ 480px ── */
         @media (max-width: 480px) {
           .lesson-container { padding: 16px 8px 240px !important; }
           .lesson-row { gap: 10px !important; }
@@ -741,37 +821,59 @@ function App() {
           .index-search-row input[type="text"] { flex: 1 1 100% !important; }
         }
 
+        /* ── Large screens ≥ 1441px: cap page width, scale type up slightly ── */
+        @media (min-width: 1441px) {
+          .lesson-container { padding: 50px clamp(60px, 8vw, 240px) 220px !important; }
+          .lesson-header-title { font-size: clamp(3.4rem, 3.5vw, 5rem) !important; }
+          .lesson-row { gap: clamp(24px, 2vw, 56px) !important; }
+          .teacher-panel { gap: 28px !important; padding: 32px 36px !important; }
+          .teacher-panel .teacher-title { font-size: 2.4rem !important; }
+          .teacher-panel .teacher-list { font-size: 1.5rem !important; }
+          .chapter-index-btn { padding: 14px 18px; }
+        }
+
+        /* ── Hide scrollbar in chapter list - still scrollable via mouse/touch ── */
+        .chapter-list-scroll { scrollbar-width: none; }
+        .chapter-list-scroll::-webkit-scrollbar { display: none; }
+
+        /* Page placeholder text light grey */
+        .index-search-bar input[type="number"]::placeholder { color: #c0a860; font-style: normal; font-size: 0.88rem; }
+        /* Hide number spinners on Firefox */
+        .index-search-bar input[type="number"] { -moz-appearance: textfield; }
+        /* Keep Webkit spinners but shrink them */
+        .index-search-bar input[type="number"]::-webkit-inner-spin-button { opacity: 0.55; }
+
         .chapter-index-btn {
           display: flex;
           align-items: center;
-          gap: 14px;
-          padding: 14px 18px;
+          gap: 12px;
+          padding: 11px 14px;
           background: rgba(255,255,255,0.55);
-          border: 1px solid rgba(201,150,12,0.2);
-          border-radius: 14px;
+          border: 1px solid rgba(201,150,12,0.18);
+          border-radius: 10px;
           cursor: pointer;
-          text-align: right;
-          direction: rtl;
-          transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+          text-align: left;
+          direction: ltr;
+          transition: background 0.18s, border-color 0.18s, transform 0.15s, box-shadow 0.18s;
           width: 100%;
         }
         .chapter-index-btn:hover {
-          background: rgba(246,204,68,0.35) !important;
-          border-color: rgba(201,150,12,0.55) !important;
-          transform: translateX(-4px);
-          box-shadow: 4px 0 16px rgba(201,150,12,0.2);
+          background: rgba(246,204,68,0.28) !important;
+          border-color: rgba(201,150,12,0.48) !important;
+          transform: translateX(3px);
+          box-shadow: -3px 0 14px rgba(201,150,12,0.15);
         }
         .chapter-index-btn:active {
-          transform: translateX(-2px) scale(0.98);
+          transform: translateX(1px) scale(0.98);
         }
         .chapter-index-btn.active {
-          background: rgba(246,204,68,0.45) !important;
-          border: 1.5px solid rgba(201,150,12,0.75) !important;
+          background: rgba(246,204,68,0.38) !important;
+          border: 1.5px solid rgba(201,150,12,0.65) !important;
         }
         .chapter-index-btn.active:hover {
-          background: rgba(246,204,68,0.6) !important;
-          transform: translateX(-4px);
-          box-shadow: 4px 0 16px rgba(201,150,12,0.3);
+          background: rgba(246,204,68,0.52) !important;
+          transform: translateX(3px);
+          box-shadow: -3px 0 14px rgba(201,150,12,0.25);
         }
 
         .nav-btn {
@@ -790,6 +892,12 @@ function App() {
           transform: none !important;
           box-shadow: none !important;
           filter: none !important;
+        }
+
+        /* Keyboard focus ring - visible only for keyboard navigation, not mouse clicks */
+        :focus-visible {
+          outline: 3px solid #f6cc44;
+          outline-offset: 2px;
         }
       `}</style>
     </div>

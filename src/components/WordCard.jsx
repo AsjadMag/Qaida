@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './WordCard.css';
 
-const IdghamArrow = ({ src = '/images/Curved%20Arrow.webp' }) => {
+const IdghamArrow = ({ src = '/images/shared/Curved%20Arrow.webp' }) => {
   // The green ghunnah arrow (NotArrow) is wider/flatter, so it needs a larger
   // width than the red curved arrow to render at the same visual height.
   const isGhunnah = src.includes('NotArrow');
@@ -15,8 +15,10 @@ const IdghamArrow = ({ src = '/images/Curved%20Arrow.webp' }) => {
   );
 };
 
-const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation, arrowImage, downArrow }) => {
+const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, annotation, arrowImage, downArrow, pageTextLength }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const hasSeparator = letter && (letter.includes('=') || letter.includes('—') || letter.includes('⇐'));
+  const isVeryLong = letter && letter.length > 15;
 
   // Calculate font size based on text length.
   // Uses container-query units: cqw (% of card width) caps the width so text
@@ -24,21 +26,15 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
   // height so tall Arabic letters (with harakat) fit short cards on mobile.
   // Desktop cards are tall & wide, so both terms exceed the rem cap there and
   // the original desktop sizing is preserved exactly.
-  const getFontSize = (text) => {
-    if (!text || useImage) return 'clamp(1rem, min(40cqw, 48cqh), 6rem)';
-    const length = text.length;
-    if (length <= 5) return 'clamp(1rem, min(40cqw, 48cqh), 6rem)';
-    if (length <= 10) return 'clamp(1rem, min(33cqw, 48cqh), 5rem)';
-    if (length <= 15) return 'clamp(0.9rem, min(27cqw, 46cqh), 4rem)';
-    if (length <= 20) return 'clamp(0.8rem, min(23cqw, 44cqh), 3.5rem)';
-    return 'clamp(0.7rem, min(20cqw, 42cqh), 3rem)'; // Very long strings
+  const getFontSize = (length) => {
+    const heightCap = hasSeparator ? '25cqh' : (downArrow ? '32cqh' : '42cqh');
+    if (!length || useImage) return `clamp(1rem, min(40cqw, ${heightCap}), 6rem)`;
+    if (length <= 5) return `clamp(1rem, min(40cqw, ${heightCap}), 6rem)`;
+    if (length <= 10) return `clamp(1rem, min(33cqw, ${heightCap}), 5rem)`;
+    if (length <= 15) return `clamp(0.9rem, min(27cqw, ${heightCap}), 4rem)`;
+    if (length <= 20) return `clamp(0.8rem, min(23cqw, ${heightCap}), 3.5rem)`;
+    return `clamp(0.7rem, min(20cqw, ${heightCap}), 3rem)`;
   };
-
-  // Check if text contains special separators
-  const hasSeparator = letter && (letter.includes('=') || letter.includes('—') || letter.includes('⇐'));
-
-  // Check if text is very long
-  const isVeryLong = letter && letter.length > 15;
 
   // More robust Arabic text splitter using Intl.Segmenter if available
   const splitArabicText = (text) => {
@@ -50,7 +46,6 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
         return segments.map(segment => segment.segment);
       } catch (e) {
         // Fall back to manual splitting
-        console.log('Intl.Segmenter failed, using fallback');
       }
     }
 
@@ -130,12 +125,11 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
     const parts = letter.split(separator);
     const separatorChar = separator === '=' ? '=' :
                          separator === '—' ? '—' : '⇐';
-    const separatorSize = separator === '=' ? '0.5em' :
-                         separator === '—' ? '1.5rem' : '1.5rem'; // ⇐ same size as —
+    const separatorType = separator === '=' ? 'equals' :
+      separator === '—' ? 'dash' : 'arrow';
 
     return (
-      <>
-        {/* Part before separator */}
+      <div className={`separated-text separator-${separatorType}`}>
         <span style={{
           color: isHovered ? '#ffffff' : '#000',
           transition: 'color 0.28s',
@@ -145,16 +139,13 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
           {parts[0]}
         </span>
 
-        {/* Separator */}
-        <span style={{
+        <span className="word-separator" style={{
           color: isHovered ? '#ffffff' : '#000',
-          fontSize: separatorSize,
           transition: 'color 0.28s',
         }}>
           {separatorChar}
         </span>
 
-        {/* Part after separator */}
         <span style={{
           color: isHovered ? '#4ade80' : '#000',
           transition: 'color 0.28s',
@@ -163,7 +154,7 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
         }}>
           {parts[1]}
         </span>
-      </>
+      </div>
     );
   };
 
@@ -217,8 +208,16 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
 
             // For spaces and punctuation, keep them white
             if (isSpaceOrPunctuation) {
+              // The Arabic Quran fonts used here render U+0020/U+00A0 with zero
+              // advance width, so a literal space in card text is invisible unless
+              // we give it an explicit width ourselves.
+              const isWhitespace = /^[\s​‌‍]+$/.test(visualLetter);
               return (
-                <span key={index} style={{ color: isHovered ? '#ffffff' : '#000', transition: 'color 0.28s' }}>
+                <span key={index} style={{
+                  color: isHovered ? '#ffffff' : '#000',
+                  transition: 'color 0.28s',
+                  ...(isWhitespace ? { display: 'inline-block', width: '0.3em' } : {}),
+                }}>
                   {visualLetter}
                 </span>
               );
@@ -260,15 +259,13 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
         className="letter"
         style={{
           fontFamily: customFont ? `${customFont}, serif` : 'ArabQuranIslamic_1, serif',
-          fontSize: getFontSize(letter),
+          fontSize: getFontSize(pageTextLength || Array.from(letter || '').length),
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: showArrow ? '22px' : (hasSeparator ? '10px' : '0'),
           width: '100%',
-          padding: isVeryLong ? '10px' : '20px',
-          whiteSpace: isVeryLong ? 'normal' : 'nowrap',
+          whiteSpace: isVeryLong || downArrow ? 'normal' : 'nowrap',
         }}
       >
         {showArrow && <IdghamArrow src={arrowImage || undefined} />}

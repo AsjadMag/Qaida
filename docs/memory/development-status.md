@@ -52,13 +52,28 @@ hardening are complete as of 2026-07-22. No task is in progress.
 - Dash scan across all `.md`, `.js`, `.jsx`, `.css`, `.html`, `.json`, `.py`, `.txt` files: 43 numeric-range en dashes and 13 semantic em dashes remain; zero non-breaking hyphens; zero stylistic occurrences.
 - Line endings: verified restored to CRLF in the four files affected by the text-mode incident described in `2026-07-22-repository-hardening.md`.
 - The pre-existing dirty image and content worktree remains preserved.
+- Playwright responsive layout audit: all 87 lesson pages passed at 375px, 768px, 1280px, and 1440px, with no card scroll overflow or visible content extending outside its card.
+- Verified visual reference: `docs/screenshots/page-22-card-layout-verified.png` shows the corrected Erected Zair page.
+
+### Lesson structure audit (2026-07-22)
+
+`npm run audit:lessons` passes with exit code 0:
+
+- 29 chapter modules, range 1 to 29, no gaps.
+- 87 pages total, matching the live site.
+- The generated chapter-to-page map matches the appendix in `docs/Qaida_Corrections_14062026.md` for all 29 chapters.
+- 120 lesson image references, 0 broken, 0 misfiled. Every chapter image resolves inside its own chapter folder or `shared/`/`brand/`.
+- 98 of 98 image files are referenced; 0 unreferenced.
+- No chapter folder exists without a matching chapter.
+- Chapter 25 still carries its 26 em dash separators after the title correction.
+- `npm.cmd run build`: `Compiled successfully.`
 
 ## Known Gaps
 
-- No test files exist. `npm test` reports "No tests found". The only automated check in the repository is the hook self-test.
-- Six of the 29 chapters have no image folder. This is expected; they are text-only.
+- No component or unit tests exist. `npm test` reports "No tests found". The automated checks in the repository are `npm run audit:lessons` and the hook self-test.
+- Six of the 29 chapters have no image folder (1, 4, 5, 15, 25, 28). This is expected; they are text-only.
 - Three screenshots committed before the gitignore decision remain tracked.
-- Page references in `docs/Qaida_Corrections_14062026.md` are global page numbers captured before the restructure and may no longer align. Re-derive them from `chapterStartPages`.
+- The page map in `docs/Qaida_Corrections_14062026.md` is now verified correct. Its inline page references within individual correction entries (P24, P66, and similar) were captured before the restructure and are still unverified; re-derive them from `chapterStartPages` or the audit output.
 
 ## Next Safe Step
 

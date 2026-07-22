@@ -126,3 +126,27 @@
 **Reason:** They are development references with no runtime role and should not ship in the repository.
 
 **Impact:** Three screenshots committed before this decision (`What-I-Want.PNG`, `page on hover.png`, `pageno31.png`) remain tracked, because gitignore does not untrack. Removing them from the index is a separate, explicit choice.
+
+## 2026-07-22: Responsive lesson-card safe area
+
+**Decision:** Each lesson page supplies one shared text scale to its word cards. Cards reserve equal responsive insets on every side, while vertically stacked separator and arrow layouts use a height-aware cap.
+
+**Reason:** Per-card font sizing and a single-line vertical cap caused Arabic diacritics and paired-word cards to clip. The equals sign was also undersized relative to the Huroof it joined.
+
+**Impact:** Keep `pageTextLength` as the page-level scale input. Any new card variant must fit within the protected card content area and use a layout-specific height cap when it stacks content vertically.
+
+## 2026-07-22: Lesson structure is verified by a script, not by inspection
+
+**Decision:** `scripts/audit-lessons.js` (`npm run audit:lessons`) is the authority on chapter numbering, page counts, and image references. It loads the chapter modules through Babel and evaluates them rather than pattern-matching source text.
+
+**Reason:** Chapter/page/image alignment is where this project drifts most, and it had no automated check. An earlier regex-based pass reported 61 false broken references purely because lesson filenames contain spaces and parentheses (`chapter_6_v2(1).webp`, `Jazm or Sukoon.webp`). Evaluating the real data removes that whole class of false positive.
+
+**Impact:** Run it after touching lesson data, image paths, or chapter numbering. Never extract image paths with a character-class regex; read the whole string, or parse the `{{IMG:path|size}}` markup. Orphan checks must also scan `src/` for component-level references such as the logo and the URL-encoded `Curved%20Arrow.webp`.
+
+## 2026-07-22: Chapter titles use Title Case
+
+**Decision:** `titleEnglish` is Title Case. Corrected `THE CHANGING FACES OF LETTERS`, `MADD DUE TO PAUSE`, and `TINY NOON`, trimmed the leading space from `' Double Shadd'`, and fixed `Three Variable letters`.
+
+**Reason:** These strings render directly in the lesson header. Chapter 25 showed the inconsistency plainly: its chapter title was all caps while its own `pageTitles` entry for the next page was Title Case, so pages 71 and 72 displayed the same title differently. The corrections-log appendix uses Title Case throughout.
+
+**Impact:** New chapters use Title Case. This applies to English display titles only; Arabic content still requires an explicit written source.

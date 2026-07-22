@@ -1,10 +1,28 @@
 # Repository Guidelines
 
+## Read First
+
+| Document | When |
+|----------|------|
+| `docs/architecture.md` | Before changing rendering, page numbering, or assets |
+| `docs/memory/README.md` | Before any change; it is the entry point to project memory |
+| `docs/memory/decision-log.md` | Before changing navigation, lesson data, assets, or tooling |
+| `docs/memory/project-history.md` | Its "Recurring failure modes" list mistakes already paid for |
+| `docs/Qaida_Corrections_14062026.md` | The authoritative source for Arabic content corrections |
+
+Three rules that are not obvious from the code:
+
+1. The em dashes in `src/data/chapters/chapter-25.js` are data. `WordCard` splits card
+   text on them to render paired forms. Never treat them as typography.
+2. Page numbers are positional. Adding or removing a page renumbers every page after it.
+3. This repository is normally worked on with a large dirty worktree. Preserve
+   uncommitted changes unless a task names them.
+
 ## Project Overview
 
 A Create React App (React 19) website for teaching Noorani Qaida / Arabic Tajweed.
-It renders a `TitlePage` landing screen and paginated `LessonPage`s (Basic Qaida — Chapters 1–15;
-Advanced Qaida — Chapters 16+). No external router; navigation is managed by a single `currentPage`
+It renders a `TitlePage` landing screen and paginated `LessonPage`s (Basic Qaida - Chapters 1–15;
+Advanced Qaida - Chapters 16+). No external router; navigation is managed by a single `currentPage`
 integer state in `App.jsx`.
 
 ---
@@ -25,7 +43,7 @@ Qaida/
 ├── src/
 │   ├── data/               Lesson data (separated from rendering)
 │   │   ├── index.js        Composes all chapters; exports chapterData + helpers
-│   │   └── chapters/       One JS file per chapter (chapter-01.js … chapter-47.js)
+│   │   └── chapters/       One JS file per chapter (chapter-01.js … chapter-29.js)
 │   │
 │   ├── pages/
 │   │   ├── TitlePage.jsx   Landing page with Basic / Advanced entry points
@@ -36,20 +54,27 @@ Qaida/
 │   │   └── WordCard.css    Card styling + responsive breakpoints (fluid units)
 │   │
 │   ├── assets/fonts/       6 Arabic/Urdu TTF fonts (all referenced in index.css)
-│   ├── App.jsx             Root component — page state, navigation bar, chapter index
-│   ├── App.css             (removed — was unused CRA boilerplate)
+│   ├── App.jsx             Root component - page state, navigation bar, chapter index
+│   ├── App.css             (removed - was unused CRA boilerplate)
 │   ├── index.js            React entry point
 │   ├── index.css           Global styles, @font-face declarations, utility classes
 │   └── useIsMobile.js      Hook: returns true when viewport ≤ 768px
 │
 ├── scripts/
-│   └── convert_images.py   Converts images in public/images/ to WebP and rewrites src refs
+│   ├── convert_images.py   Converts images in public/images/ to WebP and rewrites src refs
+│   └── organize_images.py  Sorts public/images/ into brand/, shared/, chapters/chapter-NN/
 │
 ├── docs/
+│   ├── architecture.md                   Render pipeline, page addressing, data model
+│   ├── memory/                           Durable project memory (start at README.md)
 │   ├── Qaida_Corrections_14062026.md     Lesson content corrections log
 │   ├── Updated_Qaida Mistakes_14062026.docx  Source document for the corrections log
 │   ├── TajweedClassLogo.jpeg             Original logo JPEG (app uses the WebP in public/)
-│   └── screenshots/                      Design reference screenshots
+│   └── screenshots/                      Development screenshots (gitignored)
+│
+├── .claude/                Claude Code config: skills, agents, settings, hooks
+├── .agents/                Agent-neutral mirrors of the reusable skills
+├── .github/                PR template
 │
 └── archive/
     └── unused-assets/      Assets confirmed unused at the 2026-07 cleanup
@@ -65,8 +90,8 @@ Qaida/
 |--------------------|---------|
 | `npm start`        | Dev server at http://localhost:3000 (hot reload) |
 | `npm run build`    | Production build → `build/` |
-| `npm test`         | Jest — (add tests alongside components as `*.test.js`) |
-| `npm run eject`    | One-way CRA eject — avoid unless necessary |
+| `npm test`         | Jest - (add tests alongside components as `*.test.js`) |
+| `npm run eject`    | One-way CRA eject - avoid unless necessary |
 
 Run `npm install` after pulling changes that modify `package.json`.
 
@@ -94,7 +119,7 @@ src/data/chapters/chapter-NN.js   (one per chapter)
 
 A `CardObject` is `{ text, useImage?, imagePath?, imageHoverPath?, arrowImage?, downArrow?, font? }`.
 
-Image paths use the `/images/...` prefix — CRA serves them from `public/images/` unchanged.
+Image paths use the `/images/...` prefix - CRA serves them from `public/images/` unchanged.
 
 **To add a new chapter:** create `src/data/chapters/chapter-NN.js`, export the chapter object,
 then add `import chapterNN from './chapters/chapter-NN'` and `NN: chapterNN` in `src/data/index.js`.
@@ -133,8 +158,10 @@ Teacher images use `min(400px, 38vw)` so they shrink gracefully on narrower view
 ## Testing Guidelines
 
 - Framework: Jest + React Testing Library (`@testing-library/*`).
-- Name test files `*.test.js` and colocate with the component.
-- Run with `npm test`.
+- **There are currently no test files**, so `npm test` reports "No tests found".
+  `npm.cmd run build` is the practical verification command.
+- Name new test files `*.test.js` and colocate them with the component.
+- `node .claude/hooks/guard-worktree.test.js` self-tests the destructive-command hook.
 
 ---
 
@@ -147,7 +174,7 @@ Teacher images use `min(400px, 38vw)` so they shrink gracefully on narrower view
 
 ## Configuration
 
-- CRA project — use `.env` for local-only config.
+- CRA project - use `.env` for local-only config.
 - Keep API keys and secrets out of `src/`.
 - `build/` is gitignored and generated by `npm run build`.
 - `archive/` and `docs/` are tracked in git.

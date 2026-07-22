@@ -1,4 +1,4 @@
-# نورانی قاعدہ — TajweedClass
+# نورانی قاعدہ - TajweedClass
 
 An interactive, multi-device Noorani Qaida website for learning Arabic Tajweed, built with React 19.
 
@@ -30,21 +30,21 @@ public/
 src/
   data/
     index.js        Chapter data index + helpers (chapterNumbers, totalPages, …)
-    chapters/       One JS file per chapter (chapter-01.js … chapter-47.js)
+    chapters/       One JS file per chapter (chapter-01.js … chapter-29.js)
   pages/
     TitlePage.jsx   Landing page
     LessonPage.jsx  Lesson renderer
   components/
     WordCard.jsx    Arabic letter/word card
     WordCard.css    Card styles (fluid sizing, responsive breakpoints)
-  App.jsx           Root — navigation state, fixed nav bar, chapter index modal
+  App.jsx           Root - navigation state, fixed nav bar, chapter index modal
   index.css         Global styles, font-face declarations
 
 scripts/
   convert_images.py  Convert images to WebP and rewrite src/ references
 
 docs/               Reference documents and design screenshots
-archive/            Unused assets (kept for reference — not included in build)
+archive/            Unused assets (kept for reference - not included in build)
 ```
 
 ---
@@ -85,8 +85,8 @@ Cards can be plain strings (`'بَ'`) or objects:
 ```
 
 Teacher instruction strings support:
-- `**bold text**` — renders bold
-- `{{IMG:/images/path.webp|size}}` — inline image (size = CSS height value, e.g. `2rem`)
+- `**bold text**` - renders bold
+- `{{IMG:/images/path.webp|size}}` - inline image (size = CSS height value, e.g. `2rem`)
 
 ---
 
@@ -131,7 +131,7 @@ Card heights and container padding use `clamp()` and `vw` units (no physical inc
 ## Tech Stack
 
 - **React 19** (Create React App)
-- **No router** — page state is a single `currentPage` integer in `App.jsx`
+- **No router** - page state is a single `currentPage` integer in `App.jsx`
 - **CSS container queries** (`container-type: size`) for per-card letter sizing
-- **Google Fonts** — Cairo (UI), Jameel Noori Nastaleeq Kasheeda (Urdu), Amiri Quran (Bismillah)
-- **Local fonts** — 6 Arabic Quranic TTF families loaded via `@font-face` in `index.css`
+- **Google Fonts** - Cairo (UI), Jameel Noori Nastaleeq Kasheeda (Urdu), Amiri Quran (Bismillah)
+- **Local fonts** - 6 Arabic Quranic TTF families loaded via `@font-face` in `index.css`

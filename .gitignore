@@ -22,3 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .playwright-mcp
+
+# development screenshots
+# Visual references only, never runtime assets. Keep them in docs/screenshots/
+# so they stay organized locally, but do not ship them in the repository.
+# Files already tracked there stay tracked; see docs/memory/decision-log.md.
+/docs/screenshots/

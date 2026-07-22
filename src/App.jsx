@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TitlePage from './pages/TitlePage';
-import LessonPage, { chapterData } from './pages/LessonPage';
+import LessonPage from './pages/LessonPage';
+import { chapterData, chapterNumbers, chapterStartPages, totalPages, advancedStartPage } from './data';
 import useIsMobile from './useIsMobile';
 
 // Small inline-SVG flags (regional-indicator emoji don't render as flags on Windows)
@@ -42,21 +43,6 @@ const UKFlag = () => (
   </svg>
 );
 
-const chapterNumbers = Object.keys(chapterData).map(n => parseInt(n, 10)).sort((a, b) => a - b);
-
-const chapterStartPages = {};
-let pageCounter = 1;
-for (const num of chapterNumbers) {
-  chapterStartPages[num] = pageCounter;
-  pageCounter += chapterData[num].pages ? chapterData[num].pages.length : 0;
-}
-
-// Chapters with a display number <= 15 are "Basic Qaida", the rest are
-// "Advanced Qaida" (must match the section label logic in LessonPage).
-const BASIC_MAX_DISPLAY_CHAPTER = 15;
-const advancedStartChapterNum = chapterNumbers.find((num, idx) => (idx + 1) > BASIC_MAX_DISPLAY_CHAPTER);
-const advancedStartPage = advancedStartChapterNum ? chapterStartPages[advancedStartChapterNum] : 1;
-
 function App() {
   const isMobile = useIsMobile();
   const [currentPage, setCurrentPage] = useState(0);
@@ -76,7 +62,6 @@ function App() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
 
-  const totalPages = pageCounter - 1;
   const isLastPage = currentPage >= totalPages;
   const goNext = () => { if (!isLastPage) { setCurrentPage(prev => prev + 1); scrollToTop(); } };
   const goPrev = () => { setCurrentPage(prev => Math.max(1, prev - 1)); scrollToTop(); };
@@ -693,6 +678,17 @@ function App() {
         }
 
         /* ---- Responsive: lesson content ---- */
+
+        /* ── Tablet (769–1024px) ── */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .lesson-container { padding: 30px clamp(20px, 5vw, 60px) 200px !important; }
+          .lesson-header-title { font-size: clamp(2rem, 4vw, 3rem) !important; }
+          .lesson-row { gap: clamp(12px, 2vw, 24px) !important; }
+          .teacher-panel { gap: 18px !important; padding: 22px 24px !important; }
+          .teacher-panel .teacher-images img { max-width: min(340px, 38vw) !important; }
+        }
+
+        /* ── Mobile ≤ 768px ── */
         @media (max-width: 768px) {
           .lesson-container { padding: 20px 14px 240px !important; }
           .lesson-header-title { font-size: clamp(1.7rem, 7vw, 2.6rem) !important; }
@@ -734,11 +730,23 @@ function App() {
           .card-image { max-width: 92% !important; max-height: 92% !important; }
         }
 
+        /* ── Small mobile ≤ 480px ── */
         @media (max-width: 480px) {
           .lesson-container { padding: 16px 8px 240px !important; }
           .lesson-row { gap: 10px !important; }
           .word-card .letter { padding: 6px !important; }
           .index-search-row input[type="text"] { flex: 1 1 100% !important; }
+        }
+
+        /* ── Large screens ≥ 1441px: cap page width, scale type up slightly ── */
+        @media (min-width: 1441px) {
+          .lesson-container { padding: 50px clamp(60px, 8vw, 240px) 220px !important; }
+          .lesson-header-title { font-size: clamp(3.4rem, 3.5vw, 5rem) !important; }
+          .lesson-row { gap: clamp(24px, 2vw, 56px) !important; }
+          .teacher-panel { gap: 28px !important; padding: 32px 36px !important; }
+          .teacher-panel .teacher-title { font-size: 2.4rem !important; }
+          .teacher-panel .teacher-list { font-size: 1.5rem !important; }
+          .chapter-index-btn { padding: 18px 24px; font-size: 1.1rem; }
         }
 
         .chapter-index-btn {

@@ -4,7 +4,6 @@
 /* Local Arabic Quran font provided by user */
 @font-face {
   font-family: 'ArabQuranIslamic_1';
-  /* src\assets\fonts\MUHAMMADI_QURANIC.ttf */
   src: url('../src/assets/fonts/Al\ Qalam\ Quran\ Majeed\ Web\ Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -90,10 +89,18 @@ body {
 
 /* Avoid applying the Quranic font globally — use the utility class for Arabic-only elements. */
 
-/* Page inner container with 2 inch padding at left/right */
+/* Page inner container — fluid horizontal padding replacing the former fixed 2in */
 .page-padding {
-  padding-left: 2in;
-  padding-right: 2in;
+  padding-left: clamp(16px, 8vw, 192px);
+  padding-right: clamp(16px, 8vw, 192px);
+}
+
+/* ── Large screens (≥ 1441px): cap content width to avoid extreme stretching ── */
+@media (min-width: 1441px) {
+  .page-padding {
+    padding-left: clamp(48px, 10vw, 280px);
+    padding-right: clamp(48px, 10vw, 280px);
+  }
 }
 
 /* Utility to ensure centered row group (used for 3-card rows) */

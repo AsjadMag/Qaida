@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# نورانی قاعدہ — TajweedClass
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive, multi-device Noorani Qaida website for learning Arabic Tajweed, built with React 19.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Quick Start
 
-### `npm start`
+```bash
+npm install
+npm start          # http://localhost:3000
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Production Build
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm run build      # outputs to build/
+```
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+```
+public/
+  images/           Lesson WebP images
+  favicon.ico       TajweedClass brand favicon
+  manifest.json     PWA manifest
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+src/
+  data/
+    index.js        Chapter data index + helpers (chapterNumbers, totalPages, …)
+    chapters/       One JS file per chapter (chapter-01.js … chapter-47.js)
+  pages/
+    TitlePage.jsx   Landing page
+    LessonPage.jsx  Lesson renderer
+  components/
+    WordCard.jsx    Arabic letter/word card
+    WordCard.css    Card styles (fluid sizing, responsive breakpoints)
+  App.jsx           Root — navigation state, fixed nav bar, chapter index modal
+  index.css         Global styles, font-face declarations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+scripts/
+  convert_images.py  Convert images to WebP and rewrite src/ references
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+docs/               Reference documents and design screenshots
+archive/            Unused assets (kept for reference — not included in build)
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Adding a New Chapter
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Create `src/data/chapters/chapter-NN.js` exporting a chapter object.
+2. Add `import chapterNN from './chapters/chapter-NN'` to `src/data/index.js`.
+3. Add `NN: chapterNN` to the `chapterData` object in `src/data/index.js`.
+4. Run `npm start` and navigate to verify.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Chapter Object Shape
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+export default {
+  titleArabic: 'عنوان',
+  titleEnglish: 'Chapter Title',
+  teacherInfo: {
+    instructions: ['Step 1', 'Step 2'],
+    goal: 'Learning objective',
+    // optional: imagePath, imagePaths, imageStyle, note
+  },
+  // optional: pageTeacherInfo (per-page instructions), pageTitles, pageAnnotations
+  pages: [
+    // each page is an array of rows; each row is an array of cards
+    [
+      ['بَ', 'تَ', 'ثَ'],
+      ['جَ', 'حَ', 'خَ'],
+    ]
+  ]
+};
+```
 
-## Learn More
+Cards can be plain strings (`'بَ'`) or objects:
+```js
+{ text: 'بَ', font: 'ArabQuranIslamic_2' }
+{ useImage: true, imagePath: '/images/my-card.webp', imageHoverPath: '/images/my-card-hover.webp' }
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Teacher instruction strings support:
+- `**bold text**` — renders bold
+- `{{IMG:/images/path.webp|size}}` — inline image (size = CSS height value, e.g. `2rem`)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Image Assets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+All lesson images live in `public/images/` and are referenced as `/images/file.webp` in the data files.
 
-### Analyzing the Bundle Size
+To add images in WebP format from source files:
+```bash
+python scripts/convert_images.py
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The site adapts across 5 viewport tiers:
 
-### Advanced Configuration
+| Tier           | Range          |
+|----------------|----------------|
+| Small mobile   | ≤ 480px        |
+| Mobile         | 481 – 768px    |
+| Tablet         | 769 – 1024px   |
+| Desktop        | 1025 – 1440px  |
+| Large / 4K     | ≥ 1441px       |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Card heights and container padding use `clamp()` and `vw` units (no physical inch values).
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Scripts
 
-### `npm run build` fails to minify
+| Command | Description |
+|---------|-------------|
+| `npm start` | Dev server with hot reload |
+| `npm run build` | Production build |
+| `npm test` | Jest test runner |
+| `python scripts/convert_images.py` | Convert and register new WebP images |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Tech Stack
+
+- **React 19** (Create React App)
+- **No router** — page state is a single `currentPage` integer in `App.jsx`
+- **CSS container queries** (`container-type: size`) for per-card letter sizing
+- **Google Fonts** — Cairo (UI), Jameel Noori Nastaleeq Kasheeda (Urdu), Amiri Quran (Bismillah)
+- **Local fonts** — 6 Arabic Quranic TTF families loaded via `@font-face` in `index.css`

@@ -50,7 +50,6 @@ const WordCard = ({ letter, customFont, useImage, imagePath, imageHoverPath, ann
         return segments.map(segment => segment.segment);
       } catch (e) {
         // Fall back to manual splitting
-        console.log('Intl.Segmenter failed, using fallback');
       }
     }
 

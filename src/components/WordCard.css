@@ -1,8 +1,9 @@
 .word-card {
-  /* note: width is controlled by the grid column; don't enforce a fixed width here */
-  height: 3.5in;
-  width: 100%; /* Fill the grid cell */
-  container-type: size; /* lets letters size with cqw (width) AND cqh (height) */
+  /* width is controlled by the grid column */
+  /* 3.5in ≈ 336px at 96dpi; replaced with fluid value so it scales with viewport */
+  height: clamp(180px, 24vw, 360px);
+  width: 100%;
+  container-type: size; /* enables cqw/cqh units for letter sizing */
   background: linear-gradient(to bottom, #ffffff 0%, #f6cc44 100%);
   border-radius: 34px;
   border: 1px solid #000;
@@ -14,8 +15,8 @@
   align-items: center;
   justify-content: center;
   user-select: none;
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.28s, 
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.28s,
               background 0.28s;
   cursor: default;
   transform-origin: center;
@@ -50,21 +51,41 @@
   color: #ffffff;
 }
 
-/* Responsive */
+/* ── Tablet (769–1024px): slightly shorter cards, comfortable touch hover ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .word-card {
+    height: clamp(160px, 22vw, 280px);
+    border-radius: 28px;
+  }
+  .word-card:hover {
+    transform: scale(1.1) translateY(-7px);
+  }
+}
+
+/* ── Mobile ≤ 768px ── */
 @media (max-width: 768px) {
   .word-card {
-    height: clamp(120px, 30vw, 2.4in);
+    height: clamp(120px, 30vw, 230px);
     border-radius: 22px;
   }
   .word-card:hover {
-    /* touch devices don't hover-zoom nicely; keep it subtle */
+    /* touch devices: keep zoom subtle */
     transform: scale(1.06) translateY(-4px);
   }
 }
 
+/* ── Small mobile ≤ 480px ── */
 @media (max-width: 480px) {
   .word-card {
-    height: clamp(104px, 30vw, 150px);
+    height: clamp(100px, 30vw, 150px);
     border-radius: 16px;
+  }
+}
+
+/* ── Large screens ≥ 1441px: cap card height so they don't look oversized ── */
+@media (min-width: 1441px) {
+  .word-card {
+    height: clamp(280px, 18vw, 400px);
+    border-radius: 38px;
   }
 }

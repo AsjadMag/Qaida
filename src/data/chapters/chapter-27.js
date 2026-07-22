@@ -12,11 +12,11 @@ const chapter = {
     ],
     },
   pages: [
-    // Page 1 (Total Page 82)
+    // Page 1 (Total Page 80)
     [[{ text: 'Joining\nCondition', downArrow: true }, { text: 'Pause\nCondition', downArrow: true }, { text: 'Writing\nCondition', downArrow: true }],
     ['لُمَزَةِ ِۨ ○ الَّذِىْ', 'لُمَزَهْ ○ اَلَّذِىْ', 'لُمَزَةِ ِۨ ○ الَّذِىْ'],
     ['فَخُورَ ِۨ ○ الَّذِينَ', 'فَخُورَا ○ اَلَّذِينَ', 'فَخُورًا ِۨ ○ اَلَّذِينَ']],
-    // Page 2 (Total Page 83)
+    // Page 2 (Total Page 81)
     [
       ['شَهِيدَا ِۨ ○ الرِّجَالُ', 'خَيْرُ ِۨ ○ اطْمَأَنَّ بِهِ', 'قَوْمَا ِۨ ○ اتَّخَذَهَا'],
       ['عَلِيْمُ ِۨ ○ اللهُ', 'أَوْ لَهْوَا ِۨ ○ انْفَضُّوْا', 'أَحَدُ ِۨ ○ اللّهُ الصَّمَدُ']

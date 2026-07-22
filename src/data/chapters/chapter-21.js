@@ -20,9 +20,7 @@ const chapter = {
     4: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
     5: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
     6: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
-    7: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
-    8: { titleEnglish: 'Exercise of Idgham', titleArabic: '' },
-    9: { titleEnglish: 'Idgham on Other Letters', titleArabic: '' },
+    7: { titleEnglish: 'Idgham on Other Letters', titleArabic: '' },
   },
   pageTeacherInfo: {
     1: {
@@ -48,27 +46,28 @@ const chapter = {
         '{{IMG:/images/chapters/chapter-21/Version3.webp|20rem}}'
       ],
     },
-    9: {
-      instructions: ['**Idgham on the letters**',
-        'In Quran e Majeed The Jazam letter is not read before Shaad letter'
+    7: {
+      instructions: [
+        '**Idgham on other letters**',
+        'In Quran e Majeed The Jazam letter is not read before Shaad letter.'
       ],
     },
   },
   pageAnnotations: { 0: 'idgham', 2: 'idgham', 3: 'idgham' },
   pages: [
-    // Page 1 - Idgham
+    // Page 1 (Total Page 54) - Idgham
     [
       ['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
       [{ text: 'اَنْ وَّ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }, { text: 'اَنْ يَّ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }, 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
       ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', { text: 'مَنْ وُّجِدَ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }, { text: 'مَنْ يَّقُولُ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }]
     ],
-    // Page 2 - Idgham
+    // Page 2 (Total Page 55) - Idgham
     [
       ['اً لَّ', 'اً رَّ', 'اً نَّ', 'اً مَّ'],
       ['اً وَّ', 'اً يَّ', 'اِلٰهًا لَّقَدْ', 'زَبَدًا رَّابِيًا'],
       ['خَيْرٌ نُّزُلًا', 'مَثَلاً مَّا', 'سِنَةٌ وَّلَا', 'خَيْرًا يَّرَهُ']
     ],
-    // Page 3 - Idgham Noon Sakin Before Shaddah
+    // Page 3 (Total Page 56) - Idgham Noon Sakin Before Shaddah
     [['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
     ['اَنْ وَّ', 'اَنْ يَّ', 'اُنْ لَّ', 'اُنْ رَّ'],
     ['اُنْ نَّ', 'اُنْ مَّ', 'اُنْ وَّ', 'اُنْ يَّ'],
@@ -83,7 +82,7 @@ const chapter = {
     ['كُنْ نَّ', 'كُنْ مِّ', 'مَنْ وُّ', 'مَنْ يَّ'],
     ['يِنْ لَّ', 'مِنْ رَّ', 'مِنْ نَّ', 'مِنْ مُّ'],
     ['مِنْ وَّ', 'كِنْ يَّ']],
-    // Page 4 - Exercise of Idgham
+    // Page 4 (Total Page 57) - Exercise of Idgham
     [
       ['فَإِنْ لَّمْ', 'مِنْ نَّفْعِهِمَا', 'مَنْ وُّجِدَ', 'مِن رَّأْسِهِ'],
       ['مِن مُّوصٍ', 'مَنْ يَّقُولُ', 'مَنْ لَّمْ', 'عَنْ نَّفْسٍ'],
@@ -92,7 +91,7 @@ const chapter = {
       ['عَنْ مِّلَّةِ', 'وَإِنْ يُّقَاتِلُوكُمْ', 'يَكُنْ لَّهُ', 'نَكُنْ نَّدْعُوْا'],
       ['مِنْ وَّالٍ', 'فَإِنْ رَّجَعَكَ', 'وَلْتَكُنْ مِّنكُمْ', 'اِنْ يُرِيدَا']
     ],
-    // Page 5 - Exercise of Idgham
+    // Page 5 (Total Page 58) - Exercise of Idgham
     [['اًلَّ', 'اًرَّ', 'اًنَّ', 'اًمَّ'],
     ['اًوَّ', 'اًىَّ', 'اٌ لَّ', 'اٌ رَّ'],
     ['اٌ نَّ', 'اٌ مَّ', 'اٌ وَّ', 'اٌ ىَّ'],
@@ -101,27 +100,23 @@ const chapter = {
     ['بً نَّ', 'بً مَّ', 'بً وَّ', 'بً ىَّ'],
     ['بٌ لَّ', 'بٌ رَّ', 'بٌ نَّ', 'بٌ مَّ'],
     ['بٌ وَّ', 'بٌ ىَّ']],
-    // Page 6 - Exercise of Idgham
+    // Page 6 (Total Page 59) - Exercise of Idgham
     [['بٍ لَّ', 'بٍ رَّ', 'بٍ نَّ', 'بٍ مَّ'],
     ['بٍ وَّ', 'بٍ ىَّ', 'قًالِّ', 'تً رَّ'],
     ['قًا نَّ', 'دًمَّ', 'رًوَّ', 'لً ىَّ'],
     ['عٌ لَّ', 'رٌرَّ', 'عٌ نَّ', 'جٌ مَّ'],
     ['وٍوَّ', 'مٌ ىُّ', 'غٍ لِّ', 'قٍ رِّ'],
     ['عٍ نَّ', 'مٍ مَّ', 'يٍ وَّ', 'يٍ يَّ']],
-    // Page 7 - Exercise of Idgham
+    // Page 7 (Total Page 60, merged former Pages 7 & 8) - Exercise of Idgham
     [
       ['إِلٰهًا لَّقَدْ', 'خَيْرًا نُّزُلًا', 'بَشِيرًا وَّنَذِيرًا', 'زَبَدًا رَّابِيًا'],
       ['مَثَلًا مَّا', 'خَيْرًا يَّرَهُ',' وَفَضْلٍ لَّمْ', 'شَيْءٍ نَّحْنُ'],
-      ['طَعَامٍ وَّاحِدٍ']
+      ['طَعَامٍ وَّاحِدٍ', 'ثَمَرَةٍ رِّزْقًا', 'بِخَيْرٍ مِّنْهَا', 'لِقَوْمٍ يُّوْقِنُونَ'],
+      ['رِزْقًا لَّكُمْ', 'عَهْدًا نَّبَذَهُ', 'سِنَةٌ وَّلَا', 'تَوَّابًا رَّحِيمًا'],
+      ['حَسَدًا مِّنْ', 'نُعَاسًا يَّغْشَىٰ', 'خَيْرٌ لَّكُمْ',' سُوْرَةٌ نَّظَرَ'],
+      ['رَعْدٌ وَّبَرْقٌ', 'غَفُوْرٌ رَّحِيمٌ', 'مُخْرِجٌ مَّا', 'أُمَّةٌ يَّدْعُوْنَ']
     ],
-    // Page 8 - Exercise of Idgham
-    [
-      ['ثَمَرَةٍ رِّزْقًا', 'بِخَيْرٍ مِّنْهَا', 'لِقَوْمٍ يُّوْقِنُونَ', 'رِزْقًا لَّكُمْ'],
-      ['عَهْدًا نَّبَذَهُ', 'سِنَةٌ وَّلَا', 'تَوَّابًا رَّحِيمًا', 'حَسَدًا مِّنْ'],
-      ['نُعَاسًا يَّغْشَىٰ', 'خَيْرٌ لَّكُمْ',' سُوْرَةٌ نَّظَرَ', 'رَعْدٌ وَّبَرْقٌ'],
-      ['غَفُوْرٌ رَّحِيمٌ', 'مُخْرِجٌ مَّا', 'أُمَّةٌ يَّدْعُوْنَ']
-    ],
-    // Page 9 - Idgham on Other Letters
+    // Page 8 (Total Page 61, was Page 9) - Idgham on Other Letters
     [
       ['قَدْ تَّبَيَّنَ', 'إِذْ ظَّلَمُوْا', 'اِرْكَبْ مَّعَنَا'],
       ['قُل رَّبِّ', 'يَلْهَثْ ذّٰلِكَ', 'إِنَّهُمْ مَّعَكُمْ'],

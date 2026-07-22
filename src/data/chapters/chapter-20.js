@@ -26,17 +26,17 @@ const chapter = {
     },
   },
   pages: [
-    // Page 1 - Iqlab (Total Page 52)
+    // Page 1 - Iqlab (Total Page 51)
     [
       ['مِنْۢ بَعْدِ', 'مَنْۢ بَخِلَ', 'أَنْۢبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
       ['أَمَدًۢا بَعِيْدًا', 'طَيْرًۢا بِإِذْنِي']
     ],
-    // Page 2 - Exercise of Tiny Meem (Total Page 53)
+    // Page 2 - Exercise of Tiny Meem (Total Page 52)
     [
       ['اَنْۢ بَ', 'اِنْۢ بَ', 'اُنْۢ بَ', 'اًۢ بَ'],
       ['اٍۢ بَ', 'اٌۢ بَ']
     ],
-    // Page 3 - Exercise of Tiny Meem (Total Page 54)
+    // Page 3 - Exercise of Tiny Meem (Total Page 53)
     [
       ['تَارِكٌۢ بَعْضَ', 'تَفْرِيقًۢا بَيْنَ', 'اَنْۢبَأَهُمْ', 'وَاقِعٌۢ بِهِمْ'],
       ['سَفَهًۢا بِغَيْرِ', 'لَذَنْۢبِكَ', 'حِزْبٍۢ بِمَا', 'بَعْضًاۢ بِمَا'],

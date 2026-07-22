@@ -4,7 +4,7 @@ const chapter = {
   teacherInfo: {
     instructions: [
       'Alif Maddah: If **Zabar** is placed before an Alif{{IMG:/images/chapters/chapter-06/AlifMaddah.webp}} it is called **Alif Maddah**.',
-      'For example:{{IMG:/images/shared/Bay.webp}}Zabar{{IMG:/images/chapters/chapter-06/Baa.webp|3rem}} and if it is pronounced twice then{{IMG:/images/shared/Bay.webp}} Zabar -ALif{{IMG:/images/chapters/chapter-06/Baa2.webp|4rem}}'
+      'For example:{{IMG:/images/shared/Bay.webp}}Zabar{{IMG:/images/chapters/chapter-06/Baa.webp|3rem}} and if it is pronounced twice then{{IMG:/images/shared/Bay.webp}} Zabar -Alif{{IMG:/images/chapters/chapter-06/Baa2.webp|4rem}}'
     ],
     goal: 'Recognize Alif Maddah and pronounce the elongated vowel correctly.'
   },
@@ -28,7 +28,7 @@ const chapter = {
     ['كَا', 'لَا', 'مَا', 'نَا', 'هَا'],
     ['وَا', 'ءَا', 'يَا']],
 
-    // Appended exercises (previously chapter 7 Page 1)
+    // Page 2 (Total Page 15): Appended exercises (previously chapter 7 Page 1)
     [['قَالَ', 'قَالَا', 'اَرَادَ', 'اَرَادَا'],
     ['حَاقَ', 'ذَاقَا', 'اَصَابَ', 'اَصَابَهَا'],
     ['مَعَاذَ', 'فَمَاذَا', 'فَتَابَ', 'طَاقَةَ'],

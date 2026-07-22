@@ -18,36 +18,36 @@ const chapter = {
     6: { titleEnglish: 'Exercise of Double Paish', titleArabic: '' },
   },
   pages: [
-    // Page 1 - Exercise of Double Zabar (Total Page 44)
+    // Page 1 - Exercise of Double Zabar (Total Page 43)
     [['بًا = بَنْ', 'تًا = تَنْ', 'ثًا = ثَنْ', 'جًا'],
     ['حًا', 'خًا', 'سًا', 'صًا'],
     ['زًا', 'عًا', 'رًا', 'كًا'],
     ['قًا', 'فًا', 'ءًا', 'يًا']],
-    // Page 2 - Exercise of Double Zabar (Total Page 45)
+    // Page 2 - Exercise of Double Zabar (Total Page 44)
     [
       ['بَطْشًا', 'اِنَاثًا', 'لِبَاسًا', 'خَالِصًا'],
       ['اِلٰهًا', 'صُلْحًا', 'عَزِيْزًا', 'مَرِيْضًا'],
       ['جُذَاذًا', 'حَفِيْظًا', 'مَتَاعًا', 'رِدْاً'],
       ['مُبٰرَكًا', 'فَرِيْقًا', 'اَمْوَاتًا', 'اَسْبَاطًا']
     ],
-    // Page 3 - Double Zair (Total Page 46)
+    // Page 3 - Double Zair (Total Page 45)
     [['بِنْ = بٍ', 'تِنْ = تٍ', 'ثِنْ = ثٍ', 'جٍ'],
     ['حٍ', 'خٍ', 'زٍ', 'ضٍ'],
     ['ءٍ', 'عٍ', 'غٍ', 'رٍ'],
     ['ذٍ', 'ظٍ', 'وٍ', 'يٍ']],
-    // Page 4 - Exercise of Double Zair (Total Page 47)
+    // Page 4 - Exercise of Double Zair (Total Page 46)
     [
       ['صِبْغٍ', 'مُكْثٍ', 'بَاْسٍ', 'نَقْصٍ'],
       ['اِلٰهٍ', 'بِرِيْحٍ', 'كُنُوْزٍ', 'تَرَاضٍ'],
       ['مَجِيْدٍ', 'مَحْفُوْظٍ', 'اَرْبَعٍ', 'لِسَبَاٍ'],
       ['مُلْكٍ', 'صِدْقٍ', 'حَسَرٰتٍ', 'صِرَاطٍ']
     ],
-    // Page 5 - Double Paish (Total Page 48)
+    // Page 5 - Double Paish (Total Page 47)
     [['بُنْ = بٌ', 'تُنْ = تٌ', 'ثُنْ = ثٌ', 'جٌ'],
     ['حٌ', 'خٌ', 'سٌ', 'صٌ'],
     ['ءٌ', 'عٌ', 'غٌ', 'رٌ'],
     ['نٌ', 'وٌ', 'هٌ', 'يٌ']],
-    // Page 6 - Exercise of Double Paish (Total Page 49)
+    // Page 6 - Exercise of Double Paish (Total Page 48)
     [
       ['نَزْغٌ', 'حَرْثٌ', 'نَفْسٌ', 'حَرِيْصٌ'],
       ['اِلٰهٌ', 'جُنَاحٌ', 'عَزِيْزٌ', 'بِيْضٌ'],

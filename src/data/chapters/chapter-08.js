@@ -1,37 +1,42 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Yaa-i Maddah',
+  titleEnglish: 'Wao Maddah',
   teacherInfo: {
     instructions: [
-      '**Yaa-i Maddah:** If **Zair** is placed before a Sakin Yaa{{IMG:/images/YaaImaddah.webp}} it is called **Yaa-i Maddah**.',
-      'For example:{{IMG:/images/Bay.webp}}Zair{{IMG:/images/BaZair.webp|3rem}}And if it is pronounced twice then{{IMG:/images/Bay.webp}}Zair - Yaa{{IMG:/images/BiYa.webp|4rem}} .'
+      '**Wao Maddah:** If **Paish** is placed before a Sakin Wao{{IMG:/images/chapters/chapter-08/waomaddah1.webp}} it is called **Wao Maddah**.',
+      'For example:{{IMG:/images/shared/Bay.webp}}Paish {{IMG:/images/chapters/chapter-08/waomaddah2.webp|3rem}}And if it is pronounced twice then{{IMG:/images/shared/Bay.webp}} Paish - Wao{{IMG:/images/chapters/chapter-08/waomaddah3.webp|3rem}}.'
     ],
-    goal: 'Recognize the Yaa-i Maddah form and pronounce the combined/elongated Yaa sound correctly.'
+    goal: 'Recognize Wao Maddah and pronounce the elongated Wao sound correctly.'
   },
-  pageTitles: {
+      teacherImage: {
+    imagePath: '/images/chapters/chapter-08/ChapterNo8.webp',
+    alt: 'Wao Maddah example diagram'
+  },
+   pageTitles: {
     1: {
-      titleEnglish: 'Exercise of Yaa-i Maddah',
+      titleEnglish: 'Exercise of Wao Maddah',
       titleArabic: ''
     }
   },
   pages: [
-    // Page 1 (Total Page 16)
-    // In تيِْ / ثيِْ the kasra is written after the yaa (not the taa/thaa) so the
-    // font stacks it below the yaa's two dots instead of colliding with them.
-    [['بِيْ', 'تيِْ', 'ثيِْ', 'جِيْ', 'حِيْ'],
-    ['خِيْ', 'دِيْ', 'ذِيْ', 'رِيْ', 'زِيْ'],
-    ['سِيْ', 'شِيْ', 'صِيْ', 'ضِيْ', 'طِيْ'],
-    ['ظِيْ', 'عِيْ', 'غِيْ', 'فِيْ', 'قِيْ'],
-    ['كِيْ', 'لِيْ', 'مِيْ', 'نِيْ', 'هِيْ'],
-    ['وِيْ', 'اِيْ', 'يِيْ']],
-    // Page 2 (Total Page 17)
-    [['صِرَاطِىْ', 'صِرَاطِ', 'عِبَادِيْ', 'عِبَادِ'],
-    ['عَذَابِيْ', 'عَذَابِ', 'لِاَخِيْهِ', 'نُرِيْ'],
-    ['كُلِيْ', 'يَمِيْزَ', 'بَنَاتِيْ', 'صِرَاطِيْ'],
-    ['اِيمَانَ', 'عِيْدِ', 'سَنَزِيدُ', 'يَضِيْقُ'],
-    ['تُثِيْرُ', 'نَسِيْتُ', 'اُصِيْبَ', 'وَقِيْلَ'],
-    ['اَكِيْدُ', 'مُهِيْنِ', 'وَحِيْنَ', 'ذِيْ ثَلَاثِ'],
-    ['عَظِيمِ']]
+    // Page 1 (Total Page 18)
+    [['بُوْ', 'تُوْ', 'ثُوْ', 'جُوْ'],
+    ['حُوْ', 'خُوْ', 'دُوْ', 'ذُوْ'],
+    ['رُوْ', 'زُوْ', 'سُوْ', 'شُوْ'],
+    ['صُوْ', 'ضُوْ', 'طُوْ', 'ظُوْ'],
+    ['عُوْ', 'غُوْ', 'فُوْ', 'قُوْ'],
+    ['كُوْ', 'لُوْ', 'مُوْ', 'نُوْ'],
+    ['هُوْ', 'وُوْ', 'اُوْ', 'يُوْ']],
+    // Page 2 (Total Page 19)
+  [
+    ['فَتُوْبُوْا', 'اَتُوْبُ', 'اَفِيضُوْا', 'تَفِيْضُ'],
+    ['تَخَافُوْا', 'اَخَافُ', 'نُوحِيْهَا', 'اُوذِيْنَا'],
+    ['اَطِيْعُوْنِي', 'يَقُوْلُوْنَ', 'فَتُوْبُوْا', 'وَرَابِطُوْا'],
+    ['اُوْتِيَ', 'عُوْقِبَ', 'بَرَزُوْا', 'وَرَضُوْا'],
+    ['لِمَا نُهُوْا', 'فَرِحُوْا', 'نَكَثُوْا', 'فَنَسُوْا'],
+    ['خَلَصُوْا', 'وَاُوْذُوْا', 'حَافِظُوْا', 'تَرَكُوْا'],
+    ['خَرَقُوْا']
+  ]
   ]
 };
 

@@ -13,8 +13,8 @@ const chapter = {
 },
   pages: [
     // Page 1 (Total Page 2)
-    [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/laam_2.webp', imageHoverPath: '/images/laam_2_hover.webp' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/laam_1.webp', imageHoverPath: '/images/laam_1_hover.webp' }],
-    ['ل', { text: 'لا', useImage: true, imagePath: '/images/laam_2.webp', imageHoverPath: '/images/laam_2_hover.webp' }, 'لح', { text: 'لا', useImage: true, imagePath: '/images/laam_1.webp', imageHoverPath: '/images/laam_1_hover.webp' }, 'بلب'],
+    [['ا', 'لا', { text: 'لا', useImage: true, imagePath: '/images/chapters/chapter-02/laam_2.webp', imageHoverPath: '/images/chapters/chapter-02/laam_2_hover.webp' }, 'با', { text: 'لا', useImage: true, imagePath: '/images/chapters/chapter-02/laam_1.webp', imageHoverPath: '/images/chapters/chapter-02/laam_1_hover.webp' }],
+    ['ل', { text: 'لا', useImage: true, imagePath: '/images/chapters/chapter-02/laam_2.webp', imageHoverPath: '/images/chapters/chapter-02/laam_2_hover.webp' }, 'لح', { text: 'لا', useImage: true, imagePath: '/images/chapters/chapter-02/laam_1.webp', imageHoverPath: '/images/chapters/chapter-02/laam_1_hover.webp' }, 'بلب'],
     ['ك', 'كب', 'كب', 'كا', 'بکت'],
     ['تكث', 'ب', 'ت', 'ث', 'ن'],
     ['ى', 'با', 'نا', 'تا', 'یا'],

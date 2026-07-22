@@ -33,21 +33,24 @@ const LessonPage = ({ pageNumber }) => {
   const currentChapter = chapterData[currentChapterNum];
   const currentLetters = currentChapter.pages[pageInChapter];
   const pageAnnotation = currentChapter.pageAnnotations?.[pageInChapter] ?? null;
+  const pageTextLength = currentLetters.flat().reduce((longestLength, item) => {
+    if (typeof item === 'object' && item.useImage) return longestLength;
+    const text = typeof item === 'object' ? item.text : item;
+    return Math.max(longestLength, Array.from(text || '').length);
+  }, 1);
 
   // Determine page-specific title if provided, otherwise use chapter title
   const pageTitle = (currentChapter.pageTitles && currentChapter.pageTitles[pageInChapter])
     ? currentChapter.pageTitles[pageInChapter]
     : { titleArabic: currentChapter.titleArabic, titleEnglish: currentChapter.titleEnglish };
 
-  // Compute a displayed (sequential) chapter number so missing keys don't create gaps
-  const displayChapterNo = (chapterNumbers.indexOf(currentChapterNum) >= 0)
-    ? (chapterNumbers.indexOf(currentChapterNum) + 1)
-    : currentChapterNum;
+  // Chapter keys are sequential and match the number shown to learners.
+  const displayChapterNo = currentChapterNum;
 
   return (
     <div className="lesson-container" style={{ padding: 'clamp(20px, 3vw, 40px) clamp(16px, 8vw, 96px) 180px', maxWidth: '100%', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '55px' }}>
-        {/* Section label — Basic / Advanced */}
+        {/* Section label - Basic / Advanced */}
         <div style={{
           display: 'inline-block',
           fontSize: '0.95rem',
@@ -80,7 +83,7 @@ const LessonPage = ({ pageNumber }) => {
 
         {/* Prominent chapter title (English, consistent) */}
         <h1 className="lesson-header-title" style={{
-          fontSize: '3.4rem',
+          fontSize: 'clamp(1.8rem, 5vw, 3.4rem)',
           fontWeight: 800,
           color: '#0f2a44',
           fontFamily: 'Arial, sans-serif',
@@ -101,7 +104,7 @@ const LessonPage = ({ pageNumber }) => {
           background: 'linear-gradient(90deg, #f6cc44, #c9960c)',
         }} />
       </div>
-      {/* ✨ Teacher Instructions – chapter‑level (page 0) OR page‑specific */}
+      {/* Teacher Instructions: chapter-level (page 0) OR page-specific */}
       {(() => {
         const selectedTeacher = (pageInChapter === 0 && currentChapter.teacherInfo)
           ? currentChapter.teacherInfo
@@ -162,7 +165,7 @@ const LessonPage = ({ pageNumber }) => {
                 listStyle: 'none',
                 padding: 0,
                 margin: '0 0 25px 0',
-                fontSize: '1.6rem',
+                fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
                 lineHeight: '2.4rem',
                 color: '#2c3e50',
               }}>
@@ -178,7 +181,7 @@ const LessonPage = ({ pageNumber }) => {
                           return <strong key={index}>{part.slice(2, -2)}</strong>;
                         }
                         if (part.startsWith('{{IMG:') && part.endsWith('}}')) {
-                          const inner = part.slice(6, -2); // e.g. "/images/Zabar.webp" or "/images/Zabar.webp|4rem"
+                          const inner = part.slice(6, -2); // e.g. "/images/shared/Zabar.webp" or "/images/shared/Zabar.webp|4rem"
                           const [src, customSize] = inner.split('|');
                           return (
                             <img
@@ -205,7 +208,7 @@ const LessonPage = ({ pageNumber }) => {
 
               {selectedTeacher.goal && (
                 <div className="teacher-goal" style={{
-                  fontSize: '1.6rem',
+                  fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
                   color: '#0f2a44',
                   backgroundColor: '#fff3d6',
                   padding: '16px 24px',
@@ -239,7 +242,7 @@ const LessonPage = ({ pageNumber }) => {
                   });
                 return noteLines.map((line, lineIdx) => (
                   <div key={lineIdx} className="teacher-note" style={{
-                    fontSize: '1.6rem',
+                    fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)',
                     color: '#0f2a44',
                     backgroundColor: '#ffe8cc',
                     padding: '16px 24px',
@@ -355,6 +358,7 @@ const LessonPage = ({ pageNumber }) => {
                       annotation={pageAnnotation}
                       arrowImage={arrowImage}
                       downArrow={downArrow}
+                      pageTextLength={pageTextLength}
                     />
                   </div>
                 ) : (

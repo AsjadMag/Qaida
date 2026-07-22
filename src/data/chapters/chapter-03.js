@@ -4,7 +4,7 @@ const chapter = {
   // Teacher instructions & goal for chapter 3 page 1
 teacherInfo: {
   instructions: [
-    '**Zabar (Fat\'ha):** A little slanting dash {{IMG:/images/Zabar.webp}} over the letters is called **Zabar (Fat\'ha)**.',
+    '**Zabar (Fat\'ha):** A little slanting dash {{IMG:/images/shared/Zabar.webp}} over the letters is called **Zabar (Fat\'ha)**.',
     'Zabar is delivered by opening both lips in up and down-side in strong manner **without prolonging the voice**.'
   ],
   goal: 'To correctly pronounce and apply Zabar (Fat\'ha) in Arabic letters and words.'
@@ -13,14 +13,14 @@ teacherInfo: {
 pageTeacherInfo: {
   1: { // Page 2 (Zair)
     instructions: [
-      '**Zair (Kasrah):** A little slanting dash{{IMG:/images/Chapter3 Zair.webp}} appearing under the letters is called **Zair (Kasrah)**.',
+      '**Zair (Kasrah):** A little slanting dash{{IMG:/images/chapters/chapter-03/Chapter3 Zair.webp}} appearing under the letters is called **Zair (Kasrah)**.',
       'Zair is delivered by opening the lips downwards **without prolonging the voice**.'
     ],
     goal: 'To correctly pronounce and apply Zair (Kasrah) in Arabic letters and words.'
   },
   2: { // Page 3 (Paish)
     instructions: [
-      '**Paish (Dhammah):** A little twisted dash{{IMG:/images/paish.webp}} over the letters is called **Paish (Dummah)**.',
+      '**Paish (Dhammah):** A little twisted dash{{IMG:/images/chapters/chapter-03/paish.webp}} over the letters is called **Paish (Dummah)**.',
       'Paish is delivered by making a complete round with the both lips **without prolonging the voice**.'
     ],
     goal: 'To correctly pronounce and apply Paish (Dhammah) in Arabic letters and words.'

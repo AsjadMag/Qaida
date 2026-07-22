@@ -1,26 +1,25 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Three Variable letters',
+  titleEnglish: 'TINY NOON',
   teacherInfo: {
-    instructions: [
-      '**Three Variable letters:** {{IMG:/images/AaRaLam.webp}}',
-      'If there is **Zabar** or **Paish** before the word "**Allah**"\'s **Laam** then both **Laam** will be read in a **thick tone**.',
-      '{{IMG:/images/chapter1_v2.webp|3rem}}',
-      'If there is **Zair** before the word "**Allah\'s**" **Laam** then both **Laam** will be read in a **thin tone**.',
-      '{{IMG:/images/chapter1_v2-1.webp|3rem}}',
-      'If **Alif** comes after a **thick letter** it will be read in a **thick tone**.',
-      '{{IMG:/images/chapter1_v2-2.webp|3rem}}',
-      'If **Alif** comes after a **thin letter** it will be read **thin**.',
-      '{{IMG:/images/chapter1_v2-3.webp|3rem}}'
+  instructions: [
+     'In Quran Majeed some times, a tiny Noon is placed between two words. Two things are kept in mind:',
+     '- If pause is taken before tiny Noon, it will not be read. Start reading from the next word. For Example,',
+     'if{{IMG:/images/chapters/chapter-27/chapter_12_v2.webp}}is paused before{{IMG:/images/chapters/chapter-27/chapter_12_v2(2).webp}}, that is, then reading will start from {{IMG:/images/chapters/chapter-27/chapter_12_v2(3).webp}}.',
+     '- In joining condition, if Alif comes before a Tiny Noon it will not be read. For example, on {{IMG:/images/chapters/chapter-27/chapter_12_v2(4).webp}}',
+     'Alif will not at {{IMG:/images/chapters/chapter-27/chapter_12_v2(5).webp}}rather {{IMG:/images/chapters/chapter-27/chapter_12_v2(4).webp}}will read.',
+     '{{IMG:/images/chapters/chapter-27/chapter_12_v2(7).webp|12rem}}'
     ],
-    goal: 'Learn and practice three variable letters and their pronunciation rules.'
-  },
+    },
   pages: [
-    // Page 1 (Total Page 41)
+    // Page 1 (Total Page 82)
+    [[{ text: 'Joining\nCondition', downArrow: true }, { text: 'Pause\nCondition', downArrow: true }, { text: 'Writing\nCondition', downArrow: true }],
+    ['لُمَزَةِ ِۨ ○ الَّذِىْ', 'لُمَزَهْ ○ اَلَّذِىْ', 'لُمَزَةِ ِۨ ○ الَّذِىْ'],
+    ['فَخُورَ ِۨ ○ الَّذِينَ', 'فَخُورَا ○ اَلَّذِينَ', 'فَخُورًا ِۨ ○ اَلَّذِينَ']],
+    // Page 2 (Total Page 83)
     [
-      ['هُوَ اللّٰهُ', 'نَارُ اللّٰهِ', 'بِسْمِ اللّٰهِ', 'لِلّٰهِ'],
-      ['طَالُوتَ', 'أَصَابَ', 'ظَاهِرٌ', 'فَقَالَ'],
-      ['خَالِدِينَ', 'كِتَابٌ', 'لِسَانٌ']
+      ['شَهِيدَا ِۨ ○ الرِّجَالُ', 'خَيْرُ ِۨ ○ اطْمَأَنَّ بِهِ', 'قَوْمَا ِۨ ○ اتَّخَذَهَا'],
+      ['عَلِيْمُ ِۨ ○ اللهُ', 'أَوْ لَهْوَا ِۨ ○ انْفَضُّوْا', 'أَحَدُ ِۨ ○ اللّهُ الصَّمَدُ']
     ]
   ]
 };

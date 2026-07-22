@@ -4,13 +4,13 @@ const chapter = {
   teacherInfo: {
     instructions: [
       'In Quran Majeed whenever **Noon Sakin or Tanween** comes before these six letters',
-      '{{IMG:/images/chapter_6_v2.webp|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
-      'in fact the shad of{{IMG:/images/chapter_6_v2.webp|2rem}} is joined with Zabar/Zair/Paish ',
-      'in thae case of {{IMG:/images/chapter_6_v2(1).webp|3rem}} are joined without Noon sound and',
-      'in the case of {{IMG:/images/chapter_6_v2(2).webp|3rem}} are pronounced with Ghunnah.'
+      '{{IMG:/images/chapters/chapter-21/chapter_6_v2.webp|3rem}}, these letters always carry a shadd, so the sound of **Noon sakin** is not read,',
+      'in fact the shad of{{IMG:/images/chapters/chapter-21/chapter_6_v2.webp|2rem}} is joined with Zabar/Zair/Paish ',
+      'in thae case of {{IMG:/images/chapters/chapter-21/chapter_6_v2(1).webp|3rem}} are joined without Noon sound and',
+      'in the case of {{IMG:/images/chapters/chapter-21/chapter_6_v2(2).webp|3rem}} are pronounced with Ghunnah.'
     ],
-    note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapter_6_v2(2).webp|3rem}}.',
-    imagePath: '/images/new.webp',
+    note: 'Examples of **Noon Sakin** comes before{{IMG:/images/chapters/chapter-21/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapters/chapter-21/chapter_6_v2(2).webp|3rem}}.',
+    imagePath: '/images/chapters/chapter-21/new.webp',
     imageStyle: { width: '800px', maxWidth: '850px' }
   },
   pageTitles: {
@@ -27,25 +27,25 @@ const chapter = {
   pageTeacherInfo: {
     1: {
       instructions: [],
-      note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapter_6_v2(2).webp|3rem}}.',
+      note: ['Examples of **Noon Sakin** comes before{{IMG:/images/chapters/chapter-21/chapter_6_v2(1).webp|3rem}} {{IMG:/images/chapters/chapter-21/chapter_6_v2(2).webp|3rem}}.',
             '**Reading method**: in this case the single harkat of the Tanween is joined with the Shadd Letter',
-            '{{IMG:/images/chapter_6_v2(3).webp|6rem}}  {{IMG:/images/chapter_6_v2(4).webp|6rem}}  {{IMG:/images/chapter_6_v2(5).webp|6rem}}']
+            '{{IMG:/images/chapters/chapter-21/chapter_6_v2(3).webp|6rem}}  {{IMG:/images/chapters/chapter-21/chapter_6_v2(4).webp|6rem}}  {{IMG:/images/chapters/chapter-21/chapter_6_v2(5).webp|6rem}}']
     },
     2: {
       instructions: [
         '**Idgham: When the Noon Sakin comes before the Shadd letter**',
-        '{{IMG:/images/chapter_6_v2(6).webp|15rem}}',
-        '{{IMG:/images/chapter_6_v2(7).webp|6rem}}'
+        '{{IMG:/images/chapters/chapter-21/chapter_6_v2(6).webp|15rem}}',
+        '{{IMG:/images/chapters/chapter-21/chapter_6_v2(7).webp|6rem}}'
       ],
     },
     3: {
       instructions: [
-        '{{IMG:/images/chapter_6v2(8).webp|15rem}}'
+        '{{IMG:/images/chapters/chapter-21/chapter_6v2(8).webp|15rem}}'
       ],
     },
     4: {
       instructions: [
-        '{{IMG:/images/Version3.webp|20rem}}'
+        '{{IMG:/images/chapters/chapter-21/Version3.webp|20rem}}'
       ],
     },
     9: {
@@ -59,8 +59,8 @@ const chapter = {
     // Page 1 - Idgham
     [
       ['اَنْ لَّ', 'اَنْ رَّ', 'اَنْ نَّ', 'اَنْ مَّ'],
-      [{ text: 'اَنْ وَّ', arrowImage: '/images/NotArrow.webp' }, { text: 'اَنْ يَّ', arrowImage: '/images/NotArrow.webp' }, 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
-      ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', { text: 'مَنْ وُّجِدَ', arrowImage: '/images/NotArrow.webp' }, { text: 'مَنْ يَّقُولُ', arrowImage: '/images/NotArrow.webp' }]
+      [{ text: 'اَنْ وَّ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }, { text: 'اَنْ يَّ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }, 'مَنْ لَّمْ', 'مَنْ رَّحِمَ'],
+      ['عَنْ نَّفْسٍ', 'مِنْ مَّقَامِ', { text: 'مَنْ وُّجِدَ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }, { text: 'مَنْ يَّقُولُ', arrowImage: '/images/chapters/chapter-21/NotArrow.webp' }]
     ],
     // Page 2 - Idgham
     [

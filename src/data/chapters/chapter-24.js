@@ -1,111 +1,66 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Shadd',
+  titleEnglish: 'Madd (Prolonging the Sound of vowels)',
   teacherInfo: {
   instructions: [
-    'This sign{{IMG:/images/shadd.webp}}is called **Shadd**, it is written over the letter with **Harkaat**.',
-    'A Shadd letter is always read by joining with its predecessor having **Harkaat**.',
-    'In Arabic language, whenever a word has two same letters, first having jazm/sukoon and second having a **Harkaat**,',
-    'Then instead of writing the same letter twice, the letter is written only once with the sign of shadd, so that it read like two letters, therefore reading the shadd letter takes time equivalent to reading two letters.',
-    'For example:{{IMG:/images/shadd2.webp}}',
-    '**Reading method of shadda:** Read it stronger and clearer than the normal.'
-  ],
-  goal: 'Understand the concept of Shadd and pronounce it correctly with emphasis and clarity.',
-  imagePath: '/images/shadd3.webp'
-},
- pageTeacherInfo: {
-    2: { 
-      instructions: [
-        '**Exercise of Shadd** And now discussing two more features of the letters regarding voice and breath.',
-        'Some letters have a continous voice and some have stopping voice,',
-        'Some letters have a continous breath and some have stopping breath.'
-      ],
-    }
-  },
-pageTitles: {
-    1: {
-      titleEnglish: 'Shadd',
-      titleArabic: ''
+     '**Madd** {{IMG:/images/chapters/chapter-24/chapter_9_vs2.webp}}**[Prolonging the Sound of vowels]**',
+     'In Quran-e-Majeed if Hamzah, Jazm or Shadd comes after Huroof-f-Maddah or Erected Harkaat',
+     'then in this condition, their sounds prolonged up to two or three Alif.',
+     'The Madd sign {{IMG:/images/chapters/chapter-24/chapter_9_vs2(1).webp}} is already placed so that we can prolong the sound according to the rule.',
+     '{{IMG:/images/chapters/chapter-24/chapter_9_vs2(3).webp|6rem}}',
+     '{{IMG:/images/chapters/chapter-24/chapter_9_vs2(4).webp|6rem}}'
+    ],
+    imagePath: '/images/chapters/chapter-24/chapter_9_vs2(2).webp',
+    imageStyle: { width: '600px', maxWidth: '650px' }
     },
+    pageTitles: {
     2: {
-      titleEnglish: 'Exercise of Shadd',
+      titleEnglish: 'Exercise of Madd',
       titleArabic: ''
     },
     3: {
-      titleEnglish: 'Exercise of Shadd',
+      titleEnglish: 'Exercise of Madd',
       titleArabic: ''
     },
-    4: {
-      titleEnglish: 'Exercise of Shadd',
-      titleArabic: ''
+  },
+  pageTeacherInfo: {
+    1: {
+      instructions: ['**When Hamzah comes after Huroof-e-Maddah or Erected Harkaat.**'],
+
     },
-    5: {
-      titleEnglish: 'Exercise of Shadd',
-      titleArabic: ''
+    2: {
+      instructions: ['**Do Exercise of Madd due to Hamzah by prolonging the sound of Huroof-e-Maddah and Erected Harkaat equivalent to 2-Alif.**'],
+
+    },
+    3: {
+      instructions: ['**Do Exercise of Madd due to Jazam and Shadd by prolonging the sound of Huroof-e-Maddah and Erected Harkaat equivalent to 3-Alif.**'],
+
     }
   },
   pages: [
-    // Page 1 (Total Page 34)
-    [['اَبَّ', 'اِبِّ', 'أُبُّ', 'اَتَّ'],
-    ['اِتِّ', 'أُتُّ', 'اَثَّ', 'اِثِّ'],
-    ['أُثُّ', 'اَجَّ', 'اِجِّ', 'أُجُّ'],
-    ['اَحَّ', 'اِحِّ', 'أُحُّ', 'اَخَّ'],
-    ['اِخِّ', 'أُخُّ', 'اَدَّ', 'اِدِّ'],
-    ['أُدُّ', 'اَذَّ', 'اِذِّ', 'أُذُّ'],
-    ['اَرَّ', 'اِرِّ', 'أُرُّ', 'اَزَّ'],
-    ['اِزِّ', 'أُزُّ', 'اَسَّ', 'اِسِّ'],
-    ['أُسُّ', 'اَشَّ', 'اِشِّ', 'أُشُّ'],
-    ['اَصَّ', 'اِصِّ', 'أُصُّ', 'اَضَّ'],
-    ['اِضِّ', 'أُضُّ', 'اَطَّ', 'اِطِّ', 'أُطُّ']],
-    // Page 2 (Total Page 35)
-    [['اَظَّ', 'اِظِّ', 'أُظُّ', 'اَعَّ'],
-    ['اِعِّ', 'أُعُّ', 'اَغَّ', 'اِغِّ'],
-    ['أُغُّ', 'اَفَّ', 'اِفِّ', 'أُفُّ'],
-    ['اَقَّ', 'اِقِّ', 'أُقُّ', 'اَكَّ'],
-    ['اِكِّ', 'أُكُّ', 'اَلَّ', 'اِلِّ'],
-    ['أُلُّ', 'اَنَّ', 'اِنِّ', 'أُنُّ'],
-    ['اَمَّ', 'اِمِّ', 'أُمُّ', 'اَهَّ'],
-    ['اِهِّ', 'أُهُّ', 'اَوَّ', 'اِوِّ'],
-    ['أُؤُّ', 'اَيَّ', 'اِيِّ', 'أُيُّ']],
-          // Page 1 (Total Page 36)
+    // Page 1 (Total Page 68)
+    [['بَآبَّ', 'بِيْٓ بِّ', 'بُوْٓبُّ', 'بٰٓ بَّ'],
+    ['بٖٓ بِّ', 'بٗٓ بُّ', 'لَآمْ', 'مِيْٓ مْ'],
+    ['سِيْٓ نْ', 'نُوْٓنُ', 'آٰ لْ', 'صَآدْ']],
+    // Page 2 (Total Page 69)
+    [['بَآءَ', 'بِیْٓءَ', 'بُوْٓءَ', 'تٰٓ ءَ'],
+    ['تٖٓ ءَ', 'تٗٓ ءَ', 'بَآاَ', 'بِیْٓ اَ'],
+    ['بُوْٓ اَ', 'تٰٓ اَ', 'تٖٓ اَ', 'تٗٓ اَ']],
+    // Page 3 (Total Page 70)
     [
-      ['كَفَّلَهَا', 'يَكُفُّونَ', 'يَزِفُّونَ', 'وُفِّيَتْ'],
-      ['شُحَّ', 'لِيُمَحِّصَ', 'شُحَّ', 'الْمُسَحِّرِينَ'],
-      ['وَبَثَّ', 'يَبُثُّ', 'بَثِّيْ', 'اَلثُّلُثُ'],
-      ['فَمَهِّلِ', 'اَلْوَهَّابُ', 'تَلَهّٰى', 'اَلْقَهَّارُ'],
-      ['يُنَشَّأُ', 'اَهُشُّ', 'بِالشَّهَادَةِ', 'بُشِّرَ'],
-      ['الْفَخَّارِ', 'وَسَخَّرَ', 'تَاَخَّرَ', 'يُؤَخِّرُ'],
-      ['اَلصَّلِحٰتِ', 'فَصَّلَ', 'يَقُصُّ', 'حُصَّلَ'],
-      ['اَحَسَّ', 'يَدُسُّهُ', 'يُمَسِّكُونَ', 'اُسِّسَ']
+      ['إِنّٰا أَنْزَلْنَهُ', 'لَا أُقْسِمُ', 'يَتَسَآءَلُوْنَ', 'فَاَوْحٰٓى اِلَيْهِ'],
+      ['يٰاَيُّهَا النَّبِيُّ', 'اٰبَآءُنَا', 'اٰوٰى اِلَيْهِ', 'اِلٰٓى اِلٰهِكَ'],
+      ['اِذَا جَاءَ', 'اَلَّتِي اُعِدَّتْ', 'فِي اَنْفُسِكُمْ', 'خَطِيْئَةً'],
+      ['فَقُوْلِي إِنِّي', 'هَذِهِ إِيمَانًا', 'سِيئَتْ', 'فِي أَمْرِيْ'],
+      ['إِنِّي أَخَافُ', 'هَنِيْئًا', 'قُوْا أَنْفُسَكُمْ', 'يَرَهُ أَحَدٌ']
     ],
-    // Page 2 (Total Page 37)
+    // Page 4 (Total Page 71)
     [
-      ['يَغْشٰى', 'تُغْنِىَ', 'يَزِغْ', 'يُغْنِ'],
-      ['نَزَّلَهٗ', 'وَالْعُزّٰى', 'وَتُعِزُّ', 'تَؤُزُّهُمْ'],
-      ['نَضَّاخَتَانِ', 'فَضَّلَ', 'يَحُضُّ', 'نُفَضِّلُ'],
-      ['وَاَيَّدْنٰهٗ', 'اِيَّاكَ', 'زُيِّنَ', 'اَمَانِيُّهُمْ'],
-      ['كَذَّبُوْا', 'اَلذَّكَرُ', 'فَاَذَّنَ', 'اَلذُّنُوْبَ'],
-      ['وَالظَّاهِرُ', 'اَلظَّهِيرَةِ', 'اَلظُّلُمٰتُ', 'حَظِّ'],
-      ['جَوِّ', 'اَوَّلُ', 'عَدُوِّىْ', 'تُبَوِّيءُ']
-    ],
-    // Page 3 (Total Page 38)
-    [
-      ['وَالْعَافِيْنَ', 'بِسْمِ اللهِ', 'بِكُلِّ', 'فَغُلُّوهُ'],
-      ['أَنْعَمْتَ', 'مِنْهَا', 'اٰمَنَّا', 'فَإِنَّى'],
-      ['نَعْبُدُ', 'يُعْلِنُوْنَ', 'يَدُعُّ', 'سُعِّرَتْ'],
-      ['عَلَيْهِمْ', 'مَالَمْ', 'فَلَمَّا', 'وَأُمُّهُ'],
-      ['يَرْجِعُونَ', 'فِرْعَوْنَ', 'مَرَّاتٍ', 'وَبُرِّزَتْ'],
-      ['كَانَتْ', 'فَيَمُتْ', 'سِتِّينَ', 'عَنِتُّمْ'],
-      ['رُسُلِكَ', 'تَكْرَهُوْا', 'بِبَكَّةَ', 'سُكِّرَتْ']
-    ],
-    // Page 4 (Total Page 39)
-    [
-      ['فَتَلَقّٰى', 'حَقَّتْ', 'وَيُحِقَّ', 'لِلْحَقِّ'],
-      ['اَلطَّاغُوتِ', 'اَطَّلَعَ', 'اَلطُّوْرِ', 'عُطِّلَتْ'],
-      ['رَبَّنَا', 'تَسُبُّوا', 'نُسَبِّحُ', 'شُبِّهَ'],
-      ['تَعَجَّلَ', 'فَنُجِّيَ', 'حِجُّ', 'لَجُّوْا'],
-      ['فَبَدَّلَ', 'فَرُدُّوْهُ', 'يَهْدِيْ', 'يَصُدُّوْنَ'],
-      ['وَتَرَى الشَّمْسَ', 'عَمِلُوا الصَّالِحَاتِ', 'وَالْقَمَرِ', 'فِي الْكُتُبِ']
+      ['اَلصَّآفُّوْنَ', 'تَحٰٓضُّونَ', 'اَلْعَآدِّينَ', 'الٓمّٓ الٓمّٓرّٰ'],
+      ['دَآبَّةٍ', 'وَالصّٰٓفّٰتِ', 'حَآجُّوكَ', 'الٓرٰ صٓ'],
+      ['وَلَا الضَّآلِّينَ', 'اَلظَّآنِّينَ', 'وَلَاجَآنٌّ', 'حٰم طسٓمّٓ'],
+      ['اَلطَّآمَّةُ', 'تَأْمُرُوْٓنِّي', 'أَتُحَآجُّوْٓنِّي', 'نٓ قٓ'],
+      ['قُلْ ءَآلذَّكَرَيْنِ', 'قُلْ آٰللّٰهُ', 'آٰلْـٰٔنَ', 'يسٓ الٓمّٓصٓ']
     ]
   ]
 };

@@ -4,10 +4,10 @@ const chapter = {
 teacherInfo: {
     instructions: [
       'In Quran Majeed whenever **Noon Sakin or Tanween** comes before',
-      'these six letters {{IMG:/images/chapter_4_V2(1).webp|3rem}}, the sound of Noon Sakin or Tanween',
+      'these six letters {{IMG:/images/chapters/chapter-19/chapter_4_V2(1).webp|3rem}}, the sound of Noon Sakin or Tanween',
       'pronounced clearly and distinctly. It is called the Rule of Izhar.'
     ],
-    imagePath: '/images/Chapter_4_V2.webp'
+    imagePath: '/images/chapters/chapter-19/Chapter_4_V2.webp'
   },
   pages: [
     // Page 1 (Total Page 50)

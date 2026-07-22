@@ -9,7 +9,7 @@ const chapter = {
       '**Meem Shadd** is always pronounced with a Ghunnah.',
       '**If letter Baa comes after Meem Sakin only** then Meem Sakin will be read with a Ghunnah.'
     ],
-    imagePath: '/images/chapter_8_v2.webp'
+    imagePath: '/images/chapters/chapter-23/chapter_8_v2.webp'
     },
   pages: [
     // Page 1 (Total Page 66)

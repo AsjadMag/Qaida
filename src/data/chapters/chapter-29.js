@@ -1,58 +1,53 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Tanween',
+  titleEnglish: 'Rule of adding Zair and Paish',
   teacherInfo: {
-    instructions: [
-      '{{IMG:/images/Tanween.webp|4rem}}',
-      'Double Zabar, Double Zair and Double Paish are called Tanween. Tamweem is read like Noon Sakin. If any letter has double Zabar, double Zair and double Paish then one Zabar, one Zair, and one Paish is read by joining it with Noon e.g.{{IMG:/images/Chapter_3_V2.webp|4rem}}',
-      'To conclude Noon Sakin and Tanween, both are the same in pronunciation.'
+  instructions: [
+     '{{IMG:/images/chapters/chapter-29/chapter_13_v2(2).webp|10rem}}',
+     'If a word is starting with{{IMG:/images/chapters/chapter-29/chapter_13_v2(3).webp}}, then Zabar is always added on the Hamzah. ',
+     'Apart from {{IMG:/images/chapters/chapter-29/chapter_13_v2(3).webp}} if a word begins with inactive Hamzah {{IMG:/images/chapters/chapter-29/chapter_13_v2(4).webp}}, then Zair or Paish is added to Hamzah.',
+     'Easy way to do this, look at the third letter including the{{IMG:/images/chapters/chapter-29/chapter_13_v2(4).webp}}, if the third letter has a Paish, ',
+     'then will be added to Hamzah.',
+     '{{IMG:/images/chapters/chapter-29/chapter_13_v2(5).webp|8rem}}',
+     'If the third letter has Zabar or Zair, in both conditions, Zair will be added to Hamzah.',
+     '{{IMG:/images/chapters/chapter-29/chapter_13_v2(6).webp|8rem}}'
+
     ],
-    imagePath: '/images/Chapter_3_v2(1).webp'
-  },
-  pageTitles: {
-    1: { titleEnglish: 'Exercise of Double Zabar', titleArabic: '' },
-    2: { titleEnglish: 'Exercise of Double Zabar', titleArabic: '' },
-    3: { titleEnglish: 'Double Zair', titleArabic: '' },
-    4: { titleEnglish: 'Exercise of Double Zair', titleArabic: '' },
-    5: { titleEnglish: 'Double Paish', titleArabic: '' },
-    6: { titleEnglish: 'Exercise of Double Paish', titleArabic: '' },
+    imagePath: '/images/chapters/chapter-29/chapter_13_v2.webp',
+    },
+      pageTeacherInfo: {
+    1: {
+      instructions: [
+      'However, there are 9 words in the Quran-e-Majeed, their third letter has a Paish but still only Zair is added to Hamzah, and those 8 words are:',
+     '{{IMG:/images/chapters/chapter-29/chapter_13_v2(7).webp|5rem}}'
+     ],
+    }
   },
   pages: [
-    // Page 1 - Exercise of Double Zabar (Total Page 44)
-    [['بًـا = بَنْ', 'تًـا = تَنْ', 'ثًـا = ثَنْ', 'جًـا'],
-    ['حًـا', 'خًـا', 'سًـا', 'صًـا'],
-    ['زًا', 'عًـا', 'رًا', 'كًـا'],
-    ['قًـا', 'فًـا', 'ءًا', 'يًـا']],
-    // Page 2 - Exercise of Double Zabar (Total Page 45)
+    // Page 1 (Total Page 85)
     [
-      ['بَطْشًا', 'اِنَاثًا', 'لِبَاسًا', 'خَالِصًا'],
-      ['اِلٰهًا', 'صُلْحًا', 'عَزِيْزًا', 'مَرِيْضًا'],
-      ['جُذَاذًا', 'حَفِيْظًا', 'مَتَاعًا', 'رِدْاً'],
-      ['مُبٰرَكًا', 'فَرِيْقًا', 'اَمْوَاتًا', 'اَسْبَاطًا']
+      ['ادْخُلُوْهَا ⇐ اُدْخُلُوْهَا', 'اقْتُلُوْا ⇐ اُقْتُلُوْا', 'اعْبُدُوْا ⇐ اُعْبُدُوْا', 'ارْجِعِىْ ⇐ اِرْجِعِىْ'],
+      ['انفَطَرَتْ ⇐ اِنفَطَرَتْ', 'اتَّبِعُوْا ⇐ اِتَّبِعُوْا']
     ],
-    // Page 3 - Double Zair (Total Page 46)
-    [['بِنْ = بٍ', 'تِنْ = تٍ', 'ثِنْ = ثٍ', 'جٍ'],
-    ['حٍ', 'خٍ', 'زٍ', 'ضٍ'],
-    ['ءٍ', 'عٍ', 'غٍ', 'رٍ'],
-    ['ذٍ', 'ظٍ', 'وٍ', 'يٍ']],
-    // Page 4 - Exercise of Double Zair (Total Page 47)
+    // Page 2 (Total Page 86)
     [
-      ['صِبْغٍ', 'مُكْثٍ', 'بَاْسٍ', 'نَقْصٍ'],
-      ['اِلٰهٍ', 'بِرِيْحٍ', 'كُنُوْزٍ', 'تَرَاضٍ'],
-      ['مَجِيْدٍ', 'مَحْفُوْظٍ', 'اَرْبَعٍ', 'لِسَبَاٍ'],
-      ['مُلْكٍ', 'صِدْقٍ', 'حَسَرٰتٍ', 'صِرَاطٍ']
+      ['اِسْمُ', 'اِمْرُؤٌا', 'اِبْنٌ', 'اِتَّقُوْا'],
+      ['اِمْشُوْا', 'اِيتُوْا', 'اِقْضُوْا', 'اِبْنُوْا'],
+      ['أَنْذِرْ', 'فِرْعَوْنَ', 'يُهَاجِرْ', 'شِرْعَةً']
     ],
-    // Page 5 - Double Paish (Total Page 48)
-    [['بُنْ = بٌ', 'تُنْ = تٌ', 'ثُنْ = ثٌ', 'جٌ'],
-    ['حٌ', 'خٌ', 'سٌ', 'صٌ'],
-    ['ءٌ', 'عٌ', 'غٌ', 'رٌ'],
-    ['نٌ', 'وٌ', 'هٌ', 'يٌ']],
-    // Page 6 - Exercise of Double Paish (Total Page 49)
+    // Page 3 (Total Page 87)
     [
-      ['نَزْغٌ', 'حَرْثٌ', 'نَفْسٌ', 'حَرِيْصٌ'],
-      ['اِلٰهٌ', 'جُنَاحٌ', 'عَزِيْزٌ', 'بِيْضٌ'],
-      ['اٰخِذٌ', 'حَافِظٌ', 'سَبْعٌ', 'ظُلُمٌ'],
-      ['تارِكٌ', 'خَالِقٌ', 'فُرَاتٌ', 'مُحِيْطٌ']
+      ['السِّحْرَ ⇐ السِّحْرْ', 'حِجْرٍ ⇐ حِجْرْ', 'قَدِيرٌ ⇐ قَدِيْرْ', 'خَيْرَ ⇐ خَيْرْ'],
+      ['غَيْرَ ⇐ غَيْرْ', 'الطَّيْرِ ⇐ الطَّيْرْ', 'ضَيْرَ ⇐ ضَيْرْ', 'السَّيْرِ ⇐ السَّيْرْ'],
+      ['عُزَيْرُ ⇐ عُزَيْرْ']
+    ],
+    // Page 4 (Total Page 88)
+    [
+      ['إِنِ ارْتَبْتُمْ', 'رَبِّ ارْحَمْهُمَا', 'لِمَنِ ارْتَضَىٰ', 'رَبِّ ارْجِعُونِ'],
+      ['أَمِ ارْتَابُوْا', 'اَلَّذِي ارْتَضَىٰ', 'عَذَابِ ِۨ ارْكُضْ', 'مَنِ ارْتَضَىٰ'],
+      ['ارْكَبْ مَّعَنَا', 'ارْجِعْ', 'ارْجِعُوْا', 'ارْجِعِيْ'],
+      ['قِرْطَاسٍ', 'وَإِرْصَادًا', 'مِرْصَادًا', 'لَبِالْمِرْصَادِ'],
+      ['فِرْقَةٍ']
     ]
   ]
 };

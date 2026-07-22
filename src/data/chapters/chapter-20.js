@@ -1,39 +1,46 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Yaa-i Leen',
+  titleEnglish: 'Iqlab',
   teacherInfo: {
-  instructions: [
-    'If Zabar appears before a Sakin Yaa {{IMG:/images/Yaa-i-Leen.webp|3rem}}, it is called **Yaa-i Leen**.',
-    '**Reading Method of Yaa-i Leen:**',
-    'The lips are about to open (like in Zabar) and immediately they are stretched sideways. The delivery is done very softly without prolonging.'
-  ],
-  goal: 'Recognise Yaa-i Leen and pronounce it correctly with soft, non‑prolonged delivery.'
-},
-pageTitles: {
-    1: {
-      titleEnglish: 'Exercise of Yaa-i Leen',
-      titleArabic: ''
-    }
+    instructions: [
+      '**Tiny Meem**',
+      'In Quran-e-Majeed whenever **Noon Sakin or Tanween** comes',
+      'before the letter **Baa**, there is always the {{IMG:/images/chapters/chapter-20/chapter_5_v2(1).webp|3rem}} is written',
+      'on **Noon Sakin or Tanween**. So here the Meem is read with',
+      'Ghunna instead of Noon. e.g {{IMG:/images/chapters/chapter-20/chapter_5_v2(2).webp|3rem}} It is called the rule of Iqlab.'
+    ],
+    goal: 'The Tiny Meem is read by previous Letter Zabar Zair Paish with prolonging Gunnah.',
+    imagePath: '/images/chapters/chapter-20/Chapter_5_V2.webp'
+  },
+  pageTitles: {
+    1: { titleEnglish: 'Iqlab', titleArabic: '' },
+    2: { titleEnglish: 'Exercise of Tiny Meem', titleArabic: '' },
+    3: { titleEnglish: 'Exercise of Tiny Meem', titleArabic: '' },
+  },
+  pageTeacherInfo: {
+    2: {
+      instructions: [
+        '**Reading method of Tiny Meem with Ghunnah**',
+        'Joining the inner dry-sides of both lips very softly and holding the sound at root of the nose equivalent to one Alif, then read{{IMG:/images/chapters/chapter-20/chapter_5_v2(3).webp|3rem}}with firm lips.'
+      ],
+    },
   },
   pages: [
-    // Page 1 (Total Page 28)
-    [['بَيْ', 'تَيْ', 'ثَيْ', 'جَيْ'],
-    ['حَيْ', 'خَيْ', 'دَيْ', 'ذَيْ'],
-    ['رَيْ', 'زَيْ', 'سَيْ', 'شَيْ'],
-    ['صَيْ', 'ضَيْ', 'طَيْ', 'ظَيْ'],
-    ['عَيْ', 'غَيْ', 'فَيْ', 'قَيْ'],
-    ['كَيْ', 'لَيْ', 'مَيْ', 'نَيْ'],
-    ['هَيْ', 'وَيْ', 'اَيْ', 'يَيْ']],
-    // Page 2 (Total Page 29)
+    // Page 1 - Iqlab (Total Page 52)
     [
-      ['اٰتَيْنَا', 'غَيْبِ', 'بَيْنَ', 'عَلَيْهَا'],
-      ['عَصَيْنَا', 'فَعَلَيْهَا', 'لَيْلَةُ', 'زَوْجَيْنِ'],
-      ['هَيْهَاتَ', 'عَيْنَيْنِ', 'شَيْطٰنٍ', 'بَيْنِىْ'],
-      ['وَبَيْنَكَ', 'يٰوَيْلَتٰى', 'لَيْتَنِىْ', 'قَوْسَيْنِ'],
-      ['لَا رَيْبَ', 'سُلَيْمٰنَ', 'اَيْنَ', 'عَيْنَ'],
-      ['فَكَيْفَ', 'سَقَيْتَ', 'سَيْلَ', 'صَيْدُ'],
-      ['زَيْتُهَا', 'ضَيْفِهِ', 'اِلٰهَيْنِ', 'صَالِحَيْنَ'],
-      ['حَوْلَيْنِ', 'كٰامِلَيْنِ']
+      ['مِنْۢ بَعْدِ', 'مَنْۢ بَخِلَ', 'أَنْۢبِئُونِي', 'خَبِيْرۢ بَصِيْراً'],
+      ['أَمَدًۢا بَعِيْدًا', 'طَيْرًۢا بِإِذْنِي']
+    ],
+    // Page 2 - Exercise of Tiny Meem (Total Page 53)
+    [
+      ['اَنْۢ بَ', 'اِنْۢ بَ', 'اُنْۢ بَ', 'اًۢ بَ'],
+      ['اٍۢ بَ', 'اٌۢ بَ']
+    ],
+    // Page 3 - Exercise of Tiny Meem (Total Page 54)
+    [
+      ['تَارِكٌۢ بَعْضَ', 'تَفْرِيقًۢا بَيْنَ', 'اَنْۢبَأَهُمْ', 'وَاقِعٌۢ بِهِمْ'],
+      ['سَفَهًۢا بِغَيْرِ', 'لَذَنْۢبِكَ', 'حِزْبٍۢ بِمَا', 'بَعْضًاۢ بِمَا'],
+      ['سُنْۢبُلٰتٍ', 'سَمِيعًۢا بَصِيرًا', 'لُوْطٍۢ بِالنُّذُرِ', 'حَدِيثٍۢ بَعْدَهُ']
     ]
   ]
 };

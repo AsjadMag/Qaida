@@ -1,90 +1,39 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Jazm or Sukoon',
+  titleEnglish: 'Ikhfa',
   teacherInfo: {
-  instructions: [
-    'This sign {{IMG:/images/Jazm or Sukoon2.webp|3rem}} is called **Jazm** or **Sukoon**, it is written over the letter.',
-    'Jazm letter always read along with its predecessor having Zabar Zair Paish.',
-    'The letter having Zabar Zair Paish is quickly joined with the Sakin letter and the sound of the Sakin letter is made still at its point of articulation.',
-    'The sound produced should be clear.',
-    'The tongue and the mouth should be completely still while delivering the Sakin letter except The following'
-  ],
-  goal: 'Understand the concept of Jazm (Sukoon) and correctly pronounce letters carrying this sign.'
-},
-teacherImage: {
-    imagePath: '/images/Jazm or Sukoon.webp',
-    alt: 'Wao Maddah example diagram'
-  }, 
-pageTeacherInfo: {
-    1: { // Page 2 (Total Page 30) – Exercise of Jazm
-      instructions: [
-        '{{IMG:/images/Jazm or Sukoon3.webp}} if these letters have a Jazm then.',
-        'The voice must bounce so keep this in mind.',
-        'If there is a Jazm on Hamzah then both the voice and breath have to be stopped together in a stern manner.',
-        'But the sound should be not removed.'
+      instructions: ['If letters{{IMG:/images/chapters/chapter-22/chapter_7_v2.webp}} comes after Noon Sakin or Tanween ',
+        'Ghunnah (Ikhfa) always take place. It is called the Rule of Ikhfa.',
+        '**Method of Ghunnah at Noon Sakin and Tanween:**',
+        'By place the tongue at the articulation point of Noon very softly,',
+        'and holding the sound at the root of the nose equivalent to one Alif.',
+        '**Note:**Doing Ghunnah on Noon Shadd the tongue is pressed slightly while doing',
+        'Ghunnah on Noon Sakin and Tanween the tongue is placed very softly.',
+        '{{IMG:/images/chapters/chapter-22/chapter_7_v2(6).webp}} In case at Noon Sakin and Tanween, **Ghunnah will not take place** because of stopping.',
+        '{{IMG:/images/chapters/chapter-22/chapter_7_v2(7).webp}} Ghunnah is only done during **consistency in recitatio** {{IMG:/images/chapters/chapter-22/chapter_7_v2(3).webp|3rem}} ',
+        '{{IMG:/images/chapters/chapter-22/chapter_7_v2(8).webp}} These are only these six words{{IMG:/images/chapters/chapter-22/chapter_7_v2(4).webp|2.5rem}} where the rule of ikhfa does not apply, so, they are read with izhar',
+        '{{IMG:/images/chapters/chapter-22/chapter_7_v2(8).webp}} If a **thick letter** comes afrer Noon Sakin or Tanween, {{IMG:/images/chapters/chapter-22/chapter_7_v2(5).webp|2.5rem}} Ikhfa (Ghunnah) will also be in a thick tone.'
       ],
-      imagePath: '/images/Jazm or Sukoon4.webp',
-      imageStyle: { mixBlendMode: 'normal' },
+      imagePaths: ['/images/chapters/chapter-22/chapter_7_v2(9).webp', '/images/chapters/chapter-22/chapter_7_v2(2).webp']
     },
-    3: {
-      instructions: [
-        '{{IMG:/images/Jazm or Sukoon3.webp}} if these letters have a Jazm then.',
-        'The voice must bounce so keep this in mind.'
-      ],
-      imagePath: '/images/Jazm or Sukoon4.webp',
-      imageStyle: { mixBlendMode: 'normal' },
-    },
-  },
-pageTitles: {
+  pageTitles: {
     1: {
-      titleEnglish: 'Jazm or Sukoon',
-      titleArabic: ''
-    },
-    2: {
-      titleEnglish: 'Exercise of Jazm',
-      titleArabic: ''
-    },
-    3: {
-      titleEnglish: 'Exercise of Jazm',
+      titleEnglish: 'Exercise of Ikhfa',
       titleArabic: ''
     }
   },
   pages: [
-    // Page 1 (Total Page 30)
+    // Page 1 (Total Page 64)
+    [['أَنْ تَ', 'أَنْ ثَ', 'أَنْ جَ', 'اًدَ'],
+    ['اًذَ', 'مَنْ زَ', 'تَن سَ', 'سٍ شَ'],
+    ['مَنْ صَ', 'مَنْ ضَ', 'بًاطَ', 'فًاظَ'],
+    ['اٍفَ', 'يًا قَ', 'قٌ كَ']],
+    // Page 2 (Total Page 65)
     [
-      ['اَفْ اِفْ اُفْ', 'اَحْ اِحْ اُحْ', 'اَثْ اِثْ اُثْ', 'اَهْ اِهْ اُهْ'],
-      ['اَشْ اِشْ اُشْ', 'اَخْ اِخْ اُخْ', 'اَصْ اِصْ اُصْ', 'اَسْ اِسْ اُسْ'],
-      ['اَغْ اِغْ اُغْ', 'اَزْ اِزْ اُزْ', 'اَضْ اِضْ اُضْ', 'اَذْ اِذْ اُذْ'],
-      ['اَظْ اِظْ اُظْ', 'اَوْ اُوْ', 'اَيْ اُيْ', 'اَلْ اِلْ اُلْ'],
-      ['اَنْ اِنْ اُنْ', 'اَعْ اِعْ اُعْ', 'اَمْ اِمْ اُمْ', 'اَرْ اِرْ اُرْ'],
-      ['تَ عْ تِ عْ تُ عْ', 'اَكْ اِكْ اُكْ']
-    ],
-    // Page 2 (Total Page 31)
-    [
-      ['اَقْ اِقْ أُقْ', 'اَطْ اِطْ أُطْ', 'اَبْ اِبْ أُبْ', 'اَجْ اِجْ أُجْ'],
-      ['اَدْ اِدْ أُدْ', 'مَءْ مِءْ مُءْ']
-    ],
-     // Page 3 (Total Page 32)
-    [
-      ['خِفْتُ', 'يُفْسِدُونَ', 'نَحْنُ', 'اِحْدٰهُمَا'],
-      ['مِثْقَالَ', 'يُثْخِنَ', 'اِهْدِنَا', 'يُهْلِكَ'],
-      ['خَشْيَةَ', 'اِشْرَبُوا', 'اِخْرَاجُ', 'يُخْلِفَ'],
-      ['اَصْلَحَ', 'نُصْلِيْهِ', 'عَسْعَسَ', 'اِسْحٰقَ'],
-      ['تُحْشَرُونَ', 'اَحْسَنُ', 'يَزِغْ', 'يُغْنِ'],
-      ['أُزْلِفَتْ', 'حِزْبَ', 'يُضْلِلِ', 'بِاِذْنِ'],
-      ['يُذْكَرَ', 'اَظْلَمُ', 'اِيْتُونِي', 'اَيْنَ'],
-      ['أُوذُوا', 'اَوْفُوا', 'فَقُلْ', 'صُنْعَ'],
-      ['نَعْبُدُ', 'يُعْلِنُونَ', 'يَرْجِعُونَ', 'فِتْنَتُكَ'],
-      ['فَيَمُتْ', 'تَكْرَهُوْا', 'رُسُلِكْ']
-    ],
-    // Page 4 (Total Page 33)
-    [
-      ['خَلَقْنَا', 'شَطْرَهٗ', 'قَبْلِكَ', 'تَجْرِي'],
-      ['اَدْنٰى', 'أُقْسِمُ', 'يُطْعِمُ', 'وَتُبْ'],
-      ['تُجْزَوْنَ', 'يَجِدْ', 'رَزَقْنَا', 'اِطْعَامٌ'],
-      ['جِبْرِيلَ', 'رِجْزٌ', 'وَتُدْلُوْا', 'يُقْبَلُ'],
-      ['تُطْعِمُونَ', 'سُبْحٰنَكَ', 'مَجْرٰيهَا', 'عُدْوَانَ'],
-      ['نَاْتِ', 'يُؤْمِنُونَ', 'رُؤْيَاكَ', 'شِئْتُمَا']
+      ['فَمَنْ تَبِعَ', 'شِهَابٌ ثَاقِبٌ', 'مِنْ جَنَّةٍ', 'وَمَنْ دَخَلَهُ'],
+      ['مُنْذِرٌ', 'مَنْ زَكّٰاهَا', 'فَلَا تَنْسَىٰ', 'نَفْسٍ شَيْئًا'],
+      ['مِنْ صَلْصَالٍ', 'مَنْضُوْدٍ', 'شَرَابًا طَهُورًا', 'فَانْظُرْ'],
+      ['فَإِنْ فَاءُوْا', 'يَنْقَلِبْ', 'رِزْقٌ كَرِيْمٌ']
     ]
   ]
 };

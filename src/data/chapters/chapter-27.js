@@ -1,6 +1,6 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'TINY NOON',
+  titleEnglish: 'Tiny Noon',
   teacherInfo: {
   instructions: [
      'In Quran Majeed some times, a tiny Noon is placed between two words. Two things are kept in mind:',

@@ -1,6 +1,6 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'MADD DUE TO PAUSE',
+  titleEnglish: 'Madd Due to Pause',
   teacherInfo: {
     instructions: [
       '**MADD DUE TO PAUSE:** Whenever due to the rule of Waqf, Jazm is placed after',

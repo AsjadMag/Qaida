@@ -1,6 +1,6 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'THE CHANGING FACES OF LETTERS',
+  titleEnglish: 'The Changing Faces of Letters',
   // Teacher instructions & goal for chapter 4 page 1
 teacherInfo: {
   instructions: [

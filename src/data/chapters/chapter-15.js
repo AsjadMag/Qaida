@@ -1,6 +1,6 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: ' Double Shadd',
+  titleEnglish: 'Double Shadd',
   pages: [
     // Page 1 (Total Page 40)
     [

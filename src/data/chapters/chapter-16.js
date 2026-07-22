@@ -1,6 +1,6 @@
 const chapter = {
   titleArabic: '',
-  titleEnglish: 'Three Variable letters',
+  titleEnglish: 'Three Variable Letters',
   teacherInfo: {
     instructions: [
       '**Three Variable letters:** {{IMG:/images/chapters/chapter-16/AaRaLam.webp}}',

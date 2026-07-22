@@ -398,6 +398,8 @@ These apply across the whole Qaida, not to a single page.
 | 26 | Pause (Waqf) | 74–80 |
 | 27 | Tiny Noon | 81–82 |
 | 28 | Rule of adding Zabar | 83 |
-| 29 | Rule of adding Zair and Paish | 84–86 |
+| 29 | Rule of adding Zair and Paish | 84–87 |
 
-*(Page 87 is the trailing/blank end page.)*
+*(Verified against the data on 2026-07-22: page 87 is a populated exercise page
+belonging to Chapter 29, not a blank end page. Run `npm run audit:lessons` to
+regenerate this map from the chapter modules.)*

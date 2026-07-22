@@ -35,6 +35,17 @@ after it. The page references in `docs/Qaida_Corrections_14062026.md` (P24, P66,
 are global page numbers, so they go stale the moment page counts change. Re-derive
 them from `chapterStartPages` rather than trusting an old note.
 
+## Verifying the structure
+
+`npm run audit:lessons` loads the chapter modules through Babel and evaluates them, then
+checks the whole structure against reality: chapter numbering is sequential with no gaps,
+every image reference resolves on disk, every chapter image lives in its own chapter
+folder or in `shared/`/`brand/`, no chapter folder exists without a chapter, and no image
+file is unreferenced. It prints the chapter-to-page map and exits non-zero on any problem.
+
+Run it after touching lesson data, image paths, or chapter numbering. Current verified
+state: 29 chapters, 87 pages, 120 lesson image references, 98 of 98 files used.
+
 ## Chapter identity
 
 One number identifies a chapter in three places, and they must agree:

@@ -89,6 +89,7 @@ Qaida/
 | Command            | Purpose |
 |--------------------|---------|
 | `npm start`        | Dev server at http://localhost:3000 (hot reload) |
+| `npm run audit:lessons` | Verify chapter numbering, page counts, and image references |
 | `npm run build`    | Production build → `build/` |
 | `npm test`         | Jest - (add tests alongside components as `*.test.js`) |
 | `npm run eject`    | One-way CRA eject - avoid unless necessary |

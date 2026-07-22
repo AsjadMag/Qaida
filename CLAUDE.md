@@ -6,6 +6,7 @@ Read `AGENTS.md` and `docs/memory/README.md` before making changes.
 
 - `npm start`: CRA development server on port 3000.
 - `npm.cmd run build`: production build. This is the verification command on Windows PowerShell.
+- `npm run audit:lessons`: verifies chapter numbering, page counts, and every image reference. Run after touching lesson data, image paths, or chapter numbering.
 - `npm test`: Jest and React Testing Library. No test files exist yet, so this reports "No tests found".
 - `node .claude/hooks/guard-worktree.test.js`: self-test for the destructive-command hook.
 

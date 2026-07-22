@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Big landing-page mode button (green = Basic, gold = Advanced) — matches the brand logo
+// Big landing-page mode button (green = Basic, gold = Advanced) - matches the brand logo
 const ModeButton = ({ label, sublabel, onClick, variant }) => {
   const palettes = {
     green: {
@@ -22,14 +22,15 @@ const ModeButton = ({ label, sublabel, onClick, variant }) => {
   return (
     <button
       onClick={onClick}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}
       style={{
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: '4px',
-        padding: '15px 44px',
-        minWidth: '230px',
+        padding: '15px clamp(20px, 5vw, 44px)',
+        minWidth: 'clamp(160px, 40vw, 230px)',
         background: p.bg,
         backgroundSize: '200% 200%',
         color: p.color,
@@ -40,6 +41,7 @@ const ModeButton = ({ label, sublabel, onClick, variant }) => {
         boxShadow: p.base,
         zIndex: 1,
         transition: 'transform 0.18s, box-shadow 0.18s',
+        minHeight: '44px',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.transform = 'translateY(-3px)';
@@ -50,17 +52,17 @@ const ModeButton = ({ label, sublabel, onClick, variant }) => {
         e.currentTarget.style.boxShadow = p.base;
       }}
     >
-      <span style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)', fontWeight: 'bold', letterSpacing: '0.5px' }}>
+      <span style={{ fontSize: 'clamp(1rem, 2.5vw, 1.45rem)', fontWeight: 'bold', letterSpacing: '0.5px' }}>
         {label}
       </span>
-      <span style={{ fontSize: '0.7rem', letterSpacing: '1.8px', textTransform: 'uppercase', color: p.subColor }}>
+      <span style={{ fontSize: 'clamp(0.62rem, 1.4vw, 0.7rem)', letterSpacing: '1.8px', textTransform: 'uppercase', color: p.subColor }}>
         {sublabel}
       </span>
     </button>
   );
 };
 
-// A small, refined gold ornament divider (pure CSS — no emoji)
+// A small, refined gold ornament divider (pure CSS - no emoji)
 const Ornament = () => (
   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', zIndex: 1 }}>
     <div style={{ width: 'clamp(50px, 14vw, 110px)', height: '1.5px', background: 'linear-gradient(90deg, transparent, #c9960c)' }} />
@@ -84,7 +86,7 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
       background: 'linear-gradient(165deg, #ffffff 0%, #f0faea 40%, #dcefcf 68%, #f1dfa0 100%)',
     }}>
 
-      {/* Brand logo — pinned to the top-left corner with tagline beneath */}
+      {/* Brand logo - pinned to the top-left corner with tagline beneath */}
       <div style={{
         position: 'absolute',
         top: '24px',
@@ -94,11 +96,11 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
         direction: 'ltr',
       }}>
         <img
-          src="/images/TajweedClassLogo_trans.webp"
+          src="/images/brand/TajweedClassLogo_trans.webp"
           alt="Tajweed Classes"
           style={{
             display: 'block',
-            width: 'min(225px, 46vw)',
+            width: 'min(225px, 26vw, 46vh)',
             height: 'auto',
             filter: 'drop-shadow(0 4px 12px rgba(27,94,32,0.16))',
           }}
@@ -120,14 +122,14 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
         position: 'absolute',
         top: '50%', left: '50%',
         transform: 'translate(-50%, -52%)',
-        width: '680px', height: '680px',
+        width: 'clamp(300px, 80vw, 680px)', height: 'clamp(300px, 80vw, 680px)',
         borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(246,204,68,0.22) 0%, rgba(76,175,80,0.07) 48%, transparent 72%)',
         pointerEvents: 'none',
         zIndex: 0,
       }} />
 
-      {/* Bismillah — centered Quranic calligraphy */}
+      {/* Bismillah - centered Quranic calligraphy */}
       <div style={{
         fontFamily: "'Amiri Quran', serif",
         fontSize: 'clamp(2rem, 6vw, 3.6rem)',
@@ -144,7 +146,7 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
 
       <Ornament />
 
-      {/* App name — hero title */}
+      {/* App name - hero title */}
       <h1 className="urdu-text" style={{
         fontSize: 'clamp(2.6rem, 7vw, 4.4rem)',
         fontWeight: 'bold',
@@ -171,7 +173,7 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
         A Complete Noorani Qaida Course by<br />Tajweedclasses.com
       </p>
 
-      {/* Mode buttons — choose Basic or Advanced Qaida */}
+      {/* Mode buttons - choose Basic or Advanced Qaida */}
       <div style={{
         display: 'flex',
         gap: '24px',
@@ -197,7 +199,7 @@ const TitlePage = ({ onBasic, onAdvanced }) => {
       {/* Bottom tagline */}
       <p style={{
         marginTop: '34px',
-        fontSize: '0.95rem',
+        fontSize: 'clamp(0.72rem, 1.8vw, 0.95rem)',
         color: 'rgba(27,94,32,0.6)',
         fontFamily: 'Arial, sans-serif',
         letterSpacing: '2.5px',

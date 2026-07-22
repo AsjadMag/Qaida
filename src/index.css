@@ -87,9 +87,9 @@ body {
   padding-bottom: 140px; /* Extra space so last row doesn't touch buttons */
 }
 
-/* Avoid applying the Quranic font globally — use the utility class for Arabic-only elements. */
+/* Avoid applying the Quranic font globally - use the utility class for Arabic-only elements. */
 
-/* Page inner container — fluid horizontal padding replacing the former fixed 2in */
+/* Page inner container - fluid horizontal padding replacing the former fixed 2in */
 .page-padding {
   padding-left: clamp(16px, 8vw, 192px);
   padding-right: clamp(16px, 8vw, 192px);
